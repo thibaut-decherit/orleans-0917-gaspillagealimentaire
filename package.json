@@ -10,6 +10,7 @@
     "@symfony/webpack-encore": "^0.17.0"
   },
   "devDependencies": {
+    "jquery": "^3.2.1",
     "node-sass": "^4.7.1",
     "sass-loader": "^6.0.6"
   },
