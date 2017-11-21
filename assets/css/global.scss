@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+}
+
+.accueil-section, .sommaire-section {
+  height: 100vh;
+  background-color: grey;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.accueil-titre-principal {
+  font-size: 10em;
+  margin: 0;
+}
+
+.sommaire-section {
+  height: 100vh;
+  background-color: dimgray;
+}
+
+.sommaire-rubriques {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
