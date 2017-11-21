@@ -7,7 +7,12 @@
     "test": "tests"
   },
   "dependencies": {
-    "@symfony/webpack-encore": "^0.17.0"
+    "@symfony/webpack-encore": "^0.17.0",
+    "bootstrap": "^3.3.7",
+    "bootstrap-jquery": "^3.3.2",
+    "install": "^0.10.2",
+    "jquery": "^3.2.1",
+    "npm": "^5.5.1"
   },
   "devDependencies": {
     "node-sass": "^4.7.1",
