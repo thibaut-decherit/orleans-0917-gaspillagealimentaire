@@ -18,3 +18,7 @@ $(function() {
         afterRender:function() {}
     });
 });
+
+$('#scroll').click(function(){
+    $.scrollify.next();
+});

@@ -2,6 +2,7 @@
   height: 100vh;
   background-color: grey;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -9,6 +10,11 @@
 .accueil-titre-principal {
   font-size: 10em;
   margin: 0;
+}
+
+.scroll-arrow {
+  position: absolute;
+  bottom: 100px;
 }
 
 .sommaire-section {
