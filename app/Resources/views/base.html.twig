@@ -2,43 +2,28 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Gaspillage a{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/build/global.css">
+        <link rel="stylesheet" href="{{ asset('build/global.css') }}">
     </head>
     <body>
     <div class="wrapper">
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3>Gapsillage alimentaire</h3>
+                <h3><div class="glyphicon glyphicon-home">Gapsillage alimentaire</div></h3>
             </div>
 
             <ul class="list-unstyled components">
-                <li class="active">
-                    <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home</a>
-                    <ul class="collapse list-unstyled" id="homeSubmenu">
-                        <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home 1</a></li>
-                        <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home 2</a></li>
-                        <li><a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Home 3</a></li>
-                    </ul>
+                <li>
+                    <a href="#">S'informer</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
-                    <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu">
-                        <li><a href="#">Page 1</a></li>
-                        <li><a href="#">Page 2</a></li>
-                        <li><a href="#">Page 3</a></li>
-                    </ul>
+                    <a href="#">S'entrainer</a>
                 </li>
                 <li>
-                    <a href="#">Portfolio</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                    <a href="#">Faire des défis</a>
                 </li>
             </ul>
         </nav>
@@ -52,17 +37,14 @@
                     <div class="navbar-header">
                         <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
                             <i class="glyphicon glyphicon-align-left"></i>
-                            <span>Toggle Sidebar</span>
                         </button>
                     </div>
                 </div>
             </nav>
+        </div>
     </div>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-        <script src="/build/app.js"></script>
-
+        <script src="{{ asset('build/app.js') }}"></script>
     </body>
 </html>
