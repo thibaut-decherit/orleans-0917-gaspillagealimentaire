@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Gaspillage a{% endblock %}</title>
+        <title>{% block title %}Gaspillage alimentaire{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         <link rel="stylesheet" href="{{ asset('build/global.css') }}">
@@ -12,7 +12,9 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header">
-                <h3><div class="glyphicon glyphicon-home">Gapsillage alimentaire</div></h3>
+                <a href="">
+                    <h3><div class="glyphicon glyphicon-home">Gapsillage alimentaire</div></h3>
+                </a>
             </div>
 
             <ul class="list-unstyled components">
