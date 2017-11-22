@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "dependencies": {
-    "@symfony/webpack-encore": "^0.17.0"
+    "@symfony/webpack-encore": "^0.17.0",
+    "jquery-scrollify": "^1.0.17"
   },
   "devDependencies": {
     "jquery": "^3.2.1",
