@@ -152,6 +152,64 @@ a.article, a.article:hover {
 }
 
 /* ---------------------------------------------------
+    INFOSIDEBAR STYLE
+----------------------------------------------------- */
+
+
+#sidebarInfo {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+#sidebarInfo.active {
+  margin-left: 250px;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------
+    TRAINSIDEBAR STYLE
+----------------------------------------------------- */
+
+
+#sidebarTrain {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+#sidebarTrain.active {
+  margin-left: 250px;
+  opacity: 1;
+}
+
+/* ---------------------------------------------------
+    CHALLSIDEBAR STYLE
+----------------------------------------------------- */
+
+
+#sidebarChall {
+  min-width: 250px;
+  max-width: 250px;
+  background: #7386D5;
+  color: #fff;
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+#sidebarChall.active {
+  margin-left: 250px;
+  opacity: 1;
+}
+
+
+/* ---------------------------------------------------
     MEDIAQUERIES
 ----------------------------------------------------- */
 @media (max-width: 768px) {
