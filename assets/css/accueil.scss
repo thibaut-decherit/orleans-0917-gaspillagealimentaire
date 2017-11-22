@@ -12,9 +12,14 @@
   margin: 0;
 }
 
-.scroll-arrow {
+.scroll-arrow-container {
   position: absolute;
-  bottom: 100px;
+  bottom: 0px;
+}
+
+.scroll-arrow {
+  cursor: pointer;
+  font-size: 10em;
 }
 
 .sommaire-section {
