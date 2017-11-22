@@ -3,18 +3,41 @@
   background-color: grey;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
 }
 
 .accueil-titre-principal {
   font-size: 10em;
   margin: 0;
+  text-align: center;
 }
 
 .scroll-arrow-container {
   position: absolute;
+  animation-name: bounce;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
   bottom: 0px;
+  display: flex;
+  justify-content: center;
+}
+
+@keyframes bounce {
+  0% {
+    bottom: 0px;
+  }
+  25% {
+    bottom: -10px;
+  }
+  50% {
+    bottom: -10px;
+  }
+  75% {
+    bottom: -10px;
+  }
+  100% {
+    bottom: 0px;
+  }
 }
 
 .scroll-arrow {
@@ -30,5 +53,4 @@
 .sommaire-rubriques {
   display: flex;
   justify-content: space-around;
-  width: 100%;
 }
