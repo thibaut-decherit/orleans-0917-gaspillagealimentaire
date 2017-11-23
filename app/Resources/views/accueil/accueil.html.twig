@@ -1,26 +1,26 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <section class="accueil-section scrollable-section" data-section-name="accueil">
-        <div class="row">
-            <h1 class="accueil-titre-principal">Accueil</h1>
-        </div>
-        <div class="row">
-            <div class="col-xs-offset-5 col-xs-2 scroll-arrow-container">
-                <span class="scroll-arrow glyphicon glyphicon-menu-down" id="scroll"></span>
+    <section class="accueil-section">
+        <div class="accueil-rubriques-container col-md-offset-1 col-md-9">
+            <div class="accueil-rubrique">
+                <a href="#"><img src="http://via.placeholder.com/300x300" alt="S'informer"></a>
+                <h2>S'informer</h2>
+                <hr>
+                <p>Explorer l’actualité du développement durable et du gaspillage alimentaire</p>
+            </div>
+            <div class="accueil-rubrique">
+                <a href="#"><img src="http://via.placeholder.com/300x300" alt="S'entraîner"></a>
+                <h2>S'entraîner</h2>
+                <hr>
+                <p>Teste tes connaissances et tes réflexes sur le gaspillage alimentaire</p>
+            </div>
+            <div class="accueil-rubrique">
+                <a href="#"><img src="http://via.placeholder.com/300x300" alt="Faire des défis"></a>
+                <h2>Faire des défis</h2>
+                <hr>
+                <p>Réalises des défis et change ton comportement</p>
             </div>
         </div>
     </section>
-
-    <section class="sommaire-section scrollable-section" data-section-name="sommaire">
-        <div class="sommaire-rubriques col-md-offset-2 col-md-8">
-            <a href="#"><img src="http://via.placeholder.com/200x200" alt="S'informer"></a>
-            <a href="#"><img src="http://via.placeholder.com/200x200" alt="S'entraîner"></a>
-            <a href="#"><img src="http://via.placeholder.com/200x200" alt="Produire"></a>
-        </div>
-    </section>
-{% endblock %}
-{% block javascripts %}
-    <script src="{{ asset('build/vendor.js') }}"></script>
-    <script src="{{ asset('build/accueil.js') }}"></script>
 {% endblock %}

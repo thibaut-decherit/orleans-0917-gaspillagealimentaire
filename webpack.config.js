@@ -14,9 +14,6 @@ Encore
     // will output as web/build/vendor.js
     .addEntry('vendor', './assets/js/main.js')
 
-    // will output as web/build/accueil.js
-    .addEntry('accueil', './assets/js/accueil.js')
-
     // will output as web/build/global.css
     .addStyleEntry('global', './assets/css/global.scss')
 
