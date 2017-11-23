@@ -1,0 +1,16 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block contentAdmin %}
+    <div class="row">
+        <h1 class="titlePage text-info text-center">'S'entraîner' - Ajouter un lien</h1>
+    </div>
+    <div class="row">
+        <a href="{{ path('trainmenu_index') }}" class="btn_admin btn btn-info pull-right">Retour à la liste</a>
+    </div>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn_admin btn btn-success" type="submit">Valider</button>
+    {{ form_end(form) }}
+
+{% endblock %}
