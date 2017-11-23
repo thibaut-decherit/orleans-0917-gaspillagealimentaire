@@ -9,18 +9,18 @@ $(document).ready(function () {
 
 $(document).ready(function () {
     $('#sidebarCollapseInfo').on('click', function () {
-        $('#sidebarInfo').toggleClass('active');
+        $('#sidebarInfo').toggleClass('switch');
     });
 });
 
 $(document).ready(function () {
     $('#sidebarCollapseTrain').on('click', function () {
-        $('#sidebarTrain').toggleClass('active');
+        $('#sidebarTrain').toggleClass('switch');
     });
 });
 
 $(document).ready(function () {
     $('#sidebarCollapseChall').on('click', function () {
-        $('#sidebarChall').toggleClass('active');
+        $('#sidebarChall').toggleClass('switch');
     });
 });
