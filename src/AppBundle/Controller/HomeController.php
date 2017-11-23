@@ -14,7 +14,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * Class HomeController
  * @package AppBundle\Controller
- * @Route("home")
+ * @Route("accueil")
  */
 class HomeController extends Controller
 {
