@@ -1,11 +1,5 @@
 // le ~ fait référence au dossier node_modules
 // On import le fichier bootstrap de style:
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-// On surcharge la variable de bootstrap pour les icônes:
-$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
-// On import le fichier fontawesome de style:
-@import '~font-awesome/scss/font-awesome.scss';
-// On surcharge la variable de fontawesome pour la police:
-$fa-font-path: "~font-awesome/fonts";
 
 @import 'admin';
