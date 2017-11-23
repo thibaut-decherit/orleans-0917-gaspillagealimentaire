@@ -11,14 +11,19 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class PresentationController extends Controller
+/**
+ * Class HomeController
+ * @package AppBundle\Controller
+ * @Route("home")
+ */
+class HomeController extends Controller
 {
     /**
-     * @Route("/", name="presentation")
+     * @Route("/", name="home")
      */
-    public function presentationAction()
+    public function homeAction()
     {
         // replace this example code with whatever you need
-        return $this->render('presentation/presentation.html.twig');
+        return $this->render('home/home.html.twig');
     }
 }
