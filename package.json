@@ -8,14 +8,8 @@
   },
   "dependencies": {
     "@symfony/webpack-encore": "^0.17.0",
-    "bootstrap": "^3.3.7",
-    "install": "^0.10.2",
-    "npm": "^5.5.1",
-    "tooltip": "^1.6.1",
-    "tooltip.js": "^1.1.7"
   },
   "devDependencies": {
-    "bootstrap-jquery": "^3.3.2",
     "bootstrap-sass": "^3.3.7",
     "jquery": "^3.2.1",
     "node-sass": "^4.7.1",

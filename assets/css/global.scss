@@ -3,4 +3,9 @@
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import "navigation";
 
+body {
+  margin: 0;
+}
 
+@import "index";
+@import "home";
