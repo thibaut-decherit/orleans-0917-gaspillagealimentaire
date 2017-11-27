@@ -1,230 +1,176 @@
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #fafafa;
+@import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
+/* Please Keep this font import at the very top of any CSS file */
+@charset "UTF-8";
+/* Starter CSS for Flyout Menu */
+#cssmenu {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  height: 100vh;
+  color: #ffffff;
 }
-
-p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.1em;
-  font-weight: 300;
-  line-height: 1.7em;
-  color: #999;
+#cssmenu ul,
+#cssmenu ul li,
+#cssmenu ul ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
-
-a, a:hover, a:focus {
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.3s;
+#cssmenu ul {
+  position: relative;
+  z-index: 597;
+  float: left;
 }
-
-.navbar {
-  padding: 15px 10px;
-  background: #fff;
-  border: none;
-  border-radius: 0;
-  margin-bottom: 40px;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-btn {
-  box-shadow: none;
-  outline: none !important;
-  border: none;
-}
-
-.line {
-  width: 100%;
-  height: 1px;
-  border-bottom: 1px dashed #ddd;
-  margin: 40px 0;
-}
-
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-.wrapper {
-  display: flex;
-  align-items: stretch;
-}
-
-#sidebar {
-  min-width: 250px;
-  max-width: 250px;
-  background: #7386D5;
-  color: #fff;
-  transition: all 0.3s;
-}
-
-#sidebar.active {
-  margin-left: -250px;
-}
-
-#sidebar .sidebar-header {
-  padding: 20px;
-  background: #6d7fcc;
-}
-
-#sidebar ul.components {
-  padding: 20px 0;
-  border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-  color: #fff;
-  padding: 10px;
-}
-
-#sidebar ul li a {
-  padding: 10px;
-  font-size: 1.1em;
-  display: block;
-}
-#sidebar ul li a:hover {
-  color: #7386D5;
-  background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-  color: #fff;
-  background: #6d7fcc;
-}
-
-
-a[data-toggle="collapse"] {
+#cssmenu ul li {
+  float: left;
+  min-height: 1px;
+  line-height: 1em;
+  vertical-align: middle;
   position: relative;
 }
-
-a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-  content: '\e259';
-  display: block;
+#cssmenu ul li.hover,
+#cssmenu ul li:hover {
+  position: relative;
+  z-index: 599;
+  cursor: default;
+}
+#cssmenu ul ul {
+  visibility: hidden;
   position: absolute;
-  right: 20px;
-  font-family: 'Glyphicons Halflings';
-  font-size: 0.6em;
+  top: 100%;
+  left: 0px;
+  z-index: 598;
+  width: 100%;
+  height: 100vh;
 }
-a[aria-expanded="true"]::before {
-  content: '\e260';
+#cssmenu ul ul li {
+  float: none;
 }
-
-
-ul ul a {
-  font-size: 0.9em !important;
-  padding-left: 30px !important;
-  background: #6d7fcc;
+#cssmenu ul ul ul {
+  top: -2px;
+  right: 0;
 }
-
-ul.CTAs {
-  padding: 20px;
-}
-
-ul.CTAs a {
-  text-align: center;
-  font-size: 0.9em !important;
-  display: block;
-  border-radius: 5px;
-  margin-bottom: 5px;
-}
-
-a.download {
-  background: #fff;
-  color: #7386D5;
-}
-
-a.article, a.article:hover {
-  background: #6d7fcc !important;
-  color: #fff !important;
-}
-
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-#content {
-  padding: 20px;
-  min-height: 100vh;
-  transition: all 0.3s;
-}
-
-/* ---------------------------------------------------
-    INFOSIDEBAR STYLE
------------------------------------------------------ */
-
-
-#sidebarInfo {
-  margin-left: -250px;
-  min-width: 250px;
-  max-width: 250px;
-  background: #7386D5;
-  color: #fff;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-#sidebarInfo.active {
-  margin-left: 250px;
-  opacity: 1;
-}
-
-/* ---------------------------------------------------
-    TRAINSIDEBAR STYLE
------------------------------------------------------ */
-
-
-#sidebarTrain {
-  margin-left: -250px;
-  min-width: 250px;
-  max-width: 250px;
-  background: #7386D5;
-  color: #fff;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-#sidebarTrain.active {
-  margin-left: 250px;
-  opacity: 1;
-}
-
-/* ---------------------------------------------------
-    CHALLSIDEBAR STYLE
------------------------------------------------------ */
-
-
-#sidebarChall {
-  margin-left: -250px;
-  min-width: 250px;
-  max-width: 250px;
-  background: #7386D5;
-  color: #fff;
-  opacity: 0;
-  transition: all 0.3s;
-}
-
-#sidebarChall.active {
-  margin-left: 250px;
-  opacity: 1;
-}
-
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-@media (max-width: 768px) {
-  #sidebar {
-    margin-left: -250px;
-  }
-  #sidebar.active {
-    margin-left: 0;
-  }
-  #sidebarCollapse span {
-    display: none;
-  }
-}
-
-.menu:target {
+#cssmenu ul li:hover > ul {
   visibility: visible;
 }
-.menu {
+#cssmenu ul ul {
+  max-height: 1080px;
+  position: fixed;
+  top: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  left: 11%;
+}
+#cssmenu ul li {
+  float: none;
+}
+#cssmenu ul ul {
+  margin-top: 1px;
+}
+#cssmenu ul ul li {
+  font-weight: normal;
+}
+/* Custom CSS Styles */
+#cssmenu {
+  width: 200px;
+  background: #333333;
+  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
+  zoom: 1;
+  font-size: 12px;
+}
+#cssmenu:before {
+  content: '';
+  display: block;
+}
+#cssmenu:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+#cssmenu a {
+  display: block;
+  padding: 15px 20px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#cssmenu > ul {
+  width: 200px;
+}
+#cssmenu ul ul {
+  width: 200px;
+}
+#cssmenu > ul > .menuContent > li.active a {
+  background: #1b9bff;
+}
+#cssmenu > ul .menuContent > .top a:hover,
+#cssmenu > ul > li:hover a {
+  background: darkred;
+}
+#cssmenu > ul .menuContent > .middle a:hover,
+#cssmenu > ul > li:hover a {
+  background: orangered;
+}
+#cssmenu > ul .menuContent > .last a:hover,
+#cssmenu > ul > li:hover a {
+  background: yellow;
+}
+#cssmenu li {
+  position: relative;
+}
+#cssmenu ul li.has-sub > a:after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -6px;
+}
+#cssmenu ul ul a {
+  font-size: 12px;
+  color: #ffffff;
+}
+#cssmenu ul ul a:hover {
+  color: #ffffff;
+}
+
+#cssmenu.align-right {
+  float: right;
+}
+#cssmenu.align-right li {
+  text-align: right;
+}
+#cssmenu.align-right ul li.has-sub > a:before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 15px;
+  margin-top: -6px;
+}
+#cssmenu.align-right ul li.has-sub > a:after {
+  content: none;
+}
+#cssmenu.align-right ul ul {
   visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  z-index: 598;
+  width: 100%;
+}
+
+.menuContent {
+  padding-top: 40vh;
+}
+#cssmenu ul .top ul {
+  background: darkred;
+}
+#cssmenu ul .middle ul {
+  background: orangered;
+}
+#cssmenu ul .last ul {
+  background: yellow;
+}
+.title {
+  padding-top: 40vh;
 }
