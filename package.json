@@ -8,7 +8,6 @@
   },
   "dependencies": {
     "@symfony/webpack-encore": "^0.17.0",
-    "jquery-scrollify": "^1.0.17"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
