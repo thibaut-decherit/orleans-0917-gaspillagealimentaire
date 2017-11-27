@@ -1,5 +1,10 @@
-// le ~ fait référence au dossier node_modules
-// On import le fichier bootstrap de style:
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
+body {
+  margin: 0;
+}
+
+@import "index";
+@import "home";
 @import 'admin';
+
