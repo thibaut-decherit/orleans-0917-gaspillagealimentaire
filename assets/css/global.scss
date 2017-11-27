@@ -3,4 +3,10 @@ $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 @import '~font-awesome/scss/font-awesome.scss';
 $fa-font-path: "~font-awesome/fonts";
 
+body {
+  margin: 0;
+}
+
 @import "topBar";
+@import "index";
+@import "home";
