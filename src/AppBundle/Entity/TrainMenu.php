@@ -5,13 +5,14 @@ namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
+
 /**
- * informMenu
+ * MenuEntrainer
  *
- * @ORM\Table(name="inform_menu")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\informMenuRepository")
+ * @ORM\Table(name="train_menu")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\TrainMenuRepository")
  */
-class informMenu
+class TrainMenu
 {
     /**
      * @var int
@@ -25,7 +26,8 @@ class informMenu
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=100)
+     * @ORM\Column(name="title", type="string", length=255)
+     *
      * @Assert\Length(
      * min = 2,
      * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères",
@@ -60,7 +62,7 @@ class informMenu
      *
      * @param string $title
      *
-     * @return informMenu
+     * @return TrainMenu
      */
     public function setTitle($title)
     {
@@ -84,7 +86,7 @@ class informMenu
      *
      * @param string $link
      *
-     * @return informMenu
+     * @return TrainMenu
      */
     public function setLink($link)
     {

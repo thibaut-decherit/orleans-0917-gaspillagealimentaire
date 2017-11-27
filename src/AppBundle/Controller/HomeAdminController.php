@@ -12,13 +12,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 
-class homeAdminController extends Controller
+class HomeAdminController extends Controller
 {
     /**
      * @Route("/homepageAdmin", name="homepageAdmin")
      */
     public function indexAction()
     {
-        return $this->render('homeAdmin/homeAdmin.html.twig');
+        return $this->render('HomeAdmin/homeAdmin.html.twig');
     }
 }

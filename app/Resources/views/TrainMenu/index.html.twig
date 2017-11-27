@@ -10,7 +10,7 @@
     <hr/>
 
     <div class="row">
-        <a href="{{ path('trainmenu_new') }}" class="btn_admin btn btn-success">Créer un nouveau lien</a>
+        <a href="{{ path('trainMenu_new') }}" class="btn_admin btn btn-success">Créer un nouveau lien</a>
     </div>
     <hr/>
 
@@ -18,8 +18,8 @@
         <ul class="listAdmin">
             {% for trainMenu in trainMenus %}
                 <li>{{ trainMenu.title }} <p class="pull-right">{{ trainMenu.link }}</p></li>
-                <a href="{{ path('trainmenu_delete', { 'id': trainMenu.id }) }}" class="btn_admin btn btn-danger pull-right">Supprimer</a>
-                <a href="{{ path('trainmenu_edit', { 'id': trainMenu.id }) }}" class="btn_admin btn btn-warning pull-right">Modifier</a>
+                <a href="{{ path('trainMenu_delete', { 'id': trainMenu.id }) }}" class="btn_admin btn btn-danger pull-right">Supprimer</a>
+                <a href="{{ path('trainMenu_edit', { 'id': trainMenu.id }) }}" class="btn_admin btn btn-warning pull-right">Modifier</a>
             {% endfor %}
         </ul>
     </div>

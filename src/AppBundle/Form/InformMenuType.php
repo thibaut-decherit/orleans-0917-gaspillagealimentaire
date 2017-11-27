@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class informMenuType extends AbstractType
+class InformMenuType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -31,7 +31,7 @@ class informMenuType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\informMenu'
+            'data_class' => 'AppBundle\Entity\InformMenu'
         ));
     }
 
@@ -40,7 +40,7 @@ class informMenuType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_informmenu';
+        return 'appbundle_informMenu';
     }
 
 

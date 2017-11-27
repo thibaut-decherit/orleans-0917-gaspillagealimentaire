@@ -2,32 +2,32 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\informMenu;
+use AppBundle\Entity\InformMenu;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Informmenu controller.
+ * InformMenu controller.
  *
- * @Route("informmenu")
+ * @Route("informMenu")
  */
-class informMenuController extends Controller
+class InformMenuController extends Controller
 {
     /**
      * Lists all informMenu entities.
      *
-     * @Route("/", name="informmenu_index")
+     * @Route("/", name="informMenu_index")
      * @Method("GET")
      */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $informMenus = $em->getRepository('AppBundle:informMenu')->findAll();
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
 
-        return $this->render('informmenu/index.html.twig', array(
+        return $this->render('InformMenu/index.html.twig', array(
             'informMenus' => $informMenus,
         ));
     }
@@ -35,13 +35,13 @@ class informMenuController extends Controller
     /**
      * Creates a new informMenu entity.
      *
-     * @Route("/new", name="informmenu_new")
+     * @Route("/new", name="informMenu_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
-        $informMenu = new informMenu();
-        $form = $this->createForm('AppBundle\Form\informMenuType', $informMenu);
+        $informMenu = new InformMenu();
+        $form = $this->createForm('AppBundle\Form\InformMenuType', $informMenu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -49,11 +49,11 @@ class informMenuController extends Controller
             $em->persist($informMenu);
             $em->flush();
 
-            return $this->redirectToRoute('informmenu_index', array('id' => $informMenu->getId()));
+            return $this->redirectToRoute('informMenu_index', array('id' => $informMenu->getId()));
         }
 
-        return $this->render('informmenu/new.html.twig', array(
-            'informmenu' => $informMenu,
+        return $this->render('InformMenu/new.html.twig', array(
+            'informMenu' => $informMenu,
             'form' => $form->createView(),
         ));
     }
@@ -61,23 +61,23 @@ class informMenuController extends Controller
     /**
      * Displays a form to edit an existing informMenu entity.
      *
-     * @Route("/{id}/edit", name="informmenu_edit")
+     * @Route("/{id}/edit", name="informMenu_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, informMenu $informMenu)
+    public function editAction(Request $request, InformMenu $informMenu)
     {
         $deleteForm = $this->createDeleteForm($informMenu);
-        $editForm = $this->createForm('AppBundle\Form\menuInformerType', $informMenu);
+        $editForm = $this->createForm('AppBundle\Form\InformMenuType', $informMenu);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('informmenu_edit', array('id' => $informMenu->getId()));
+            return $this->redirectToRoute('informMenu_edit', array('id' => $informMenu->getId()));
         }
 
-        return $this->render('informmenu/edit.html.twig', array(
-            'menuInformer' => $informMenu,
+        return $this->render('InformMenu/edit.html.twig', array(
+            'informMenu' => $informMenu,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -86,10 +86,10 @@ class informMenuController extends Controller
     /**
      * Deletes a informMenu entity.
      *
-     * @Route("/{id}", name="informmenu_delete")
+     * @Route("/{id}", name="informMenu_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, informMenu $informMenu)
+    public function deleteAction(Request $request, InformMenu $informMenu)
     {
         $form = $this->createDeleteForm($informMenu);
         $form->handleRequest($request);
@@ -100,7 +100,7 @@ class informMenuController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('informmenu_index');
+        return $this->redirectToRoute('informMenu_index');
     }
 
     /**
@@ -110,10 +110,10 @@ class informMenuController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(informMenu $informMenu)
+    private function createDeleteForm(InformMenu $informMenu)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('informmenu_delete', array('id' => $informMenu->getId())))
+            ->setAction($this->generateUrl('informMenu_delete', array('id' => $informMenu->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

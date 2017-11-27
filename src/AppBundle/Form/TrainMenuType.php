@@ -7,7 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class trainMenuType extends AbstractType
+class TrainMenuType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -31,7 +31,7 @@ class trainMenuType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\trainMenu'
+            'data_class' => 'AppBundle\Entity\TrainMenu'
         ));
     }
 
@@ -40,7 +40,7 @@ class trainMenuType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_trainmenu';
+        return 'appbundle_trainMenu';
     }
 
 
