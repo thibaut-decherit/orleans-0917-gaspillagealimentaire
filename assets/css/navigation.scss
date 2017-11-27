@@ -28,12 +28,7 @@
   vertical-align: middle;
   position: relative;
 }
-#cssmenu ul li.hover,
-#cssmenu ul li:hover {
-  position: relative;
-  z-index: 599;
-  cursor: default;
-}
+
 #cssmenu ul ul {
   visibility: hidden;
   position: absolute;
@@ -50,10 +45,9 @@
   top: -2px;
   right: 0;
 }
+
 #cssmenu ul li:hover > ul {
   visibility: visible;
-}
-#cssmenu ul ul {
   max-height: 1080px;
   position: fixed;
   top: 0;
