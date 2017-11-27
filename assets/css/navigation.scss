@@ -8,7 +8,6 @@
   border: 0;
   height: 100vh;
   color: #ffffff;
-  position: absolute;
 }
 #cssmenu ul,
 #cssmenu ul li,
@@ -24,7 +23,6 @@
 }
 #cssmenu ul li {
   float: left;
-  min-height: 1px;
   line-height: 1em;
   vertical-align: middle;
   position: relative;
@@ -61,14 +59,10 @@
   padding: 0;
   margin: 0;
   border: 0;
-
-  left: 10%;
+  left: 10.5%;
 }
 #cssmenu ul li {
   float: none;
-}
-#cssmenu ul ul {
-  margin-top: 1px;
 }
 #cssmenu ul ul li {
   font-weight: normal;

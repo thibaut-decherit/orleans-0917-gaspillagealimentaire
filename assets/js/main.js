@@ -3,13 +3,7 @@ require('bootstrap-sass');
 
 $(document).ready(function () {
     $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-});
-
-$(document).ready(function () {
-    $('#sidebarCollapseInfo').on('click', function () {
-        $('#sidebarInfo').toggleClass('switch');
+        $('#sidebar').toggleClass('switch');
     });
 });
 
