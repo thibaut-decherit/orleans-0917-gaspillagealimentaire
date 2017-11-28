@@ -1,5 +1,5 @@
 {
-  "name": "gaspillagealimentaire",
+  "name": "orleans-0917-gaspillagealimentaire",
   "version": "1.0.0",
   "description": "GaspillageAlimentaire =====================",
   "main": "webpack.config.js",
@@ -7,11 +7,11 @@
     "test": "tests"
   },
   "dependencies": {
-    "@symfony/webpack-encore": "^0.17.0"
+    "@symfony/webpack-encore": "^0.17.0",
+    "jquery-scrollify": "^1.0.17"
   },
   "devDependencies": {
     "bootstrap-sass": "^3.3.7",
-    "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "node-sass": "^4.7.1",
     "sass-loader": "^6.0.6"
