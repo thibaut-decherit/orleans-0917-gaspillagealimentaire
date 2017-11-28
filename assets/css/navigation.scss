@@ -46,7 +46,7 @@
   right: 0;
 }
 
-#cssmenu ul li:hover > ul {
+#cssmenu ul .menuContent ul:target {
   visibility: visible;
   max-height: 1080px;
   position: fixed;
