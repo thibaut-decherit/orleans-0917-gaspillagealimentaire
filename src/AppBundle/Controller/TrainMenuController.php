@@ -115,7 +115,6 @@ class TrainMenuController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('train_menu_delete', array('id' => $trainMenu->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

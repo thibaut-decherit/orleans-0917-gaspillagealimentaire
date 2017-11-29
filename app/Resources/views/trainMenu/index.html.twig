@@ -19,7 +19,8 @@
             <ul class="listAdmin">
                 {% for trainMenu in trainMenus %}
                     <li>{{ trainMenu.title }} <p class="pull-right">{{ trainMenu.link }}</p></li>
-                    <a href="{{ path('train_menu_edit', { 'id': trainMenu.id }) }}" class="btn_admin btn btn-warning pull-right">Modifier</a>
+                    <a href="{{ path('train_menu_edit', { 'id': trainMenu.id }) }}"
+                       class="btn_admin btn btn-warning pull-right">Modifier</a>
                 {% endfor %}
             </ul>
         </div>

@@ -116,7 +116,6 @@ class InformMenuController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('inform_menu_delete', array('id' => $informMenu->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

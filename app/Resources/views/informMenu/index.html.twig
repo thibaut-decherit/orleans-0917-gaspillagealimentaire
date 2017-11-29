@@ -19,7 +19,8 @@
             <ul class="listAdmin">
                 {% for informMenu in informMenus %}
                     <li>{{ informMenu.title }} <p class="pull-right">{{ informMenu.link }}</p></li>
-                    <a href="{{ path('inform_menu_edit', { 'id': informMenu.id }) }}" class="btn_admin btn btn-warning pull-right">Modifier</a>
+                    <a href="{{ path('inform_menu_edit', { 'id': informMenu.id }) }}"
+                       class="btn_admin btn btn-warning pull-right">Modifier</a>
                 {% endfor %}
             </ul>
         </div>
