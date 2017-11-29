@@ -11,6 +11,7 @@
   color: #ffffff;
   position: absolute;
 }
+
 #cssmenu ul,
 #cssmenu ul li,
 #cssmenu ul ul {
@@ -18,10 +19,12 @@
   margin: 0;
   padding: 0;
 }
+
 #cssmenu ul {
   position: absolute;
   float: left;
 }
+
 #cssmenu ul li {
   float: left;
   line-height: 1em;
@@ -57,12 +60,15 @@
   z-index: 1;
   opacity: 1;
 }
+
 #cssmenu ul li {
   float: none;
 }
+
 #cssmenu ul ul li {
   font-weight: normal;
 }
+
 /* Custom CSS Styles */
 #cssmenu {
   width: 200px;
@@ -73,15 +79,18 @@
   z-index: 250;
   position: absolute;
 }
+
 #cssmenu:before {
   content: '';
   display: block;
 }
+
 #cssmenu:after {
   content: '';
   display: table;
   clear: both;
 }
+
 #cssmenu a {
   display: block;
   padding: 15px 20px;
@@ -89,27 +98,34 @@
   text-decoration: none;
   text-transform: uppercase;
 }
+
 #cssmenu > ul {
   width: 200px;
 }
+
 #cssmenu ul ul {
   width: 200px;
 }
+
 #cssmenu > ul .menuContent > .top a:hover,
 #cssmenu > ul > li:hover a {
   background: darkred;
 }
+
 #cssmenu > ul .menuContent > .middle a:hover,
 #cssmenu > ul > li:hover a {
   background: orangered;
 }
+
 #cssmenu > ul .menuContent > .last a:hover,
 #cssmenu > ul > li:hover a {
   background: purple;
 }
+
 #cssmenu li {
   position: relative;
 }
+
 #cssmenu ul li.has-sub > a:after {
   content: '+';
   position: absolute;
@@ -117,10 +133,12 @@
   right: 15px;
   margin-top: -6px;
 }
+
 #cssmenu ul ul a {
   font-size: 12px;
   color: #ffffff;
 }
+
 #cssmenu ul ul a:hover {
   color: #ffffff;
 }
@@ -128,9 +146,11 @@
 #cssmenu.align-right {
   float: right;
 }
+
 #cssmenu.align-right li {
   text-align: right;
 }
+
 #cssmenu.align-right ul li.has-sub > a:before {
   content: '+';
   position: absolute;
@@ -138,9 +158,11 @@
   left: 15px;
   margin-top: -6px;
 }
+
 #cssmenu.align-right ul li.has-sub > a:after {
   content: none;
 }
+
 #cssmenu.align-right ul ul {
   visibility: hidden;
   position: absolute;
@@ -153,24 +175,28 @@
 .menuContent {
   padding-top: 40vh;
 }
+
 #cssmenu ul .top ul {
   position: absolute;
   z-index: 1;
   top: calc(-45vh - 1px);
   background: darkred;
 }
+
 #cssmenu ul .middle ul {
   position: absolute;
   z-index: 1;
   top: -50vh;
   background: orangered;
 }
+
 #cssmenu ul .last ul {
   position: absolute;
   z-index: 1;
   top: -55vh;
   background: purple;
 }
+
 .title {
   padding-top: 40vh;
 }
