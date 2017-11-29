@@ -15,10 +15,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class HomeAdminController extends Controller
 {
     /**
-     * @Route("/homepageAdmin", name="homepageAdmin")
+     * @Route("/admin", name="admin")
      */
     public function indexAction()
     {
-        return $this->render('HomeAdmin/homeAdmin.html.twig');
+        return $this->render('homeAdmin/homeAdmin.html.twig');
     }
 }

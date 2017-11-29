@@ -5,13 +5,13 @@
         <div class="row">
             <div class="titleAdmin">
                 <h1 class="titlePage text-info">'S'informer' - Liste des liens</h1>
-                <a href="{{ path('homepageAdmin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
+                <a href="{{ path('admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
             </div>
         </div>
         <hr/>
 
         <div class="row">
-            <a href="{{ path('informMenu_new') }}" class="btn_admin btn btn-success">Créer un nouveau lien</a>
+            <a href="{{ path('inform_menu_new') }}" class="btn_admin btn btn-success">Créer un nouveau lien</a>
         </div>
         <hr/>
 
@@ -19,8 +19,7 @@
             <ul class="listAdmin">
                 {% for informMenu in informMenus %}
                     <li>{{ informMenu.title }} <p class="pull-right">{{ informMenu.link }}</p></li>
-                    <a href="{{ path('informMenu_delete', { 'id': informMenu.id }) }}" class="btn_admin btn btn-danger pull-right">Supprimer</a>
-                    <a href="{{ path('informMenu_edit', { 'id': informMenu.id }) }}" class="btn_admin btn btn-warning pull-right">Modifier</a>
+                    <a href="{{ path('inform_menu_edit', { 'id': informMenu.id }) }}" class="btn_admin btn btn-warning pull-right">Modifier</a>
                 {% endfor %}
             </ul>
         </div>
