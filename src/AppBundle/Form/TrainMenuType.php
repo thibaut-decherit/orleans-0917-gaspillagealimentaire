@@ -7,6 +7,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class TrainMenuType extends AbstractType
 {
@@ -23,7 +24,13 @@ class TrainMenuType extends AbstractType
             ->add('link', UrlType ::class, array(
                 'label' => "Url du lien",
                 'label_attr' => array('class' => 'labels_admin')
-            ));
+            ))
+            ->add('imageFile', VichImageType::class, [
+                'required' => true,
+                'allow_delete' => false,
+                'download_uri' => false,
+                'image_uri' => true,
+            ]);
     }
 
     /**
