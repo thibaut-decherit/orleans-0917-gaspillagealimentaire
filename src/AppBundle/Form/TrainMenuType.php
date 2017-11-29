@@ -25,7 +25,7 @@ class TrainMenuType extends AbstractType
                 'label_attr' => array('class' => 'labels_admin')
             ));
     }
-    
+
     /**
      * {@inheritdoc}
      */
