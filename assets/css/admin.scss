@@ -25,7 +25,7 @@
 
 .labels_admin {
   font-size: 1vw;
-  color: deepskyblue;
+  color: grey;
 }
 
 .titleAdmin {
@@ -33,3 +33,12 @@
   justify-content: space-between;
   margin-top: 3%;
 }
+
+.admin {
+  .form-control {
+    border: 2px solid deepskyblue;
+    border-radius: 50px;
+  }
+}
+
+

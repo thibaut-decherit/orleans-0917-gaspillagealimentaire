@@ -41,6 +41,10 @@ class InformMenu
      * @ORM\Column(name="link", type="string", length=255)
      *
      * @Assert\NotBlank()
+     *
+     * @Assert\Url(
+     *    message = "L'url '{{ value }}' n'est pas valide",
+     * )
      */
     private $link;
 
