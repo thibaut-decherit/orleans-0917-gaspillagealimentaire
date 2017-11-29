@@ -18,6 +18,7 @@
     "files": [
       "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
     ]
+  },
   "dependencies": {
     "@symfony/webpack-encore": "^0.17.0"
   },

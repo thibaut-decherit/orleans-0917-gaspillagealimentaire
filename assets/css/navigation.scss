@@ -6,6 +6,7 @@
   padding: 0;
   margin: 0;
   border: 0;
+  z-index: 250;
   height: 100vh;
   color: #ffffff;
   position: absolute;
@@ -18,8 +19,7 @@
   padding: 0;
 }
 #cssmenu ul {
-  position: relative;
-  z-index: 597;
+  position: absolute;
   float: left;
 }
 #cssmenu ul li {
@@ -29,18 +29,18 @@
   position: relative;
 }
 
-#cssmenu ul ul {
+#cssmenu ul .menuContent ul {
   visibility: hidden;
   position: absolute;
-  top: 100%;
+  top: -100vh;
   left: 0px;
-  z-index: 598;
   width: 100%;
   height: 100vh;
+  transition: 1s;
+  z-index: 1;
+  opacity: 0;
 }
-#cssmenu ul ul li {
-  float: none;
-}
+
 #cssmenu ul ul ul {
   top: -2px;
   right: 0;
@@ -48,13 +48,14 @@
 
 #cssmenu ul .menuContent ul:target {
   visibility: visible;
-  max-height: 1080px;
-  position: fixed;
-  top: 0;
+  max-height: 100vh;
+  position: absolute;
   padding: 0;
   margin: 0;
   border: 0;
-  left: 10.5%;
+  left: 100%;
+  z-index: 1;
+  opacity: 1;
 }
 #cssmenu ul li {
   float: none;
@@ -69,6 +70,8 @@
   font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
   zoom: 1;
   font-size: 12px;
+  z-index: 250;
+  position: absolute;
 }
 #cssmenu:before {
   content: '';
@@ -92,9 +95,6 @@
 #cssmenu ul ul {
   width: 200px;
 }
-#cssmenu > ul > .menuContent > li.active a {
-  background: #1b9bff;
-}
 #cssmenu > ul .menuContent > .top a:hover,
 #cssmenu > ul > li:hover a {
   background: darkred;
@@ -105,7 +105,7 @@
 }
 #cssmenu > ul .menuContent > .last a:hover,
 #cssmenu > ul > li:hover a {
-  background: yellow;
+  background: purple;
 }
 #cssmenu li {
   position: relative;
@@ -144,9 +144,9 @@
 #cssmenu.align-right ul ul {
   visibility: hidden;
   position: absolute;
+  z-index: 1;
   top: 0;
   left: -100%;
-  z-index: 598;
   width: 100%;
 }
 
@@ -154,13 +154,22 @@
   padding-top: 40vh;
 }
 #cssmenu ul .top ul {
+  position: absolute;
+  z-index: 1;
+  top: calc(-45vh - 1px);
   background: darkred;
 }
 #cssmenu ul .middle ul {
+  position: absolute;
+  z-index: 1;
+  top: -50vh;
   background: orangered;
 }
 #cssmenu ul .last ul {
-  background: yellow;
+  position: absolute;
+  z-index: 1;
+  top: -55vh;
+  background: purple;
 }
 .title {
   padding-top: 40vh;
