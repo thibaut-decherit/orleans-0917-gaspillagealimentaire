@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * TrainMenu controller.
  *
- * @Route("trainMenu")
+ * @Route("train_menu")
  */
 class TrainMenuController extends Controller
 {
     /**
      * Lists all trainMenu entities.
      *
-     * @Route("/", name="trainMenu_index")
+     * @Route("/", name="train_menu_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -27,7 +27,7 @@ class TrainMenuController extends Controller
 
         $trainMenus = $em->getRepository('AppBundle:TrainMenu')->findAll();
 
-        return $this->render('TrainMenu/index.html.twig', array(
+        return $this->render('trainMenu/index.html.twig', array(
             'trainMenus' => $trainMenus,
         ));
     }
@@ -35,7 +35,7 @@ class TrainMenuController extends Controller
     /**
      * Creates a new trainMenu entity.
      *
-     * @Route("/new", name="trainMenu_new")
+     * @Route("/new", name="train_menu_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -49,10 +49,10 @@ class TrainMenuController extends Controller
             $em->persist($trainMenu);
             $em->flush();
 
-            return $this->redirectToRoute('trainMenu_index', array('id' => $trainMenu->getId()));
+            return $this->redirectToRoute('train_menu_index', array('id' => $trainMenu->getId()));
         }
 
-        return $this->render('TrainMenu/new.html.twig', array(
+        return $this->render('trainMenu/new.html.twig', array(
             'trainMenu' => $trainMenu,
             'form' => $form->createView(),
         ));
@@ -61,7 +61,7 @@ class TrainMenuController extends Controller
     /**
      * Displays a form to edit an existing trainMenu entity.
      *
-     * @Route("/{id}/edit", name="trainMenu_edit")
+     * @Route("/{id}/edit", name="train_menu_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, TrainMenu $trainMenu)
@@ -73,10 +73,10 @@ class TrainMenuController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('trainMenu_edit', array('id' => $trainMenu->getId()));
+            return $this->redirectToRoute('train_menu_edit', array('id' => $trainMenu->getId()));
         }
 
-        return $this->render('TrainMenu/edit.html.twig', array(
+        return $this->render('trainMenu/edit.html.twig', array(
             'trainMenu' => $trainMenu,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
@@ -86,7 +86,7 @@ class TrainMenuController extends Controller
     /**
      * Deletes a trainMenu entity.
      *
-     * @Route("/{id}", name="trainMenu_delete")
+     * @Route("/{id}", name="train_menu_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, TrainMenu $trainMenu)
@@ -100,7 +100,7 @@ class TrainMenuController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('trainMenu_index');
+        return $this->redirectToRoute('train_menu_index');
     }
 
     /**
@@ -113,9 +113,8 @@ class TrainMenuController extends Controller
     private function createDeleteForm(TrainMenu $trainMenu)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('trainMenu_delete', array('id' => $trainMenu->getId())))
+            ->setAction($this->generateUrl('train_menu_delete', array('id' => $trainMenu->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }
