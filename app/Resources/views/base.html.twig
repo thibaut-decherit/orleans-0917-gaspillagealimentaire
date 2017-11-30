@@ -10,7 +10,9 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{% include 'navbar.html.twig' %}
+{% block navbar %}
+    {% include 'navbar.html.twig' %}
+{% endblock %}
 {% block topBar %}
     {% include 'home/topBar.html.twig' %}
 {% endblock %}
