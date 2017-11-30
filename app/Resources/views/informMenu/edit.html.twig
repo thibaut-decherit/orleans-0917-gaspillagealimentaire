@@ -16,6 +16,8 @@
             {{ form_widget(edit_form) }}
             <input type="submit" value="Modifier" class="btn_admin btn btn-success"/>
             {{ form_end(edit_form) }}
+            <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
+                 class="img-responsive img-thumbnail center-block imgEdit">
         </div>
         <hr/>
         <div class="row">

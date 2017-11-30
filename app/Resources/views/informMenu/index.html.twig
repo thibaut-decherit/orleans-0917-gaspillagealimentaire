@@ -18,9 +18,23 @@
         <div class="row">
             <ul class="listAdmin">
                 {% for informMenu in informMenus %}
-                    <li>{{ informMenu.title }} <p class="pull-right">{{ informMenu.link }}</p></li>
+                    <li>
+                        <div class="row">
+                            {{ informMenu.title }}
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <img src="{{ asset('uploads/' ~ informMenu.imageName) }}" class="img-responsive img-thumbnail vignetteList">
+                            </div>
+                            <div class="col-xs-7">
+                                <p class="pull-right link">{{ informMenu.link }}</p>
+                            </div>
+                        </div>
+
+                    </li>
                     <a href="{{ path('inform_menu_edit', { 'id': informMenu.id }) }}"
                        class="btn_admin btn btn-warning pull-right">Modifier</a>
+                    <hr/>
                 {% endfor %}
             </ul>
         </div>
