@@ -2,7 +2,7 @@
 /* Please Keep this font import at the very top of any CSS file */
 @charset "UTF-8";
 /* Starter CSS for Flyout Menu */
-#cssmenu {
+.cssmenu {
   padding: 0;
   margin: 0;
   border: 0;
@@ -11,45 +11,16 @@
   color: #ffffff;
   position: absolute;
 }
-
-#cssmenu ul,
-#cssmenu ul li,
-#cssmenu ul ul {
+.cssmenu ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-#cssmenu ul {
   position: absolute;
-  float: left;
 }
-
-#cssmenu ul li {
-  float: left;
-  line-height: 1em;
-  vertical-align: middle;
-  position: relative;
+.cssmenu ul .home {
+  padding-bottom: 40vh;
 }
-
-#cssmenu ul .menuContent ul {
-  visibility: hidden;
-  position: absolute;
-  top: -100vh;
-  left: 0px;
-  width: 100%;
-  height: 100vh;
-  transition: 1s;
-  z-index: 1;
-  opacity: 0;
-}
-
-#cssmenu ul ul ul {
-  top: -2px;
-  right: 0;
-}
-
-#cssmenu ul .menuContent ul:target {
+#one:target {
   visibility: visible;
   max-height: 100vh;
   position: absolute;
@@ -60,17 +31,30 @@
   z-index: 1;
   opacity: 1;
 }
-
-#cssmenu ul li {
-  float: none;
+#two:target {
+  visibility: visible;
+  max-height: 100vh;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  left: 100%;
+  z-index: 1;
+  opacity: 1;
 }
-
-#cssmenu ul ul li {
-  font-weight: normal;
+#three:target {
+  visibility: visible;
+  max-height: 100vh;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  left: 100%;
+  z-index: 1;
+  opacity: 1;
 }
-
 /* Custom CSS Styles */
-#cssmenu {
+.cssmenu {
   width: 200px;
   background: #333333;
   font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
@@ -79,124 +63,77 @@
   z-index: 250;
   position: absolute;
 }
-
-#cssmenu:before {
-  content: '';
-  display: block;
-}
-
-#cssmenu:after {
-  content: '';
-  display: table;
-  clear: both;
-}
-
-#cssmenu a {
+.cssmenu a {
   display: block;
   padding: 15px 20px;
   color: #ffffff;
   text-decoration: none;
   text-transform: uppercase;
 }
-
-#cssmenu > ul {
+.cssmenu > ul {
   width: 200px;
+  position: absolute;
+  z-index: 250;
 }
-
-#cssmenu ul ul {
-  width: 200px;
-}
-
-#cssmenu > ul .menuContent > .top a:hover,
-#cssmenu > ul > li:hover a {
+.cssmenu ul .top:active {
   background: darkred;
 }
 
-#cssmenu > ul .menuContent > .middle a:hover,
-#cssmenu > ul > li:hover a {
+.cssmenu ul .middle:active {
   background: orangered;
 }
 
-#cssmenu > ul .menuContent > .last a:hover,
-#cssmenu > ul > li:hover a {
+.cssmenu ul .last:active {
   background: purple;
 }
 
-#cssmenu li {
+.cssmenu li {
   position: relative;
 }
 
-#cssmenu ul li.has-sub > a:after {
+.cssmenu ul li.has-sub > a:after {
   content: '+';
   position: absolute;
   top: 50%;
   right: 15px;
   margin-top: -6px;
 }
-
-#cssmenu ul ul a {
-  font-size: 12px;
-  color: #ffffff;
-}
-
-#cssmenu ul ul a:hover {
-  color: #ffffff;
-}
-
-#cssmenu.align-right {
+.cssmenu.align-right {
   float: right;
 }
-
-#cssmenu.align-right li {
-  text-align: right;
-}
-
-#cssmenu.align-right ul li.has-sub > a:before {
-  content: '+';
+#one {
   position: absolute;
-  top: 50%;
-  left: 15px;
-  margin-top: -6px;
-}
-
-#cssmenu.align-right ul li.has-sub > a:after {
-  content: none;
-}
-
-#cssmenu.align-right ul ul {
-  visibility: hidden;
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: -100%;
-  width: 100%;
-}
-
-.menuContent {
-  padding-top: 40vh;
-}
-
-#cssmenu ul .top ul {
-  position: absolute;
-  z-index: 1;
-  top: calc(-45vh - 1px);
   background: darkred;
-}
-
-#cssmenu ul .middle ul {
-  position: absolute;
+  visibility: hidden;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  transition: 1s;
   z-index: 1;
-  top: -50vh;
+  opacity: 0;
+}
+#two {
+  position: absolute;
   background: orangered;
-}
-
-#cssmenu ul .last ul {
-  position: absolute;
+  visibility: hidden;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  transition: 1s;
   z-index: 1;
-  top: -55vh;
-  background: purple;
+  opacity: 0;
 }
-
+#three {
+  position: absolute;
+  background: purple;
+  visibility: hidden;
+  left: 0px;
+  width: 100%;
+  height: 100vh;
+  transition: 1s;
+  z-index: 1;
+  opacity: 0;
+}
 .title {
   padding-top: 40vh;
 }
