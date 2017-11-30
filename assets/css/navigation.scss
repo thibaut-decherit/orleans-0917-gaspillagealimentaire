@@ -63,7 +63,7 @@ $last: purple;
     float: right;
   }
 }
-@mixin submenuTarget() {
+.submenuTarget {
   visibility: visible;
   max-height: 100vh;
   position: absolute;
@@ -74,7 +74,7 @@ $last: purple;
   z-index: 1;
   opacity: 1;
 }
-@mixin submenu() {
+.submenu {
   position: absolute;
   visibility: hidden;
   left: 0px;
@@ -84,31 +84,28 @@ $last: purple;
   z-index: 1;
   opacity: 0;
 }
-#one:target {
-  @include submenuTarget;
-}
-
-#two:target {
-  @include submenuTarget;
-}
-
-#three:target {
-  @include submenuTarget;
-}
-
 #one {
   background: $top;
-  @include submenu;
+  @extend .submenu;
+  &:target {
+    @extend .submenuTarget;
+  }
 }
 
 #two {
   background: $middle;
-  @include submenu;
+  @extend .submenu;
+  &:target {
+    @extend .submenuTarget;
+  }
 }
 
 #three {
   background: $last;
-  @include submenu;
+  @extend .submenu;
+  &:target {
+    @extend .submenuTarget;
+  }
 }
 
 .title {
