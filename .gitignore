@@ -19,3 +19,4 @@
 /web/build/*
 *~
 package-lock\.json
+/web/uploads/*
