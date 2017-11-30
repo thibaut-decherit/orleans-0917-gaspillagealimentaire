@@ -29,7 +29,7 @@ class TrainMenuType extends AbstractType
                 'required' => true,
                 'allow_delete' => false,
                 'download_uri' => false,
-                'image_uri' => true,
+                'image_uri' => false,
             ]);
     }
 
