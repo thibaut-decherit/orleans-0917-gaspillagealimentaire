@@ -18,9 +18,24 @@
         <div class="row">
             <ul class="listAdmin">
                 {% for trainMenu in trainMenus %}
-                    <li>{{ trainMenu.title }} <p class="pull-right">{{ trainMenu.link }}</p></li>
+                    <li>
+                        <div class="row">
+                            {{ trainMenu.title }}
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <img src="{{ asset('uploads/' ~ trainMenu.imageName) }}"
+                                     class="img-responsive img-thumbnail vignetteList">
+                            </div>
+                            <div class="col-xs-7">
+                                <p class="pull-right link">{{ trainMenu.link }}</p>
+                            </div>
+                        </div>
+
+                    </li>
                     <a href="{{ path('train_menu_edit', { 'id': trainMenu.id }) }}"
                        class="btn_admin btn btn-warning pull-right">Modifier</a>
+                    <hr/>
                 {% endfor %}
             </ul>
         </div>
