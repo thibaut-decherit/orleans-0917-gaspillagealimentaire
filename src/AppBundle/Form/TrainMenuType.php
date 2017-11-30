@@ -2,7 +2,9 @@
 
 namespace AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,6 +26,11 @@ class TrainMenuType extends AbstractType
             ->add('link', UrlType ::class, array(
                 'label' => "Url du lien",
                 'label_attr' => array('class' => 'labels_admin')
+            ))
+            ->add('isMenu', CheckboxType::class, array(
+                'label' => "A cocher pour que le lien apparaisse dans le menu",
+                'label_attr' => array('class' => 'labels_admin'),
+                'required' => false,
             ))
             ->add('imageFile', VichImageType::class, [
                 'required' => true,

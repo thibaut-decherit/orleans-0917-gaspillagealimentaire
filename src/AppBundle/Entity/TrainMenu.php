@@ -52,6 +52,13 @@ class TrainMenu
     private $link;
 
     /**
+     * @var bool
+     *
+     * @ORM\Column(name="is_menu", type="boolean")
+     */
+    private $isMenu;
+
+    /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="train_menu_image", fileNameProperty="imageName")
@@ -210,5 +217,29 @@ class TrainMenu
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set isMenu
+     *
+     * @param boolean $isMenu
+     *
+     * @return TrainMenu
+     */
+    public function setIsMenu($isMenu)
+    {
+        $this->isMenu = $isMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get isMenu
+     *
+     * @return boolean
+     */
+    public function getIsMenu()
+    {
+        return $this->isMenu;
     }
 }
