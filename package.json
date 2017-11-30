@@ -1,9 +1,5 @@
 {
-<<<<<<< HEAD
   "name": "gaspillagealimentaire",
-=======
-  "name": "orleans-0917-gaspillagealimentaire",
->>>>>>> 29557c69bc93e43ca701d9cec6f55eebbdc0e135
   "version": "1.0.0",
   "description": "GaspillageAlimentaire =====================",
   "main": "webpack.config.js",
@@ -23,19 +19,12 @@
     "url": "https://github.com/WildCodeSchool/orleans-0917-gaspillagealimentaire/issues"
   },
   "homepage": "https://github.com/WildCodeSchool/orleans-0917-gaspillagealimentaire#readme",
-  "devDependencies": {
-<<<<<<< HEAD
-    "@symfony/webpack-encore": "^0.17.0"
-  },
   "dependencies": {
-    "node-sass": "^4.6.1",
-=======
     "@symfony/webpack-encore": "^0.17.0",
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",
     "jquery": "^3.2.1",
     "node-sass": "^4.7.2",
->>>>>>> 29557c69bc93e43ca701d9cec6f55eebbdc0e135
     "sass-loader": "^6.0.6"
   }
 }
