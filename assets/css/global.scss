@@ -1,5 +1,7 @@
-@import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700");
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+@import "navigation";
 $fa-font-path: "~font-awesome/fonts";
 
 body {
@@ -9,5 +11,3 @@ body {
 @import "topBar";
 @import "index";
 @import "home";
-@import 'admin';
-
