@@ -1,0 +1,29 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block contentAdmin %}
+
+    <div class="admin">
+        <div class="row">
+            <div class="titleAdmin">
+                <h1 class="titlePage text-info">'S'entraîner' - Modifier</h1>
+                <a href="{{ path('train_menu_index') }}" class="btn_admin btn btn-info">Retour à la liste</a>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="row">
+            {{ form_start(edit_form) }}
+            {{ form_widget(edit_form) }}
+            <input type="submit" value="Modifier" class="btn_admin btn btn-success"/>
+            {{ form_end(edit_form) }}
+            <img src="{{ asset('uploads/' ~ trainMenu.imageName) }}"
+                 class="img-responsive img-thumbnail center-block imgEdit">
+        </div>
+        <hr/>
+        <div class="row">
+            {{ form_start(delete_form) }}
+            <input type="submit" value="Supprimer" class="btn_admin btn btn-danger pull-right">
+            {{ form_end(delete_form) }}
+        </div>
+    </div>
+{% endblock %}

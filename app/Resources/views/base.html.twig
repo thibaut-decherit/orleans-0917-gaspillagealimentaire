@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8"/>
     <title>{% block title %}Welcome!{% endblock %}</title>
@@ -10,11 +9,8 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{% block navbar %}
-    {% include 'navbar.html.twig' %}
-{% endblock %}
 {% block topBar %}
-    {% include 'topBar.html.twig' %}
+    {% include 'home/topBar.html.twig' %}
 {% endblock %}
 {% block body %}{% endblock %}
 {% block javascripts %}
