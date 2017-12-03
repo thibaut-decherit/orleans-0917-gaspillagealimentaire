@@ -70,6 +70,7 @@ class InformMenu
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
+     * @Assert\Expression("this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;

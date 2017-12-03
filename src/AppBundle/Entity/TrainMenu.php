@@ -70,6 +70,7 @@ class TrainMenu
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque",
      *     uploadErrorMessage = "Erreur dans l'upload du fichier",
      * )
+     * @Assert\Expression("this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
