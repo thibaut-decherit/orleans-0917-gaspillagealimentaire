@@ -62,7 +62,14 @@ class TrainMenu
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="train_menu_image", fileNameProperty="imageName")
-     * @Assert\File(maxSize="2M")
+     * @Assert\File(
+     *     maxSize="2M",
+     *     maxSizeMessage="Ce fichier est trop grand ({{ size }} Mo), la limite est de 2 Mo.",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage="Le fichier envoyé doit être une image.",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque",
+     *     uploadErrorMessage = "Erreur dans l'upload du fichier",
+     * )
      * @var File
      */
     private $imageFile;

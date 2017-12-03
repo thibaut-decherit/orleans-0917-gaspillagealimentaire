@@ -62,7 +62,14 @@ class InformMenu
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="inform_menu_image", fileNameProperty="imageName")
-     * @Assert\File(maxSize="2M")
+     * @Assert\File(
+     *     maxSize="2M",
+     *     maxSizeMessage="Ce fichier est trop grand ({{ size }} Mo), la limite est de 2 Mo.",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage="Le fichier envoyé doit être une image.",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
+     *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
+     * )
      * @var File
      */
     private $imageFile;
