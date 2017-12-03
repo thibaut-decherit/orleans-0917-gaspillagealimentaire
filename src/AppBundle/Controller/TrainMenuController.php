@@ -41,7 +41,7 @@ class TrainMenuController extends Controller
     public function newAction(Request $request)
     {
         $trainMenu = new TrainMenu();
-        $form = $this->createForm('AppBundle\Form\TrainMenuType', $trainMenu);
+        $form = $this->createForm('AppBundle\Form\TrainMenuNewType', $trainMenu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

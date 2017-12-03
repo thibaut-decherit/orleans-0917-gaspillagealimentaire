@@ -42,7 +42,7 @@ class InformMenuController extends Controller
     public function newAction(Request $request)
     {
         $informMenu = new InformMenu();
-        $form = $this->createForm('AppBundle\Form\InformMenuType', $informMenu);
+        $form = $this->createForm('AppBundle\Form\InformMenuNewType', $informMenu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
