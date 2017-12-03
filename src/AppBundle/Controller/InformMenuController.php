@@ -68,7 +68,7 @@ class InformMenuController extends Controller
     public function editAction(Request $request, InformMenu $informMenu)
     {
         $deleteForm = $this->createDeleteForm($informMenu);
-        $editForm = $this->createForm('AppBundle\Form\InformMenuType', $informMenu);
+        $editForm = $this->createForm('AppBundle\Form\InformMenuEditType', $informMenu);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

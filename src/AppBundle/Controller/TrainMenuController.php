@@ -67,7 +67,7 @@ class TrainMenuController extends Controller
     public function editAction(Request $request, TrainMenu $trainMenu)
     {
         $deleteForm = $this->createDeleteForm($trainMenu);
-        $editForm = $this->createForm('AppBundle\Form\TrainMenuType', $trainMenu);
+        $editForm = $this->createForm('AppBundle\Form\TrainMenuEditType', $trainMenu);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
