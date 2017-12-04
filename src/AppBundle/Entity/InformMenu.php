@@ -31,10 +31,12 @@ class InformMenu
      * @ORM\Column(name="title", type="string", length=100)
      * @Assert\Length(
      * min = 2,
-     * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères",
+     * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères.",
      * )
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      */
     private $title;
 
@@ -43,10 +45,12 @@ class InformMenu
      *
      * @ORM\Column(name="link", type="string", length=255)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      *
      * @Assert\Url(
-     *    message = "L'url '{{ value }}' n'est pas valide",
+     *    message = "L'url '{{ value }}' n'est pas valide.",
      * )
      */
     private $link;
