@@ -31,8 +31,8 @@ class TrainMenu
      * @ORM\Column(name="title", type="string", length=255)
      *
      * @Assert\Length(
-     * min = 2,
-     * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères.",
+     * min = 3,
+     * minMessage = "Le nom de votre lien doit comporter au minimum {{ limit }} caractères.",
      * )
      *
      * @Assert\NotBlank(
