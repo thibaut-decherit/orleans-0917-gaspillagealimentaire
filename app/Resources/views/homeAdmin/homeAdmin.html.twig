@@ -1,0 +1,16 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block contentAdmin %}
+    <div class="row">
+        <h1 class="titlePage text-info text-center">Administration</h1>
+    </div>
+    <hr/>
+
+    <div class="row text-center">
+        <a href="{{ path('inform_menu_index') }}" class="btn_admin btn btn-success">S'informer</a>
+        <a href="{{ path('train_menu_index') }}" class="btn_admin btn btn-success">S'entrainer</a>
+    </div>
+    <hr/>
+
+
+{% endblock %}

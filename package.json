@@ -1,5 +1,5 @@
 {
-  "name": "orleans-0917-gaspillagealimentaire",
+  "name": "gaspillagealimentaire",
   "version": "1.0.0",
   "description": "GaspillageAlimentaire =====================",
   "main": "webpack.config.js",
@@ -19,7 +19,7 @@
     "url": "https://github.com/WildCodeSchool/orleans-0917-gaspillagealimentaire/issues"
   },
   "homepage": "https://github.com/WildCodeSchool/orleans-0917-gaspillagealimentaire#readme",
-  "devDependencies": {
+  "dependencies": {
     "@symfony/webpack-encore": "^0.17.0",
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.7.0",

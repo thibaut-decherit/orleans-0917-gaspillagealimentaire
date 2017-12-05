@@ -1,0 +1,57 @@
+$myMainColor: #00bfff;
+
+.titlePage {
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.btn_admin {
+  border: 2px solid $myMainColor;
+  border-radius: 50px;
+  background-color: transparent;
+  color: $myMainColor;
+  margin-right: 1%;
+}
+
+.listAdmin {
+  li {
+    list-style-type: none;
+    font-size: 1.5vw;
+  }
+}
+
+.labels_admin {
+  font-size: 1vw;
+  color: grey;
+}
+
+.titleAdmin {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3%;
+}
+
+.admin {
+  .form-control {
+    border: 2px solid $myMainColor;
+    border-radius: 50px;
+  }
+  hr {
+    border-top: 1px solid $myMainColor;
+  }
+  .vignetteList {
+    height: 100px;
+    width: auto;
+  }
+  .imgEdit {
+    width: 400px;
+    height: auto;
+  }
+  .link {
+    font-size: 1vw;
+    font-style: italic;
+  }
+}
+
+
+
