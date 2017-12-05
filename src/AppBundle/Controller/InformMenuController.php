@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * InformMenu controller.
  *
- * @Route("informMenu")
+ * @Route("inform_menu")
  */
 class InformMenuController extends Controller
 {

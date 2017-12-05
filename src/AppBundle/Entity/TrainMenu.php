@@ -8,7 +8,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * MenuEntrainer
+ * TrainMenu
  *
  * @ORM\Table(name="train_menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TrainMenuRepository")
