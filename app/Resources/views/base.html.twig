@@ -9,12 +9,13 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{% block navbar %}
-    {% include 'home/navbar.html.twig' %}
-{% endblock %}
 {% block topBar %}
     {% include 'home/topBar.html.twig' %}
 {% endblock %}
+{% block navbar %}
+    {% include 'home/navbar.html.twig' %}
+{% endblock %}
+
 {% block body %}{% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/vendor.js') }}"></script>

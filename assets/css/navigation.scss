@@ -1,10 +1,10 @@
 @import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
 /* Please Keep this font import at the very top of any CSS file */
-@charset "UTF-8";
+
 /* Starter CSS for Flyout Menu */
-$top: darkred;
-$middle: orangered;
-$last: purple;
+$top: #EE6352;
+$middle: #ED9B40;
+$last: #71B48D;
 
 .cssmenu {
   padding: 0;
@@ -13,9 +13,9 @@ $last: purple;
   z-index: 250;
   height: 100vh;
   color: #ffffff;
-  position: absolute;
+  position: fixed;
   width: 200px;
-  background: #333333;
+  background: $navBarsColor;
   font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
   zoom: 1;
   font-size: 12px;
@@ -67,12 +67,14 @@ $last: purple;
   visibility: visible;
   max-height: 100vh;
   position: absolute;
+  width: 400px;
   padding: 0;
   margin: 0;
   border: 0;
   left: 100%;
   z-index: 1;
   opacity: 1;
+  border-radius: 0 20px 20px 0;
 }
 .submenu {
   position: absolute;

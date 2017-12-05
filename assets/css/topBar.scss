@@ -1,6 +1,9 @@
-.container-fluid{
-  border-bottom: 1px solid black;
+.topBar{
+  background-color: $navBarsColor;
   height: 70px;
+  position: absolute;
+  z-index: 1;
+  margin-right: 0;
 }
 
 .btn{
