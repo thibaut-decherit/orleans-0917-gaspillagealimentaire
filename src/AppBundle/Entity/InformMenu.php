@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * informMenu
+ * InformMenu
  *
  * @ORM\Table(name="inform_menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\InformMenuRepository")
@@ -149,7 +149,7 @@ class InformMenu
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
-     * @return TrainMenu
+     * @return InformMenu
      */
     public function setImageFile(File $image = null)
     {
@@ -177,7 +177,7 @@ class InformMenu
      *
      * @param string $imageName
      *
-     * @return TrainMenu
+     * @return InformMenu
      */
     public function setImageName($imageName)
     {
@@ -201,7 +201,7 @@ class InformMenu
      *
      * @param \DateTime $updatedAt
      *
-     * @return TrainMenu
+     * @return InformMenu
      */
     public function setUpdatedAt($updatedAt)
     {
