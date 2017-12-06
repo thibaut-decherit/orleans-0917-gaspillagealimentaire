@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class TrainMenuType extends AbstractType
+class TrainMenuEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -33,7 +33,7 @@ class TrainMenuType extends AbstractType
                 'required' => false,
             ))
             ->add('imageFile', VichImageType::class, [
-                'required' => true,
+                'required' => false,
                 'allow_delete' => false,
                 'download_uri' => false,
                 'image_uri' => false,

@@ -10,7 +10,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class InformMenuType extends AbstractType
+class InformMenuEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
