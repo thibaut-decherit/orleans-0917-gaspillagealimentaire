@@ -12,17 +12,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class IndexController
+ * Class FrontPageController
  * @package AppBundle\Controller
  */
-class IndexController extends Controller
+class FrontPageController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/", name="front_page")
      */
-    public function indexAction()
+    public function frontPageAction()
     {
         // replace this example code with whatever you need
-        return $this->render('index/index.html.twig');
+        return $this->render('public/frontPage/frontPage.html.twig');
     }
 }

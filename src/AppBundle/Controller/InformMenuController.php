@@ -28,7 +28,7 @@ class InformMenuController extends Controller
 
         $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
 
-        return $this->render('informMenu/index.html.twig', array(
+        return $this->render('admin/informMenu/index.html.twig', array(
             'informMenus' => $informMenus,
         ));
     }
@@ -53,7 +53,7 @@ class InformMenuController extends Controller
             return $this->redirectToRoute('inform_menu_index', array('id' => $informMenu->getId()));
         }
 
-        return $this->render('informMenu/new.html.twig', array(
+        return $this->render('admin/informMenu/new.html.twig', array(
             'informMenu' => $informMenu,
             'form' => $form->createView(),
         ));
@@ -77,7 +77,7 @@ class InformMenuController extends Controller
             return $this->redirectToRoute('inform_menu_edit', array('id' => $informMenu->getId()));
         }
 
-        return $this->render('informMenu/edit.html.twig', array(
+        return $this->render('admin/informMenu/edit.html.twig', array(
             'informMenu' => $informMenu,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

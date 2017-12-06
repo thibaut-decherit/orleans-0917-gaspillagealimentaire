@@ -23,7 +23,6 @@ class HomeController extends Controller
      */
     public function homeAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('home/home.html.twig');
+        return $this->render('public/home/home.html.twig');
     }
 }

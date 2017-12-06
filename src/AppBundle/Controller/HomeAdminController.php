@@ -19,6 +19,6 @@ class HomeAdminController extends Controller
      */
     public function indexAction()
     {
-        return $this->render('homeAdmin/homeAdmin.html.twig');
+        return $this->render('admin/homeAdmin/homeAdmin.html.twig');
     }
 }
