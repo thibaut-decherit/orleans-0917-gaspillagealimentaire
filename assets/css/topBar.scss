@@ -1,20 +1,32 @@
 .topBar{
   background-color: $navBarsColor;
-  height: 70px;
+  height: 60px;
   position: absolute;
   z-index: 1;
-  margin-right: 0;
+  .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .btn{
+    margin-bottom: 15px;
+    margin-right: 10px;
+    background:#ffffff;
+    border-radius:100px;
+    width:155px;
+    height:36px;
+    font-family: 'Roboto-Regular', Helvetica, sans-serif;
+    font-size:18px;
+    color:#363636;
+    text-align:right;
+    padding-bottom: 15px;
+  }
+
+  .title_topbar{
+    margin-top: 15px;
+  }
+
+  p{
+    margin-bottom: 0;
+  }
 }
 
-.btn{
-  margin-bottom: 10px;
-
-}
-
-.title_topbar{
-  margin-top: 15px;
-}
-
-p{
-  margin-bottom: 0;
-}
