@@ -18,10 +18,28 @@ class InformMenuController extends Controller
     /**
      * Lists all informMenu entities.
      *
-     * @Route("/", name="inform_menu_index")
+     * @Route("/", name="admin_inform_menu_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function adminIndexAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
+
+        return $this->render('admin/informMenu/index.html.twig', array(
+            'informMenus' => $informMenus,
+        ));
+    }
+
+    /**
+     * Lists all informMenu entities.
+     *
+     * @Route("/", name="public_inform_menu_index")
+     * @Method("GET")
+     */
+    public function publicIndexAction()
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -36,7 +54,7 @@ class InformMenuController extends Controller
     /**
      * Creates a new informMenu entity.
      *
-     * @Route("/new", name="inform_menu_new")
+     * @Route("/new", name="admin_inform_menu_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -51,7 +69,7 @@ class InformMenuController extends Controller
             $em->persist($informMenu);
             $em->flush();
 
-            return $this->redirectToRoute('inform_menu_index', array('id' => $informMenu->getId()));
+            return $this->redirectToRoute('admin_inform_menu_index', array('id' => $informMenu->getId()));
         }
 
         return $this->render('admin/informMenu/new.html.twig', array(
@@ -63,7 +81,7 @@ class InformMenuController extends Controller
     /**
      * Displays a form to edit an existing informMenu entity.
      *
-     * @Route("/{id}/edit", name="inform_menu_edit")
+     * @Route("/{id}/edit", name="admin_inform_menu_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, InformMenu $informMenu)
@@ -75,7 +93,7 @@ class InformMenuController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('inform_menu_edit', array('id' => $informMenu->getId()));
+            return $this->redirectToRoute('admin_inform_menu_edit', array('id' => $informMenu->getId()));
         }
 
         return $this->render('admin/informMenu/edit.html.twig', array(
@@ -88,7 +106,7 @@ class InformMenuController extends Controller
     /**
      * Deletes a informMenu entity.
      *
-     * @Route("/{id}", name="inform_menu_delete")
+     * @Route("/{id}", name="admin_inform_menu_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, InformMenu $informMenu)
@@ -102,7 +120,7 @@ class InformMenuController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('inform_menu_index');
+        return $this->redirectToRoute('admin_inform_menu_index');
     }
 
     /**
@@ -115,7 +133,7 @@ class InformMenuController extends Controller
     private function createDeleteForm(InformMenu $informMenu)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('inform_menu_delete', array('id' => $informMenu->getId())))
+            ->setAction($this->generateUrl('admin_inform_menu_delete', array('id' => $informMenu->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }
