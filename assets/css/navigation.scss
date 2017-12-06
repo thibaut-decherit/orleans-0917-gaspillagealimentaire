@@ -97,22 +97,26 @@ $last: #71B48D;
   }
 
   h3 {
-    font-weight: 700;
     padding-top: 20px;
-    border-bottom: 1px solid white;
     padding-bottom: 20px;
     @extend .subtitle;
   }
 
   h4 {
     @extend .subtitle;
+    margin-top: 10vh;
+  }
+
+  h5 {
+    font-weight: 700;
+    text-align: center;
+    margin-top: 10vh;
   }
 
   .submenuText {
     font-size: 20px;
     text-align: center;
   }
-
 }
 .submenuTarget {
   visibility: visible;
@@ -166,4 +170,5 @@ $last: #71B48D;
   text-align: center;
   text-transform: uppercase;
   font-size: 24px;
+  font-weight: 700;
 }
