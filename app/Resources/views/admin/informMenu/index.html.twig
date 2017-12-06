@@ -20,15 +20,15 @@
                 {% for informMenu in informMenus %}
                     <li>
                         <div class="row">
-                            {{ informMenu.title }}
+                                {{ informMenu.title }}
                         </div>
                         <div class="row">
-                            <div class="col-xs-5">
+                            <div class="col-xs-2">
                                 <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
                                      class="img-responsive img-thumbnail vignetteList">
                             </div>
-                            <div class="col-xs-7">
-                                <p class="pull-right link">{{ informMenu.link }}</p>
+                            <div class="col-xs-3 pull-right">
+                                <p class="date">{{ informMenu.getFormatedUploadDate }}</p>
                             </div>
                         </div>
 

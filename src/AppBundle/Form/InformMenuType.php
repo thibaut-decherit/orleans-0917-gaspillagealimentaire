@@ -20,15 +20,15 @@ class InformMenuType extends AbstractType
     {
         $builder
             ->add('title', TextType::class, array(
-                'label' => "Nom du lien (qui apparaîtra dans le menu)",
+                'label' => "Nom",
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('type', TextType::class, array(
-                'label' => "Type de la ressource (site internet, article de blog...)",
+                'label' => "Type (site internet, article de blog...)",
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('summary', TextareaType::class, array(
-                'label' => "Résumé de la ressource",
+                'label' => "Résumé",
                 'label_attr' => array('class' => 'labels_admin'),
                 'attr' => array(
                     'class' => 'textfield',
@@ -36,21 +36,23 @@ class InformMenuType extends AbstractType
                 )
             ))
             ->add('link', UrlType ::class, array(
-                'label' => "Url du lien",
+                'label' => "Url",
+                'label_attr' => array('class' => 'labels_admin')
+            ))
+            ->add('isMenu', CheckboxType::class, array(
+                'label' => "A cocher pour que la ressource apparaisse dans
+                            la barre de navigation en tant que lien cliquable",
+                'required' => false,
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('imageFile', VichImageType::class, [
+                'label' => "Image",
+                'label_attr' => array('class' => 'labels_admin'),
                 'required' => false,
                 'allow_delete' => false,
                 'download_uri' => false,
                 'image_uri' => false,
-            ])
-            ->add('isMenu', CheckboxType::class, array(
-                'label' => "A cocher pour que le lien apparaisse dans le menu",
-                'required' => false,
-                'label_attr' => array('class' => 'labels_admin')
-            ));
-
+            ]);
     }
 
     /**
