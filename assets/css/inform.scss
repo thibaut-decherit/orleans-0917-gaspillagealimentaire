@@ -1,0 +1,54 @@
+.public {
+  margin: 60px 0 0 150px;
+  ul {
+    padding: 30px 0;
+    .row {
+        padding: 0;
+    }
+    li {
+      list-style: none;
+      .vignetteContainer {
+        padding-left: 0;
+      }
+      .vignette {
+        height: 215px;
+        width: auto;
+      }
+      h2 {
+        margin: 17px 0 0 40px;
+        font-size:24px;
+        color:#424242;
+      }
+      .type {
+        display: inline-block;
+        margin-left: 20px;
+        font-size:13px;
+        color:#424242;
+        padding-bottom: 3px;
+        border-bottom: 2px solid #ee6352;
+        text-transform: uppercase;
+      }
+      .date {
+        text-align: right;
+        font-size:13px;
+        color:#8e8e8e;
+      }
+      .summary {
+        margin: 20px 0 20px 40px;
+        font-size:13px;
+        color:#8e8e8e;
+        padding: 0;
+      }
+      a {
+        font-size:20px;
+        color:#ee6352;
+        position: absolute;
+        bottom: 40px;
+      }
+    }
+    hr {
+      border-top: 2px solid #979797;
+      height: 1px;
+    }
+  }
+}

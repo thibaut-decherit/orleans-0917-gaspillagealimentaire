@@ -1,41 +1,40 @@
 {% extends 'public/base.html.twig' %}
 
-{% block contentAdmin %}
-    <div class="admin">
-        <div class="row">
-            <div class="titleAdmin">
-                <h1 class="titlePage text-info">'S'informer' - Liste des liens</h1>
-                <a href="{{ path('admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
-            </div>
-        </div>
-        <hr/>
-
-        <div class="row">
-            <a href="{{ path('public_inform_menu_new') }}" class="btn_admin btn btn-success">Créer un nouveau lien</a>
-        </div>
-        <hr/>
-
-        <div class="row">
-            <ul class="listAdmin">
+{% block body %}
+    <div class="row public">
+        <div>
+            <ul>
                 {% for informMenu in informMenus %}
-                    <li>
-                        <div class="row">
-                                {{ informMenu.title }}
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
-                                     class="img-responsive img-thumbnail vignetteList">
+                    <li class="row">
+                        <div class="row col-xs-offset-1 col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3 vignetteContainer">
+                                    <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
+                                         class="img-responsive img-thumbnail vignette">
+                                </div>
+                                <div class="row col-xs-9">
+                                    <div class="row">
+                                        <div class="col-xs-3">
+                                            <p class="type">{{ informMenu.type }}</p>
+                                        </div>
+                                        <div class="col-xs-3 pull-right">
+                                            <p class="date">{{ informMenu.FormatedUploadDate }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <h2>{{ informMenu.title }}</h2>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-xs-6 summary">{{ informMenu.summary }}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="col-xs-3 pull-right">
-                                <p class="date">{{ informMenu.getFormatedUploadDate }}</p>
+                            <div class="col-xs-offset-3">
+                                <a href="{{ informMenu.link }}">Voir plus</a>
                             </div>
+                            <hr class="row"/>
                         </div>
-
                     </li>
-                    <a href="{{ path('admin_inform_menu_edit', { 'id': informMenu.id }) }}"
-                       class="btn_admin btn btn-warning pull-right">Modifier</a>
-                    <hr/>
                 {% endfor %}
             </ul>
         </div>
