@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * InformMenu controller.
  *
- * @Route("informMenu")
+ * @Route("inform_menu")
  */
 class InformMenuController extends Controller
 {
@@ -42,7 +42,7 @@ class InformMenuController extends Controller
     public function newAction(Request $request)
     {
         $informMenu = new InformMenu();
-        $form = $this->createForm('AppBundle\Form\InformMenuType', $informMenu);
+        $form = $this->createForm('AppBundle\Form\InformMenuNewType', $informMenu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -68,7 +68,7 @@ class InformMenuController extends Controller
     public function editAction(Request $request, InformMenu $informMenu)
     {
         $deleteForm = $this->createDeleteForm($informMenu);
-        $editForm = $this->createForm('AppBundle\Form\InformMenuType', $informMenu);
+        $editForm = $this->createForm('AppBundle\Form\InformMenuEditType', $informMenu);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {

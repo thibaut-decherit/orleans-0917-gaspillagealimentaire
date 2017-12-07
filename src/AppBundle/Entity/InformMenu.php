@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * informMenu
+ * InformMenu
  *
  * @ORM\Table(name="inform_menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\InformMenuRepository")
@@ -30,11 +30,13 @@ class InformMenu
      *
      * @ORM\Column(name="title", type="string", length=100)
      * @Assert\Length(
-     * min = 2,
-     * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères",
+     * min = 3,
+     * minMessage = "Le nom de votre lien doit comporter au minimum {{ limit }} caractères.",
      * )
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      */
     private $title;
 
@@ -43,10 +45,12 @@ class InformMenu
      *
      * @ORM\Column(name="link", type="string", length=255)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      *
      * @Assert\Url(
-     *    message = "L'url '{{ value }}' n'est pas valide",
+     *    message = "L'url '{{ value }}' n'est pas valide.",
      * )
      */
     private $link;
@@ -62,7 +66,16 @@ class InformMenu
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="inform_menu_image", fileNameProperty="imageName")
-     * @Assert\File(maxSize="2M")
+     * @Assert\Image(
+     *     maxSize="2M",
+     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage="Le fichier envoyé doit être une image.",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
+     *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
+     * )
+     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
@@ -149,7 +162,7 @@ class InformMenu
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
-     * @return TrainMenu
+     * @return InformMenu
      */
     public function setImageFile(File $image = null)
     {
@@ -177,7 +190,7 @@ class InformMenu
      *
      * @param string $imageName
      *
-     * @return TrainMenu
+     * @return InformMenu
      */
     public function setImageName($imageName)
     {
@@ -201,7 +214,7 @@ class InformMenu
      *
      * @param \DateTime $updatedAt
      *
-     * @return TrainMenu
+     * @return InformMenu
      */
     public function setUpdatedAt($updatedAt)
     {

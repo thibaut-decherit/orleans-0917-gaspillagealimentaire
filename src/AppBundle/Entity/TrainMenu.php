@@ -8,7 +8,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
- * MenuEntrainer
+ * TrainMenu
  *
  * @ORM\Table(name="train_menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\TrainMenuRepository")
@@ -31,11 +31,13 @@ class TrainMenu
      * @ORM\Column(name="title", type="string", length=255)
      *
      * @Assert\Length(
-     * min = 2,
-     * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères",
+     * min = 3,
+     * minMessage = "Le nom de votre lien doit comporter au minimum {{ limit }} caractères.",
      * )
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      */
     private $title;
 
@@ -44,9 +46,11 @@ class TrainMenu
      *
      * @ORM\Column(name="link", type="string", length=255)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      * @Assert\Url(
-     *    message = "L'url '{{ value }}' n'est pas valide",
+     *    message = "L'url '{{ value }}' n'est pas valide.",
      * )
      */
     private $link;
@@ -62,7 +66,16 @@ class TrainMenu
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="train_menu_image", fileNameProperty="imageName")
-     * @Assert\File(maxSize="2M")
+     * @Assert\Image(
+     *     maxSize="2M",
+     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage="Le fichier envoyé doit être une image.",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
+     *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
+     * )
+     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
