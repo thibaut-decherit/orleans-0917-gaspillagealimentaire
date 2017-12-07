@@ -2,16 +2,16 @@
 
 namespace AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class InformMenuType extends AbstractType
+class TrainMenuEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -19,35 +19,20 @@ class InformMenuType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title', TextType::class, array(
-                'label' => "Nom",
+            ->add('title', TextType ::class, array(
+                'label' => "Nom du lien (qui apparaîtra dans le menu)",
                 'label_attr' => array('class' => 'labels_admin')
-            ))
-            ->add('type', TextType::class, array(
-                'label' => "Type (site internet, article de blog...)",
-                'label_attr' => array('class' => 'labels_admin')
-            ))
-            ->add('summary', TextareaType::class, array(
-                'label' => "Résumé",
-                'label_attr' => array('class' => 'labels_admin'),
-                'attr' => array(
-                    'class' => 'textfield',
-                    'rows' => '5'
-                )
             ))
             ->add('link', UrlType ::class, array(
-                'label' => "Url",
+                'label' => "Url du lien",
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('isMenu', CheckboxType::class, array(
-                'label' => "A cocher pour que la ressource apparaisse dans
-                            la barre de navigation en tant que lien cliquable",
+                'label' => "A cocher pour que le lien apparaisse dans le menu",
+                'label_attr' => array('class' => 'labels_admin'),
                 'required' => false,
-                'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('imageFile', VichImageType::class, [
-                'label' => "Image",
-                'label_attr' => array('class' => 'labels_admin'),
                 'required' => false,
                 'allow_delete' => false,
                 'download_uri' => false,
@@ -61,7 +46,7 @@ class InformMenuType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\InformMenu'
+            'data_class' => 'AppBundle\Entity\TrainMenu'
         ));
     }
 
@@ -70,7 +55,7 @@ class InformMenuType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_informMenu';
+        return 'appbundle_trainMenu';
     }
 
 
