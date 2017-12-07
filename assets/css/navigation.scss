@@ -3,11 +3,16 @@
 
 /* Starter CSS for Flyout Menu */
 $top: #EE6352;
+$topHover: #FF8070;
 $middle: #ED9B40;
+$middleHover: #f5ac5a;
 $last: #71B48D;
+$lastHover: #87CDA4;
 
-.border-radius {
+
+.tab {
   border-radius: 20px 0 0 20px;
+  text-decoration: none;
 }
 
 .cssmenu {
@@ -34,6 +39,7 @@ $last: #71B48D;
       width:80px;
       height:80px;
       border-radius:100%;
+
       .icon_home  {
         margin-top: 7px;
       }
@@ -61,25 +67,26 @@ $last: #71B48D;
       font-size: 18px;
     }
   }
+  a:hover {
+    text-decoration: none;
+  }
+
   .top {
     a:hover, a:focus {
       background: $top;
-      @extend .border-radius;
-      text-decoration: none;
+      @extend .tab;
     }
   }
   .middle {
     a:hover, a:focus {
       background: $middle;
-      @extend .border-radius;
-      text-decoration: none;
+      @extend .tab;
     }
   }
   .last {
     a:hover, a:focus {
       background: $last;
-      @extend .border-radius;
-      text-decoration: none;
+      @extend .tab;
     }
   }
 
@@ -89,7 +96,7 @@ $last: #71B48D;
     z-index: 250;
   }
   li {
-    margin-top: 20px;
+    margin-top: 2vh;
     position: relative;
   }
   .align-right {
@@ -104,7 +111,7 @@ $last: #71B48D;
 
   h4 {
     @extend .subtitle;
-    margin-top: 10vh;
+    //margin-top: 10vh;
   }
 
   h5 {
@@ -142,10 +149,18 @@ $last: #71B48D;
   transition: 1s;
   z-index: 1;
   opacity: 0;
+  a {
+    padding: 0;
+    text-decoration: none;
+    color: #ffffff;
+  }
 }
 
 #one {
   background: $top;
+  a:hover {
+    background: $topHover;
+  }
   @extend .submenu;
   &:target {
     @extend .submenuTarget;
@@ -154,6 +169,9 @@ $last: #71B48D;
 
 #two {
   background: $middle;
+  a:hover {
+    background: $middleHover;
+  }
   @extend .submenu;
   &:target {
     @extend .submenuTarget;
@@ -162,6 +180,9 @@ $last: #71B48D;
 
 #three {
   background: $last;
+  a:hover {
+    background: $lastHover;
+  }
   @extend .submenu;
   &:target {
     @extend .submenuTarget;
