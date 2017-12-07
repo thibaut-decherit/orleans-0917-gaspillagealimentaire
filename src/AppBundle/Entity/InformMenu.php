@@ -237,11 +237,6 @@ class InformMenu
         return $this->uploadDate;
     }
 
-    public function getFormatedUploadDate()
-    {
-        return $this->uploadDate->format('d/m/Y');
-    }
-
     /**
      * Set link
      *
