@@ -29,11 +29,11 @@ class InformMenu
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100)
+     *
      * @Assert\Length(
      * min = 3,
-     * minMessage = "Le nom de votre lien doit comporter au minimum {{ limit }} caractères.",
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
      * )
-     *
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
      * )
@@ -44,6 +44,14 @@ class InformMenu
      * @var string
      *
      * @ORM\Column(name="type", type="string", length=100)
+     *
+     * @Assert\Length(
+     * min = 3,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * )
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      */
     private $type;
 
@@ -51,6 +59,14 @@ class InformMenu
      * @var string
      *
      * @ORM\Column(name="summary", type="text")
+     *
+     * @Assert\Length(
+     * min = 3,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * )
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      */
     private $summary;
 
@@ -58,6 +74,7 @@ class InformMenu
      * @var \DateTime
      *
      * @ORM\Column(name="upload_date", type="date")
+     *
      */
     private $uploadDate;
 
@@ -69,7 +86,6 @@ class InformMenu
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
      * )
-     *
      * @Assert\Url(
      *    message = "L'url '{{ value }}' n'est pas valide.",
      * )

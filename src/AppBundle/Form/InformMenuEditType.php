@@ -21,14 +21,17 @@ class InformMenuEditType extends AbstractType
         $builder
             ->add('title', TextType::class, array(
                 'label' => "Nom",
+                'required' => true,
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('type', TextType::class, array(
                 'label' => "Type (site internet, article de blog...)",
+                'required' => true,
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('summary', TextareaType::class, array(
                 'label' => "Résumé",
+                'required' => true,
                 'label_attr' => array('class' => 'labels_admin'),
                 'attr' => array(
                     'class' => 'textfield',
@@ -37,6 +40,7 @@ class InformMenuEditType extends AbstractType
             ))
             ->add('link', UrlType ::class, array(
                 'label' => "Url",
+                'required' => true,
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('isMenu', CheckboxType::class, array(
