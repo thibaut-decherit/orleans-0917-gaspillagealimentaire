@@ -36,12 +36,23 @@ $lastHover: #87CDA4;
     .home {
       margin-top: 30px;
       background: #ffffff;
-      width:80px;
-      height:80px;
-      border-radius:100%;
-
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
       .icon_home  {
         margin-top: 7px;
+      }
+    }
+    .btnMenu {
+      bottom: 0;
+      margin: 2vh;
+      font-family: 'Roboto-Regular', Helvetica, sans-serif;
+      font-size: 18px;
+      color: #363636;
+      a {
+        border-color: transparent;
+        border-radius: 100px;
+        padding: 0.5vh;
       }
     }
   }
@@ -111,7 +122,6 @@ $lastHover: #87CDA4;
 
   h4 {
     @extend .subtitle;
-    //margin-top: 10vh;
   }
 
   h5 {
