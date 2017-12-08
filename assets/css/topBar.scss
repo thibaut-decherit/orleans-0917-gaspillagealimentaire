@@ -8,17 +8,16 @@
     margin-right: 0;
   }
   .btn{
-    margin-bottom: 15px;
-    margin-right: 10px;
     background: #ffffff;
     border-radius: 100px;
-    width: 155px;
     height: 36px;
     font-family: 'Roboto-Regular', Helvetica, sans-serif;
     font-size: 18px;
     color: #363636;
-    text-align: right;
-    padding-bottom: 15px;
+    transform: translateY(35%);
+    img {
+      vertical-align: top;
+    }
   }
 
   .title_topbar{
