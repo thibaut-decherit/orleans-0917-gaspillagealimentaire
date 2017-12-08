@@ -11,8 +11,8 @@ Encore
     // empty the outputPath dir before each build
     .cleanupOutputBeforeBuild()
 
-    // will output as web/build/app.js
-    .addEntry('app', './assets/js/main.js')
+    // will output as web/build/vendor.js
+    .addEntry('vendor', './assets/js/main.js')
 
     // will output as web/build/global.css
     .addStyleEntry('global', './assets/css/global.scss')

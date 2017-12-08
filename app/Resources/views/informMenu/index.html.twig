@@ -1,0 +1,42 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}S'informer | Resteatable{% endblock %}
+
+{% block pageContent %}
+    <div>
+        <ul>
+            {% for informMenu in informMenus %}
+                <li class="row">
+                    <div class="row col-xs-offset-1 col-xs-10">
+                        <div class="row">
+                            <div class="col-xs-3 vignetteContainer">
+                                <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
+                                     class="img-responsive img-thumbnail vignette">
+                            </div>
+                            <div class="row col-xs-9">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <p class="type">{{ informMenu.type }}</p>
+                                    </div>
+                                    <div class="col-xs-3 pull-right">
+                                        <p class="date">{{ informMenu.uploadDate|localizeddate('long', 'none') }}</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <h2>{{ informMenu.title }}</h2>
+                                </div>
+                                <div class="row">
+                                    <p class="col-xs-6 summary">{{ informMenu.summary }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-offset-3">
+                            <a href="{{ informMenu.link }}" target="_blank">Voir plus</a>
+                        </div>
+                        {{ not loop.last ? '<hr class="row"/>' }}
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

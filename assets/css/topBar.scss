@@ -1,0 +1,30 @@
+.topBar{
+  background-color: $navBarsColor;
+  height: 60px;
+  position: fixed;
+  margin-left: 150px;
+  .row {
+    margin-right: 0;
+  }
+  .btn{
+    background: #ffffff;
+    border-radius: 100px;
+    height: 36px;
+    font-family: 'Roboto-Regular', Helvetica, sans-serif;
+    font-size: 18px;
+    color: #363636;
+    transform: translateY(35%);
+    img {
+      vertical-align: top;
+    }
+  }
+
+  .title_topbar{
+    margin-top: 15px;
+  }
+
+  p{
+    margin-bottom: 0;
+  }
+}
+

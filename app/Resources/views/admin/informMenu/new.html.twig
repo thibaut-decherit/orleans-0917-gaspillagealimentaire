@@ -1,0 +1,19 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+
+    <div class="admin">
+        <div class="row">
+            <h1 class="titlePage text-info text-center">'S'informer' - Ajouter une ressource</h1>
+        </div>
+        <div class="row">
+            <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-info pull-right">Retour à la liste</a>
+        </div>
+
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button class="btn_admin btn btn-success" type="submit">Valider</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

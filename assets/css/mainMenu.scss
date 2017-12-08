@@ -1,0 +1,25 @@
+.home-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .home-rubriques-container {
+    display: flex;
+    justify-content: space-around;
+
+    .home-rubrique {
+      width: 30%;
+      text-align: center;
+      text-decoration: none;
+      color: #424242;
+      hr {
+        background-color: grey;
+        height: 1px;
+        width: 50%;
+      }
+      p {
+        width: 60%;
+        margin: auto;
+      }
+    }
+  }
+}

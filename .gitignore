@@ -15,4 +15,10 @@
 !var/SymfonyRequirements.php
 /vendor/
 /web/bundles/
-node_modules
+/node_modules/
+/web/build/*
+*~
+package-lock\.json
+/web/uploads/*
+
+composer\.lock

@@ -1,0 +1,68 @@
+<nav class="navbar-fixed cssmenu">
+    <ul>
+        <a href='{{ path('main_menu') }}' class="home center-block">
+            <span><img src="{{ asset('images/icons/icon_home.svg') }}" class="icon_home"/></span>
+        </a>
+        <a href='{{ path('home') }}' class="center-block">
+            <div class="textHome">Accueil</div>
+        </a>
+        <li class="top has-sub">
+            <a href='#one'>
+                <img src="{{ 'http://lorempixel.com/80/80/abstract' }}" class="img-circle center-block"/>
+                <div class="text">S'informer</div>
+            </a>
+        </li>
+        <li class="middle has-sub">
+            <a href='#two'>
+                <span><img src="{{ 'http://lorempixel.com/80/80/abstract' }}" class="img-circle center-block"/></span>
+                <div class="text">S'entraîner</div>
+            </a>
+        </li>
+        <li class="last has-sub">
+            <a href="#three">
+                <span><img src="{{ 'http://lorempixel.com/80/80/abstract' }}" class="img-circle center-block"/></span>
+                <div class="text">Faire des défis</div>
+            </a>
+        </li>
+        <li class="btnMenu"><a href="#" class="btn btn-default">Ressources</a></li>
+        <li class="btnMenu"><a href="#" class="btn btn-default">Infos site</a></li>
+    </ul>
+
+    <ul id="one">
+        <h3>S'informer</h3>
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6"><hr/></div>
+        </div>
+        <h4><a href="#">Toutes les ressources</a></h4>
+        <h5>Liens externes</h5>
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4"><hr/></div>
+        </div>
+        {#{% for informMenu in informMenus %}#}
+        {#<li class="submenuText"><a href='{{ inform_menu.link }}'>{{ inform_menu.title }}</a></li>#}
+        {#{% endfor %}#}
+    </ul>
+    <ul id="two">
+        <h3>S'entraîner</h3>
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6"><hr/></div>
+        </div>
+        <h4><a href="#">Les jeux</a></h4>
+        <h4><a href="#">Les quizz</a></h4>
+        <h5>Liens externes</h5>
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4"><hr/></div>
+        </div>
+        <li class="submenuText"><a href="#"><span>About 1</span></a></li>
+    </ul>
+    <ul id="three">
+        <h3>Faire des défis</h3>
+        <div class="row">
+            <div class="col-xs-offset-3 col-xs-6"><hr/></div>
+        </div>
+        <h4>Défis à faire :</h4>
+        <li class="submenuText"><a href="#">Chez toi</a></li>
+        <li class="submenuText"><a href="#">Au collège/lycée</a></li>
+        <li class="submenuText"><a href="#">Dans une structure, une association</a></li>
+    </ul>
+</nav>

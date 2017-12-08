@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Menu principal | Resteatable{% endblock %}
+
+{% block pageContent %}
+    <section class="home-section">
+        <div class="home-rubriques-container col-md-offset-1 col-md-9">
+            <a href="{{ path('inform_menu_index') }}" class="home-rubrique">
+                <img src="http://via.placeholder.com/300x300" alt="S'informer">
+                <h2>S'informer</h2>
+                <hr>
+                <p>Explore l’actualité du développement durable et du gaspillage alimentaire</p>
+            </a>
+            <div class="home-rubrique">
+                <a href="#"><img src="http://via.placeholder.com/300x300" alt="S'entraîner"></a>
+                <h2>S'entraîner</h2>
+                <hr>
+                <p>Teste tes connaissances et tes réflexes sur le gaspillage alimentaire</p>
+            </div>
+            <div class="home-rubrique">
+                <a href="#"><img src="http://via.placeholder.com/300x300" alt="Faire des défis"></a>
+                <h2>Faire des défis</h2>
+                <hr>
+                <p>Réalise des défis et change ton comportement</p>
+            </div>
+        </div>
+    </section>
+{% endblock %}
