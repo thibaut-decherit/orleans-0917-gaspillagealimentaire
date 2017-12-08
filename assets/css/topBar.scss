@@ -2,7 +2,7 @@
   background-color: $navBarsColor;
   height: 60px;
   position: fixed;
-  margin-left: 150px;
+  z-index: 1;
   .row {
     margin-right: 0;
   }
