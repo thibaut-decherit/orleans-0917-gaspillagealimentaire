@@ -9,16 +9,16 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * PublicInformMenu controller.
+ * InformMenuController controller.
  *
- * @Route("informer")
+ * @Route("sinformer")
  */
-class PublicInformMenuController extends Controller
+class InformMenuController extends Controller
 {
     /**
      * Lists all informMenu entities.
      *
-     * @Route("/", name="public_inform_menu_index")
+     * @Route("/", name="inform_menu_index")
      * @Method("GET")
      */
     public function indexAction()
@@ -28,7 +28,7 @@ class PublicInformMenuController extends Controller
 
         $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
 
-        return $this->render('public/informMenu/index.html.twig', array(
+        return $this->render('informMenu/index.html.twig', array(
             'informMenus' => $informMenus,
         ));
     }

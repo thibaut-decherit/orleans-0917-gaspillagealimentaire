@@ -12,17 +12,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class FrontPageController
+ * Class MainMenuController
  * @package AppBundle\Controller
+ * @Route("menu-principal")
  */
-class FrontPageController extends Controller
+class MainMenuController extends Controller
 {
     /**
-     * @Route("/", name="front_page")
+     * @Route("/", name="main_menu")
      */
-    public function frontPageAction()
+    public function mainMenuAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('public/frontPage/frontPage.html.twig');
+        return $this->render('mainMenu.html.twig');
     }
 }

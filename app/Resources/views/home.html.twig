@@ -1,9 +1,9 @@
-{% extends 'public/base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
 {% block navbar %}{% endblock %}
 {% block topBar %}{% endblock %}
 
-{% block body %}
+{% block pageContent %}
     <section class="index-section">
         <img class="logo-association" src="http://via.placeholder.com/100x100" alt="Logo de l'association">
         <div class="flex-container">
@@ -12,7 +12,7 @@
                 <p class="index-texte">Texte de présentation du site</p>
             </div>
             <div>
-                <a class="btn btn-lg btn-primary" href="{{ path('home') }}" role="button">Commencer</a>
+                <a class="btn btn-lg btn-primary" href="{{ path('main_menu') }}" role="button">Commencer</a>
             </div>
         </div>
     </section>

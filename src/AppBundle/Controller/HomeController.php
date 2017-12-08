@@ -14,7 +14,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 /**
  * Class HomeController
  * @package AppBundle\Controller
- * @Route("accueil")
  */
 class HomeController extends Controller
 {
@@ -23,6 +22,6 @@ class HomeController extends Controller
      */
     public function homeAction()
     {
-        return $this->render('public/home/home.html.twig');
+        return $this->render('home.html.twig');
     }
 }

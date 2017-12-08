@@ -1,6 +1,6 @@
-{% extends 'admin/baseAdmin.html.twig' %}
+{% extends 'admin/layoutAdmin.html.twig' %}
 
-{% block contentAdmin %}
+{% block pageContent %}
     <div class="row">
         <h1 class="titlePage text-info text-center">Administration</h1>
     </div>
@@ -11,6 +11,4 @@
         <a href="{{ path('train_menu_index') }}" class="btn_admin btn btn-success">S'entrainer</a>
     </div>
     <hr/>
-
-
 {% endblock %}

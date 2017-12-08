@@ -1,11 +1,12 @@
-{% extends 'admin/baseAdmin.html.twig' %}
+{% extends 'admin/layoutAdmin.html.twig' %}
 
-{% block contentAdmin %}
+{% block pageContent %}
+
     <div class="admin">
         <div class="row">
             <div class="titleAdmin">
                 <h1 class="titlePage text-info">'S'informer' - Liste des liens</h1>
-                <a href="{{ path('admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
+                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
             </div>
         </div>
         <hr/>
@@ -28,7 +29,7 @@
                                      class="img-responsive img-thumbnail vignetteList">
                             </div>
                             <div class="col-xs-3 pull-right">
-                                <p class="date">{{ informMenu.getFormatedUploadDate }}</p>
+                                <p class="date">{{ informMenu.uploadDate|localizeddate('long', 'none') }}</p>
                             </div>
                         </div>
 

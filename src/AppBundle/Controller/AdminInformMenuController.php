@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * AdminInformMenu controller.
  *
- * @Route("admin/informer")
+ * @Route("admin/sinformer")
  */
 class AdminInformMenuController extends Controller
 {
