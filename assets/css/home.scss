@@ -1,25 +1,21 @@
-.home-section {
+.index-section {
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
-  .home-rubriques-container {
+  .logo-association {
+    position: absolute;
+    right: 0;
+  }
+  .flex-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
+    align-items: center;
+    height: 100vh;
 
-    .home-rubrique {
-      width: 30%;
+    .index-texte {
+      font-size: 3em;
       text-align: center;
-      hr {
-        background-color: grey;
-        height: 1px;
-        width: 50%;
-      }
-      p {
-        width: 60%;
-        margin: auto;
-      }
+      margin-top: 3%;
     }
   }
 }
