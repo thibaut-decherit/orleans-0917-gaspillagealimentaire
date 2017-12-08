@@ -27,7 +27,7 @@ class TrainMenuController extends Controller
 
         $trainMenus = $em->getRepository('AppBundle:TrainMenu')->findAll();
 
-        return $this->render('trainMenu/index.html.twig', array(
+        return $this->render('admin/trainMenu/index.html.twig', array(
             'trainMenus' => $trainMenus,
         ));
     }
@@ -41,7 +41,7 @@ class TrainMenuController extends Controller
     public function newAction(Request $request)
     {
         $trainMenu = new TrainMenu();
-        $form = $this->createForm('AppBundle\Form\TrainMenuType', $trainMenu);
+        $form = $this->createForm('AppBundle\Form\TrainMenuNewType', $trainMenu);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -52,7 +52,7 @@ class TrainMenuController extends Controller
             return $this->redirectToRoute('train_menu_index', array('id' => $trainMenu->getId()));
         }
 
-        return $this->render('trainMenu/new.html.twig', array(
+        return $this->render('admin/trainMenu/new.html.twig', array(
             'trainMenu' => $trainMenu,
             'form' => $form->createView(),
         ));
@@ -67,7 +67,7 @@ class TrainMenuController extends Controller
     public function editAction(Request $request, TrainMenu $trainMenu)
     {
         $deleteForm = $this->createDeleteForm($trainMenu);
-        $editForm = $this->createForm('AppBundle\Form\TrainMenuType', $trainMenu);
+        $editForm = $this->createForm('AppBundle\Form\TrainMenuEditType', $trainMenu);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
@@ -76,7 +76,7 @@ class TrainMenuController extends Controller
             return $this->redirectToRoute('train_menu_edit', array('id' => $trainMenu->getId()));
         }
 
-        return $this->render('trainMenu/edit.html.twig', array(
+        return $this->render('admin/trainMenu/edit.html.twig', array(
             'trainMenu' => $trainMenu,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),

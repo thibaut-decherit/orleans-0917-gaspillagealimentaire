@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -10,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class InformMenuType extends AbstractType
+class TrainMenuEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -26,18 +27,17 @@ class InformMenuType extends AbstractType
                 'label' => "Url du lien",
                 'label_attr' => array('class' => 'labels_admin')
             ))
+            ->add('isMenu', CheckboxType::class, array(
+                'label' => "A cocher pour que le lien apparaisse dans le menu",
+                'label_attr' => array('class' => 'labels_admin'),
+                'required' => false,
+            ))
             ->add('imageFile', VichImageType::class, [
                 'required' => false,
                 'allow_delete' => false,
                 'download_uri' => false,
                 'image_uri' => false,
-            ])
-            ->add('isMenu', CheckboxType::class, array(
-                'label' => "A cocher pour que le lien apparaisse dans le menu",
-                'required' => false,
-                'label_attr' => array('class' => 'labels_admin')
-            ));
-
+            ]);
     }
 
     /**
@@ -46,7 +46,7 @@ class InformMenuType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\InformMenu'
+            'data_class' => 'AppBundle\Entity\TrainMenu'
         ));
     }
 
@@ -55,7 +55,7 @@ class InformMenuType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_informMenu';
+        return 'appbundle_trainMenu';
     }
 
 

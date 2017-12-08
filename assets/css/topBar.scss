@@ -1,10 +1,9 @@
 .topBar{
   background-color: $navBarsColor;
   height: 60px;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  margin-left: 150px;
   .row {
-    margin-left: 0;
     margin-right: 0;
   }
   .btn{

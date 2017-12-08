@@ -2,21 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8"/>
-    <title>{% block title %}Welcome!{% endblock %}</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="author" content="WildCodeSchool">
+    <title>{% block title %}Resteatable{% endblock %}</title>
     {% block stylesheets %}
-        <link rel="stylesheet" href="{{ asset('build/global.css') }}"/>
+        <link href="{{ asset('build/global.css') }}" rel="stylesheet" type="text/css"/>
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
 </head>
 <body>
-{% block topBar %}
-    {% include 'home/topBar.html.twig' %}
-{% endblock %}
-{% block navbar %}
-    {% include 'home/navbar.html.twig' %}
-{% endblock %}
-
-{% block body %}{% endblock %}
+{% block layout %}{% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/vendor.js') }}"></script>
 {% endblock %}

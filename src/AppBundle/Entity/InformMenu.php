@@ -29,24 +29,65 @@ class InformMenu
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=100)
-     * @Assert\Length(
-     * min = 2,
-     * minMessage = "Le nom de votre lien doit faire plus de {{ limit }} caractères",
-     * )
      *
-     * @Assert\NotBlank()
+     * @Assert\Length(
+     * min = 3,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * )
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      */
     private $title;
 
     /**
      * @var string
      *
+     * @ORM\Column(name="type", type="string", length=100)
+     *
+     * @Assert\Length(
+     * min = 3,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * )
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
+     */
+    private $type;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="summary", type="text")
+     *
+     * @Assert\Length(
+     * min = 3,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * )
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
+     */
+    private $summary;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="upload_date", type="date")
+     *
+     */
+    private $uploadDate;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="link", type="string", length=255)
      *
-     * @Assert\NotBlank()
-     *
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
      * @Assert\Url(
-     *    message = "L'url '{{ value }}' n'est pas valide",
+     *    message = "L'url '{{ value }}' n'est pas valide.",
      * )
      */
     private $link;
@@ -57,12 +98,20 @@ class InformMenu
      */
     private $isMenu;
 
-
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="inform_menu_image", fileNameProperty="imageName")
-     * @Assert\File(maxSize="2M")
+     * @Assert\Image(
+     *     maxSize="2M",
+     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypesMessage="Le fichier envoyé doit être une image.",
+     *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
+     *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
+     * )
+     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
@@ -114,6 +163,78 @@ class InformMenu
     public function getTitle()
     {
         return $this->title;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return Test
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     *
+     * @return Test
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Set uploadDate
+     *
+     * @param \DateTime $uploadDate
+     *
+     * @return Test
+     */
+    public function setUploadDate($uploadDate)
+    {
+        $this->uploadDate = $uploadDate;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadDate
+     *
+     * @return \DateTime
+     */
+    public function getUploadDate()
+    {
+        return $this->uploadDate;
     }
 
     /**

@@ -12,17 +12,17 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class IndexController
+ * Class MainMenuController
  * @package AppBundle\Controller
+ * @Route("menu-principal")
  */
-class IndexController extends Controller
+class MainMenuController extends Controller
 {
     /**
-     * @Route("/", name="index")
+     * @Route("/", name="main_menu")
      */
-    public function indexAction()
+    public function mainMenuAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('index/index.html.twig');
+        return $this->render('mainMenu.html.twig');
     }
 }
