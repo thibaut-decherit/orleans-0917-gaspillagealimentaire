@@ -2,7 +2,7 @@
   font-family: 'Roboto-regular', Helvetica, sans-serif;
   height: 100vh;
   .row {
-    margin-top: 5vh;
+    padding-top: 3vh;
   }
   .logo-droite, .logo-gauche {
     width: 200px;
@@ -19,7 +19,7 @@
       font-family: 'Varela Round', Helvetica, sans-serif;
       font-size: 72px;
       span {
-        color:#4e84bc;
+        color: #4e84bc;
       }
     }
 
@@ -30,12 +30,12 @@
     }
 
     .btn {
-      margin-top: 8vh;
-      background:#363636;
-      box-shadow:0 2px 4px 0 rgba(0,0,0,0.25);
-      border-radius:100px;
-      width:325px;
-      height:79px;
+      margin-top: 6vh;
+      background: #363636;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
+      border-radius: 100px;
+      width: 325px;
+      height: 79px;
       color: #ffffff;
       text-transform: uppercase;
       font-size: 36px;
