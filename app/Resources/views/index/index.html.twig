@@ -4,14 +4,23 @@
 
 {% block body %}
     <section class="index-section">
-        <img class="logo-association" src="http://via.placeholder.com/100x100" alt="Logo de l'association">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-2">
+                <img class="logo-gauche center-block" src="{{ asset('images/logo_ligue-enseignement.png') }}" alt="Logo de la ligue de l'enseignement">
+            </div>
+            <div class="col-xs-offset-6 col-xs-2">
+                <img class="logo-droite center-block" src="{{ asset('images/logo_programme-national.png') }}" alt="Logo du programme national">
+            </div>
+        </div>
         <div class="flex-container">
             <div>
-                <img class="logo-site" src="http://via.placeholder.com/600x300" alt="Logo du site">
-                <p class="index-texte">Texte de présentation du site</p>
+                <img class="logo-site center-block" src="{{ asset('images/logo') }}" alt="Logo du site">
+                <p class="index-title"><span>reste</span>atable</p>
+                <p class="index-text">Plateforme d'éducation pour le développement durable
+                    <br/>Lutte contre le gaspillage alimentaire</p>
             </div>
             <div>
-                <a class="btn btn-lg btn-primary" href="{{ path('home') }}" role="button">Commencer</a>
+                <a class="btn btn-lg btn-default" href="{{ path('home') }}" role="button"><span>Commencer</span></a>
             </div>
         </div>
     </section>
