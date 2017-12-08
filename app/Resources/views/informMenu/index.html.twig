@@ -33,7 +33,7 @@
                         <div class="col-xs-offset-3">
                             <a href="{{ informMenu.link }}" target="_blank">Voir plus</a>
                         </div>
-                        <hr class="row"/>
+                        {{ not loop.last ? '<hr class="row"/>' }}
                     </div>
                 </li>
             {% endfor %}
