@@ -1,11 +1,15 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "~font-awesome/fonts";
 
 body {
   margin: 0;
+  background-color: #FFF5E9;
 }
+
+$navBarsColor: #363636;
 
 @import "topBar";
 @import "navigation";
