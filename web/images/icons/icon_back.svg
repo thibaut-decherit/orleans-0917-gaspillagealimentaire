@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 47.1 (45422) - http://www.bohemiancoding.com/sketch -->
     <title>Shape</title>
     <desc>Created with Sketch.</desc>
     <defs></defs>
     <g id="Maquette" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Les-Défis-&gt;-Association" transform="translate(-190.000000, -22.000000)" fill-rule="nonzero" fill="#363636">
+        <g id="Les-Défis-&gt;-Association" transform="translate(-190.000000, -22.000000)" fill-rule="nonzero"
+           fill="#363636">
             <g id="Header" transform="translate(150.000000, 0.000000)">
                 <g id="Retour" transform="translate(22.000000, 12.000000)">
-                    <polygon id="Shape" points="34 17 21.8 17 27.4 11.4 26 10 18 18 26 26 27.4 24.6 21.8 19 34 19"></polygon>
+                    <polygon id="Shape"
+                             points="34 17 21.8 17 27.4 11.4 26 10 18 18 26 26 27.4 24.6 21.8 19 34 19"></polygon>
                 </g>
             </g>
         </g>
