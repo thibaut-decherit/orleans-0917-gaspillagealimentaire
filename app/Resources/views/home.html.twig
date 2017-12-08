@@ -1,8 +1,9 @@
-{% extends 'base.html.twig' %}
+{% extends 'layout.html.twig' %}
 
+{% block navbar %}{% endblock %}
 {% block topBar %}{% endblock %}
 
-{% block body %}
+{% block pageContent %}
     <section class="index-section">
         <div class="row">
             <div class="col-xs-offset-1 col-xs-2">
@@ -22,7 +23,9 @@
                     <br/>Lutte contre le gaspillage alimentaire</p>
             </div>
             <div>
-                <a class="btn btn-lg btn-default" href="{{ path('home') }}" role="button"><span>Commencer</span></a>
+
+                <a class="btn btn-lg btn-primary" href="{{ path('main_menu') }}" role="button">Commencer</a>
+
             </div>
         </div>
     </section>

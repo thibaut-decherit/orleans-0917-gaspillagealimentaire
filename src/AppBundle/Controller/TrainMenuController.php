@@ -27,7 +27,7 @@ class TrainMenuController extends Controller
 
         $trainMenus = $em->getRepository('AppBundle:TrainMenu')->findAll();
 
-        return $this->render('trainMenu/index.html.twig', array(
+        return $this->render('admin/trainMenu/index.html.twig', array(
             'trainMenus' => $trainMenus,
         ));
     }
@@ -52,7 +52,7 @@ class TrainMenuController extends Controller
             return $this->redirectToRoute('train_menu_index', array('id' => $trainMenu->getId()));
         }
 
-        return $this->render('trainMenu/new.html.twig', array(
+        return $this->render('admin/trainMenu/new.html.twig', array(
             'trainMenu' => $trainMenu,
             'form' => $form->createView(),
         ));
@@ -76,7 +76,7 @@ class TrainMenuController extends Controller
             return $this->redirectToRoute('train_menu_edit', array('id' => $trainMenu->getId()));
         }
 
-        return $this->render('trainMenu/edit.html.twig', array(
+        return $this->render('admin/trainMenu/edit.html.twig', array(
             'trainMenu' => $trainMenu,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
