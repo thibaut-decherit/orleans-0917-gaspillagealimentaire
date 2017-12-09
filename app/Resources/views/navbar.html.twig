@@ -42,10 +42,8 @@
                 <hr/>
             </div>
         </div>
-        {% for informMenu in informMenus %}
-            {% if informMenu.isMenu == true %}
-                <li class="submenuText"><a href='{{ informMenu.link }}' target="_blank">{{ informMenu.title }}</a></li>
-            {% endif %}
+        {% for navInformLink in navInformLinks %}
+            <li class="submenuText"><a href='{{ navInformLink.link }}' target="_blank">{{ navInformLink.title }}</a></li>
         {% endfor %}
     </ul>
     <ul id="two">
@@ -62,10 +60,8 @@
                 <hr/>
             </div>
         </div>
-        {% for trainMenu in trainMenus %}
-            {% if trainMenu.isMenu == true %}
-                <li class="submenuText"><a href='{{ trainMenu.link }}' target="_blank">{{ trainMenu.title }}</a></li>
-            {% endif %}
+        {% for navTrainLink in navTrainLinks %}
+            <li class="submenuText"><a href='{{ navTrainLink.link }}' target="_blank">{{ navTrainLink.title }}</a></li>
         {% endfor %}
     </ul>
     <ul id="three">
