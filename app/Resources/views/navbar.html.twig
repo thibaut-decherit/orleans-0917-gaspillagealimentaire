@@ -35,14 +35,18 @@
                 <hr/>
             </div>
         </div>
-        <h4><a href="#">Toutes les ressources</a></h4>
+        <h4><a href="{{ path('inform_menu_index') }}">Toutes les ressources</a></h4>
         <h5>Liens externes</h5>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
                 <hr/>
             </div>
         </div>
-        <li class="submenuText"><a href='#'>Lien</a></li>
+        {% for navInformLink in navInformLinks %}
+            {% if informMenu.is_menu == true %}
+                <li class="submenuText"><a href='{{ informMenu.link }}'>{{ informMenu.title }}</a></li>
+            {% endif %}
+        {% endfor %}
     </ul>
     <ul id="two">
         <h3>S'entraîner</h3>
