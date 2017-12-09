@@ -22,4 +22,3 @@ package-lock\.json
 /web/uploads/*
 
 composer\.lock
-/maquettes/

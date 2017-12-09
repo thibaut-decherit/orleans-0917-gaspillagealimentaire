@@ -26,6 +26,15 @@ class MainMenuController extends Controller
      */
     public function mainMenuAction()
     {
-        return $this->render('mainMenu.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
+        $trainMenus = $em->getRepository('AppBundle:TrainMenu')->findAll();
+
+        return $this->render('mainMenu.html.twig', array(
+            'informMenus' => $informMenus,
+            'trainMenus' => $trainMenus,
+        ));
+
     }
 }
