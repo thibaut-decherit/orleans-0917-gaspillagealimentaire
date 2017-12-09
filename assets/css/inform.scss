@@ -1,6 +1,7 @@
 .informMenu-index-section {
   height: 100vh;
   display: flex;
+  font-family: 'Roboto', Helvetica, sans-serif;
   .pageContent {
     width: 100%;
     ul {
@@ -13,7 +14,7 @@
         list-style: none;
         width: 100%;
         .vignetteContainer {
-          padding-left: 0;
+          padding: 0;
         }
         .vignette {
           height: 200px;
@@ -26,7 +27,6 @@
         }
         .type {
           display: inline-block;
-          margin-left: 20px;
           font-size: 13px;
           color: #424242;
           border-bottom: 2px solid #ee6352;
@@ -36,6 +36,10 @@
           text-align: right;
           font-size: 13px;
           color: #8e8e8e;
+        }
+        h2 {
+          font-weight: 700;
+          text-transform: uppercase;
         }
         .summary {
           margin: 20px 0 20px 40px;
