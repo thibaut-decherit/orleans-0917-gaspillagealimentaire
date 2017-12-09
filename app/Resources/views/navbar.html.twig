@@ -42,8 +42,8 @@
                 <hr/>
             </div>
         </div>
-        {% for navInformLink in navInformLinks %}
-            {% if informMenu.is_menu == true %}
+        {% for informMenu in informMenus %}
+            {% if informMenu.isMenu == true %}
                 <li class="submenuText"><a href='{{ informMenu.link }}'>{{ informMenu.title }}</a></li>
             {% endif %}
         {% endfor %}

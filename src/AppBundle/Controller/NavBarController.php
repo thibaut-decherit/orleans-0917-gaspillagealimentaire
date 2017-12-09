@@ -30,10 +30,10 @@ class NavBarController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findAll();
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
 
         return $this->render('navbar.html.twig', array(
-            'navInformLinks' => $navInformLinks,
+            'informMenus' => $informMenus,
         ));
     }
 }
