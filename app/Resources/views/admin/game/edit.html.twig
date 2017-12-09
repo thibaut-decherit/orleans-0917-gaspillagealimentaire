@@ -1,12 +1,12 @@
-{% extends 'admin/baseAdmin.html.twig' %}
+{% extends 'admin/layoutAdmin.html.twig' %}
 
-{% block contentAdmin %}
+{% block pageContent %}
 
     <div class="admin">
         <div class="row">
             <div class="titleAdmin">
-                <h1 class="titlePage text-info">'S'entraîner' - Modifier</h1>
-                <a href="{{ path('train_menu_index') }}" class="btn_admin btn btn-info">Retour à la liste</a>
+                <h1 class="titlePage text-info">'S'entraîner' - Modifier un jeu</h1>
+                <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-info">Retour à la liste</a>
             </div>
         </div>
         <hr/>
@@ -16,7 +16,7 @@
             {{ form_widget(edit_form) }}
             <input type="submit" value="Modifier" class="btn_admin btn btn-success"/>
             {{ form_end(edit_form) }}
-            <img src="{{ asset('uploads/' ~ trainMenu.imageName) }}"
+            <img src="{{ asset('uploads/' ~ game.imageName) }}"
                  class="img-responsive img-thumbnail center-block imgEdit">
         </div>
         <hr/>
@@ -26,4 +26,5 @@
             {{ form_end(delete_form) }}
         </div>
     </div>
+
 {% endblock %}
