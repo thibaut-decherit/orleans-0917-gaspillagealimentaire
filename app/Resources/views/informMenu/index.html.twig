@@ -3,7 +3,7 @@
 {% block title %}S'informer | Resteatable{% endblock %}
 
 {% block pageContent %}
-    <section class="home-section">
+    <section class="informMenu-index-section">
         <div class="pageContent">
             <ul>
                 {% for informMenu in informMenus %}
@@ -14,7 +14,7 @@
                                     <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
                                          class="img-responsive img-thumbnail vignette">
                                 </div>
-                                <div class="row col-xs-9">
+                                <div class="col-xs-9">
                                     <div class="row">
                                         <div class="col-xs-3">
                                             <p class="type">{{ informMenu.type }}</p>
@@ -30,9 +30,9 @@
                                         <p class="col-xs-6 summary">{{ informMenu.summary }}</p>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-xs-offset-3">
-                                <a href="{{ informMenu.link }}" target="_blank">Voir plus</a>
+                                <div class="row col-xs-9 col-xs-offset-3">
+                                    <a href="{{ informMenu.link }}" target="_blank">Voir plus</a>
+                                </div>
                             </div>
                             {{ not loop.last ? '<hr class="row"/>' }}
                         </div>
