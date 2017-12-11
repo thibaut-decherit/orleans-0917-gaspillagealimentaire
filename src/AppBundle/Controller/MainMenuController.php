@@ -10,6 +10,9 @@ namespace AppBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
+use AppBundle\Entity\InformMenu;
+
 
 /**
  * Class MainMenuController
@@ -23,6 +26,16 @@ class MainMenuController extends Controller
      */
     public function mainMenuAction()
     {
-        return $this->render('mainMenu.html.twig');
+        $em = $this->getDoctrine()->getManager();
+
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
+        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
+        $navTrainLinks = $em->getRepository('AppBundle:TrainMenu')->findBy(['isMenu' => true]);
+
+        return $this->render('mainMenu.html.twig', array(
+            'informMenus' => $informMenus,
+            'navInformLinks' => $navInformLinks,
+            'navTrainLinks' => $navTrainLinks,
+        ));
     }
 }
