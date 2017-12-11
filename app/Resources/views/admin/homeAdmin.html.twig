@@ -1,0 +1,14 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+    <div class="row">
+        <h1 class="titlePage text-info text-center">Administration</h1>
+    </div>
+    <hr/>
+
+    <div class="row text-center">
+        <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-success">S'informer</a>
+        <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-success">S'entrainer - Jeux</a>
+    </div>
+    <hr/>
+{% endblock %}

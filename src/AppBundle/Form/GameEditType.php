@@ -2,6 +2,7 @@
 
 namespace AppBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -11,7 +12,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
-class InformMenuEditType extends AbstractType
+class GameEditType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -25,7 +26,7 @@ class InformMenuEditType extends AbstractType
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('type', TextType::class, array(
-                'label' => "Type (site internet, article de blog...)",
+                'label' => "Type (Jeu en ligne, site de jeux...)",
                 'required' => true,
                 'label_attr' => array('class' => 'labels_admin')
             ))
@@ -44,7 +45,7 @@ class InformMenuEditType extends AbstractType
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('isMenu', CheckboxType::class, array(
-                'label' => "A cocher pour que la ressource apparaisse dans
+                'label' => "A cocher pour que le jeu apparaisse dans
                             la barre de navigation en tant que lien cliquable",
                 'required' => false,
                 'label_attr' => array('class' => 'labels_admin')
@@ -65,7 +66,7 @@ class InformMenuEditType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'AppBundle\Entity\InformMenu'
+            'data_class' => 'AppBundle\Entity\Game'
         ));
     }
 
@@ -74,7 +75,7 @@ class InformMenuEditType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'appbundle_informMenu';
+        return 'appbundle_game';
     }
 
 

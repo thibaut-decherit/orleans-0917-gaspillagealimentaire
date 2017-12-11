@@ -1,37 +1,34 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}S'informer | Resteatable{% endblock %}
+{% block title %}Jeux | Resteatable{% endblock %}
 
 {% block pageContent %}
-    <section class="informMenu-index-section">
+    <section class="game-index-section">
         <div class="pageContent">
             <ul>
-                {% for informMenu in informMenus %}
+                {% for game in games %}
                     <li class="row">
                         <div class="row col-xs-offset-1 col-xs-10">
                             <div class="row">
                                 <div class="col-xs-3 vignetteContainer">
-                                    <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
+                                    <img src="{{ asset('uploads/' ~ game.imageName) }}"
                                          class="img-responsive img-thumbnail vignette">
                                 </div>
                                 <div class="col-xs-9">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <p class="type">{{ informMenu.type }}</p>
-                                        </div>
-                                        <div class="col-xs-3 pull-right">
-                                            <p class="date">{{ informMenu.uploadDate|localizeddate('long', 'none') }}</p>
+                                            <p class="type">{{ game.type }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h2>{{ informMenu.title }}</h2>
+                                        <h2>{{ game.title }}</h2>
                                     </div>
                                     <div class="row">
-                                        <p class="col-xs-6 summary">{{ informMenu.summary }}</p>
+                                        <p class="col-xs-6 summary">{{ game.summary }}</p>
                                     </div>
                                 </div>
                                 <div class="row col-xs-9 col-xs-offset-3">
-                                    <a href="{{ informMenu.link }}" target="_blank">Voir plus</a>
+                                    <a href="{{ game.link }}" target="_blank">Voir plus</a>
                                 </div>
                             </div>
                             {{ not loop.last ? '<hr class="row"/>' }}

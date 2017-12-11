@@ -7,14 +7,15 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 /**
- * InformMenu
+ * Game
  *
- * @ORM\Table(name="inform_menu")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\InformMenuRepository")
+ * @ORM\Table(name="game")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\GameRepository")
  * @Vich\Uploadable
  */
-class InformMenu
+class Game
 {
     /**
      * @var int
@@ -71,14 +72,6 @@ class InformMenu
     private $summary;
 
     /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="upload_date", type="date")
-     *
-     */
-    private $uploadDate;
-
-    /**
      * @var string
      *
      * @ORM\Column(name="link", type="string", length=255)
@@ -94,7 +87,8 @@ class InformMenu
 
     /**
      * @var bool
-     * @ORM\Column(name="is_menu", type="boolean")
+     *
+     * @ORM\Column(name="isMenu", type="boolean")
      */
     private $isMenu;
 
@@ -140,13 +134,12 @@ class InformMenu
         return $this->id;
     }
 
-
     /**
      * Set title
      *
      * @param string $title
      *
-     * @return InformMenu
+     * @return Game
      */
     public function setTitle($title)
     {
@@ -170,7 +163,7 @@ class InformMenu
      *
      * @param string $type
      *
-     * @return Test
+     * @return Game
      */
     public function setType($type)
     {
@@ -194,7 +187,7 @@ class InformMenu
      *
      * @param string $summary
      *
-     * @return Test
+     * @return Game
      */
     public function setSummary($summary)
     {
@@ -214,35 +207,11 @@ class InformMenu
     }
 
     /**
-     * Set uploadDate
-     *
-     * @param \DateTime $uploadDate
-     *
-     * @return Test
-     */
-    public function setUploadDate($uploadDate)
-    {
-        $this->uploadDate = $uploadDate;
-
-        return $this;
-    }
-
-    /**
-     * Get uploadDate
-     *
-     * @return \DateTime
-     */
-    public function getUploadDate()
-    {
-        return $this->uploadDate;
-    }
-
-    /**
      * Set link
      *
      * @param string $link
      *
-     * @return InformMenu
+     * @return Game
      */
     public function setLink($link)
     {
@@ -259,6 +228,30 @@ class InformMenu
     public function getLink()
     {
         return $this->link;
+    }
+
+    /**
+     * Set isMenu
+     *
+     * @param boolean $isMenu
+     *
+     * @return Game
+     */
+    public function setIsMenu($isMenu)
+    {
+        $this->isMenu = $isMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get isMenu
+     *
+     * @return bool
+     */
+    public function getIsMenu()
+    {
+        return $this->isMenu;
     }
 
     /**
@@ -340,23 +333,5 @@ class InformMenu
     {
         return $this->updatedAt;
     }
-
-    /**
-     * @return bool
-     */
-    public function isMenu()
-    {
-        return $this->isMenu;
-    }
-
-    /**
-     * @param bool $isMenu
-     * @return InformMenu
-     */
-    public function setIsMenu($isMenu)
-    {
-        $this->isMenu = $isMenu;
-        return $this;
-    }
-
 }
+

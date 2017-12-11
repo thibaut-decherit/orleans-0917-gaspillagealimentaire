@@ -1,0 +1,45 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+
+    <div class="admin">
+        <div class="row">
+            <div class="titleAdmin">
+                <h1 class="titlePage text-info">'S'entraîner' - Liste des jeux</h1>
+                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
+            </div>
+        </div>
+        <hr/>
+
+        <div class="row">
+            <a href="{{ path('game_new') }}" class="btn_admin btn btn-success">Ajouter un nouveau jeu</a>
+        </div>
+        <hr/>
+
+        <div class="row">
+            <ul class="listAdmin">
+                {% for game in games %}
+                    <li>
+                        <div class="row">
+                            {{ game.title }}
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <img src="{{ asset('uploads/' ~ game.imageName) }}"
+                                     class="img-responsive img-thumbnail vignetteList">
+                            </div>
+                            <div class="col-xs-7">
+                                <p class="pull-right link">{{ game.link }}</p>
+                            </div>
+                        </div>
+
+                    </li>
+                    <a href="{{ path('game_edit', { 'id': game.id }) }}"
+                       class="btn_admin btn btn-warning pull-right">Modifier</a>
+                    <hr/>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+{% endblock %}

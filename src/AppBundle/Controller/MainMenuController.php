@@ -1,36 +1,38 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: wilder2
+ * Date: 20/11/17
+ * Time: 17:41
+ */
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\InformMenu;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
+use AppBundle\Entity\InformMenu;
+
 
 /**
- * InformMenuController controller.
- *
- * @Route("sinformer")
+ * Class MainMenuController
+ * @package AppBundle\Controller
+ * @Route("menu-principal")
  */
-class InformMenuController extends Controller
+class MainMenuController extends Controller
 {
     /**
-     * Lists all informMenu entities.
-     *
-     * @Route("/", name="inform_menu_index")
-     * @Method("GET")
+     * @Route("/", name="main_menu")
      */
-    public function indexAction()
+    public function mainMenuAction()
     {
-
         $em = $this->getDoctrine()->getManager();
 
         $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('informMenu/index.html.twig', array(
+        return $this->render('mainMenu.html.twig', array(
             'informMenus' => $informMenus,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,

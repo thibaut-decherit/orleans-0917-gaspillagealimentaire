@@ -6,7 +6,7 @@ imports:
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
-    locale: en
+    locale: fr
 
 framework:
     #esi: ~
@@ -81,4 +81,3 @@ vich_uploader:
             uri_prefix:         /uploads
             upload_destination: '%kernel.root_dir%/../web/uploads'
             namer: vich_uploader.namer_uniqid
-

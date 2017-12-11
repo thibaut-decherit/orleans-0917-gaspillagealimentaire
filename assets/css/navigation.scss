@@ -1,91 +1,177 @@
 @import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
 /* Please Keep this font import at the very top of any CSS file */
-@charset "UTF-8";
+
 /* Starter CSS for Flyout Menu */
-$top: darkred;
-$middle: orangered;
-$last: purple;
+$top: #EE6352;
+$topHover: #FF8070;
+$middle: #ED9B40;
+$middleHover: #f5ac5a;
+$last: #71B48D;
+$lastHover: #87CDA4;
+
+.tab {
+  border-radius: 20px 0 0 20px;
+  text-decoration: none;
+}
 
 .cssmenu {
   padding: 0;
-  margin: 0;
   border: 0;
   z-index: 250;
   height: 100vh;
   color: #ffffff;
-  position: absolute;
-  width: 200px;
-  background: #333333;
-  font-family: 'Oxygen Mono', Tahoma, Arial, sans-serif;
+  position: fixed;
+  width: 150px;
+  background: $navBarsColor;
   zoom: 1;
   font-size: 12px;
+  font-family: 'Roboto-Regular', Helvetica, sans-serif;
   ul {
     list-style: none;
     margin: 0;
     padding: 0;
     position: absolute;
     .home {
-      padding-bottom: 40vh;
+      margin-top: 30px;
+      background: #ffffff;
+      width: 80px;
+      height: 80px;
+      border-radius: 100%;
+      .icon_home {
+        margin-top: 7px;
+      }
     }
-    .top:active {
-      background: $top;
-    }
-    .middle:active {
-      background: $middle;
-    }
-    .last:active {
-      background: $last;
-    }
-    li.has-sub > a:after {
-      content: '+';
-      position: absolute;
-      top: 50%;
-      right: 15px;
-      margin-top: -6px;
+    .btnMenu {
+      margin: 2vh;
+      font-family: 'Roboto-Regular', Helvetica, sans-serif;
+      font-size: 18px;
+      color: #363636;
+      a {
+        border-color: transparent;
+        border-radius: 100px;
+        padding: 0.5vh;
+      }
     }
   }
   a {
     display: block;
     padding: 15px 20px;
-    color: #ffffff;
-    text-decoration: none;
-    text-transform: uppercase;
+    .text {
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .textHome {
+      margin-top: -10px;
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+    }
   }
+  a:hover {
+    text-decoration: none;
+  }
+
+  .top {
+    a:hover, a:focus {
+      background: $top;
+      @extend .tab;
+    }
+    margin-top: 5vh;
+  }
+  .middle {
+    a:hover, a:focus {
+      background: $middle;
+      @extend .tab;
+    }
+  }
+  .last {
+    a:hover, a:focus {
+      background: $last;
+      @extend .tab;
+    }
+    margin-bottom: 7vh;
+  }
+
   > ul {
-    width: 200px;
+    width: 150px;
     position: absolute;
     z-index: 250;
   }
   li {
+    margin-top: 2vh;
     position: relative;
   }
   .align-right {
     float: right;
   }
+
+  h3 {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @extend .subtitle;
+  }
+
+  h4 {
+    @extend .subtitle;
+  }
+
+  h5 {
+    font-weight: 700;
+    text-align: center;
+    margin-top: 10vh;
+    font-size: 20px;
+    margin-bottom: -15px;
+  }
+
+  .submenuText {
+    font-size: 20px;
+    text-align: center;
+  }
 }
+
 .submenuTarget {
   visibility: visible;
   max-height: 100vh;
   position: absolute;
+  width: 400px;
   padding: 0;
   margin: 0;
   border: 0;
   left: 100%;
   z-index: 1;
   opacity: 1;
+  border-radius: 0 20px 20px 0;
 }
+
 .submenu {
   position: absolute;
   visibility: hidden;
-  left: 0px;
+  left: 0;
   width: 100%;
   height: 100vh;
   transition: 1s;
   z-index: 1;
   opacity: 0;
+  a {
+    padding: 0;
+    text-decoration: none;
+    color: #ffffff;
+  }
 }
+
 #one {
   background: $top;
+  a:hover {
+    background: $topHover;
+  }
   @extend .submenu;
   &:target {
     @extend .submenuTarget;
@@ -94,6 +180,9 @@ $last: purple;
 
 #two {
   background: $middle;
+  a:hover {
+    background: $middleHover;
+  }
   @extend .submenu;
   &:target {
     @extend .submenuTarget;
@@ -102,12 +191,18 @@ $last: purple;
 
 #three {
   background: $last;
+  a:hover {
+    background: $lastHover;
+  }
   @extend .submenu;
   &:target {
     @extend .submenuTarget;
   }
 }
 
-.title {
-  padding-top: 40vh;
+.subtitle {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 24px;
+  font-weight: 700;
 }

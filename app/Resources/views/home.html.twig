@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block topBar %}{% endblock %}
+{% block navbar %}{% endblock %}
+
+{% block pageContent %}
+    <section class="home-section">
+        <div class="row">
+            <div class="col-xs-offset-1 col-xs-2">
+                <img class="logo-gauche center-block" src="{{ asset('images/logo_ligue-enseignement.png') }}"
+                     alt="Logo de la ligue de l'enseignement">
+            </div>
+            <div class="col-xs-offset-6 col-xs-2">
+                <img class="logo-droite center-block" src="{{ asset('images/logo_programme-national.png') }}"
+                     alt="Logo du programme national">
+            </div>
+        </div>
+        <div class="flex-container">
+            <div>
+                <img class="logo-site center-block" src="{{ asset('images/logo') }}" alt="Logo du site">
+                <p class="index-title"><span>reste</span>atable</p>
+                <p class="index-text">Plateforme d'éducation pour le développement durable
+                    <br/>Lutte contre le gaspillage alimentaire</p>
+            </div>
+            <div>
+                <a class="btn btn-lg btn-primary" href="{{ path('main_menu') }}" role="button">Commencer</a>
+            </div>
+        </div>
+    </section>
+{% endblock %}

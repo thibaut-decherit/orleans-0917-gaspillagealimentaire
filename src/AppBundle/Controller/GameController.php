@@ -2,36 +2,35 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\InformMenu;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * InformMenuController controller.
+ * GameController controller.
  *
- * @Route("sinformer")
+ * @Route("jeux")
  */
-class InformMenuController extends Controller
+class GameController extends Controller
 {
     /**
-     * Lists all informMenu entities.
+     * Lists all game entities.
      *
-     * @Route("/", name="inform_menu_index")
+     * @Route("/", name="game_index")
      * @Method("GET")
      */
     public function indexAction()
     {
-
         $em = $this->getDoctrine()->getManager();
 
-        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
+        $games = $em->getRepository('AppBundle:Game')->findAll();
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('informMenu/index.html.twig', array(
-            'informMenus' => $informMenus,
+
+        return $this->render('game/index.html.twig', array(
+            'games' => $games,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
