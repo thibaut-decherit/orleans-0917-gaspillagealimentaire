@@ -28,12 +28,12 @@ class InformMenuController extends Controller
 
         $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navTrainLinks = $em->getRepository('AppBundle:TrainMenu')->findBy(['isMenu' => true]);
+        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
         return $this->render('informMenu/index.html.twig', array(
             'informMenus' => $informMenus,
             'navInformLinks' => $navInformLinks,
-            'navTrainLinks' => $navTrainLinks,
+            'navGameLinks' => $navGameLinks,
         ));
     }
 }
