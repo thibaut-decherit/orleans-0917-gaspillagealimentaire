@@ -25,9 +25,14 @@ class GameController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $games = $em->getRepository('AppBundle:Game')->findAll();
+        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
+        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
+
 
         return $this->render('game/index.html.twig', array(
             'games' => $games,
+            'navInformLinks' => $navInformLinks,
+            'navGameLinks' => $navGameLinks,
         ));
     }
 }
