@@ -1,53 +1,82 @@
-$myMainColor: #00bfff;
+$grey_border: grey;
 
-.titlePage {
-  margin-top: 3%;
-  margin-bottom: 3%;
+hr {
+  border-top: 1px solid $grey_border;
 }
 
 .btn_admin {
-  border: 2px solid $myMainColor;
+  border: 2px solid $grey_border;
   border-radius: 50px;
-  background-color: transparent;
-  color: $myMainColor;
+  background-color: $navBarsColor;
+  color: white;
   margin-right: 1%;
 }
 
-.listAdmin {
-  li {
-    list-style-type: none;
-    font-size: 1.5vw;
+.adminHome {
+  margin-top: 20px;
+  .panel-title {
+    font-size: 2vw;
+    color: $grey_border;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
-}
-
-.labels_admin {
-  font-size: 1vw;
-  color: grey;
-}
-
-.titleAdmin {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 3%;
+  .panel-body {
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
 }
 
 .admin {
-  .form-control {
-    border: 2px solid $myMainColor;
-    border-radius: 50px;
+  margin-top: 20px;
+  .panel-title {
+    font-size: 2vw;
+    color: $grey_border;
+    padding-top: 15px;
+    padding-bottom: 15px;
   }
-  hr {
-    border-top: 1px solid $myMainColor;
-  }
-  .vignetteList {
-    height: 100px;
-    width: auto;
-  }
-  .imgEdit {
-    width: 400px;
-    height: auto;
-  }
-  .date {
-    font-size: 1vw;
+  .panel-body {
+    margin: 15px;
+    .listAdmin {
+      li {
+        list-style-type: none;
+        p {
+          font-size: 1.5vw;
+        }
+        .form-control {
+          border: 2px solid $grey_border;
+          border-radius: 50px;
+        }
+        .vignetteList {
+          height: 150px;
+          width: auto;
+          margin-bottom: 10px;
+        }
+        .imgEdit {
+          width: 400px;
+          height: auto;
+        }
+        .date {
+          font-size: 1vw;
+        }
+        .link {
+          font-size: 1vw;
+          font-style: italic;
+        }
+        .group-form {
+          label {
+            font-size: 1vw;
+            font-style: italic;
+          }
+        }
+      }
+    }
+    .labels_admin {
+      font-size: 1vw;
+      color: grey;
+    }
   }
 }
+
+
+
+

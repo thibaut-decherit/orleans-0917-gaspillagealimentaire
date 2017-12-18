@@ -117,4 +117,24 @@ class AdminGameController extends Controller
             ->setMethod('DELETE')
             ->getForm();
     }
+
+    /**
+     * @param Game $game
+     * @Route("/toggled-checked{id}")
+     * @Method({"GET", "POST"})
+     */
+    public function toggledCheck(Request $request, Game $game)
+    {
+        if ($request->isXmlHttpRequest()) {
+            if ($game->getIsMenu()) {
+                $game->setIsMenu(0);
+            } else {
+                $game->setIsMenu(1);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return new Response("ok");
+        }
+    }
 }

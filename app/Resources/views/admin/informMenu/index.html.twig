@@ -1,45 +1,57 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
 
 {% block pageContent %}
-
-    <div class="admin">
-        <div class="row">
-            <div class="titleAdmin">
-                <h1 class="titlePage text-info">'S'informer' - Liste des liens</h1>
-                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
+    <div class="panel panel-default admin">
+        <div class="panel-heading">
+            <h1 class="panel-title text-info text-center">S'informer - Liste des liens infos</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
+                    Accueil Administration</a>
+            </div>
+            <div class="row">
+                <a href="{{ path('admin_inform_menu_new') }}" class="btn_admin btn btn-default">Ajouter un nouveau
+                    lien</a>
+            </div>
+            <hr/>
+            <div class="row">
+                <ul class="listAdmin">
+                    {% for informMenu in informMenus %}
+                        <li>
+                            <div class="row">
+                                <p>{{ informMenu.title }}</p>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-5">
+                                    <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
+                                         class="img-responsive img-thumbnail vignetteList">
+                                </div>
+                                <div class="col-xs-7">
+                                    <p class="pull-right link">{{ informMenu.link }}</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-8">
+                                    <div class="group-form">
+                                        <input type="checkbox" name="{{ informMenu.id }}"
+                                               id="checkbox-{{ informMenu.id }}"
+                                               class="checkboxMenu1" {{ informMenu.isMenu ? "checked = 'checked'" }}>
+                                        <label for="checkbox-{{ informMenu.id }}">
+                                            Cochez pour afficher le lien dans le menu
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <a href="{{ path('admin_inform_menu_edit', { 'id': informMenu.id }) }}"
+                                       class="btn_admin btn btn-default pull-right">Modifier</a>
+                                </div>
+                            </div>
+                        </li>
+                        <hr/>
+                    {% endfor %}
+                </ul>
             </div>
         </div>
-        <hr/>
-
-        <div class="row">
-            <a href="{{ path('admin_inform_menu_new') }}" class="btn_admin btn btn-success">Créer un nouveau lien</a>
-        </div>
-        <hr/>
-
-        <div class="row">
-            <ul class="listAdmin">
-                {% for informMenu in informMenus %}
-                    <li>
-                        <div class="row">
-                                {{ informMenu.title }}
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
-                                     class="img-responsive img-thumbnail vignetteList">
-                            </div>
-                            <div class="col-xs-3 pull-right">
-                                <p class="date">{{ informMenu.uploadDate|localizeddate('long', 'none') }}</p>
-                            </div>
-                        </div>
-
-                    </li>
-                    <a href="{{ path('admin_inform_menu_edit', { 'id': informMenu.id }) }}"
-                       class="btn_admin btn btn-warning pull-right">Modifier</a>
-                    <hr/>
-                {% endfor %}
-            </ul>
-        </div>
     </div>
-
 {% endblock %}

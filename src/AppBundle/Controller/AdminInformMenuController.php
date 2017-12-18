@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * AdminInformMenu controller.
@@ -118,5 +119,25 @@ class AdminInformMenuController extends Controller
             ->setAction($this->generateUrl('admin_inform_menu_delete', array('id' => $informMenu->getId())))
             ->setMethod('DELETE')
             ->getForm();
+    }
+
+    /**
+     * @param InformMenu $informMenu
+     * @Route("/toggled-checked{id}")
+     * @Method({"GET", "POST"})
+     */
+    public function toggledCheck(Request $request, InformMenu $informMenu)
+    {
+        if ($request->isXmlHttpRequest()) {
+            if ($informMenu->isMenu()) {
+                $informMenu->setIsMenu(0);
+            } else {
+                $informMenu->setIsMenu(1);
+            }
+
+            $em = $this->getDoctrine()->getManager();
+            $em->flush();
+            return new Response("ok");
+        }
     }
 }
