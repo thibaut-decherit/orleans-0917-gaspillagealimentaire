@@ -1,47 +1,27 @@
-.home-section {
-  font-family: 'Roboto-regular', Helvetica, sans-serif;
-  height: 100vh;
-  .row {
-    padding-top: 3vh;
-  }
-  .logo-droite, .logo-gauche {
-    width: 200px;
-  }
-  .flex-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-
+.homeSection {
+  display: flex;
+  .home {
+    width: 100vw;
+    padding-top: 50px;
+    font-family: 'Roboto-regular', Helvetica, sans-serif;
+    .logo-droite, .logo-gauche {
+      width: auto;
+      height: 100px;
+    }
     .index-title {
-      text-align: center;
-      margin-top: 1vh;
+      margin-top: 20px;
       font-family: 'Varela Round', Helvetica, sans-serif;
-      font-size: 72px;
+      font-size: 3vw;
       span {
         color: #4e84bc;
       }
     }
-
     .index-text {
-      text-align: center;
-      margin-top: 1vh;
-      font-size: 36px;
+      margin-top: 20px;
+      font-size: 1.5vw;
     }
-
-    .btn {
-      margin-top: 6vh;
-      background: #363636;
-      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-      border-radius: 100px;
-      width: 325px;
-      height: 79px;
-      color: #ffffff;
-      text-transform: uppercase;
-      font-size: 36px;
-      span {
-        vertical-align: middle;
-      }
+    .logosMini {
+      padding-right: 50px;
     }
   }
 }

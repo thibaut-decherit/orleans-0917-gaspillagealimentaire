@@ -17,9 +17,8 @@ body {
 $navBarsColor: #363636;
 
 @import "topBar";
-@import "navigation";
+@import "navbar";
 @import "home";
-@import "mainMenu";
 @import 'admin';
 @import "inform";
 @import "game";

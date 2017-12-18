@@ -32,7 +32,7 @@ class MainMenuController extends Controller
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('mainMenu.html.twig', array(
+        return $this->render('home.html.twig', array(
             'informMenus' => $informMenus,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
