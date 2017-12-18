@@ -4,24 +4,28 @@
     width: 100vw;
     padding-top: 50px;
     font-family: 'Roboto-regular', Helvetica, sans-serif;
-    .logo-droite, .logo-gauche {
-      width: auto;
-      height: 100px;
-    }
-    .index-title {
-      margin-top: 20px;
-      font-family: 'Varela Round', Helvetica, sans-serif;
-      font-size: 3vw;
-      span {
-        color: #4e84bc;
+    div {
+      margin: 0;
+      .logo-droite, .logo-gauche {
+        width: auto;
+        height: 100px;
+      }
+      .index-title {
+        margin-top: 20px;
+        font-family: 'Varela Round', Helvetica, sans-serif;
+        font-size: 3vw;
+        span {
+          color: #4e84bc;
+        }
+      }
+      .index-text {
+        margin-top: 20px;
+        font-size: 1.5vw;
+      }
+      .logosMini {
+        padding-right: 50px;
       }
     }
-    .index-text {
-      margin-top: 20px;
-      font-size: 1.5vw;
-    }
-    .logosMini {
-      padding-right: 50px;
-    }
+
   }
 }
