@@ -9,10 +9,10 @@
         <div class="panel-body">
             <div class="row">
                 <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
-                    Accueil Administration</a>
+                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration</a>
             </div>
             <div class="row">
-                <a href="{{ path('game_new') }}" class="btn_admin btn btn-default">Ajouter un nouveau jeu</a>
+                <a href="{{ path('game_new') }}" class="btn_admin btn btn-default"><span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau jeu</a>
             </div>
             <hr/>
             <div class="row">
@@ -39,17 +39,21 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8">
-                                <a href="{{ path('link_menu', {'id':game.id}) }}">
-                                    {{ game.isMenu ? 'Retirer' : 'Mettre en avant' }}
+                                <a href="{{ path('link_menu', {'id':game.id}) }}" class="ckeckbox">
+                                    {{ game.isMenu ? 'Enlever le lien du menu' : 'Afficher le lien dans le menu' }}
                                 </a>
                             </div>
                             <div class="col-xs-4">
                                 <a href="{{ path('game_edit', { 'id': game.id }) }}"
-                                   class="btn_admin btn btn-default pull-right">Modifier</a>
+                                   class="btn_admin btn btn-default pull-right"><span class="glyphicon glyphicon-edit"></span> Modifier</a>
                             </div>
                         </div>
                         <hr/>
                     {% endfor %}
+                    <div class="row">
+                        <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default">
+                            <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration</a>
+                    </div>
                 </div>
             </div>
         </div>

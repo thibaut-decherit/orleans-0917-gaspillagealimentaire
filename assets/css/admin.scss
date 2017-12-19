@@ -62,6 +62,14 @@ hr {
         font-size: 1vw;
         font-style: italic;
       }
+      .ckeckbox {
+        text-decoration: none;
+        color: $navBarsColor;
+        font-size: 1vw;
+      }
+      .ckeckbox:hover {
+        color: $grey_border;
+      }
     }
     .labels_admin {
       font-size: 1vw;
