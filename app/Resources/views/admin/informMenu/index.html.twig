@@ -16,41 +16,41 @@
             </div>
             <hr/>
             <div class="row">
-                <ul class="listAdmin">
+                <div class="listAdmin">
                     {% for informMenu in informMenus %}
-                        <li>
-                            <div class="row">
-                                <p>{{ informMenu.title }}</p>
+                        {% for label, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="alert alert-danger text-center">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                        <div class="row">
+                            <p>{{ informMenu.title }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
+                                     class="img-responsive img-thumbnail vignetteList">
                             </div>
-                            <div class="row">
-                                <div class="col-xs-5">
-                                    <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
-                                         class="img-responsive img-thumbnail vignetteList">
-                                </div>
-                                <div class="col-xs-7">
-                                    <p class="pull-right link">{{ informMenu.link }}</p>
-                                </div>
+                            <div class="col-xs-7">
+                                <p class="pull-right link">{{ informMenu.link }}</p>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-8">
-                                    <div class="group-form">
-                                        <input type="checkbox" name="{{ informMenu.id }}"
-                                               id="checkbox-{{ informMenu.id }}"
-                                               class="checkboxMenu1" {{ informMenu.isMenu ? "checked = 'checked'" }}>
-                                        <label for="checkbox-{{ informMenu.id }}">
-                                            Cochez pour afficher le lien dans le menu
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-xs-4">
-                                    <a href="{{ path('admin_inform_menu_edit', { 'id': informMenu.id }) }}"
-                                       class="btn_admin btn btn-default pull-right">Modifier</a>
-                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <a href="{{ path('link_menu', {'id':informMenu.id}) }}">
+                                    {{ informMenu.isMenu ? 'Retirer' : 'Mettre en avant' }}
+                                </a>
                             </div>
-                        </li>
+                            <div class="col-xs-4">
+                                <a href="{{ path('admin_inform_menu_edit', { 'id': informMenu.id }) }}"
+                                   class="btn_admin btn btn-default pull-right">Modifier</a>
+                            </div>
+                        </div>
                         <hr/>
                     {% endfor %}
-                </ul>
+                </div>
             </div>
         </div>
     </div>

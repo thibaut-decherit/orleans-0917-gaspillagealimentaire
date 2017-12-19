@@ -9,7 +9,6 @@ hr {
   border-radius: 50px;
   background-color: $navBarsColor;
   color: white;
-  margin-right: 1%;
 }
 
 .adminHome {
@@ -37,37 +36,31 @@ hr {
   .panel-body {
     margin: 15px;
     .listAdmin {
-      li {
-        list-style-type: none;
-        p {
-          font-size: 1.5vw;
-        }
-        .form-control {
-          border: 2px solid $grey_border;
-          border-radius: 50px;
-        }
-        .vignetteList {
-          height: 150px;
-          width: auto;
-          margin-bottom: 10px;
-        }
-        .imgEdit {
-          width: 400px;
-          height: auto;
-        }
-        .date {
-          font-size: 1vw;
-        }
-        .link {
-          font-size: 1vw;
-          font-style: italic;
-        }
-        .group-form {
-          label {
-            font-size: 1vw;
-            font-style: italic;
-          }
-        }
+      .row {
+        margin: 0;
+      }
+      p {
+        font-size: 1.5vw;
+      }
+      .form-control {
+        border: 2px solid $grey_border;
+        border-radius: 50px;
+      }
+      .vignetteList {
+        height: 150px;
+        width: auto;
+        margin-bottom: 10px;
+      }
+      .imgEdit {
+        width: 400px;
+        height: auto;
+      }
+      .date {
+        font-size: 1vw;
+      }
+      .link {
+        font-size: 1vw;
+        font-style: italic;
       }
     }
     .labels_admin {

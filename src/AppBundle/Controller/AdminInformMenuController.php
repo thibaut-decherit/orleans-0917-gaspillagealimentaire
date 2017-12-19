@@ -123,21 +123,25 @@ class AdminInformMenuController extends Controller
 
     /**
      * @param InformMenu $informMenu
-     * @Route("/toggled-checked{id}")
+     * @Route("/toggled-checked/{id}", name="link_menu")
      * @Method({"GET", "POST"})
      */
-    public function toggledCheck(Request $request, InformMenu $informMenu)
+    public function toggledCheck(InformMenu $informMenu)
     {
-        if ($request->isXmlHttpRequest()) {
-            if ($informMenu->isMenu()) {
-                $informMenu->setIsMenu(0);
-            } else {
-                $informMenu->setIsMenu(1);
-            }
+        $em = $this->getDoctrine()->getManager();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-            return new Response("ok");
+        $linksTrueNumber = count($em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]));
+
+        if ($informMenu->getIsMenu() == true) {
+            $informMenu->setIsMenu(false);
+        } elseif (($informMenu->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+            $informMenu->setIsMenu(true);
+        } else {
+            $this->addFlash("Error", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
         }
+
+        $em->persist($informMenu);
+        $em->flush();
+        return $this->redirectToRoute('admin_inform_menu_index');
     }
 }

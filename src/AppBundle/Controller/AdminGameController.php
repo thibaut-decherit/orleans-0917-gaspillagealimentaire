@@ -120,21 +120,25 @@ class AdminGameController extends Controller
 
     /**
      * @param Game $game
-     * @Route("/toggled-checked{id}")
+     * @Route("/toggled-checked/{id}", name="link_menu")
      * @Method({"GET", "POST"})
      */
-    public function toggledCheck(Request $request, Game $game)
+    public function toggledCheck(Game $game)
     {
-        if ($request->isXmlHttpRequest()) {
-            if ($game->getIsMenu()) {
-                $game->setIsMenu(0);
-            } else {
-                $game->setIsMenu(1);
-            }
+        $em = $this->getDoctrine()->getManager();
 
-            $em = $this->getDoctrine()->getManager();
-            $em->flush();
-            return new Response("ok");
+        $linksTrueNumber = count($em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]));
+
+        if ($game->getIsMenu() == true) {
+            $game->setIsMenu(false);
+        } elseif (($game->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+            $game->setIsMenu(true);
+        } else {
+            $this->addFlash("Error", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
         }
+
+        $em->persist($game);
+        $em->flush();
+        return $this->redirectToRoute('admin_game_index');
     }
 }
