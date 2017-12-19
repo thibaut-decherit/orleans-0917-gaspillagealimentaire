@@ -359,4 +359,14 @@ class InformMenu
         return $this;
     }
 
+
+    /**
+     * Get isMenu
+     *
+     * @return boolean
+     */
+    public function getIsMenu()
+    {
+        return $this->isMenu;
+    }
 }
