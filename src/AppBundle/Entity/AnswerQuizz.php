@@ -15,8 +15,8 @@ class AnswerQuizz
 
     /**
      * @var
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\questionQuizz", inversedBy="quizzAnswers")
-     * @ORM\JoinColumn(nullable=true)
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\QuestionQuizz", inversedBy="quizzAnswers")
+     * @ORM\JoinColumn(nullable=false)
      */
     private $quizzQuestion;
 
