@@ -2,6 +2,13 @@
 
 {% block title %}S'informer | Resteatable{% endblock %}
 
+{% block topBar %}
+    {% embed 'topBar.html.twig' %}
+        {% block colorTopBar %}<nav class="nav navbar-fixed-top topBar colorBackgroundTop">{% endblock %}
+        {% block titleTopBar %}les infos{% endblock %}
+    {% endembed %}
+{% endblock %}
+
 {% block pageContent %}
     <section class="informMenu-index-section">
         <div class="pageContent">
