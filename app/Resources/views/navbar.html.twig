@@ -43,7 +43,8 @@
             </div>
         </div>
         {% for navInformLink in navInformLinks %}
-            <li class="submenuText"><a href='{{ navInformLink.link }}' target="_blank">{{ navInformLink.title }}</a></li>
+            <li class="submenuText"><a href='{{ navInformLink.link }}' target="_blank">{{ navInformLink.title }}</a>
+            </li>
         {% endfor %}
     </ul>
     <ul id="two">
@@ -73,8 +74,14 @@
             </div>
         </div>
         <h4>Défis à faire :</h4>
-        <li class="submenuText"><a href="#">Chez toi</a></li>
-        <li class="submenuText"><a href="#">Au collège/lycée</a></li>
-        <li class="submenuText"><a href="#">Dans une structure, une association</a></li>
+        <li class="submenuText">
+            <a href="{{ path('challenges_home_index') }}">Chez toi</a>
+        </li>
+        <li class="submenuText">
+            <a href="{{ path('challenges_school_index') }}">Au collège/lycée</a>
+        </li>
+        <li class="submenuText">
+            <a href="{{ path('challenges_organization_index') }}">Dans une structure, une association</a>
+        </li>
     </ul>
 </nav>
