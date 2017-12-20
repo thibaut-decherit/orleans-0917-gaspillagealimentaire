@@ -134,10 +134,12 @@ class AdminInformMenuController extends Controller
 
         if ($informMenu->getIsMenu() == true) {
             $informMenu->setIsMenu(false);
+            $this->addFlash("success", "Les liens ont bien été mis à jour dans le menu.");
         } elseif (($informMenu->getIsMenu() == false) && ($linksTrueNumber < 5)) {
             $informMenu->setIsMenu(true);
+            $this->addFlash("success", "Les liens ont bien été mis à jour dans le menu.");
         } else {
-            $this->addFlash("Error", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
+            $this->addFlash("danger", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
         }
 
         $em->persist($informMenu);
