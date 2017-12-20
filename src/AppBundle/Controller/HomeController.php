@@ -22,16 +22,6 @@ class HomeController extends Controller
      */
     public function homeAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
-
-        return $this->render('home.html.twig', array(
-            'informMenus' => $informMenus,
-            'navInformLinks' => $navInformLinks,
-            'navGameLinks' => $navGameLinks,
-        ));
+        return $this->render('home.html.twig');
     }
 }
