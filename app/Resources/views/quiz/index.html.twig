@@ -2,6 +2,10 @@
 
 {% block title %}Quiz | Resteatable{% endblock %}
 
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title':'Les quiz'} %}
+{% endblock %}
+
 {% block pageContent %}
     <section class="quiz-index-section">
         <div class="pageContent">
@@ -75,7 +79,8 @@
                                 <div class="row">
                                     <p class="col-xs-6 summary">
                                         Alii nullo quaerente vultus severitate adsimulata patrimonia sua in inmensum
-                                        extollunt, cultorum ut puta feracium multiplicantes annuos fructus, quae a primo
+                                        extollunt, cultorum ut puta feracium multiplicantes annuos fructus, quae a
+                                        primo
                                         ad ultimum solem se.
                                     </p>
                                     <div class="col-xs-3 pull-right">
