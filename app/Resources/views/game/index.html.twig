@@ -2,12 +2,8 @@
 
 {% block title %}Jeux | Resteatable{% endblock %}
 
-{% block topBar %}
-    {% embed 'topBar.html.twig' %}
-        {% block colorTopBar %}
-<nav class="nav navbar-fixed-top topBar colorBackgroundMiddle">{% endblock %}
-    {% block titleTopBar %}les jeux{% endblock %}
-    {% endembed %}
+    {% block topBar %}
+        {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title':'Les jeux'} %}
     {% endblock %}
     {% block pageContent %}
         <section class="game-index-section">

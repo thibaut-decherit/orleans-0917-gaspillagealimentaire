@@ -3,12 +3,8 @@
 {% block title %}Défis chez toi | Resteatable{% endblock %}
 
 {% block topBar %}
-    {% embed 'topBar.html.twig' %}
-        {% block colorTopBar %}
-<nav class="nav navbar-fixed-top topBar colorBackgroundLast">{% endblock %}
-    {% block titleTopBar %}Défis chez toi{% endblock %}
-    {% endembed %}
-    {% endblock %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title':'Défis chez toi'} %}
+{% endblock %}
 
     {% block pageContent %}
         <section class="challenge-index-section">

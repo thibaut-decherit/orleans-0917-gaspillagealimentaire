@@ -5,7 +5,7 @@
         {{ render(controller('AppBundle\\Controller\\MenuController::menuAction')) }}
     {% endblock %}
     {% block topBar %}
-        {% include 'topBar.html.twig' %}
+        {% include 'topBar.html.twig' with {'colorBackground': 'colorBackground'} %}
     {% endblock %}
 
     {% block pageContent %}{% endblock %}

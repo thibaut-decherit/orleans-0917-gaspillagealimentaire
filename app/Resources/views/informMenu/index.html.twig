@@ -3,10 +3,7 @@
 {% block title %}S'informer | Resteatable{% endblock %}
 
 {% block topBar %}
-    {% embed 'topBar.html.twig' %}
-        {% block colorTopBar %}<nav class="nav navbar-fixed-top topBar colorBackgroundTop">{% endblock %}
-        {% block titleTopBar %}les infos{% endblock %}
-    {% endembed %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundTop', 'title':'Les infos'} %}
 {% endblock %}
 
 {% block pageContent %}

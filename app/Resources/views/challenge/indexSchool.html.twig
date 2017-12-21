@@ -3,12 +3,8 @@
 {% block title %}Défis au collège / Lycée | Resteatable{% endblock %}
 
 {% block topBar %}
-    {% embed 'topBar.html.twig' %}
-        {% block colorTopBar %}
-<nav class="nav navbar-fixed-top topBar colorBackgroundLast">{% endblock %}
-    {% block titleTopBar %}défis au collège / lycée{% endblock %}
-    {% endembed %}
-    {% endblock %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title':'Défis au collège / lycée'} %}
+{% endblock %}
 
     {% block pageContent %}
         <section class="challenge-index-section">

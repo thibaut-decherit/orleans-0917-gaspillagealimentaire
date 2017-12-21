@@ -3,12 +3,8 @@
 {% block title %}Défis dans une structure collective / association | Resteatable{% endblock %}
 
 {% block topBar %}
-    {% embed 'topBar.html.twig' %}
-        {% block colorTopBar %}
-<nav class="nav navbar-fixed-top topBar colorBackgroundLast">{% endblock %}
-    {% block titleTopBar %}défis dans une structure collective / association{% endblock %}
-    {% endembed %}
-    {% endblock %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title':'Défis dans une structure collective / association'} %}
+{% endblock %}
 
     {% block pageContent %}
         <section class="challenge-index-section">
