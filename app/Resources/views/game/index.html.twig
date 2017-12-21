@@ -4,44 +4,45 @@
 
 {% block topBar %}
     {% embed 'topBar.html.twig' %}
-        {% block colorTopBar %}<nav class="nav navbar-fixed-top topBar colorBackgroundMiddle">{% endblock %}
-        {% block titleTopBar %}les jeux{% endblock %}
+        {% block colorTopBar %}
+<nav class="nav navbar-fixed-top topBar colorBackgroundMiddle">{% endblock %}
+    {% block titleTopBar %}les jeux{% endblock %}
     {% endembed %}
-{% endblock %}
-{% block pageContent %}
-    <section class="game-index-section">
-        <div class="pageContent">
-            <ul>
-                {% for game in games %}
-                    <li class="row">
-                        <div class="row col-xs-offset-1 col-xs-10">
-                            <div class="row">
-                                <div class="col-xs-3 vignetteContainer">
-                                    <img src="{{ asset('uploads/' ~ game.imageName) }}"
-                                         class="img-responsive img-thumbnail vignette">
-                                </div>
-                                <div class="col-xs-9">
-                                    <div class="row">
-                                        <div class="col-xs-3">
-                                            <p class="type">{{ game.type }}</p>
+    {% endblock %}
+    {% block pageContent %}
+        <section class="game-index-section">
+            <div class="pageContent">
+                <ul>
+                    {% for game in games %}
+                        <li class="row">
+                            <div class="row col-xs-offset-1 col-xs-10">
+                                <div class="row">
+                                    <div class="col-xs-3 vignetteContainer">
+                                        <img src="{{ asset('uploads/' ~ game.imageName) }}"
+                                             class="img-responsive img-thumbnail vignette">
+                                    </div>
+                                    <div class="col-xs-9">
+                                        <div class="row">
+                                            <div class="col-xs-3">
+                                                <p class="type">{{ game.type }}</p>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <h2>{{ game.title }}</h2>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-xs-6 summary">{{ game.summary }}</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <h2>{{ game.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">{{ game.summary }}</p>
+                                    <div class="row col-xs-9 col-xs-offset-3">
+                                        <a href="{{ game.link }}" target="_blank">Voir plus</a>
                                     </div>
                                 </div>
-                                <div class="row col-xs-9 col-xs-offset-3">
-                                    <a href="{{ game.link }}" target="_blank">Voir plus</a>
-                                </div>
+                                {{ not loop.last ? '<hr class="row"/>' }}
                             </div>
-                            {{ not loop.last ? '<hr class="row"/>' }}
-                        </div>
-                    </li>
-                {% endfor %}
-            </ul>
-        </div>
-    </section>
-{% endblock %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    {% endblock %}
