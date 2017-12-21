@@ -2,6 +2,14 @@
 
 {% block title %}Quiz | Resteatable{% endblock %}
 
+{% block topBar %}
+    {% embed 'topBar.html.twig' %}
+        {% block colorTopBar %}
+<nav class="nav navbar-fixed-top topBar colorBackgroundMiddle">{% endblock %}
+    {% block titleTopBar %}les quizz{% endblock %}
+    {% endembed %}
+    {% endblock %}
+
 {% block pageContent %}
     <section class="quiz-index-section">
         <div class="pageContent">
