@@ -2,26 +2,24 @@
 
 {% block pageContent %}
 
-    <div class="admin">
-        <div class="row">
-            <div class="titleAdmin">
-                <h1 class="titlePage text-info">'S'entraîner' - Liste des jeux</h1>
-                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-info pull-right">Accueil Administration</a>
+    <div class="panel panel-default admin">
+        <div class="panel-heading">
+            <h1 class="panel-title text-info text-center">S'entraîner - Liste des jeux</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration</a>
             </div>
-        </div>
-        <hr/>
-
-        <div class="row">
-            <a href="{{ path('game_new') }}" class="btn_admin btn btn-success">Ajouter un nouveau jeu</a>
-        </div>
-        <hr/>
-
-        <div class="row">
-            <ul class="listAdmin">
-                {% for game in games %}
-                    <li>
+            <div class="row">
+                <a href="{{ path('game_new') }}" class="btn_admin btn btn-default"><span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau jeu</a>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="listAdmin">
+                    {% for game in games %}
                         <div class="row">
-                            {{ game.title }}
+                            <p>{{ game.title }}</p>
                         </div>
                         <div class="row">
                             <div class="col-xs-5">
@@ -32,13 +30,25 @@
                                 <p class="pull-right link">{{ game.link }}</p>
                             </div>
                         </div>
-
-                    </li>
-                    <a href="{{ path('game_edit', { 'id': game.id }) }}"
-                       class="btn_admin btn btn-warning pull-right">Modifier</a>
-                    <hr/>
-                {% endfor %}
-            </ul>
+                        <div class="row">
+                            <div class="col-xs-8">
+                                <a href="{{ path('link_menu', {'id':game.id}) }}" class="ckeckbox">
+                                    {{ game.isMenu ? 'Enlever le lien du menu' : 'Afficher le lien dans le menu' }}
+                                </a>
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="{{ path('game_edit', { 'id': game.id }) }}"
+                                   class="btn_admin btn btn-default pull-right"><span class="glyphicon glyphicon-edit"></span> Modifier</a>
+                            </div>
+                        </div>
+                        <hr/>
+                    {% endfor %}
+                    <div class="row">
+                        <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default">
+                            <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration</a>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 

@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: wilder2
- * Date: 20/11/17
- * Time: 17:41
+ * User: wilder4
+ * Date: 18/12/17
+ * Time: 14:43
  */
 
 namespace AppBundle\Controller;
@@ -11,29 +11,21 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use AppBundle\Entity\InformMenu;
-
 
 /**
- * Class MainMenuController
+ * Class MenuController
  * @package AppBundle\Controller
- * @Route("menu-principal")
  */
-class MainMenuController extends Controller
+class MenuController extends Controller
 {
-    /**
-     * @Route("/", name="main_menu")
-     */
-    public function mainMenuAction()
+    public function menuAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('home.html.twig', array(
-            'informMenus' => $informMenus,
+        return $this->render('navbar.html.twig', array(
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
