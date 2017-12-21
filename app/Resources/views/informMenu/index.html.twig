@@ -2,6 +2,10 @@
 
 {% block title %}S'informer | Resteatable{% endblock %}
 
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundTop', 'title':'Les infos'} %}
+{% endblock %}
+
 {% block pageContent %}
     <section class="informMenu-index-section">
         <div class="pageContent">

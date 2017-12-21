@@ -2,10 +2,10 @@
 
 {% block layout %}
     {% block navbar %}
-        {% include 'navbar.html.twig' %}
+        {{ render(controller('AppBundle\\Controller\\MenuController::menuAction')) }}
     {% endblock %}
     {% block topBar %}
-        {% include 'topBar.html.twig' %}
+        {% include 'topBar.html.twig' with {'colorBackground': 'colorBackground', 'title': 'Menu principal'} %}
     {% endblock %}
 
     {% block pageContent %}{% endblock %}
