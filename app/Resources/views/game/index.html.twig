@@ -24,14 +24,15 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <h2>{{ game.title }}</h2>
+                                        <h2>
+                                            <a href="{{ game.link }}" target="_blank">{{ game.title }}
+                                                <span class="glyphicon glyphicon-new-window"></span>
+                                            </a>
+                                        </h2>
                                     </div>
                                     <div class="row">
                                         <p class="col-xs-6 summary">{{ game.summary }}</p>
                                     </div>
-                                </div>
-                                <div class="row col-xs-9 col-xs-offset-3">
-                                    <a href="{{ game.link }}" target="_blank">Voir plus</a>
                                 </div>
                             </div>
                             {{ not loop.last ? '<hr class="row"/>' }}

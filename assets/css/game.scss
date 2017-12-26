@@ -41,20 +41,23 @@
         h2 {
           font-weight: 700;
           text-transform: uppercase;
+          a {
+            text-decoration: none;
+            color: #424242;
+            span {
+              font-size: 12px;
+              vertical-align: top;
+            }
+          }
+          a:hover {
+            color: #71b48d;
+          }
         }
         .summary {
           margin: 20px 0 20px 40px;
           font-size: 13px;
           color: #8e8e8e;
           padding: 0;
-        }
-        a {
-          font-size: 20px;
-          color: #71b48d;
-          position: absolute;
-          bottom: 0px;
-          text-decoration: none;
-          margin-left: 40px;
         }
       }
       hr {
