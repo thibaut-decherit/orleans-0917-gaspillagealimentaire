@@ -22,6 +22,9 @@
                                         <div class="col-xs-3">
                                             <p class="type">{{ game.type }}</p>
                                         </div>
+                                        <div class="col-xs-3 pull-right">
+                                            <p class="date">{{ game.uploadDate|localizeddate('long', 'none') }}</p>
+                                        </div>
                                     </div>
                                     <div class="row">
                                         <h2>
