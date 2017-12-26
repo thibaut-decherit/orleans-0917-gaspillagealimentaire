@@ -25,7 +25,7 @@ class AdminGameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $games = $em->getRepository('AppBundle:Game')->findAll();
+        $games = $em->getRepository('AppBundle:Game')->findAllDesc();
 
         return $this->render('admin/game/index.html.twig', array(
             'games' => $games,

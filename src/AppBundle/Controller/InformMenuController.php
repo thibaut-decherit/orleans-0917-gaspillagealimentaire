@@ -23,7 +23,7 @@ class InformMenuController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAllDesc();
 
         return $this->render('informMenu/index.html.twig', array(
             'informMenus' => $informMenus,
