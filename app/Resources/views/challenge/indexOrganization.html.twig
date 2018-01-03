@@ -18,8 +18,11 @@
                             </div>
                             <div class="row">
                                 <p class="col-xs-6 summary">
-                                    Propose un repas local et de saison pour tous les jeunes. Envoie-nous tes recettes
-                                    et une photo des légumes de saison que vous avez cuisinés.
+                                    {% for descriptionChallenge in descriptionsChallenges %}
+                                        {% if descriptionChallenge.id == 8 %}
+                                            {{ descriptionChallenge.content }}
+                                        {% endif %}
+                                    {% endfor %}
                                 </p>
                                 <div class="col-xs-3 pull-right">
                                     <a href="#" class="pull-right"> {#TODO link#}
@@ -39,8 +42,12 @@
                             </div>
                             <div class="row">
                                 <p class="col-xs-6 summary">
-                                    Mets en place un cours de cuisine de restes et de smoothies.
-                                    Envoie-nous une photo et au moins une des recettes apprises. </p>
+                                    {% for descriptionChallenge in descriptionsChallenges %}
+                                        {% if descriptionChallenge.id == 9 %}
+                                            {{ descriptionChallenge.content }}
+                                        {% endif %}
+                                    {% endfor %}
+                                </p>
                                 <div class="col-xs-3 pull-right">
                                     <a href="#" class="pull-right"> {#TODO link#}
                                         <button class="btn">Faire le défi</button>
@@ -59,9 +66,11 @@
                             </div>
                             <div class="row">
                                 <p class="col-xs-6 summary">
-                                    Organise une disco-smoothie ou une disco-soupe dans la rue pour sensibiliser au
-                                    gasillage alimentaire. Envoie les invitations par mail et raconte-nous comment ça
-                                    s'est passé en postant une photo et un message !
+                                    {% for descriptionChallenge in descriptionsChallenges %}
+                                        {% if descriptionChallenge.id == 10 %}
+                                            {{ descriptionChallenge.content }}
+                                        {% endif %}
+                                    {% endfor %}
                                 </p>
                                 <div class="col-xs-3 pull-right">
                                     <a href="#" class="pull-right"> {#TODO link#}
@@ -81,9 +90,11 @@
                             </div>
                             <div class="row">
                                 <p class="col-xs-6 summary">
-                                    Fait du lien avec ta ville, ton village, et propose un ciné débat. Tu peux utiliser
-                                    les vidéos présentes dans les liens ci-dessous. Communique-nous la date et l'heure
-                                    de l'évènement !
+                                    {% for descriptionChallenge in descriptionsChallenges %}
+                                        {% if descriptionChallenge.id == 11 %}
+                                            {{ descriptionChallenge.content }}
+                                        {% endif %}
+                                    {% endfor %}
                                     <br/>
                                     <br/><a href="http://www.dailymotion.com/video/x13fp">L'ile aux fleurs</a>
                                     <br/><a href="http://www.dailymotion.com/video/xrhzkq">Taste the Waste</a>

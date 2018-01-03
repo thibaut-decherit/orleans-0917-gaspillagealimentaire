@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use AppBundle\Entity\DescriptionChallenge;
 
 /**
  * ChallengeController controller.
@@ -20,14 +21,10 @@ class ChallengeController extends Controller
     public function indexHomeAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
-
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findAll();
 
         return $this->render('challenge/indexHome.html.twig', array(
-            'navInformLinks' => $navInformLinks,
-            'navGameLinks' => $navGameLinks,
+            'descriptionsChallenges' => $descriptionsChallenges,
         ));
     }
 
@@ -38,14 +35,10 @@ class ChallengeController extends Controller
     public function indexSchoolAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
-
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findAll();
 
         return $this->render('challenge/indexSchool.html.twig', array(
-            'navInformLinks' => $navInformLinks,
-            'navGameLinks' => $navGameLinks,
+            'descriptionsChallenges' => $descriptionsChallenges,
         ));
     }
 
@@ -56,14 +49,10 @@ class ChallengeController extends Controller
     public function indexOrganizationAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
-
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findAll();
 
         return $this->render('challenge/indexOrganization.html.twig', array(
-            'navInformLinks' => $navInformLinks,
-            'navGameLinks' => $navGameLinks,
+            'descriptionsChallenges' => $descriptionsChallenges,
         ));
     }
 }
