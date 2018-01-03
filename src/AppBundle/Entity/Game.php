@@ -90,7 +90,7 @@ class Game
      *
      * @ORM\Column(name="isMenu", type="boolean")
      */
-    private $isMenu;
+    private $isMenu = false;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.

@@ -43,12 +43,6 @@ class InformMenuNewType extends AbstractType
                 'required' => true,
                 'label_attr' => array('class' => 'labels_admin')
             ))
-            ->add('isMenu', CheckboxType::class, array(
-                'label' => "A cocher pour que la ressource apparaisse dans
-                            la barre de navigation en tant que lien cliquable",
-                'required' => false,
-                'label_attr' => array('class' => 'labels_admin')
-            ))
             ->add('imageFile', VichImageType::class, [
                 'label' => "Image",
                 'label_attr' => array('class' => 'labels_admin'),

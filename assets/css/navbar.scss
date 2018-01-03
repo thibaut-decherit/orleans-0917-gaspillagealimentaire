@@ -4,13 +4,12 @@
 /* Starter CSS for Flyout Menu */
 $top: #EE6352;
 $topHover: #FF8070;
-$middle: #ED9B40;
-$middleHover: #f5ac5a;
-$last: #71B48D;
-$lastHover: #87CDA4;
+$middle: #71B48D;
+$middleHover: #87CDA4;
+$last: #ED9B40;
+$lastHover: #f5ac5a;
 
 .tab {
-  border-radius: 20px 0 0 20px;
   text-decoration: none;
 }
 
@@ -148,7 +147,6 @@ $lastHover: #87CDA4;
   left: 100%;
   z-index: 1;
   opacity: 1;
-  border-radius: 0 20px 20px 0;
 }
 
 .submenu {

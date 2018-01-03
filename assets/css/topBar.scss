@@ -1,5 +1,24 @@
-.topBar {
+$top: #EE6352;
+$middle: #71B48D;
+$last: #ED9B40;
+
+.colorBackground {
   background-color: $navBarsColor;
+}
+
+.colorBackgroundTop {
+  background-color: $top;
+}
+
+.colorBackgroundMiddle {
+  background-color: $middle;
+}
+
+.colorBackgroundLast {
+  background-color: $last;
+}
+
+.topBar {
   height: 60px;
   position: fixed;
   z-index: 1;
@@ -21,6 +40,11 @@
 
   .title_topbar {
     margin-top: 15px;
+    font-family: 'Roboto-Regular', Helvetica, sans-serif;
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
   p {
