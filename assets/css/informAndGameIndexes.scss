@@ -1,4 +1,4 @@
-.informMenu-index-section {
+.informAndGame-index-sections {
   height: 100vh;
   display: flex;
   font-family: 'Roboto', Helvetica, sans-serif;
@@ -30,8 +30,13 @@
           display: inline-block;
           font-size: 13px;
           color: #424242;
-          border-bottom: 2px solid #ee6352;
           text-transform: uppercase;
+        }
+        .informType {
+          border-bottom: 2px solid $informSectionColor;
+        }
+        .gameType{
+          border-bottom: 2px solid $gameSectionColor;
         }
         .date {
           text-align: right;
@@ -41,20 +46,26 @@
         h2 {
           font-weight: 700;
           text-transform: uppercase;
+          a {
+            text-decoration: none;
+            color: #424242;
+            span {
+              font-size: 12px;
+              vertical-align: top;
+            }
+            &.informLink:hover {
+              color: $informSectionColor;
+            }
+            &.gameLink:hover {
+              color: $gameSectionColor;
+            }
+          }
         }
         .summary {
           margin: 20px 0 20px 40px;
           font-size: 13px;
           color: #8e8e8e;
           padding: 0;
-        }
-        a {
-          font-size: 20px;
-          color: #ee6352;
-          position: absolute;
-          bottom: 0px;
-          text-decoration: none;
-          margin-left: 40px;
         }
       }
       hr {
