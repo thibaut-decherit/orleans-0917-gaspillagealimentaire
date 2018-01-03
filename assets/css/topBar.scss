@@ -1,21 +1,17 @@
-$top: #EE6352;
-$middle: #71B48D;
-$last: #ED9B40;
-
 .colorBackground {
   background-color: $navBarsColor;
 }
 
 .colorBackgroundTop {
-  background-color: $top;
+  background-color: $informSectionColor;
 }
 
 .colorBackgroundMiddle {
-  background-color: $middle;
+  background-color: $gameSectionColor;
 }
 
 .colorBackgroundLast {
-  background-color: $last;
+  background-color: $challengeSectionColor;
 }
 
 .topBar {

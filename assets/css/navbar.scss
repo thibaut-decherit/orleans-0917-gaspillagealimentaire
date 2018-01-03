@@ -2,11 +2,11 @@
 /* Please Keep this font import at the very top of any CSS file */
 
 /* Starter CSS for Flyout Menu */
-$top: #EE6352;
-$topHover: #FF8070;
-$middle: #71B48D;
-$middleHover: #87CDA4;
-$last: #ED9B40;
+$top: $informSectionColor;
+$topHover: #70C4FF;
+$middle: $gameSectionColor;
+$middleHover: #6DCAAB;
+$last: $challengeSectionColor;
 $lastHover: #f5ac5a;
 
 .tab {
