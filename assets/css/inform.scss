@@ -30,7 +30,7 @@
           display: inline-block;
           font-size: 13px;
           color: #424242;
-          border-bottom: 2px solid #ee6352;
+          border-bottom: 2px solid $informSectionColor;
           text-transform: uppercase;
         }
         .date {
@@ -48,9 +48,9 @@
               font-size: 12px;
               vertical-align: top;
             }
-          }
-          a:hover {
-            color: #ee6352;
+            &:hover {
+              color: $informSectionColor;
+            }
           }
         }
         .summary {

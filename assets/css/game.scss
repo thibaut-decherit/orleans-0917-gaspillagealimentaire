@@ -30,7 +30,7 @@
           display: inline-block;
           font-size: 13px;
           color: #424242;
-          border-bottom: 2px solid #71b48d;
+          border-bottom: 2px solid $gameSectionColor;
           text-transform: uppercase;
         }
         .date {
@@ -48,9 +48,9 @@
               font-size: 12px;
               vertical-align: top;
             }
-          }
-          a:hover {
-            color: #71b48d;
+            &:hover {
+              color: $gameSectionColor;
+            }
           }
         }
         .summary {
