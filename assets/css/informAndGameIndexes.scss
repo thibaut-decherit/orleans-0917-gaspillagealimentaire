@@ -1,4 +1,4 @@
-.game-index-section {
+.informAndGame-index-sections {
   height: 100vh;
   display: flex;
   font-family: 'Roboto', Helvetica, sans-serif;
@@ -30,8 +30,13 @@
           display: inline-block;
           font-size: 13px;
           color: #424242;
-          border-bottom: 2px solid $gameSectionColor;
           text-transform: uppercase;
+        }
+        .informType {
+          border-bottom: 2px solid $informSectionColor;
+        }
+        .gameType{
+          border-bottom: 2px solid $gameSectionColor;
         }
         .date {
           text-align: right;
@@ -48,7 +53,10 @@
               font-size: 12px;
               vertical-align: top;
             }
-            &:hover {
+            &.informLink:hover {
+              color: $informSectionColor;
+            }
+            &.gameLink:hover {
               color: $gameSectionColor;
             }
           }

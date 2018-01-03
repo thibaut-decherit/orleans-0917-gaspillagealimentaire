@@ -6,7 +6,7 @@
     {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title':'Les jeux'} %}
 {% endblock %}
 {% block pageContent %}
-    <section class="game-index-section">
+    <section class="informAndGame-index-sections">
         <div class="pageContent">
             <ul>
                 {% for game in games %}
@@ -20,7 +20,7 @@
                                 <div class="col-xs-9">
                                     <div class="row">
                                         <div class="col-xs-3">
-                                            <p class="type">{{ game.type }}</p>
+                                            <p class="type gameType">{{ game.type }}</p>
                                         </div>
                                         <div class="col-xs-3 pull-right">
                                             <p class="date">{{ game.uploadDate|localizeddate('long', 'none') }}</p>
@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="row">
                                         <h2>
-                                            <a href="{{ game.link }}" target="_blank">{{ game.title }}
+                                            <a class="gameLink" href="{{ game.link }}" target="_blank">{{ game.title }}
                                                 <span class="glyphicon glyphicon-new-window"></span>
                                             </a>
                                         </h2>
