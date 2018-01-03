@@ -14,6 +14,13 @@ class QuestionQuizz
 {
     /**
      * @var
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\QuizzTitle", inversedBy="quizzQuestions")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private  $titleQuizz;
+
+    /**
+     * @var
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\AnswerQuizz", mappedBy="quizzQuestion")
      */
     private $quizzAnswers;
@@ -122,5 +129,29 @@ class QuestionQuizz
     public function removeQuizzAnswer(\AppBundle\Entity\AnswerQuizz $quizzAnswer)
     {
         $this->quizzAnswers->removeElement($quizzAnswer);
+    }
+
+    /**
+     * Set titleQuizz
+     *
+     * @param \AppBundle\Entity\QuizzTitle $titleQuizz
+     *
+     * @return QuestionQuizz
+     */
+    public function setTitleQuizz(\AppBundle\Entity\QuizzTitle $titleQuizz)
+    {
+        $this->titleQuizz = $titleQuizz;
+
+        return $this;
+    }
+
+    /**
+     * Get titleQuizz
+     *
+     * @return \AppBundle\Entity\QuizzTitle
+     */
+    public function getTitleQuizz()
+    {
+        return $this->titleQuizz;
     }
 }
