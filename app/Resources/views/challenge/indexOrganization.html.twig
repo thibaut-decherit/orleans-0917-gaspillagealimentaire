@@ -12,136 +12,24 @@
             <ul>
                 {% for descriptionChallenge in descriptionsChallenges %}
                     <li class="row">
-                        {% if descriptionChallenge.id == 8 %}
-                            <div class="row col-xs-offset-1 col-xs-10">
+                        <div class="row col-xs-offset-1 col-xs-10">
+                            <div class="row">
                                 <div class="row">
-                                    <div class="row">
-                                        <h2>{{ descriptionChallenge.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                        </p>
-                                        <div class="col-xs-3 pull-right">
-                                            <a href="#" class="pull-right"> {#TODO link#}
-                                                <button class="btn">Faire le défi</button>
-                                            </a>
-                                        </div>
-                                    </div>
+                                    <h2>{{ descriptionChallenge.title }}</h2>
                                 </div>
-                                <hr class="row"/>
-                            </div>
-                        {% endif %}
-                    </li>
-                    <li class="row">
-                        {% if descriptionChallenge.id == 9 %}
-                            <div class="row col-xs-offset-1 col-xs-10">
                                 <div class="row">
-                                    <div class="row">
-                                        <h2>{{ descriptionChallenge.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                        </p>
-                                        <div class="col-xs-3 pull-right">
-                                            <a href="#" class="pull-right"> {#TODO link#}
-                                                <button class="btn">Faire le défi</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="row"/>
-                            </div>
-                        {% endif %}
-                    </li>
-                    <li class="row">
-                        {% if descriptionChallenge.id == 10 %}
-                            <div class="row col-xs-offset-1 col-xs-10">
-                                <div class="row">
-                                    <div class="row">
-                                        <h2>{{ descriptionChallenge.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                        </p>
-                                        <div class="col-xs-3 pull-right">
-                                            <a href="#" class="pull-right"> {#TODO link#}
-                                                <button class="btn">Faire le défi</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="row"/>
-                            </div>
-                        {% endif %}
-                    </li>
-                    <li class="row">
-                        {% if descriptionChallenge.id == 11 %}
-                            <div class="row col-xs-offset-1 col-xs-10">
-                                <div class="row">
-                                    <div class="row">
-                                        <h2>{{ descriptionChallenge.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                            <br/>
-                                            <br/><a href="http://www.dailymotion.com/video/x13fp">L'ile aux fleurs</a>
-                                            <br/><a href="http://www.dailymotion.com/video/xrhzkq">Taste the Waste</a>
-                                            <br/><a href="https://www.youtube.com/watch?v=HYHiWSSC9-Y">Le gaspillage
-                                                alimentaire, une question environnementale</a>
-                                            <br/><a href="https://www.youtube.com/watch?v=59FH0MkMxf4">Petit dessin
-                                                animé qui
-                                                résume tout !</a>
-                                            <br/><a href="https://www.youtube.com/watch?v=x7o9ZDvcn54">Vidéo du CREPAQ :
-                                                Accompagnement en restauration scolaire</a>
-                                            <!-- lien mort --> <br/><a href="">Opération "Faut pas Gâcher!" réalisée par
-                                                FNE</a>
-                                            <br/><a href="http://www.dailymotion.com/video/xvnoty?start=2">Disco soup de
-                                                FNE à
-                                                Paris avec Babette de Rosière</a>
-                                            <!-- lien vers site, pas vidéo --> <br/><a
-                                                    href="http://relais-planete-solidaire.org/fruimalin.html">Association
-                                                fruti
-                                                malin - récupération des fruits pour banque
-                                                alimentaire</a>
-                                            <!-- lien vers site, pas vidéo --> <br/><a
-                                                    href="http://agriculture.gouv.fr/journee-de-cloture-des-etats-generaux-de-lalimentation">Le
-                                                site officiel du Ministère</a>
-                                            <!-- lien vers site, pas vidéo --> <br/><a
-                                                    href="https://cuisinetesrestes.wordpress.com/">Le blog du CREPAQ >
-                                                recettes,
-                                                idées</a>
-                                            <!-- lien vers site, pas vidéo, site .gouv comme au-dessus --> <a href="">Elementerre
-                                                - Alsace - banque alimentaire</a>
-                                            <br/><a href="https://www.youtube.com/watch?v=v1gjV4-U_SE">Cantine zéro
-                                                gaspi - Le
-                                                Mans</a>
-                                            <br/><a href="https://www.youtube.com/watch?v=mMm-Rl3ELIk">Cuisine mobile -
-                                                Gironde</a>
-                                            <br/><a href="https://www.youtube.com/watch?v=fSDjKGpq1mc">Gaspillage :
-                                                plongée dans
-                                                nos poubelles</a>
-                                            <!-- lien mort --> <br/><a href="">Global Gachi : le scandale mondiale du
-                                                gaspillage
-                                                alimentaire</a>
-                                            <br/><a href="http://www.allocine.fr/video/player_gen_cmedia=18723208&cfilm=112234.html">Notre
-                                                pain quotidien - bande annonce</a>
-                                            <br/><a href="http://la-kolok.com/episode1/">La Koloc</a>
-                                            <!-- lien mort --> <br/><a href="">Le scandale du gaspillage alimentaire -
-                                                03/06/2012</a>
-                                        </p>
-                                        <div class="col-xs-3 pull-right">
-                                            <a href="#" class="pull-right"> {#TODO link#}
-                                                <button class="btn">Faire le défi</button>
-                                            </a>
-                                        </div>
+                                    <p class="col-xs-6 summary">
+                                        {{ descriptionChallenge.content | raw }}
+                                    </p>
+                                    <div class="col-xs-3 pull-right">
+                                        <a href="#" class="pull-right"> {#TODO link#}
+                                            <button class="btn">Faire le défi</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
-                        {% endif %}
+                            <hr class="row"/>
+                        </div>
                     </li>
                 {% endfor %}
             </ul>

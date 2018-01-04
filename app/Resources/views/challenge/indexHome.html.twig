@@ -12,8 +12,7 @@
         <div class="pageContent">
             <ul>
                 {% for descriptionChallenge in descriptionsChallenges %}
-                    <li class="row">
-                        {% if descriptionChallenge.id == 1 %}
+                        <li class="row">
                             <div class="row col-xs-offset-1 col-xs-10">
                                 <div class="row">
                                     <div class="row">
@@ -21,9 +20,7 @@
                                     </div>
                                     <div class="row">
                                         <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                            <a href="https://www.lebruitdufrigo.fr"
-                                               target="_blank">lebruitdufrigo.fr</a>
+                                            {{ descriptionChallenge.content | raw }}
                                         </p>
                                         <div class="col-xs-3 pull-right">
                                             <a href="#" class="pull-right"> {#TODO link#}
@@ -34,53 +31,7 @@
                                 </div>
                                 <hr class="row"/>
                             </div>
-                        {% endif %}
-                    </li>
-                    <li class="row">
-                        {% if descriptionChallenge.id == 2 %}
-                            <div class="row col-xs-offset-1 col-xs-10">
-                                <div class="row">
-                                    <div class="row">
-                                        <h2>{{ descriptionChallenge.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                            <a href="https://www.dailymotion.com/cdn/manifest/video/x4n8w34.m3u8?auth=1509812504-2688-kiv5
-9r6o-7e7381c5d7a8be869940b43ed7f06051" target="_blank">"A table"</a>
-                                        </p>
-                                        <div class="col-xs-3 pull-right">
-                                            <a href="#" class="pull-right"> {#TODO link#}
-                                                <button class="btn">Faire le défi</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <hr class="row"/>
-                            </div>
-                        {% endif %}
-                    </li>
-                    <li class="row">
-                        {% if descriptionChallenge.id == 3 %}
-                            <div class="row col-xs-offset-1 col-xs-10">
-                                <div class="row">
-                                    <div class="row">
-                                        <h2>{{ descriptionChallenge.title }}</h2>
-                                    </div>
-                                    <div class="row">
-                                        <p class="col-xs-6 summary">
-                                            {{ descriptionChallenge.content }}
-                                        </p>
-                                        <div class="col-xs-3 pull-right">
-                                            <a href="#" class="pull-right"> {#TODO link#}
-                                                <button class="btn">Faire le défi</button>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        {% endif %}
-                    </li>
+                        </li>
                 {% endfor %}
             </ul>
         </div>

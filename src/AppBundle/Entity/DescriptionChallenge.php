@@ -31,15 +31,20 @@ class DescriptionChallenge
     /**
      * @var string
      *
-     * @ORM\Column(name="content", type="string", length=255)
+     * @ORM\Column(name="content", type="text")
      */
     private $content;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\CategoryChallenge")
+     */
+    private $category;
 
 
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -93,5 +98,28 @@ class DescriptionChallenge
     {
         return $this->content;
     }
-}
 
+    /**
+     * Set category
+     *
+     * @param \AppBundle\Entity\CategoryChallenge $category
+     *
+     * @return DescriptionChallenge
+     */
+    public function setCategory(\AppBundle\Entity\CategoryChallenge $category = null)
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    /**
+     * Get category
+     *
+     * @return \AppBundle\Entity\CategoryChallenge
+     */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+}
