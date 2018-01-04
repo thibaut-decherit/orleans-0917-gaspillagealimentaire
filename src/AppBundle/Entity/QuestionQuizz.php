@@ -23,7 +23,7 @@ class QuestionQuizz
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\QuizzTitle", inversedBy="quizzQuestions")
      * @ORM\JoinColumn(nullable=false)
      */
-    private  $titleQuizz;
+    private $titleQuizz;
 
     /**
      * @var
@@ -105,6 +105,7 @@ class QuestionQuizz
     {
         return $this->quizzAnswers;
     }
+
     /**
      * Constructor
      */
