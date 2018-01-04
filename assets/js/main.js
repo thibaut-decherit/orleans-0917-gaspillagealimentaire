@@ -3,11 +3,18 @@ require('bootstrap-sass');
 
 $(document).ready(function () {
 
-    $(".pInfo").on('click', function (e) {
-        e.preventdefault();
+    $('.article').fadeOut(0);
+    $('.article:first-child').fadeIn(0);
 
-        $(".article[data-target=" + $(this).data('target') + "]").addClass('show');
+    $(".pInfo").on('click', function (e) {
+        e.preventDefault();
+
+        $(".article").fadeOut(0);
+        $(".article[data-target=" + $(this).data('target') + "]").fadeIn();
+
 
     });
 
 });
+
+
