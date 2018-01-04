@@ -13,12 +13,13 @@ body {
 }
 
 $navBarsColor: #363636;
+$gameSectionColor: #71B48D;
+$informSectionColor: #EE6352;
 
 @import "topBar";
 @import "navbar";
 @import "home";
 @import 'admin';
-@import "inform";
-@import "game";
+@import "informAndGameIndexes";
 @import "challenge";
 @import "quiz";
