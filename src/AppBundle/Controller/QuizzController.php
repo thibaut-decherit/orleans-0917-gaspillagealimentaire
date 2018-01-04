@@ -17,31 +17,49 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 
 /**
  * QuizzController controller
  * @package AppBundle\Controller
- * @Route("quizz")
+ * @Route("alimentation")
  */
 class QuizzController extends Controller
 {
     /**
-     * @Route("/", name="quizz_index")
+     * @Route("/", name="quiz/{name}")
      * @Method({"GET", "POST"})
      */
-    public function quizzIndex()
+    public function quizzIndex($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $question = $em->getRepository("AppBundle:QuestionQuizz")->find(1);
+        $question = $em->getRepository("AppBundle:QuestionQuizz")->findBy(['title_quizz_id' => $id]);
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('quizz/index.html.twig', array(
+        return $this->render('quiz/alimentation.html.twig', array(
             'question' => $question,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
+    }
+
+    /**
+     * @param Request $request
+     * @Route("/quizzAnswer", name="quizz_answer")
+     * @Method({"GET", "POST"})
+     * @return JsonResponse
+     */
+    public function quizzAnswer(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        if ($request->isXmlHttpRequest()) {
+            $id = $request->query->get('id');
+            $data = $em->getRepository("AppBundle:QuestionQuizz")->find($id + 1);
+
+            return new JsonResponse(array("data" => json_encode($data)));
+        }
     }
 }

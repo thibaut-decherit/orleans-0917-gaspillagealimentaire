@@ -14,6 +14,12 @@ class QuestionQuizz
 {
     /**
      * @var
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Tip", mappedBy="questionQuizz")
+     */
+    private $quizzTips;
+
+    /**
+     * @var
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\QuizzTitle", inversedBy="quizzQuestions")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -153,5 +159,29 @@ class QuestionQuizz
     public function getTitleQuizz()
     {
         return $this->titleQuizz;
+    }
+
+    /**
+     * Set quizzTips
+     *
+     * @param \AppBundle\Entity\Tip $quizzTips
+     *
+     * @return QuestionQuizz
+     */
+    public function setQuizzTips(\AppBundle\Entity\Tip $quizzTips = null)
+    {
+        $this->quizzTips = $quizzTips;
+
+        return $this;
+    }
+
+    /**
+     * Get quizzTips
+     *
+     * @return \AppBundle\Entity\Tip
+     */
+    public function getQuizzTips()
+    {
+        return $this->quizzTips;
     }
 }

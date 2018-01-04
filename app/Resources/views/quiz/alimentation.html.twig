@@ -1,13 +1,15 @@
 {% extends 'layout.html.twig' %}
 {% block pageContent %}
     <div class="quizz">
+        {% for question in questions %}
         <div class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title">{{ question.title }}</h3>
+                <h3 class="panel-title" id="{{ question.id }}">{{ question.title }}</h3>
             </div>
             <div class="panel-body">
                 {% for answer in question.QuizzAnswers %}
                     <a id="{{ answer.id }}" data-toggle="modal" href="#modal-{{ answer.id }}">
+                        <input type="hidden" value="{{ answer.isTrue }}">
                         <div class="col-md-5 answer">
                             {{ answer.choice }}
                         </div>
@@ -19,13 +21,11 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                         &times;
                                     </button>
-                                    <h4 class="modal-title">Réponse</h4>
                                 </div>
                                 <div class="modal-body">
-                                    Mon Contenu
+                                    {{ question.QuizzTips.content }}
                                 </div>
                                 <div class="modal-footer">
-                                    <a href="#" type="button" class="btn btn-primary">Suivant</a>
                                 </div>
                             </div><!-- /.modal-content -->
                         </div><!-- /.modal-dialog -->
@@ -33,5 +33,6 @@
                 {% endfor %}
             </div>
         </div>
+            {% endfor %}
     </div>
 {% endblock %}
