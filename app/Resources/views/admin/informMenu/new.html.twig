@@ -3,12 +3,13 @@
 {% block pageContent %}
     <div class="panel panel-default admin">
         <div class="panel-heading">
-            <h1 class="panel-title text-info text-center">S'informer - Ajouter une ressource</h1>
+            <h1 class="panel-title text-info text-center">S'informer - Ajouter une information</h1>
         </div>
         <div class="panel-body">
             <div class="row">
-                <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-default pull-right"><span class="glyphicon glyphicon-chevron-left"></span> Retour à la
-                    liste</a>
+                <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Retour à la liste
+                </a>
             </div>
             {{ form_start(form) }}
             {{ form_widget(form) }}

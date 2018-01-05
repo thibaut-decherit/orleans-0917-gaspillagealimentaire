@@ -4,20 +4,47 @@
 
 {% block pageContent %}
     <section class="homeSection">
-        <div class="pageContent home">
-            <div class="row">
-                <img class="logo-site center-block" src="{{ asset('images/logo') }}" alt="Logo du site"/>
+        <div class="pageContent">
+            <div class="row logo-container">
+                <img class="logo-site center-block" src="{{ asset('images/logo.png') }}" alt="Logo du site"/>
             </div>
-            <div class="row">
-                <p class="index-title text-center"><span>Rest'</span> à table</p>
-                <p class="index-text text-center">Plateforme d'éducation pour le développement durable
-                    <br/>Lutte contre le gaspillage alimentaire</p>
-            </div>
-            <div class="row pull-right">
-                <img class="logo-gauche logosMini" src="{{ asset('images/logo_ligue-enseignement.png') }}"
-                     alt="Logo de la ligue de l'enseignement"/>
-                <img class="logo-droite logosMini" src="{{ asset('images/logo_programme-national.png') }}"
-                     alt="Logo du programme national"/>
+            <div class="row col-xs-offset-1 col-xs-10 homeText">
+                <div class="row website-introduction">
+                    <h1>Apprenez à moins gaspiller</h1>
+                    <p>Des exercices, des articles et des défis vous aident</p>
+                </div>
+                <div class="row website-description">
+                    <div class="col-xs-5 general-description">
+                        <p>Eo adducta re per Isauriam, rege Persarum bellis finitimis inligato repellenteque a
+                            conlimitiis suis ferocissimas gentes, quae mente quadam versabili hostiliter eum saepe
+                            incessunt et in nos arma moventem.
+                        </p>
+                        <p>
+                            Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam quotiens copia dederit
+                            ordinatus, explorabat nostra sollicite, si repperisset usquam locum vi subita.
+                        </p>
+                    </div>
+                    <div class="col-xs-offset-1 col-xs-6 section-descriptions-container">
+                        <div class="section-description">
+                            <h2>S'informer</h2>
+                            <p>
+                                Explore l’actualité du développement durable et du gaspillage alimentaire
+                            </p>
+                        </div>
+                        <div class="section-description">
+                            <h2>S'entraîner</h2>
+                            <p>
+                                Teste tes connaissances et tes réflexes sur le gaspillage alimentaire
+                            </p>
+                        </div>
+                        <div class="section-description">
+                            <h2>Faire des défis</h2>
+                            <p>
+                                Réalise des défis et change ton comportement
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

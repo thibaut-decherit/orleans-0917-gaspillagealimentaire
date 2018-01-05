@@ -1,31 +1,55 @@
+$paragraphColor: #4d4d4d;
+
 .homeSection {
   display: flex;
-  .home {
+  .pageContent {
     width: 100vw;
     padding-top: 50px;
     font-family: 'Roboto-regular', Helvetica, sans-serif;
-    div {
-      margin: 0;
-      .logo-droite, .logo-gauche {
-        width: auto;
-        height: 100px;
-      }
-      .index-title {
-        margin-top: 20px;
-        font-family: 'Varela Round', Helvetica, sans-serif;
-        font-size: 3vw;
-        span {
-          color: #4e84bc;
+    .logo-container {
+      width: 100%;
+    }
+    .homeText {
+      margin-top: 60px;
+      padding: 0;
+      .website-introduction {
+        margin-bottom: 81px;
+        h1 {
+          margin: 0;
+          font-weight: 700;
+          font-size: 41px;
+        }
+        p {
+          margin: 0;
+          font-size: 36px;
+          color: $paragraphColor;
         }
       }
-      .index-text {
-        margin-top: 20px;
-        font-size: 1.5vw;
-      }
-      .logosMini {
-        padding-right: 50px;
+      .website-description {
+        .general-description {
+          padding: 0;
+          p {
+            color: $paragraphColor;
+            font-size: 20px;
+          }
+        }
+        .section-descriptions-container {
+          padding: 0;
+          .section-description {
+            h2 {
+              margin: 0 0 5px 0;
+              text-transform: uppercase;
+              font-weight: 700;
+              font-size: 24px;
+            }
+            p {
+              margin: 0 0 33px 0;
+              color: $paragraphColor;
+              font-size: 20px;
+            }
+          }
+        }
       }
     }
-
   }
 }

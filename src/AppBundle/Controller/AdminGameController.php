@@ -25,7 +25,7 @@ class AdminGameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $games = $em->getRepository('AppBundle:Game')->findAll();
+        $games = $em->getRepository('AppBundle:Game')->findAllDesc();
 
         return $this->render('admin/game/index.html.twig', array(
             'games' => $games,
@@ -46,6 +46,7 @@ class AdminGameController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $game->setUploadDate(new \DateTime());
             $em->persist($game);
             $em->flush();
 

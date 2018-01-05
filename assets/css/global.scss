@@ -1,24 +1,31 @@
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import url('https://fonts.googleapis.com/css?family=Roboto');
 @import url('https://fonts.googleapis.com/css?family=Varela+Round');
+
 $icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
 $fa-font-path: "~font-awesome/fonts";
 
+$navBarsColor: #363636;
+$navbarSectionHover: #4a5152;
+$gameSectionColor: #04a777;
+$informSectionColor: #39a0ed;
+$challengeSectionColor: #fb8b24;
+
 body {
   margin: 0;
-  background-color: #FFF5E9;
+  background-color: #FFFFFF;
   .pageContent {
+    //décalage pour la navbar et la topbar
     margin: 60px 0 0 150px;
   }
 }
-
-$navBarsColor: #363636;
 
 @import "topBar";
 @import "navbar";
 @import "home";
 @import 'admin';
-@import "inform";
-@import "game";
+@import "informAndGameIndexes";
 @import "challenge";
-@import "quiz";
+@import "quizzList";
+@import "quizz";
+@import "info";
