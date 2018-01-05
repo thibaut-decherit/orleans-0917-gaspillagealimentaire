@@ -62,7 +62,7 @@ class DescriptionChallengeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing descriptionChallenge entity.
+     * Displays a form to edit an existing challenge entity.
      *
      * @Route("/{id}/edit", name="descriptionchallenge_edit")
      * @Method({"GET", "POST"})
@@ -79,15 +79,15 @@ class DescriptionChallengeController extends Controller
             return $this->redirectToRoute('descriptionchallenge_edit', array('id' => $descriptionChallenge->getId()));
         }
 
-        return $this->render('descriptionchallenge/edit.html.twig', array(
-            'descriptionChallenge' => $descriptionChallenge,
+        return $this->render('challenge/edit.html.twig', array(
+            'challenge' => $descriptionChallenge,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a descriptionChallenge entity.
+     * Deletes a challenge entity.
      *
      * @Route("/{id}", name="descriptionchallenge_delete")
      * @Method("DELETE")
@@ -103,13 +103,13 @@ class DescriptionChallengeController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('descriptionchallenge_index');
+        return $this->redirectToRoute('challenge_index');
     }
 
     /**
-     * Creates a form to delete a descriptionChallenge entity.
+     * Creates a form to delete a challenge entity.
      *
-     * @param DescriptionChallenge $descriptionChallenge The descriptionChallenge entity
+     * @param DescriptionChallenge $descriptionChallenge The challenge entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
@@ -120,5 +120,31 @@ class DescriptionChallengeController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/{id}/response", name="responsechallenge_index")
+     * @Method({"GET", "POST"})
+     */
+    public function indexResponseAction(DescriptionChallenge $descriptionChallenge)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
+
+        return $this->render('challenge/indexResponseChallenge.html.twig', array(
+            'descriptionChallenge' => $descriptionChallenge,
+        ));
+    }
+
+    public function topBarAction(DescriptionChallenge $descriptionChallenge)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
+
+        return $this->render('topBar.html.twig', array(
+            'descriptionChallenge' => $descriptionChallenge,
+        ));
     }
 }

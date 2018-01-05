@@ -40,6 +40,19 @@ class DescriptionChallenge
      */
     private $category;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isPicture", type="boolean")
+     */
+    private $isPicture;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="isVideo", type="boolean")
+     */
+    private $isVideo;
+
 
     /**
      * Get id
@@ -121,5 +134,53 @@ class DescriptionChallenge
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set isPicture
+     *
+     * @param boolean $isPicture
+     *
+     * @return DescriptionChallenge
+     */
+    public function setIsPicture($isPicture)
+    {
+        $this->isPicture = $isPicture;
+
+        return $this;
+    }
+
+    /**
+     * Get isPicture
+     *
+     * @return boolean
+     */
+    public function getIsPicture()
+    {
+        return $this->isPicture;
+    }
+
+    /**
+     * Set isVideo
+     *
+     * @param boolean $isVideo
+     *
+     * @return DescriptionChallenge
+     */
+    public function setIsVideo($isVideo)
+    {
+        $this->isVideo = $isVideo;
+
+        return $this;
+    }
+
+    /**
+     * Get isVideo
+     *
+     * @return boolean
+     */
+    public function getIsVideo()
+    {
+        return $this->isVideo;
     }
 }
