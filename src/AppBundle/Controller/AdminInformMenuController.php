@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * AdminInformMenu controller.
@@ -26,7 +27,7 @@ class AdminInformMenuController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAll();
+        $informMenus = $em->getRepository('AppBundle:InformMenu')->findAllDesc();
 
         return $this->render('admin/informMenu/index.html.twig', array(
             'informMenus' => $informMenus,
@@ -118,5 +119,31 @@ class AdminInformMenuController extends Controller
             ->setAction($this->generateUrl('admin_inform_menu_delete', array('id' => $informMenu->getId())))
             ->setMethod('DELETE')
             ->getForm();
+    }
+
+    /**
+     * @param InformMenu $informMenu
+     * @Route("/toggled-checked/{id}", name="link_menu")
+     * @Method({"GET", "POST"})
+     */
+    public function toggledCheck(InformMenu $informMenu)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $linksTrueNumber = count($em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]));
+
+        if ($informMenu->getIsMenu() == true) {
+            $informMenu->setIsMenu(false);
+            $this->addFlash("success", "Les liens ont bien été mis à jour dans le menu.");
+        } elseif (($informMenu->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+            $informMenu->setIsMenu(true);
+            $this->addFlash("success", "Les liens ont bien été mis à jour dans le menu.");
+        } else {
+            $this->addFlash("danger", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
+        }
+
+        $em->persist($informMenu);
+        $em->flush();
+        return $this->redirectToRoute('admin_inform_menu_index');
     }
 }

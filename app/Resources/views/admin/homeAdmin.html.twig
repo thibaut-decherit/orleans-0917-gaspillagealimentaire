@@ -1,14 +1,15 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
 
 {% block pageContent %}
-    <div class="row">
-        <h1 class="titlePage text-info text-center">Administration</h1>
+    <div class="panel panel-default adminHome">
+        <div class="panel-heading">
+            <h1 class="panel-title text-center">Administration || Rest' à table</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row text-center">
+                <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-default">S'informer</a>
+                <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-default">S'entrainer - Jeux</a>
+            </div>
+        </div>
     </div>
-    <hr/>
-
-    <div class="row text-center">
-        <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-success">S'informer</a>
-        <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-success">S'entrainer - Jeux</a>
-    </div>
-    <hr/>
 {% endblock %}

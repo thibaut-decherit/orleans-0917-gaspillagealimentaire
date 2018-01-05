@@ -1,4 +1,4 @@
-.informMenu-index-section {
+.quiz-index-section {
   height: 100vh;
   display: flex;
   font-family: 'Roboto', Helvetica, sans-serif;
@@ -22,23 +22,9 @@
           }
         }
         h2 {
-          margin: 17px 0 0 40px;
+          margin: 45px 0 0 40px;
           font-size: 24px;
           color: #424242;
-        }
-        .type {
-          display: inline-block;
-          font-size: 13px;
-          color: #424242;
-          border-bottom: 2px solid #ee6352;
-          text-transform: uppercase;
-        }
-        .date {
-          text-align: right;
-          font-size: 13px;
-          color: #8e8e8e;
-        }
-        h2 {
           font-weight: 700;
           text-transform: uppercase;
         }
@@ -49,12 +35,16 @@
           padding: 0;
         }
         a {
-          font-size: 20px;
-          color: #ee6352;
-          position: absolute;
-          bottom: 0px;
-          text-decoration: none;
-          margin-left: 40px;
+          button {
+            margin: 20px 0 0 40px;
+            background-color: $gameSectionColor;
+            width: 136px;
+            height: 36px;
+            border-radius: 100px;
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 600;
+          }
         }
       }
       hr {

@@ -25,7 +25,7 @@ class AdminGameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $games = $em->getRepository('AppBundle:Game')->findAll();
+        $games = $em->getRepository('AppBundle:Game')->findAllDesc();
 
         return $this->render('admin/game/index.html.twig', array(
             'games' => $games,
@@ -46,6 +46,7 @@ class AdminGameController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $game->setUploadDate(new \DateTime());
             $em->persist($game);
             $em->flush();
 
@@ -116,5 +117,29 @@ class AdminGameController extends Controller
             ->setAction($this->generateUrl('game_delete', array('id' => $game->getId())))
             ->setMethod('DELETE')
             ->getForm();
+    }
+
+    /**
+     * @param Game $game
+     * @Route("/toggled-checked/{id}", name="link_menu")
+     * @Method({"GET", "POST"})
+     */
+    public function toggledCheck(Game $game)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $linksTrueNumber = count($em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]));
+
+        if ($game->getIsMenu() == true) {
+            $game->setIsMenu(false);
+        } elseif (($game->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+            $game->setIsMenu(true);
+        } else {
+            $this->addFlash("Error", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
+        }
+
+        $em->persist($game);
+        $em->flush();
+        return $this->redirectToRoute('admin_game_index');
     }
 }

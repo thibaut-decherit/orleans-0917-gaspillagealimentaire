@@ -72,6 +72,14 @@ class Game
     private $summary;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="upload_date", type="date")
+     *
+     */
+    private $uploadDate;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="link", type="string", length=255)
@@ -90,7 +98,7 @@ class Game
      *
      * @ORM\Column(name="isMenu", type="boolean")
      */
-    private $isMenu;
+    private $isMenu = false;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
@@ -204,6 +212,30 @@ class Game
     public function getSummary()
     {
         return $this->summary;
+    }
+
+    /**
+     * Set uploadDate
+     *
+     * @param \DateTime $uploadDate
+     *
+     * @return Test
+     */
+    public function setUploadDate($uploadDate)
+    {
+        $this->uploadDate = $uploadDate;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadDate
+     *
+     * @return \DateTime
+     */
+    public function getUploadDate()
+    {
+        return $this->uploadDate;
     }
 
     /**
@@ -334,4 +366,3 @@ class Game
         return $this->updatedAt;
     }
 }
-

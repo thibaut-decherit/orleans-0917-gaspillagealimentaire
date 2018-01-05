@@ -10,4 +10,8 @@ namespace AppBundle\Repository;
  */
 class InformMenuRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findAllDesc()
+    {
+        return $this->findBy([], ['id' => 'DESC']);
+    }
 }
