@@ -1,8 +1,29 @@
-.article {
-  display: none;
+.info-section {
+  .pageContent {
+    li {
+      list-style-type: none;
+      margin-top: 19px;
+      a:hover {
+        color: white;
+      }
+    }
+    .containerMenu {
+      background: $middle;
+      height: 100vh;
+      .blockInfo {
+        margin-top: 60px;
+        text-align: center;
+        .pInfo {
+          font-size: 18px;
+          color: white;
+          font-family: 'Roboto-regular', Helvetica, sans-serif;
+        }
+      }
+    }
+    .articles{
+      .article {
+        display: none;
+      }
+    }
+  }
 }
-
-.show {
-  display: block;
-}
-
