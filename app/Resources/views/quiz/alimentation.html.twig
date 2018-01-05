@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 {% block pageContent %}
     <div class="quizz">
-        {% for question in questions %}
+
         <div class="panel panel-primary">
             <div class="panel-heading">
                 <h3 class="panel-title" id="{{ question.id }}">{{ question.title }}</h3>
@@ -33,6 +33,6 @@
                 {% endfor %}
             </div>
         </div>
-            {% endfor %}
+
     </div>
 {% endblock %}

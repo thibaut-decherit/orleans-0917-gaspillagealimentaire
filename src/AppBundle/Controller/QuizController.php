@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\QuestionQuizz;
 use AppBundle\Entity\QuizzTitle;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -39,19 +41,19 @@ class QuizController extends Controller
     }
 
     /**
-     * @Route("/test/{id}", name="quiz_test")
+     * @Route("/{id}", name="quizTest")
      * @Method({"GET", "POST"})
      */
     public function quizzIndex($id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $questions = $em->getRepository("AppBundle:QuestionQuizz")->findBy(['titleQuizz' => $id]);
+        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy(['titleQuizz' => $id]);
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
         return $this->render('quiz/alimentation.html.twig', array(
-            'questions' => $questions,
+            'question' => $question,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
