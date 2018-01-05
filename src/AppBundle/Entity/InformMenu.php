@@ -358,5 +358,4 @@ class InformMenu
         $this->isMenu = $isMenu;
         return $this;
     }
-
 }
