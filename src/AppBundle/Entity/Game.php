@@ -366,4 +366,3 @@ class Game
         return $this->updatedAt;
     }
 }
-

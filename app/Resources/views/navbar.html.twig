@@ -42,7 +42,8 @@
             </div>
         </div>
         {% for navInformLink in navInformLinks %}
-            <li class="submenuText"><a href='{{ navInformLink.link }}' target="_blank">{{ navInformLink.title }}</a>
+            <li class="submenuText">
+                <a href='{{ navInformLink.link }}' target="_blank">{{ navInformLink.title }}</a>
             </li>
         {% endfor %}
     </ul>
@@ -62,7 +63,9 @@
             </div>
         </div>
         {% for navGameLink in navGameLinks %}
-            <li class="submenuText"><a href='{{ navGameLink.link }}' target="_blank">{{ navGameLink.title }}</a></li>
+            <li class="submenuText">
+                <a href='{{ navGameLink.link }}' target="_blank">{{ navGameLink.title }}</a>
+            </li>
         {% endfor %}
     </ul>
     <ul id="three">

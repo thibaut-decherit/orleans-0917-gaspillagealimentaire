@@ -21,15 +21,6 @@ class QuizController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
-
-
-        return $this->render('quiz/index.html.twig', array(
-            'navInformLinks' => $navInformLinks,
-            'navGameLinks' => $navGameLinks,
-        ));
+        return $this->render('quiz/index.html.twig');
     }
 }

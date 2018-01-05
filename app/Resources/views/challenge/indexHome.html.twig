@@ -11,83 +11,28 @@
     <section class="challenge-index-section">
         <div class="pageContent">
             <ul>
-                <li class="row">
-                    <div class="row col-xs-offset-1 col-xs-10">
-                        <div class="row">
-                            <div class="row">
-                                <h2>Faire des recettes</h2>
-                            </div>
-                            <div class="row">
-                                <p class="col-xs-6 summary">
-                                    Eo adducta re per Isauriam, rege Persarum bellis finitimis inligato
-                                    repellenteque a
-                                    conlimitiis suis ferocissimas gentes, quae mente quadam versabili hostiliter eum
-                                    saepe incessunt et in nos arma moventem aliquotiens iuvant, Nohodares quidam
-                                    nomine
-                                    e numero optimatum, incursare Mesopotamiam quotiens copia dederit ordinatus,
-                                    explorabat nostra sollicite, si repperisset usquam locum vi subita perrupturus.
-                                </p>
-                                <div class="col-xs-3 pull-right">
-                                    <a href="#" class="pull-right"> {#TODO link#}
-                                        <button class="btn">Voir le défi</button>
-                                    </a>
+                {% for descriptionChallenge in descriptionsChallenges %}
+                        <li class="row">
+                            <div class="row col-xs-offset-1 col-xs-10">
+                                <div class="row">
+                                    <div class="row">
+                                        <h2>{{ descriptionChallenge.title }}</h2>
+                                    </div>
+                                    <div class="row">
+                                        <p class="col-xs-6 summary">
+                                            {{ descriptionChallenge.content | raw }}
+                                        </p>
+                                        <div class="col-xs-3 pull-right">
+                                            <a href="#" class="pull-right"> {#TODO link#}
+                                                <button class="btn">Faire le défi</button>
+                                            </a>
+                                        </div>
+                                    </div>
                                 </div>
+                                <hr class="row"/>
                             </div>
-                        </div>
-                        <hr class="row"/>
-                    </div>
-                </li>
-                <li class="row">
-                    <div class="row col-xs-offset-1 col-xs-10">
-                        <div class="row">
-                            <div class="row">
-                                <h2>Faire attention aux courses</h2>
-                            </div>
-                            <div class="row">
-                                <p class="col-xs-6 summary">
-                                    Eo adducta re per Isauriam, rege Persarum bellis finitimis inligato
-                                    repellenteque a
-                                    conlimitiis suis ferocissimas gentes, quae mente quadam versabili hostiliter eum
-                                    saepe incessunt et in nos arma moventem aliquotiens iuvant, Nohodares quidam
-                                    nomine
-                                    e numero optimatum, incursare Mesopotamiam quotiens copia dederit ordinatus,
-                                    explorabat nostra sollicite, si repperisset usquam locum vi subita perrupturus.
-                                </p>
-                                <div class="col-xs-3 pull-right">
-                                    <a href="#" class="pull-right"> {#TODO link#}
-                                        <button class="btn">Voir le défi</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="row"/>
-                    </div>
-                </li>
-                <li class="row">
-                    <div class="row col-xs-offset-1 col-xs-10">
-                        <div class="row">
-                            <div class="row">
-                                <h2>Organiser un repas zéro gaspi</h2>
-                            </div>
-                            <div class="row">
-                                <p class="col-xs-6 summary">
-                                    Eo adducta re per Isauriam, rege Persarum bellis finitimis inligato
-                                    repellenteque a
-                                    conlimitiis suis ferocissimas gentes, quae mente quadam versabili hostiliter eum
-                                    saepe incessunt et in nos arma moventem aliquotiens iuvant, Nohodares quidam
-                                    nomine
-                                    e numero optimatum, incursare Mesopotamiam quotiens copia dederit ordinatus,
-                                    explorabat nostra sollicite, si repperisset usquam locum vi subita perrupturus.
-                                </p>
-                                <div class="col-xs-3 pull-right">
-                                    <a href="#" class="pull-right"> {#TODO link#}
-                                        <button class="btn">Voir le défi</button>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                        </li>
+                {% endfor %}
             </ul>
         </div>
     </section>
