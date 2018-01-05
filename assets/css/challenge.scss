@@ -46,3 +46,28 @@
     }
   }
 }
+
+.challenge-response-section {
+  height: 100vh;
+  display: flex;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  .pageContent {
+    width: 100%;
+    .row {
+      margin:0;
+    }
+    .page {
+      padding-top: 30px;
+      hr {
+        margin-top: 50px;
+      }
+        h2 {
+          margin-bottom: 30px;
+        }
+        .videos {
+          margin-top:30px;
+        }
+      }
+    }
+  }
+}
