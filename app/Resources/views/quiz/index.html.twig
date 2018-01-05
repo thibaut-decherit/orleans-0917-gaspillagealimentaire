@@ -10,6 +10,7 @@
     <section class="quiz-index-section">
         <div class="pageContent">
             <ul>
+                {% for title in quizz %}
                 <li class="row">
                     <div class="row col-xs-offset-1 col-xs-10">
                         <div class="row">
@@ -19,7 +20,7 @@
                             </div>
                             <div class="col-xs-9">
                                 <div class="row">
-                                    <h2>L'alimentation</h2>
+                                    <h2>{{ title.name }}</h2>
                                 </div>
                                 <div class="row">
                                     <p class="col-xs-6 summary">
@@ -28,7 +29,7 @@
                                         versabili hostiliter.
                                     </p>
                                     <div class="col-xs-3 pull-right">
-                                        <a href="#" class="pull-right"> {#TODO link#}
+                                        <a href="{{ path('quiz_test', {'id': title.id}) }}" class="pull-right">
                                             <button class="btn">Jouer</button>
                                         </a>
                                     </div>
@@ -37,61 +38,7 @@
                         </div>
                         <hr class="row"/>
                     </div>
-                </li>
-                <li class="row">
-                    <div class="row col-xs-offset-1 col-xs-10">
-                        <div class="row">
-                            <div class="col-xs-3 vignetteContainer">
-                                <img src="http://via.placeholder.com/350x215"
-                                     class="img-responsive img-thumbnail vignette">
-                            </div>
-                            <div class="col-xs-9">
-                                <div class="row">
-                                    <h2>L'impact sur la planète</h2>
-                                </div>
-                                <div class="row">
-                                    <p class="col-xs-6 summary">
-                                        Superatis Tauri montis verticibus qui ad solis ortum sublimius attolluntur,
-                                        Cilicia spatiis porrigitur late distentis dives.
-                                    </p>
-                                    <div class="col-xs-3 pull-right">
-                                        <a href="#" class="pull-right"> {#TODO link#}
-                                            <button class="btn">Jouer</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr class="row"/>
-                    </div>
-                </li>
-                <li class="row">
-                    <div class="row col-xs-offset-1 col-xs-10">
-                        <div class="row">
-                            <div class="col-xs-3 vignetteContainer">
-                                <img src="http://via.placeholder.com/350x215"
-                                     class="img-responsive img-thumbnail vignette">
-                            </div>
-                            <div class="col-xs-9">
-                                <div class="row">
-                                    <h2>La saisonnalité</h2>
-                                </div>
-                                <div class="row">
-                                    <p class="col-xs-6 summary">
-                                        Alii nullo quaerente vultus severitate adsimulata patrimonia sua in inmensum
-                                        extollunt, cultorum ut puta feracium multiplicantes annuos fructus, quae a
-                                        primo
-                                        ad ultimum solem se.
-                                    </p>
-                                    <div class="col-xs-3 pull-right">
-                                        <a href="#" class="pull-right"> {#TODO link#}
-                                            <button class="btn">Jouer</button>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </li>
             </ul>
         </div>

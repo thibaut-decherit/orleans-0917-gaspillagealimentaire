@@ -72,6 +72,14 @@ class Game
     private $summary;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="upload_date", type="date")
+     *
+     */
+    private $uploadDate;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="link", type="string", length=255)
@@ -207,6 +215,30 @@ class Game
     }
 
     /**
+     * Set uploadDate
+     *
+     * @param \DateTime $uploadDate
+     *
+     * @return Test
+     */
+    public function setUploadDate($uploadDate)
+    {
+        $this->uploadDate = $uploadDate;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadDate
+     *
+     * @return \DateTime
+     */
+    public function getUploadDate()
+    {
+        return $this->uploadDate;
+    }
+
+    /**
      * Set link
      *
      * @param string $link
@@ -334,4 +366,3 @@ class Game
         return $this->updatedAt;
     }
 }
-

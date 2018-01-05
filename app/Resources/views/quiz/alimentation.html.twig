@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+{% block pageContent %}
+    <div class="quizz">
+        {% for question in questions %}
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title" id="{{ question.id }}">{{ question.title }}</h3>
+                </div>
+                <div class="panel-body">
+                    {% for answer in question.QuizzAnswers %}
+                        <a id="{{ answer.id }}" data-toggle="modal" href="#modal-{{ answer.id }}">
+                            <input type="hidden" value="{{ answer.isTrue }}">
+                            <div class="col-md-5 answer">
+                                {{ answer.choice }}
+                            </div>
+                        </a>
+                        <div class="modal fade" id="modal-{{ answer.id }}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        {{ question.QuizzTips.content }}
+                                    </div>
+                                    <div class="modal-footer">
+                                    </div>
+                                </div><!-- /.modal-content -->
+                            </div><!-- /.modal-dialog -->
+                        </div><!-- /.modal -->
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
