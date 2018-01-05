@@ -1,21 +1,17 @@
-$top: #EE6352;
-$middle: #71B48D;
-$last: #ED9B40;
-
 .colorBackground {
   background-color: $navBarsColor;
 }
 
 .colorBackgroundTop {
-  background-color: $top;
+  background-color: $informSectionColor;
 }
 
 .colorBackgroundMiddle {
-  background-color: $middle;
+  background-color: $gameSectionColor;
 }
 
 .colorBackgroundLast {
-  background-color: $last;
+  background-color: $challengeSectionColor;
 }
 
 .topBar {
@@ -32,9 +28,9 @@ $last: #ED9B40;
     font-family: 'Roboto-Regular', Helvetica, sans-serif;
     font-size: 18px;
     color: #363636;
-    transform: translateY(35%);
-    img {
-      vertical-align: top;
+    transform: translate(-15%, 35%);
+    .glyphicon {
+      vertical-align: -5%;
     }
   }
 
