@@ -56,21 +56,4 @@ class QuizController extends Controller
             'navGameLinks' => $navGameLinks,
         ));
     }
-
-    /**
-     * @param Request $request
-     * @Route("/quizzAnswer", name="quizz_answer")
-     * @Method({"GET", "POST"})
-     * @return JsonResponse
-     */
-    public function quizzAnswer(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        if ($request->isXmlHttpRequest()) {
-            $id = $request->query->get('id');
-            $data = $em->getRepository("AppBundle:QuestionQuizz")->find($id + 1);
-
-            return new JsonResponse(array("data" => json_encode($data)));
-        }
-    }
 }
