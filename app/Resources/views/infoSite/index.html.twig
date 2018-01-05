@@ -1,5 +1,8 @@
 {% extends 'layout.html.twig' %}
 
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackground', 'title':'Informations'} %}
+{% endblock %}
 
 {% block pageContent %}
     <section class="info-section">
