@@ -85,9 +85,9 @@ $lastLinkHover: #f5ac5a;
       @extend .tab;
     }
     &:focus {
-           background: $top;
-           @extend .tab;
-         }
+      background: $top;
+      @extend .tab;
+    }
     margin-top: 5vh;
   }
   .middle {
