@@ -1,11 +1,15 @@
 {% extends 'layout.html.twig' %}
 
+{% block title %}Informations | Resteatable{% endblock %}
+
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackground', 'title':'Informations'} %}
+{% endblock %}
 
 {% block pageContent %}
-
-    <section class="informMenu-index-section">
+    <section class="info-section">
         <div class="pageContent">
-            <div class="row col-xs-2 containerMenu">
+            <div class="col-xs-2 containerMenu">
                 <div class="blockInfo">
                     <li><a href="" class="pInfo" data-target="1">Questions fréquentes</a></li>
                     <li><a href="" class="pInfo" data-target="2">Mentions légales et CGU</a></li>
