@@ -84,10 +84,10 @@ $lastLinkHover: #f5ac5a;
       background: $navbarSectionHover;
       @extend .tab;
     }
-    a:focus {
-      background: $top;
-      @extend .tab;
-    }
+    &:focus {
+           background: $top;
+           @extend .tab;
+         }
     margin-top: 5vh;
   }
   .middle {
@@ -95,7 +95,7 @@ $lastLinkHover: #f5ac5a;
       background: $navbarSectionHover;
       @extend .tab;
     }
-    a:focus {
+    &:focus {
       background: $middle;
       @extend .tab;
     }
@@ -105,7 +105,7 @@ $lastLinkHover: #f5ac5a;
       background: $navbarSectionHover;
       @extend .tab;
     }
-    a:focus {
+    &:focus {
       background: $last;
       @extend .tab;
     }
@@ -219,7 +219,7 @@ $lastLinkHover: #f5ac5a;
 }
 
 .containerMenu {
-  background: $top;
+  background: $middle;
   height: 100vh;
 }
 
