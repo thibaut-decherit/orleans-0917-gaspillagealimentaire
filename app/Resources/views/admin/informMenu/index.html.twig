@@ -8,11 +8,13 @@
         <div class="panel-body">
             <div class="row">
                 <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
-                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration</a>
+                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                </a>
             </div>
             <div class="row">
-                <a href="{{ path('admin_inform_menu_new') }}" class="btn_admin btn btn-default"><span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau
-                    lien</a>
+                <a href="{{ path('admin_inform_menu_new') }}" class="btn_admin btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau lien
+                </a>
             </div>
             <hr/>
             <div class="row">
@@ -38,14 +40,17 @@
                             </div>
                             <div class="col-xs-4">
                                 <a href="{{ path('admin_inform_menu_edit', { 'id': informMenu.id }) }}"
-                                   class="btn_admin btn btn-default pull-right"><span class="glyphicon glyphicon-edit"></span> Modifier</a>
+                                   class="btn_admin btn btn-default pull-right">
+                                    <span class="glyphicon glyphicon-edit"></span> Modifier
+                                </a>
                             </div>
                         </div>
                         <hr/>
                     {% endfor %}
                     <div class="row">
                         <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default">
-                            <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration</a>
+                            <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                        </a>
                     </div>
                 </div>
             </div>
