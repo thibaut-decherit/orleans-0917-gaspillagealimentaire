@@ -4,14 +4,6 @@
 
 {% block layout %}
 
-    <div class="logoutButton">
-        {% if is_granted("ROLE_ADMIN") %}
-            <a href="{{ path('fos_user_security_logout') }}">
-                <button class="btn_admin">Déconnexion</button>
-            </a>
-        {% endif %}
-    </div>
-
     {% if app.request.hasPreviousSession %}
         {% for type, messages in app.session.flashBag.all %}
             {% for message in messages %}
