@@ -95,35 +95,35 @@ class DescriptionsFixture extends Fixture implements OrderedFixtureInterface
             ],
         ];
 
-            foreach ($descriptionsHome as $descriptionHome) {
-                $descriptionsChallengeHome = new DescriptionChallenge();
-                $descriptionsChallengeHome->setTitle($descriptionHome[0]);
-                $descriptionsChallengeHome->setContent($descriptionHome[1]);
-                $descriptionsChallengeHome->setCategory($this->getReference('categoryHome'));
-                $descriptionsChallengeHome->setIsPicture($descriptionHome[2]);
-                $descriptionsChallengeHome->setIsVideo($descriptionHome[3]);
-                $manager->persist($descriptionsChallengeHome);
-            }
+        foreach ($descriptionsHome as $descriptionHome) {
+            $descriptionsChallengeHome = new DescriptionChallenge();
+            $descriptionsChallengeHome->setTitle($descriptionHome[0]);
+            $descriptionsChallengeHome->setContent($descriptionHome[1]);
+            $descriptionsChallengeHome->setCategory($this->getReference('categoryHome'));
+            $descriptionsChallengeHome->setIsPicture($descriptionHome[2]);
+            $descriptionsChallengeHome->setIsVideo($descriptionHome[3]);
+            $manager->persist($descriptionsChallengeHome);
+        }
 
-            foreach ($descriptionsSchool as $descriptionSchool) {
-                $descriptionsChallengeSchool = new DescriptionChallenge();
-                $descriptionsChallengeSchool->setTitle($descriptionSchool[0]);
-                $descriptionsChallengeSchool->setContent($descriptionSchool[1]);
-                $descriptionsChallengeSchool->setCategory($this->getReference('categorySchool'));
-                $descriptionsChallengeSchool->setIsPicture($descriptionSchool[2]);
-                $descriptionsChallengeSchool->setIsVideo($descriptionSchool[3]);
-                $manager->persist($descriptionsChallengeSchool);
-            }
+        foreach ($descriptionsSchool as $descriptionSchool) {
+            $descriptionsChallengeSchool = new DescriptionChallenge();
+            $descriptionsChallengeSchool->setTitle($descriptionSchool[0]);
+            $descriptionsChallengeSchool->setContent($descriptionSchool[1]);
+            $descriptionsChallengeSchool->setCategory($this->getReference('categorySchool'));
+            $descriptionsChallengeSchool->setIsPicture($descriptionSchool[2]);
+            $descriptionsChallengeSchool->setIsVideo($descriptionSchool[3]);
+            $manager->persist($descriptionsChallengeSchool);
+        }
 
-            foreach ($descriptionsOrganization as $descriptionOrganization) {
-                $descriptionsChallengeOrganization = new DescriptionChallenge();
-                $descriptionsChallengeOrganization->setTitle($descriptionOrganization[0]);
-                $descriptionsChallengeOrganization->setContent($descriptionOrganization[1]);
-                $descriptionsChallengeOrganization->setCategory($this->getReference('categoryOrganization'));
-                $descriptionsChallengeOrganization->setIsPicture($descriptionOrganization[2]);
-                $descriptionsChallengeOrganization->setIsVideo($descriptionOrganization[3]);
-                $manager->persist($descriptionsChallengeOrganization);
-            }
+        foreach ($descriptionsOrganization as $descriptionOrganization) {
+            $descriptionsChallengeOrganization = new DescriptionChallenge();
+            $descriptionsChallengeOrganization->setTitle($descriptionOrganization[0]);
+            $descriptionsChallengeOrganization->setContent($descriptionOrganization[1]);
+            $descriptionsChallengeOrganization->setCategory($this->getReference('categoryOrganization'));
+            $descriptionsChallengeOrganization->setIsPicture($descriptionOrganization[2]);
+            $descriptionsChallengeOrganization->setIsVideo($descriptionOrganization[3]);
+            $manager->persist($descriptionsChallengeOrganization);
+        }
 
         $manager->flush();
     }

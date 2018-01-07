@@ -24,7 +24,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:CategoryChallenge')->findBy(['name' => 'home']);
-        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category ]);
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category]);
 
         return $this->render('challenge/indexHome.html.twig', array(
             'descriptionsChallenges' => $descriptionsChallenges,
@@ -39,7 +39,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:CategoryChallenge')->findBy(['name' => 'school']);
-        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category ]);
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category]);
 
         return $this->render('challenge/indexSchool.html.twig', array(
             'descriptionsChallenges' => $descriptionsChallenges,
@@ -54,7 +54,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:CategoryChallenge')->findBy(['name' => 'organization']);
-        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category ]);
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category]);
 
         return $this->render('challenge/indexOrganization.html.twig', array(
             'descriptionsChallenges' => $descriptionsChallenges,
@@ -118,8 +118,7 @@ class DescriptionChallengeController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('descriptionchallenge_delete', array('id' => $descriptionChallenge->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 
     /**

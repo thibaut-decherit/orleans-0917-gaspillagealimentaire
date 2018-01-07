@@ -18,10 +18,12 @@ class DescriptionChallengeType extends AbstractType
         $builder->add('title')
             ->add('content')
             ->add('category', EntityType::class, [
-                'class'=>CategoryChallenge::class,
-                'choice_label'=>'name',
+                'class' => CategoryChallenge::class,
+                'choice_label' => 'name',
             ]);
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
