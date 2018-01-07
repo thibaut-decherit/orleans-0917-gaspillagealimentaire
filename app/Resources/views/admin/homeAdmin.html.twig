@@ -9,7 +9,7 @@
             <div class="row">
                 {% if is_granted("ROLE_ADMIN") %}
                     <a href="{{ path('fos_user_security_logout') }}" class="btn_admin btn btn-default">
-                        <span class="glyphicon glyphicon-chevron-left"></span> Déconnexion
+                        <span class="glyphicon glyphicon glyphicon-remove"></span> Déconnexion
                     </a>
                 {% endif %}
             </div>

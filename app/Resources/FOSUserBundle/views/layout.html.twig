@@ -2,27 +2,49 @@
 
 
 {% block pageContent %}
-
     <section class="adminLogin">
-        {% if error %}
-            <div>Nom d'utilisateur ou mot de passe incorrect.</div>
-        {% endif %}
-
-        <form action="{{ path("fos_user_security_check") }}" method="post" class="loginForm">
-            {% if csrf_token %}
-                <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
-            {% endif %}
-                <label for="username">Nom d'utilisateur</label>
-                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required"/>
-                <label for="password">Mot de passe</label>
-                <input type="password" id="password" name="_password" required="required"/>
-            <div>
-                <input type="checkbox" id="remember_me" name="_remember_me" value="on"/>
-                <label for="remember_me">Maintenir la session ouverte</label>
+        <div class="row logo-container">
+            <img class="logo-site center-block" src="{{ asset('images/logo.png') }}" alt="Logo du site"/>
+        </div>
+        <div class="panel panel-default admin">
+            <div class="panel-heading">
+                <h1 class="panel-title text-center">Administration</h1>
             </div>
+            <div class="panel-body">
+                {% if error %}
+                    <div class="label_error_login alert alert-danger alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <p>Identifiant ou mot de passe incorrect</p>
+                    </div>
+                {% endif %}
 
-            <input type="submit" id="_submit" class="btn_admin" name="_submit" value="Connexion"/>
-        </form>
+                <form action="{{ path("fos_user_security_check") }}" method="post" class="loginForm">
+                    {% if csrf_token %}
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token }}"/>
+                    {% endif %}
+                    <div class="form-group">
+                    <label for="username" class="labels_admin">Identifiant</label>
+                    <input type="text" id="username" class="form-control" name="_username" value="{{ last_username }}"
+                           required="required"/>
+                    </div>
+                    <div class="form-group">
+                    <label for="password" class="labels_admin">Mot de passe</label>
+                    <input type="password" id="password" class="form-control" name="_password" required="required"/>
+                    </div>
+                    <div class="rememberMeCheckbox">
+                        <input type="checkbox" id="remember_me" class="rememberMeCheckbox" name="_remember_me" value="on"/>
+                        <label for="remember_me" class="labels_admin rememberMeCheckbox">Se souvenir de moi</label>
+                    </div>
+                    <div>
+                        <button type="submit" id="_submit" class="btn_admin btn btn-default pull-right" name="_submit">
+                            Connexion
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </section>
 
 {% endblock %}

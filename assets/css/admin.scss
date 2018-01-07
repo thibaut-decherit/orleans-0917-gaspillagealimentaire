@@ -12,15 +12,25 @@ hr {
 }
 
 .adminLogin {
-  width: 50vw;
+  width: 30vw;
   margin: auto;
+  .logo-site {
+    max-height: 150px;
+    width: auto;
+  }
+  .label_error_login {
+    margin-bottom: 15px;
+  }
   .loginForm {
     display: flex;
     flex-direction: column;
+    .rememberMeCheckbox {
+      cursor: pointer;
+    }
   }
 }
 
-.admin {
+.admin, .adminLogin {
   margin-top: 20px;
   .panel-title {
     font-size: 2vw;
@@ -30,16 +40,12 @@ hr {
   }
   .panel-body {
     margin: 15px;
-    .listAdmin {
+    .listAdmin, .loginForm {
       .row {
         margin: 0;
       }
       p {
         font-size: 1.5vw;
-      }
-      .form-control {
-        border: 2px solid $grey_border;
-        border-radius: 50px;
       }
       .vignetteList {
         min-height: 150px;
