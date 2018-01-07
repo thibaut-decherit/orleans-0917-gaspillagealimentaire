@@ -11,6 +11,15 @@ hr {
   color: white;
 }
 
+.adminLogin {
+  width: 50vw;
+  margin: auto;
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
 .adminHome {
   margin-top: 20px;
   .panel-title {
