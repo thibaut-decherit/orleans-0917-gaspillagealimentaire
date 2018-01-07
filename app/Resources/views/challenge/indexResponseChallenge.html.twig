@@ -104,11 +104,10 @@
                                                         <img src="{{ asset('uploads/' ~ answer.imageName) }}"
                                                              alt="photo du défi"
                                                              class="img-responsive center-block"
-                                                             data-dismiss="modal"
-                                                             aria-label="Close">
-                                                        <div class="row">
-                                                            {{ answer.message }}
-                                                        </div>
+                                                             data-dismiss="modal" aria-label="Close">
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <h4 class="text-left">{{ answer.message }}</h4>
                                                     </div>
                                                 </div>
                                             </div>
