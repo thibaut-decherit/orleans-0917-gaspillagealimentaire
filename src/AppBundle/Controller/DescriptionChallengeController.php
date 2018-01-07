@@ -138,13 +138,13 @@ class DescriptionChallengeController extends Controller
         ));
     }
 
-    public function topBarAction(DescriptionChallenge $descriptionChallenge)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
-
-        return $this->render('topBar.html.twig', array(
-            'descriptionChallenge' => $descriptionChallenge,
-        ));
-    }
+//    public function topBarAction(DescriptionChallenge $descriptionChallenge)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
+//
+//        return $this->render('topBar.html.twig', array(
+//            'descriptionChallenge' => $descriptionChallenge,
+//        ));
+//    }
 }

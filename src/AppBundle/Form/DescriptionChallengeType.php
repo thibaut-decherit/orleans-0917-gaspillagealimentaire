@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\CategoryChallenge;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -13,7 +15,12 @@ class DescriptionChallengeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('title')->add('content')->add('category');
+        $builder->add('title')
+            ->add('content')
+            ->add('category', EntityType::class, [
+                'class'=>CategoryChallenge::class,
+                'choice_label'=>'name',
+            ]);
     }/**
      * {@inheritdoc}
      */
