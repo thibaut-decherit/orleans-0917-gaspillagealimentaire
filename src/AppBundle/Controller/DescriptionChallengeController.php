@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\DescriptionChallenge;
 use AppBundle\Entity\CategoryChallenge;
+use AppBundle\Entity\AnswerChallenge;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -127,23 +128,35 @@ class DescriptionChallengeController extends Controller
      * @Route("/{id}/response", name="responsechallenge_index")
      * @Method({"GET", "POST"})
      */
-    public function indexResponseAction(DescriptionChallenge $descriptionChallenge)
+    public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
     {
         $em = $this->getDoctrine()->getManager();
         $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
 
+        $answerChallenge = new Answerchallenge();
+        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($answerChallenge);
+            $em->flush();
+
+            return $this->redirectToRoute('responsechallenge_index', array('id' => $descriptionChallenge->getId()));
+        }
+
+        $answers = $em->getRepository('AppBundle:AnswerChallenge')->findAllDesc();
+
+        $lastAnswer = $em->getRepository('AppBundle:AnswerChallenge')->findOneBy([], ['id' => 'DESC']);
+
         return $this->render('challenge/indexResponseChallenge.html.twig', array(
             'descriptionChallenge' => $descriptionChallenge,
+            'answerChallenge' => $answerChallenge,
+            'form' => $form->createView(),
+            'answers' => $answers,
+            'lastAnswer' => $lastAnswer,
         ));
     }
 
-//    public function topBarAction(DescriptionChallenge $descriptionChallenge)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
-//
-//        return $this->render('topBar.html.twig', array(
-//            'descriptionChallenge' => $descriptionChallenge,
-//        ));
-//    }
+
 }

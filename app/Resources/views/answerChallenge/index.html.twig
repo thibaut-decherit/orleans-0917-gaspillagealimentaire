@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Answerchallenges list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Title</th>
+                <th>Message</th>
+                <th>Imagename</th>
+                <th>Updatedat</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for answerChallenge in answerChallenges %}
+            <tr>
+                <td><a href="{{ path('answerChallenge_show', { 'id': answerChallenge.id }) }}">{{ answerChallenge.id }}</a></td>
+                <td>{{ answerChallenge.name }}</td>
+                <td>{{ answerChallenge.title }}</td>
+                <td>{{ answerChallenge.message }}</td>
+                <td>{{ answerChallenge.imageName }}</td>
+                <td>{% if answerChallenge.updatedAt %}{{ answerChallenge.updatedAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('answerChallenge_show', { 'id': answerChallenge.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('answerChallenge_edit', { 'id': answerChallenge.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('answerChallenge_new') }}">Create a new answerChallenge</a>
+        </li>
+    </ul>
+{% endblock %}
