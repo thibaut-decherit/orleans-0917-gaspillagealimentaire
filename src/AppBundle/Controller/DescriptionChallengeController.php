@@ -146,7 +146,6 @@ class DescriptionChallengeController extends Controller
         }
 
         $answers = $em->getRepository('AppBundle:AnswerChallenge')->findAllDesc();
-
         $lastAnswer = $em->getRepository('AppBundle:AnswerChallenge')->findOneBy([], ['id' => 'DESC']);
 
         return $this->render('challenge/indexResponseChallenge.html.twig', array(

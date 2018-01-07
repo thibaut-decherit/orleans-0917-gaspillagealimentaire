@@ -73,6 +73,11 @@ class AnswerChallenge
     private $message;
 
     /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DescriptionChallenge")
+     */
+    private $description;
+
+    /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="answer_challenge_image", fileNameProperty="imageName")
@@ -264,5 +269,29 @@ class AnswerChallenge
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set description
+     *
+     * @param \AppBundle\Entity\DescriptionChallenge $description
+     *
+     * @return AnswerChallenge
+     */
+    public function setDescription(\AppBundle\Entity\DescriptionChallenge $description = null)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return \AppBundle\Entity\DescriptionChallenge
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }
