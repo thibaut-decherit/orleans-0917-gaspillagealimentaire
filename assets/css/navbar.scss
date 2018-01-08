@@ -57,6 +57,10 @@ $lastLinkHover: #f5ac5a;
   a {
     display: block;
     padding: 15px 20px;
+    .img-circle {
+      height: 80px;
+      width: 80px;
+    }
     .text {
       color: #ffffff;
       text-decoration: none;
