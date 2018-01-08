@@ -10,8 +10,4 @@ namespace AppBundle\Repository;
  */
 class AnswerChallengeRepository extends \Doctrine\ORM\EntityRepository
 {
-    public function findAllDesc()
-    {
-        return $this->findBy([], ['id' => 'DESC']);
-    }
 }
