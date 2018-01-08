@@ -116,7 +116,8 @@ class DescriptionChallengeController extends Controller
     private function createDeleteForm(DescriptionChallenge $descriptionChallenge)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('descriptionchallenge_delete', array('id' => $descriptionChallenge->getId())))
+            ->setAction($this->generateUrl('descriptionchallenge_delete',
+                array('id' => $descriptionChallenge->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }
@@ -136,14 +137,4 @@ class DescriptionChallengeController extends Controller
             'descriptionChallenge' => $descriptionChallenge,
         ));
     }
-
-//    public function topBarAction(DescriptionChallenge $descriptionChallenge)
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
-//
-//        return $this->render('topBar.html.twig', array(
-//            'descriptionChallenge' => $descriptionChallenge,
-//        ));
-//    }
 }
