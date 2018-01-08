@@ -117,7 +117,8 @@ class DescriptionChallengeController extends Controller
     private function createDeleteForm(DescriptionChallenge $descriptionChallenge)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('descriptionchallenge_delete', array('id' => $descriptionChallenge->getId())))
+            ->setAction($this->generateUrl('descriptionchallenge_delete',
+                array('id' => $descriptionChallenge->getId())))
             ->setMethod('DELETE')
             ->getForm();
     }
@@ -181,6 +182,4 @@ class DescriptionChallengeController extends Controller
             'lastAnswer' => $lastAnswer,
         ));
     }
-
-
 }
