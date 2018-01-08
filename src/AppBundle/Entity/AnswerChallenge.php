@@ -109,6 +109,13 @@ class AnswerChallenge
      */
     private $updatedAt;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isReport", type="boolean")
+     */
+    private $isReport;
+
     public function __construct()
     {
         $this->updatedAt = new \DateTimeImmutable();
@@ -292,5 +299,29 @@ class AnswerChallenge
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set isReport
+     *
+     * @param boolean $isReport
+     *
+     * @return AnswerChallenge
+     */
+    public function setIsReport($isReport)
+    {
+        $this->isReport = $isReport;
+
+        return $this;
+    }
+
+    /**
+     * Get isReport
+     *
+     * @return boolean
+     */
+    public function getIsReport()
+    {
+        return $this->isReport;
     }
 }

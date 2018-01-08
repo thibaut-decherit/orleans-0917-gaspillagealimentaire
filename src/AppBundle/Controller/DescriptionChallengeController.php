@@ -160,4 +160,23 @@ class DescriptionChallengeController extends Controller
             'form2' => $form2->createView(),
         ));
     }
+
+    /**
+     * @param AnswerChallenge $answerChallenge
+     * @Route("/report/{id}", name="report_content")
+     * @Method({"GET", "POST"})
+     */
+    public function toggledCheck(AnswerChallenge $answerChallenge)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        if ($answerChallenge->getIsReport() == false) {
+            $answerChallenge->setIsReport(true);
+            $this->addFlash("success", "Le contenu a bien été signalé.");
+        }
+
+        $em->persist($answerChallenge);
+        $em->flush();
+        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getId()]);
+    }
 }
