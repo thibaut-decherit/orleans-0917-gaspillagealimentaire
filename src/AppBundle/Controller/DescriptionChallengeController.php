@@ -132,7 +132,6 @@ class DescriptionChallengeController extends Controller
     public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
     {
         $em = $this->getDoctrine()->getManager();
-        $em->getRepository('AppBundle:DescriptionChallenge')->findOneBy(['id' => $descriptionChallenge->getId()]);
 
         $answerChallenge = new Answerchallenge();
 
@@ -142,44 +141,23 @@ class DescriptionChallengeController extends Controller
         $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge);
         $form2->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if (($form->isSubmitted() && $form->isValid()) || ($form2->isSubmitted() && $form2->isValid())) {
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
             $em->persist($answerChallenge);
             $em->flush();
 
-            return $this->redirectToRoute('responsechallenge_index', array('id' => $descriptionChallenge->getId()));
+            return $this->redirectToRoute('responsechallenge_index', [
+                    'id' => $descriptionChallenge->getId()
+                ]
+            );
         }
-
-        if ($form2->isSubmitted() && $form2->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-//            $answerChallenge->setUpdatedAt();
-            $answerChallenge->setDescription($descriptionChallenge);
-            $em->persist($answerChallenge);
-            $em->flush();
-
-            return $this->redirectToRoute('responsechallenge_index', array('id' => $descriptionChallenge->getId()));
-        }
-
-        $answers = $em->getRepository('AppBundle:AnswerChallenge')->findBy(
-            ['description' => $descriptionChallenge],
-            ['id' => 'DESC'],
-            12,
-            1
-        );
-
-        $lastAnswer = $em->getRepository('AppBundle:AnswerChallenge')->findOneBy(
-            ['description' => $descriptionChallenge],
-            ['id' => 'DESC']
-        );
 
         return $this->render('challenge/indexResponseChallenge.html.twig', array(
             'descriptionChallenge' => $descriptionChallenge,
             'answerChallenge' => $answerChallenge,
             'form' => $form->createView(),
             'form2' => $form2->createView(),
-            'answers' => $answers,
-            'lastAnswer' => $lastAnswer,
         ));
     }
 }

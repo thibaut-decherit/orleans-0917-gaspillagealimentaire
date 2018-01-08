@@ -53,6 +53,12 @@ class DescriptionChallenge
      */
     private $isVideo;
 
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AnswerChallenge", mappedBy="description")
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $answers;
+
 
     /**
      * Get id
@@ -182,5 +188,46 @@ class DescriptionChallenge
     public function getIsVideo()
     {
         return $this->isVideo;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add answer
+     *
+     * @param \AppBundle\Entity\AnswerChallenge $answer
+     *
+     * @return DescriptionChallenge
+     */
+    public function addAnswer(\AppBundle\Entity\AnswerChallenge $answer)
+    {
+        $this->answers[] = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Remove answer
+     *
+     * @param \AppBundle\Entity\AnswerChallenge $answer
+     */
+    public function removeAnswer(\AppBundle\Entity\AnswerChallenge $answer)
+    {
+        $this->answers->removeElement($answer);
+    }
+
+    /**
+     * Get answers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
     }
 }

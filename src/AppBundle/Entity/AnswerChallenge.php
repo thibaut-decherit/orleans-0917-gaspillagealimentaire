@@ -73,7 +73,7 @@ class AnswerChallenge
     private $message;
 
     /**
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DescriptionChallenge")
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DescriptionChallenge", inversedBy="answers")
      */
     private $description;
 
@@ -109,6 +109,11 @@ class AnswerChallenge
      */
     private $updatedAt;
 
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+    }
+
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
      * of 'UploadedFile' is injected into this setter to trigger the  update. If this
@@ -123,12 +128,6 @@ class AnswerChallenge
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
-
-        if ($image) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
-        }
 
         return $this;
     }
