@@ -1,6 +1,6 @@
 .info-section {
   display: flex;
-  .pageContent {
+  .pageResource {
     li {
       list-style-type: none;
       margin-top: 19px;
@@ -9,15 +9,15 @@
       }
       a:hover {
         color: white;
-        background: $middleLinkHover;
         text-decoration: none;
+        background: $topLinkHover;
       }
       a:focus {
         text-decoration: none;
       }
     }
-    .containerMenu {
-      background: $middle;
+    .containerMenuResource {
+      background: $informSectionColor;
       height: 100vh;
       padding: 0;
       .blockInfo {
