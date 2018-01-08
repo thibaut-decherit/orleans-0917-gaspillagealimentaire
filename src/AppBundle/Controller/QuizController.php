@@ -10,6 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * QuizController controller.
@@ -52,7 +53,7 @@ class QuizController extends Controller
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('quiz/alimentation.html.twig', array(
+        return $this->render('quiz/question.html.twig', array(
             'question' => $question,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
@@ -60,19 +61,26 @@ class QuizController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @Route("/quizzAnswer", name="quizz_answer")
+     * @Route("/reponse", name="quizzAnswer")
      * @Method({"GET", "POST"})
-     * @return JsonResponse
      */
     public function quizzAnswer(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
-        if ($request->isXmlHttpRequest()) {
-            $id = $request->query->get('id');
-            $data = $em->getRepository("AppBundle:QuestionQuizz")->find($id + 1);
 
-            return new JsonResponse(array("data" => json_encode($data)));
-        }
+        $em = $this->getDoctrine()->getManager();
+
+        $req = $request->request->get('id');
+        $data = $em->getRepository("AppBundle:AnswerQuizz")->findOneBy(['id' => $req]);
+        $response = $data->getIsTrue() ? "Bonne" : "Mauvaise";
+
+
+        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
+        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
+
+        return $this->render('quiz/answer.html.twig', array(
+            'response' => $response,
+            'navInformLinks' => $navInformLinks,
+            'navGameLinks' => $navGameLinks,
+        ));
     }
 }

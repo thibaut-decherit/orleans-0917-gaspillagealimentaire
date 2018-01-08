@@ -1,0 +1,20 @@
+{% extends 'layout.html.twig' %}
+{% block pageContent %}
+    <div class="quizz">
+        <div class="panel panel-primary">
+            <h2>QUESTION 1/6</h2>
+            <h3 class="panel-title">{{ question.title }}</h3>
+            <div class="panel-body">
+                <form method="POST" action="{{ path('quizzAnswer') }}">
+                    {% for answer in question.QuizzAnswers %}
+                        <div class="col-md-12 answer">
+                            <input type="checkbox" id="{{ answer.id }}" name="answer{{ answer.id }}">
+                            {{ answer.choice }}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" name="submit">Valider ma réponse</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
