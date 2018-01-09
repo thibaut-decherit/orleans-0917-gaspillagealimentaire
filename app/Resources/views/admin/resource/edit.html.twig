@@ -1,0 +1,32 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+
+    <div class="panel panel-default admin">
+        <div class="panel-heading">
+            <h1 class="panel-title text-info text-center">Ressource - Modifier une ressource</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <a href="{{ path('admin_resource_index') }}" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Retour à la liste
+                </a>
+            </div>
+            <hr/>
+            <div class="row">
+                {{ form_start(edit_form) }}
+                {{ form_widget(edit_form) }}
+                <input type="submit" value="Modifier" class="btn_admin btn btn-default"/>
+                {{ form_end(edit_form) }}
+                <img src="{{ asset('uploads/' ~ resource.resourceName) }}"
+                     class="img-responsive img-thumbnail center-block imgEdit">
+            </div>
+            <hr/>
+            <div class="row">
+                {{ form_start(delete_form) }}
+                <input type="submit" value="Supprimer" class="btn_admin btn btn-default pull-right">
+                {{ form_end(delete_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

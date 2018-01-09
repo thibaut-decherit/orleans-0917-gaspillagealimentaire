@@ -31,12 +31,10 @@ class ResourceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
-        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
+        $resources = $em->getRepository('AppBundle:Resource')->findAllDesc();
 
         return $this->render('resources/index.html.twig', array(
-            'navInformLinks' => $navInformLinks,
-            'navGameLinks' => $navGameLinks,
+            'resources' => $resources,
         ));
     }
 
