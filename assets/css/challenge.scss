@@ -81,11 +81,14 @@
         margin-top: 30px;
         margin-bottom: 50px;
       }
+      .btn-default {
+        border-color: transparent;
+      }
       .btnReport {
-        border: 2px solid $grey_border;
         border-radius: 50px;
         background-color: $navBarsColor;
         color: white;
+        font-size: 0.5vw;
       }
       .modalReport1 {
         .btnReport {
