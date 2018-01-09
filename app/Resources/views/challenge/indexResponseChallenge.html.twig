@@ -87,16 +87,21 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade" id="modalReport1{{ descriptionChallenge.answers.0.id }}"
+                                <div class="modal fade modalReport" id="modalReport1{{ descriptionChallenge.answers.0.id }}"
                                      tabindex="-1"
                                      role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span
-                                                            aria-hidden="true">&times;</span></button>
+                                                <div class="row">
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                    <h4>{{ descriptionChallenge.answers.0.name }}</h4>
+                                                </div>
                                             </div>
+
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <h4 class="text-center">Signaler ce contenu ?</h4>
@@ -145,15 +150,19 @@
                                                  </span>
                                             </div>
                                         </div>
-                                        <div class="modal fade" id="modalReport{{ answer.id }}"
+                                        <div class="modal fade modalReport" id="modalReport{{ answer.id }}"
                                              tabindex="-1"
                                              role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog modal-lg" role="document">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close"><span
-                                                                    aria-hidden="true">&times;</span></button>
+                                                        <div class="row">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4>{{ answer.title }}</h4>
+                                                        </div>
                                                     </div>
                                                     <div class="modal-body">
                                                         <div class="row">

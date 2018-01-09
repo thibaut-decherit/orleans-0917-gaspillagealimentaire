@@ -71,13 +71,11 @@
       }
       .img-thumbnail {
         height: 300px;
-        //box-shadow: grey 2px 1px 4px;
         object-fit: cover;
         object-position: center;
       }
       .titlePicture {
-        margin-top: 15px;
-        padding: 10px;
+        margin-top: 20px;
       }
       .picturesMarge {
         margin-top: 30px;
@@ -97,6 +95,13 @@
       .modal-body {
         h4 {
           margin-bottom: 30px;
+        }
+      }
+      .modalReport {
+        .modal-content {
+          .modal-body {
+            padding: 30px;
+          }
         }
       }
     }
