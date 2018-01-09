@@ -19,10 +19,6 @@
           color: darkgrey;
         }
       }
-      .btn-info {
-        background-color: #ED9B40;
-        border-color: #ED9B40;
-      }
       .panel-title {
         padding-bottom: 20px;
         font-size: 27px;
@@ -57,11 +53,6 @@
           background-color: #04A777;
         }
       }
-    }
-    .panel-heading {
-      background-color: #ED9B40;
-      border-color: #ED9B40;
-      color: white;
     }
   }
   .panel-info {
@@ -103,6 +94,7 @@
     }
   }
   .panel-primary {
+    text-align: center;
     box-shadow: black 2px 1px 4px;
     height: 70vh;
     h2 {
@@ -121,7 +113,7 @@
       border: solid 5px;
       color: white;
       padding-top: 15px;
-      width: 600px;
+      width: 25vw;
       font-size: 37px;
     }
     .good {
@@ -138,7 +130,8 @@
       background-color: #04A777;
     }
     .panel-body {
-      padding-bottom: 20px;
+      padding-top: 50px;
+      padding-bottom: 50px;
       font-size: 15px;
     }
   }

@@ -11,21 +11,26 @@ hr {
   color: white;
 }
 
-.adminHome {
-  margin-top: 20px;
-  .panel-title {
-    font-size: 2vw;
-    color: $grey_border;
-    padding-top: 15px;
-    padding-bottom: 15px;
+.adminLogin {
+  width: 30vw;
+  margin: auto;
+  .logo-site {
+    max-height: 150px;
+    width: auto;
   }
-  .panel-body {
-    margin-top: 15px;
+  .label_error_login {
     margin-bottom: 15px;
+  }
+  .loginForm {
+    display: flex;
+    flex-direction: column;
+    .rememberMeCheckbox {
+      cursor: pointer;
+    }
   }
 }
 
-.admin {
+.admin, .adminLogin {
   margin-top: 20px;
   .panel-title {
     font-size: 2vw;
@@ -35,20 +40,16 @@ hr {
   }
   .panel-body {
     margin: 15px;
-    .listAdmin {
+    .listAdmin, .loginForm {
       .row {
         margin: 0;
       }
       p {
         font-size: 1.5vw;
       }
-      .form-control {
-        border: 2px solid $grey_border;
-        border-radius: 50px;
-      }
       .vignetteList {
-        height: 150px;
-        width: auto;
+        min-height: 150px;
+        width: 75%;
         margin-bottom: 10px;
       }
       .imgEdit {

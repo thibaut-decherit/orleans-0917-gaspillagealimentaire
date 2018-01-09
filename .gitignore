@@ -18,7 +18,4 @@
 /node_modules/
 /web/build/*
 *~
-package-lock\.json
 /web/uploads/*
-
-composer\.lock

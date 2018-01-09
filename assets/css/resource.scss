@@ -1,0 +1,39 @@
+.info-section {
+  display: flex;
+  .pageResource {
+    li {
+      list-style-type: none;
+      margin-top: 19px;
+      a {
+        display: block;
+      }
+      a:hover {
+        color: white;
+        text-decoration: none;
+        background: $topLinkHover;
+      }
+      a:focus {
+        text-decoration: none;
+      }
+    }
+    .containerMenuResource {
+      background: $informSectionColor;
+      height: 100vh;
+      padding: 0;
+      .blockInfo {
+        margin-top: 60px;
+        text-align: center;
+        .pInfo {
+          font-size: 18px;
+          color: white;
+          font-family: 'Roboto-regular', Helvetica, sans-serif;
+        }
+      }
+    }
+    .articles {
+      .article {
+        display: none;
+      }
+    }
+  }
+}

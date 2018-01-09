@@ -1,11 +1,19 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
 
 {% block pageContent %}
-    <div class="panel panel-default adminHome">
+    <div class="panel panel-default admin">
         <div class="panel-heading">
             <h1 class="panel-title text-center">Administration || Rest' à table</h1>
         </div>
         <div class="panel-body">
+            <div class="row">
+                {% if is_granted("ROLE_ADMIN") %}
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn_admin btn btn-default">
+                        <span class="glyphicon glyphicon glyphicon-remove"></span> Déconnexion
+                    </a>
+                {% endif %}
+            </div>
+            <hr/>
             <div class="row text-center">
                 <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-default">S'informer</a>
                 <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-default">S'entrainer - Jeux</a>

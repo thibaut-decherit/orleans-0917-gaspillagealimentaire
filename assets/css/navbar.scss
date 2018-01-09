@@ -1,13 +1,13 @@
 @import url(http://fonts.googleapis.com/css?family=Oxygen+Mono);
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 /* Please Keep this font import at the very top of any CSS file */
 
 /* Starter CSS for Flyout Menu */
-$top: #EE6352;
-$topHover: #FF8070;
-$middle: #71B48D;
-$middleHover: #87CDA4;
-$last: #ED9B40;
-$lastHover: #f5ac5a;
+
+$top: $informSectionColor;
+$middle: $gameSectionColor;
+$last: $challengeSectionColor;
+
 
 .tab {
   text-decoration: none;
@@ -77,22 +77,33 @@ $lastHover: #f5ac5a;
   a:hover {
     text-decoration: none;
   }
-
   .top {
-    a:hover, a:focus {
+    a:hover {
+      background: $navbarSectionHover;
+      @extend .tab;
+    }
+    &:focus {
       background: $top;
       @extend .tab;
     }
     margin-top: 5vh;
   }
   .middle {
-    a:hover, a:focus {
+    a:hover {
+      background: $navbarSectionHover;
+      @extend .tab;
+    }
+    &:focus {
       background: $middle;
       @extend .tab;
     }
   }
   .last {
-    a:hover, a:focus {
+    a:hover {
+      background: $navbarSectionHover;
+      @extend .tab;
+    }
+    &:focus {
       background: $last;
       @extend .tab;
     }
@@ -168,7 +179,7 @@ $lastHover: #f5ac5a;
 #one {
   background: $top;
   a:hover {
-    background: $topHover;
+    background: $topLinkHover;
   }
   @extend .submenu;
   &:target {
@@ -179,7 +190,7 @@ $lastHover: #f5ac5a;
 #two {
   background: $middle;
   a:hover {
-    background: $middleHover;
+    background: $middleLinkHover;
   }
   @extend .submenu;
   &:target {
@@ -190,7 +201,7 @@ $lastHover: #f5ac5a;
 #three {
   background: $last;
   a:hover {
-    background: $lastHover;
+    background: $lastLinkHover;
   }
   @extend .submenu;
   &:target {
