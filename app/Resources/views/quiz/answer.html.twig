@@ -1,6 +1,9 @@
 {% extends 'layout.html.twig' %}
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title': answer.QuizzQuestion.TitleQuizz.name} %}
+{% endblock %}
 {% block pageContent %}
-    <div class="quizzSection">
+    <div class="quizzSection{{ answer.QuizzQuestion.TitleQuizz.id }}">
         <div class="quizz">
             <div class="container-fluid">
                 <div class="panel panel-primary">

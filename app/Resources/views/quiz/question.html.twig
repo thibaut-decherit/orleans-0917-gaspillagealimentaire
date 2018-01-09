@@ -3,7 +3,7 @@
     {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title': question.TitleQuizz.name} %}
 {% endblock %}
 {% block pageContent %}
-    <div class="quizzSection">
+    <div class="quizzSection{{ question.TitleQuizz.id }}">
         <div class="quizz">
             <div class="panel panel-info">
                 <h2><b>QUESTION {{ question.questionNbr }}<span>/6</span></b></h2>
