@@ -47,6 +47,20 @@ class QuestionQuizz
      */
     private $title;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="questionNbr", type="integer")
+     */
+    private $questionNbr;
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="tip", type="text")
+     */
+    private $tip;
+
 
     /**
      * Get id
@@ -185,4 +199,48 @@ class QuestionQuizz
     {
         return $this->quizzTips;
     }
+
+    /**
+     * Set questionNbr
+     *
+     * @param integer $questionNbr
+     *
+     * @return QuestionQuizz
+     */
+    public function setQuestionNbr($questionNbr)
+    {
+        $this->questionNbr = $questionNbr;
+
+        return $this;
+    }
+
+    /**
+     * Get questionNbr
+     *
+     * @return integer
+     */
+    public function getQuestionNbr()
+    {
+        return $this->questionNbr;
+    }
+
+    /**
+     * @return text
+     */
+    public function getTip()
+    {
+        return $this->tip;
+    }
+
+    /**
+     * @param text $tip
+     * @return QuestionQuizz
+     */
+    public function setTip($tip)
+    {
+        $this->tip = $tip;
+        return $this;
+    }
+
+
 }
