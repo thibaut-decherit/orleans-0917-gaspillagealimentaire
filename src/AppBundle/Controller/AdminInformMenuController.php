@@ -123,7 +123,7 @@ class AdminInformMenuController extends Controller
 
     /**
      * @param InformMenu $informMenu
-     * @Route("/toggled-checked/{id}", name="link_menu")
+     * @Route("/toggled-checked/{id}", name="inform_link_menu")
      * @Method({"GET", "POST"})
      */
     public function toggledCheck(InformMenu $informMenu)
