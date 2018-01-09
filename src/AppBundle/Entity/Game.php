@@ -74,10 +74,10 @@ class Game
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="upload_date", type="date")
+     * @ORM\Column(name="uploaded_at", type="date")
      *
      */
-    private $uploadDate;
+    private $uploadedAt;
 
     /**
      * @var string
@@ -113,7 +113,6 @@ class Game
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
-     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
@@ -135,7 +134,7 @@ class Game
     /**
      * Get id
      *
-     * @return int
+     * @return integer
      */
     public function getId()
     {
@@ -215,27 +214,27 @@ class Game
     }
 
     /**
-     * Set uploadDate
+     * Set uploadedAt
      *
-     * @param \DateTime $uploadDate
+     * @param \DateTime $uploadedAt
      *
-     * @return Test
+     * @return Game
      */
-    public function setUploadDate($uploadDate)
+    public function setUploadedAt($uploadedAt)
     {
-        $this->uploadDate = $uploadDate;
+        $this->uploadedAt = $uploadedAt;
 
         return $this;
     }
 
     /**
-     * Get uploadDate
+     * Get uploadedAt
      *
      * @return \DateTime
      */
-    public function getUploadDate()
+    public function getUploadedAt()
     {
-        return $this->uploadDate;
+        return $this->uploadedAt;
     }
 
     /**
@@ -279,7 +278,7 @@ class Game
     /**
      * Get isMenu
      *
-     * @return bool
+     * @return boolean
      */
     public function getIsMenu()
     {
@@ -295,7 +294,7 @@ class Game
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
-     * @return InformMenu
+     * @return Game
      */
     public function setImageFile(File $image = null)
     {
@@ -323,7 +322,7 @@ class Game
      *
      * @param string $imageName
      *
-     * @return InformMenu
+     * @return Game
      */
     public function setImageName($imageName)
     {
@@ -347,7 +346,7 @@ class Game
      *
      * @param \DateTime $updatedAt
      *
-     * @return InformMenu
+     * @return Game
      */
     public function setUpdatedAt($updatedAt)
     {
