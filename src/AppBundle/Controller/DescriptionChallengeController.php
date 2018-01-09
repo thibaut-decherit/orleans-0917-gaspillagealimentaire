@@ -172,9 +172,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        if ($answerChallenge->getIsReport() == false) {
-            $answerChallenge->setIsReport(true);
-        }
+        $answerChallenge->setIsReport(true);
 
         $em->persist($answerChallenge);
         $em->flush();
