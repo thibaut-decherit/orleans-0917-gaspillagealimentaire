@@ -48,6 +48,7 @@ class GameNewType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 'label' => "Image",
                 'label_attr' => array('class' => 'labels_admin'),
+                'required' => true,
                 'allow_delete' => false,
                 'download_uri' => false,
                 'image_uri' => false,
