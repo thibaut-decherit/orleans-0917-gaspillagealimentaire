@@ -2,14 +2,17 @@
   background: url("../../web/images/Alimentation.png") repeat;
   @extend .quizzSection
 }
+
 .quizzSection2 {
   background: url("../../web/images/Saisonnalite.png") repeat;
   @extend .quizzSection
 }
+
 .quizzSection3 {
   background: url("../../web/images/Planete.png") repeat;
   @extend .quizzSection
 }
+
 .quizzSection {
   height: 100vh;
   width: 100vw;

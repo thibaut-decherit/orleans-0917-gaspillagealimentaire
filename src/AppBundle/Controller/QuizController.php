@@ -51,7 +51,10 @@ class QuizController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy(['titleQuizz' => $quizzTitle->getId(), 'questionNbr' => $questionNbr]);
+        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy([
+            'titleQuizz' => $quizzTitle->getId(),
+            'questionNbr' => $questionNbr
+        ]);
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
