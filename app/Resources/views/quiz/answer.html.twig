@@ -3,10 +3,10 @@
     <div class="quizzSection">
         <div class="quizz">
             <div class="panel panel-primary">
-                <h2>Reponse {{ answer.QuizzQuestion.questionNbr }}</h2>
-                <h3 class="panel-title">
-                    {{ answer.isTrue ? 'Bonne' : 'Mauvaise' }}
-                    réponse
+                <h2><b>R&#201;PONSE {{ answer.QuizzQuestion.questionNbr }}</b></h2>
+                <h3 class="panel-title  {{ answer.isTrue ? 'good' : 'false' }}">
+                    {{ answer.isTrue ? 'BONNE' : 'MAUVAISE' }}
+                    R&#201;PONSE
                 </h3>
                 <div class="panel-body">
                     {{ answer.quizzQuestion.tip }}
