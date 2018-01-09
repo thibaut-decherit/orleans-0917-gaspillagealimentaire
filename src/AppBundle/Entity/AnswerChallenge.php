@@ -49,7 +49,9 @@ class AnswerChallenge
      *
      * @Assert\Length(
      * min = 3,
+     * max = 40,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * maxMessage = "Ce titre est trop long.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -108,6 +110,13 @@ class AnswerChallenge
      * @var \DateTime
      */
     private $updatedAt;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isReport", type="boolean")
+     */
+    private $isReport;
 
     public function __construct()
     {
@@ -292,5 +301,29 @@ class AnswerChallenge
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set isReport
+     *
+     * @param boolean $isReport
+     *
+     * @return AnswerChallenge
+     */
+    public function setIsReport($isReport)
+    {
+        $this->isReport = $isReport;
+
+        return $this;
+    }
+
+    /**
+     * Get isReport
+     *
+     * @return boolean
+     */
+    public function getIsReport()
+    {
+        return $this->isReport;
     }
 }
