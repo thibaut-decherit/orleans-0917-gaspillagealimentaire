@@ -2,81 +2,81 @@
 
 {% block title %}Défis Réponses | Resteatable{% endblock %}
 
-        {% block topBar %}
-            {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title': descriptionChallenge.title } %}
-        {% endblock %}
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title': descriptionChallenge.title } %}
+{% endblock %}
 
-        {% block pageContent %}
-            <section class="challenge-response-section">
-                <div class="pageContent">
+{% block pageContent %}
+    <section class="challenge-response-section">
+        <div class="pageContent">
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 page">
                     <div class="row">
-                        <div class="col-xs-offset-1 col-xs-10 page">
-                            <div class="row">
-                                <h2>{{ descriptionChallenge.title }}</h2>
-                                <p>{{ descriptionChallenge.content | raw }}</p>
-                            </div>
+                        <h2>{{ descriptionChallenge.title }}</h2>
+                        <p>{{ descriptionChallenge.content | raw }}</p>
+                    </div>
 
-                            {% if descriptionChallenge.isVideo == true %}
-                                <div class="row">
-                                    <div class="videos">
-                                        <div class="col-md-offset-1 col-md-5">
-                                            <iframe frameborder="0" width="480" height="270"
-                                                    src="//www.dailymotion.com/embed/video/x13fp"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <iframe frameborder="0" width="480" height="270"
-                                                    src="//www.dailymotion.com/embed/video/xrhzkq"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                    </div>
+                    {% if descriptionChallenge.isVideo == true %}
+                        <div class="row">
+                            <div class="videos">
+                                <div class="col-md-offset-1 col-md-5">
+                                    <iframe frameborder="0" width="480" height="270"
+                                            src="//www.dailymotion.com/embed/video/x13fp"
+                                            allowfullscreen></iframe>
                                 </div>
-                            {% endif %}
-
-                            <hr/>
-
-                            <div class="row">
-                                <h2 class="text-center">Participer au défi</h2>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        {% if descriptionChallenge.isPicture == true %}
-                                            {{ form_start(form) }}
-                                            {{ form_widget(form) }}
-                                            <input type="submit" value="Valider le défi !" class="pull-right"/>
-                                            {{ form_end(form) }}
-                                        {% else %}
-                                            {{ form_start(form2) }}
-                                            {{ form_widget(form2) }}
-                                            <input type="submit" value="Valider le défi !" class="pull-right"/>
-                                            {{ form_end(form2) }}
-                                        {% endif %}
-                                    </div>
+                                <div class="col-md-5">
+                                    <iframe frameborder="0" width="480" height="270"
+                                            src="//www.dailymotion.com/embed/video/xrhzkq"
+                                            allowfullscreen></iframe>
                                 </div>
                             </div>
+                        </div>
+                    {% endif %}
 
-                            <hr/>
+                    <hr/>
 
-                            {% if descriptionChallenge.answers is not empty %}
-                                <div class="row">
-                                    <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-offset-2 col-sm-5">
-                                        <h3>{{ descriptionChallenge.answers.0.title }}</h3>
-                                        <h4>{{ descriptionChallenge.answers.0.name }}</h4>
-                                        <p>{{ descriptionChallenge.answers.0.message }}</p>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                             alt="photo du dernier défi"
-                                             class="img-thumbnail center-block">
+                    <div class="row">
+                        <h2 class="text-center">Participer au défi</h2>
+                    </div>
 
-                                        {#modal bouton 'signaler' dernier post#}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {% if descriptionChallenge.isPicture == true %}
+                                    {{ form_start(form) }}
+                                    {{ form_widget(form) }}
+                                    <input type="submit" value="Valider le défi !" class="pull-right"/>
+                                    {{ form_end(form) }}
+                                {% else %}
+                                    {{ form_start(form2) }}
+                                    {{ form_widget(form2) }}
+                                    <input type="submit" value="Valider le défi !" class="pull-right"/>
+                                    {{ form_end(form2) }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div class="row text-center">
+                    <hr/>
+
+                    {% if descriptionChallenge.answers is not empty %}
+                        <div class="row">
+                            <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-5">
+                                <h3>{{ descriptionChallenge.answers.0.title }}</h3>
+                                <h4>{{ descriptionChallenge.answers.0.name }}</h4>
+                                <p>{{ descriptionChallenge.answers.0.message }}</p>
+                            </div>
+                            <div class="col-sm-4">
+                                <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
+                                     alt="photo du dernier défi"
+                                     class="img-thumbnail center-block">
+
+                                {#modal bouton 'signaler' dernier post#}
+
+                                <div class="row text-center">
                                              <span class="modalReport1" data-toggle="modal"
                                                    data-target="#modalReport1{{ descriptionChallenge.answers.0.id }}">
                                                  <a href="#modalReport1">
@@ -84,10 +84,74 @@
                                                              type="submit">Signaler</button>
                                                  </a>
                                              </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade modalReport"
+                             id="modalReport1{{ descriptionChallenge.answers.0.id }}"
+                             tabindex="-1"
+                             role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <div class="row">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h4>{{ descriptionChallenge.answers.0.name }}</h4>
+                                        </div>
+                                    </div>
+
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <h4 class="text-center">Signaler ce contenu ?</h4>
+                                        </div>
+                                        <div class="row">
+                                            <button class="btn btn-default center-block btnReport">
+                                                <a href="{{ path('report_content', {'id':descriptionChallenge.answers.0.id}) }}">
+                                                    Oui, signaler !
+                                                </a>
+                                            </button>
+
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade modalReport" id="modalReport1{{ descriptionChallenge.answers.0.id }}"
+                            </div>
+                        </div>
+
+                        <hr/>
+
+                        <div class="row">
+                            {% for answer in descriptionChallenge.answers[1:][:12] %}
+                                <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
+                                    <div class="row">
+
+                                        {#modal pour afficher le contenu d'un post#}
+
+                                        <span class="modalAnswerPictures" data-toggle="modal"
+                                              data-target="#modalAnswerPictures{{ answer.id }}">
+                                                    <a href="#modalAnswerPictures">
+                                                        <img src="{{ asset('uploads/' ~ answer.imageName) }}"
+                                                             alt="photo du défi" class="img-thumbnail">
+                                                    </a>
+                                                    <h4 class="titlePicture">{{ answer.title }}</h4>
+                                                </span>
+                                    </div>
+                                    <div class="row text-right">
+
+                                        {#modal pour 'signaler' un post#}
+
+                                        <span class="modalReport" data-toggle="modal"
+                                              data-target="#modalReport{{ answer.id }}">
+                                                     <a href="#modalReport">
+                                                         <button class="btn btn-default btnReport"
+                                                                 type="submit">Signaler</button>
+                                                     </a>
+                                                 </span>
+                                    </div>
+                                </div>
+                                <div class="modal fade modalReport" id="modalReport{{ answer.id }}"
                                      tabindex="-1"
                                      role="dialog" aria-labelledby="myModalLabel">
                                     <div class="modal-dialog modal-lg" role="document">
@@ -98,124 +162,61 @@
                                                             aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
-                                                    <h4>{{ descriptionChallenge.answers.0.name }}</h4>
+                                                    <h4>{{ answer.title }}</h4>
                                                 </div>
                                             </div>
-
                                             <div class="modal-body">
                                                 <div class="row">
                                                     <h4 class="text-center">Signaler ce contenu ?</h4>
                                                 </div>
                                                 <div class="row">
                                                     <button class="btn btn-default center-block btnReport">
-                                                        <a href="{{ path('report_content', {'id':descriptionChallenge.answers.0.id}) }}">
+                                                        <a href="{{ path('report_content', {'id':answer.id}) }}">
                                                             Oui, signaler !
                                                         </a>
                                                     </button>
-
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                <hr/>
-
-                                <div class="row">
-                                    {% for answer in descriptionChallenge.answers[1:][:12] %}
-                                        <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
-                                            <div class="row">
-
-                                                {#modal pour afficher le contenu d'un post#}
-
-                                                <span class="modalAnswerPictures" data-toggle="modal"
-                                                      data-target="#modalAnswerPictures{{ answer.id }}">
-                                                    <a href="#modalAnswerPictures">
-                                                        <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                             alt="photo du défi" class="img-thumbnail">
-                                                    </a>
-                                                    <h4 class="titlePicture">{{ answer.title }}</h4>
-                                                </span>
+                                <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
+                                     tabindex="-1"
+                                     role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span
+                                                            aria-hidden="true">&times;</span></button>
+                                                <h3>{{ answer.title }}</h3>
+                                                <h4>{{ answer.name }}</h4>
                                             </div>
-                                            <div class="row text-right">
-
-                                                {#modal pour 'signaler' un post#}
-
-                                                <span class="modalReport" data-toggle="modal"
-                                                      data-target="#modalReport{{ answer.id }}">
-                                                     <a href="#modalReport">
-                                                         <button class="btn btn-default btnReport"
-                                                                 type="submit">Signaler</button>
-                                                     </a>
-                                                 </span>
+                                            <div class="modal-body" data-dismiss="modal"
+                                                 aria-label="Close">
+                                                {% if descriptionChallenge.isPicture == true %}
+                                                    <img src="{{ asset('uploads/' ~ answer.imageName) }}"
+                                                         alt="photo du défi"
+                                                         class="img-responsive center-block"
+                                                         data-dismiss="modal" aria-label="Close">
+                                                {% else %}
+                                                    <p class="text-left">{{ answer.message }}</p>
+                                                {% endif %}
                                             </div>
-                                        </div>
-                                        <div class="modal fade modalReport" id="modalReport{{ answer.id }}"
-                                             tabindex="-1"
-                                             role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <div class="row">
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                            <h4>{{ answer.title }}</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <h4 class="text-center">Signaler ce contenu ?</h4>
-                                                        </div>
-                                                        <div class="row">
-                                                            <button class="btn btn-default center-block btnReport">
-                                                                <a href="{{ path('report_content', {'id':answer.id}) }}">
-                                                                    Oui, signaler !
-                                                                </a>
-                                                            </button>
-                                                        </div>
-                                                    </div>
+                                            {% if descriptionChallenge.isPicture == true %}
+                                                <div class="modal-footer">
+                                                    <p class="text-left">{{ answer.message }}</p>
                                                 </div>
-                                            </div>
+                                            {% endif %}
                                         </div>
-                                        <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
-                                             tabindex="-1"
-                                             role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close"><span
-                                                                    aria-hidden="true">&times;</span></button>
-                                                        <h3>{{ answer.title }}</h3>
-                                                        <h4>{{ answer.name }}</h4>
-                                                    </div>
-                                                    <div class="modal-body" data-dismiss="modal"
-                                                         aria-label="Close">
-                                                        {% if descriptionChallenge.isPicture == true %}
-                                                            <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                                 alt="photo du défi"
-                                                                 class="img-responsive center-block"
-                                                                 data-dismiss="modal" aria-label="Close">
-                                                        {% else %}
-                                                            <p class="text-left">{{ answer.message }}</p>
-                                                        {% endif %}
-                                                    </div>
-                                                    {% if descriptionChallenge.isPicture == true %}
-                                                        <div class="modal-footer">
-                                                            <p class="text-left">{{ answer.message }}</p>
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
+                                    </div>
                                 </div>
-                            {% endif %}
+                            {% endfor %}
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
-            </section>
-        {% endblock %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
 
