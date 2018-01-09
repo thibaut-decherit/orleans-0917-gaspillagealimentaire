@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Descriptionchallenge controller.
@@ -144,6 +145,7 @@ class DescriptionChallengeController extends Controller
         if (($form->isSubmitted() && $form->isValid()) || ($form2->isSubmitted() && $form2->isValid())) {
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
+            $answerChallenge->setIsReport(false);
             $em->persist($answerChallenge);
             $em->flush();
 
@@ -172,11 +174,10 @@ class DescriptionChallengeController extends Controller
 
         if ($answerChallenge->getIsReport() == false) {
             $answerChallenge->setIsReport(true);
-            $this->addFlash("success", "Le contenu a bien été signalé.");
         }
 
         $em->persist($answerChallenge);
         $em->flush();
-        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getId()]);
+        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId() ]);
     }
 }

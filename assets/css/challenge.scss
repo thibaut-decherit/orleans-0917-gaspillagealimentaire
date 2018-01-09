@@ -71,17 +71,33 @@
       }
       .img-thumbnail {
         height: 300px;
-        width: 300px;
-        box-shadow: grey 2px 1px 4px;
+        //box-shadow: grey 2px 1px 4px;
         object-fit: cover;
         object-position: center;
       }
       .titlePicture {
         margin-top: 15px;
+        padding: 10px;
       }
       .picturesMarge {
         margin-top: 30px;
         margin-bottom: 50px;
+      }
+      .btnReport {
+        border: 2px solid $grey_border;
+        border-radius: 50px;
+        background-color: $navBarsColor;
+        color: white;
+      }
+      .modalReport1 {
+        .btnReport {
+          margin-top: 15px;
+        }
+      }
+      .modal-body {
+        h4 {
+          margin-bottom: 30px;
+        }
       }
     }
   }
