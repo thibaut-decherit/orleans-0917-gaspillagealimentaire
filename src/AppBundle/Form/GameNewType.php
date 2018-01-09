@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class GameNewType extends AbstractType
@@ -47,10 +48,14 @@ class GameNewType extends AbstractType
             ->add('imageFile', VichImageType::class, [
                 'label' => "Image",
                 'label_attr' => array('class' => 'labels_admin'),
-                'required' => true,
                 'allow_delete' => false,
                 'download_uri' => false,
                 'image_uri' => false,
+                'constraints' => array(
+                    new NotBlank([
+                        'message' => 'Vous devez télécharger une image.'
+                    ]),
+                ),
             ]);
     }
 
