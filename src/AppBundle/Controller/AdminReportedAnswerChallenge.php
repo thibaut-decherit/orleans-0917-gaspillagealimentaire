@@ -34,7 +34,7 @@ class AdminReportedAnswerChallenge extends Controller
             $deleteForms[$adminReportedAnswerChallenge->getId()] = $deleteForm;
         }
 
-        return $this->render('admin/reportedContent/index.html.twig', array(
+        return $this->render('admin/reportedAnswerChallenge/index.html.twig', array(
             'adminReportedAnswerChallenges' => $adminReportedAnswerChallenges,
             'delete_form' => $deleteForms,
         ));
