@@ -27,8 +27,8 @@ security:
                 always_use_default_target_path: true
                 default_target_path: /admin
             remember_me:
-                            secret: '%secret%'
-                            path: /admin
+                secret: '%secret%'
+                path: /admin
             logout: true
             anonymous: true
             # activate different ways to authenticate
