@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\AnswerChallenge;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Answerchallenge controller.
@@ -130,7 +131,6 @@ class AnswerChallengeController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('answerchallenge_delete', array('id' => $answerChallenge->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

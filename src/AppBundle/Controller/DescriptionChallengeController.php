@@ -176,6 +176,6 @@ class DescriptionChallengeController extends Controller
 
         $em->persist($answerChallenge);
         $em->flush();
-        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId() ]);
+        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId()]);
     }
 }

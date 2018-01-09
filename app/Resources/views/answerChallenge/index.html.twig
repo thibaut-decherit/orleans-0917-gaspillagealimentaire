@@ -5,20 +5,22 @@
 
     <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Title</th>
-                <th>Message</th>
-                <th>Imagename</th>
-                <th>Updatedat</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Message</th>
+            <th>Imagename</th>
+            <th>Updatedat</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for answerChallenge in answerChallenges %}
             <tr>
-                <td><a href="{{ path('answerChallenge_show', { 'id': answerChallenge.id }) }}">{{ answerChallenge.id }}</a></td>
+                <td>
+                    <a href="{{ path('answerChallenge_show', { 'id': answerChallenge.id }) }}">{{ answerChallenge.id }}</a>
+                </td>
                 <td>{{ answerChallenge.name }}</td>
                 <td>{{ answerChallenge.title }}</td>
                 <td>{{ answerChallenge.message }}</td>
