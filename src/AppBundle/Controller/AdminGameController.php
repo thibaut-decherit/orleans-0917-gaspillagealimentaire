@@ -121,7 +121,7 @@ class AdminGameController extends Controller
 
     /**
      * @param Game $game
-     * @Route("/toggled-checked/{id}", name="link_menu")
+     * @Route("/toggled-checked/{id}", name="game_link_menu")
      * @Method({"GET", "POST"})
      */
     public function toggledCheck(Game $game)
