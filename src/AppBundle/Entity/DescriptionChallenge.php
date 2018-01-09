@@ -189,6 +189,7 @@ class DescriptionChallenge
     {
         return $this->isVideo;
     }
+
     /**
      * Constructor
      */

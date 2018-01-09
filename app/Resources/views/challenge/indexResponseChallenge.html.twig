@@ -109,18 +109,18 @@
                                                     <div class="modal-body" data-dismiss="modal"
                                                          aria-label="Close">
                                                         {% if descriptionChallenge.isPicture == true %}
-                                                        <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                             alt="photo du défi"
-                                                             class="img-responsive center-block"
-                                                             data-dismiss="modal" aria-label="Close">
+                                                            <img src="{{ asset('uploads/' ~ answer.imageName) }}"
+                                                                 alt="photo du défi"
+                                                                 class="img-responsive center-block"
+                                                                 data-dismiss="modal" aria-label="Close">
                                                         {% else %}
-                                                        <p class="text-left">{{ answer.message }}</p>
+                                                            <p class="text-left">{{ answer.message }}</p>
                                                         {% endif %}
                                                     </div>
                                                     {% if descriptionChallenge.isPicture == true %}
-                                                    <div class="modal-footer">
-                                                        <p class="text-left">{{ answer.message }}</p>
-                                                    </div>
+                                                        <div class="modal-footer">
+                                                            <p class="text-left">{{ answer.message }}</p>
+                                                        </div>
                                                     {% endif %}
                                                 </div>
                                             </div>
