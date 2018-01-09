@@ -74,7 +74,7 @@
                                              alt="photo du dernier défi"
                                              class="img-thumbnail center-block">
 
-                                        {#modal bouton 'signaler' dernier post#}
+                                        {#modal pour 'signaler' dernier post#}
 
                                         <div class="row pull-right">
                                              <span class="modalReport1" data-toggle="modal"
@@ -87,7 +87,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                {% include 'challenge/reportModal.html.twig.html' with {'answer': descriptionChallenge.answers.0}%}
+                                {% include 'challenge/reportModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
                                 <hr/>
 
                                 <div class="row">
@@ -119,7 +119,7 @@
                                                  </span>
                                             </div>
                                         </div>
-                                        {% include 'challenge/reportModal.html.twig.html'  %}
+                                        {% include 'challenge/reportModal.html.twig'  %}
                                         <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
                                              tabindex="-1"
                                              role="dialog" aria-labelledby="myModalLabel">
