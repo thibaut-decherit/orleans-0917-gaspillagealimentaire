@@ -1,0 +1,51 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+    <section class="panel panel-default admin">
+        <div class="panel-heading">
+            <h1 class="panel-title text-info text-center">Modération des défis signalés</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                </a>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="listAdmin">
+                    {% for adminReportedAnswerChallenge in adminReportedAnswerChallenges %}
+                        <div class="row">
+                            <p>{{ adminReportedAnswerChallenge.title }}</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-5">
+                                <img src="{{ asset('uploads/' ~ adminReportedAnswerChallenge.imageName) }}"
+                                     class="img-responsive img-thumbnail vignetteList">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-4">
+                                {{ form_start(delete_form[adminReportedAnswerChallenge.id]) }}
+                                <input type="submit" value="Supprimer" class="btn_admin btn btn-default pull-right">
+                                {{ form_end(delete_form[adminReportedAnswerChallenge.id]) }}
+                            </div>
+                            <div class="col-xs-4">
+                                <a href="{{ path('unreport_content', {'id':adminReportedAnswerChallenge.id}) }}"
+                                   class="btn_admin btn btn-default pull-right">
+                                    Retirer le signalement
+                                </a>
+                            </div>
+                        </div>
+                        <hr/>
+                    {% endfor %}
+                    <div class="row">
+                        <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default">
+                            <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
