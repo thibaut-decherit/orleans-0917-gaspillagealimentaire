@@ -1,14 +1,19 @@
 {% extends 'layout.html.twig' %}
 {% block pageContent %}
-    <div class="quizz">
-
-        <div class="panel panel-primary">
-            <h2>Reponse</h2>
-            <h3 class="panel-title"> réponse</h3>
-            <div class="panel-body">
-
+    <div class="quizzSection">
+        <div class="quizz">
+            <div class="panel panel-primary">
+                <h2>Reponse {{ answer.QuizzQuestion.questionNbr }}</h2>
+                <h3 class="panel-title">
+                    {{ answer.isTrue ? 'Bonne' : 'Mauvaise' }}
+                    réponse
+                </h3>
+                <div class="panel-body">
+                    {{ answer.quizzQuestion.tip }}
+                </div>
+                <a href="{{ path('quizTest', {'id' : answer.quizzQuestion.titleQuizz.id, 'questionNbr' : answer.quizzQuestion.questionNbr +  1} ) }}"
+                   class="btn btn-success">Question suivante</a>
             </div>
         </div>
-
     </div>
 {% endblock %}

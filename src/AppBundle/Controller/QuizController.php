@@ -5,6 +5,7 @@ namespace AppBundle\Controller;
 use AppBundle\AppBundle;
 use AppBundle\Entity\QuestionQuizz;
 use AppBundle\Entity\QuizzTitle;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -41,15 +42,16 @@ class QuizController extends Controller
         ));
     }
 
+
     /**
-     * @Route("/{id}", name="quizTest")
+     * @Route("/{id}/{questionNbr}", name="quizTest")
      * @Method({"GET", "POST"})
      */
-    public function quizzIndex($id)
+    public function quizzIndex(QuizzTitle $quizzTitle, int $questionNbr)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy(['titleQuizz' => $id]);
+        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy(['titleQuizz' => $quizzTitle->getId(), 'questionNbr' => $questionNbr]);
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
@@ -69,16 +71,14 @@ class QuizController extends Controller
 
         $em = $this->getDoctrine()->getManager();
 
-        $req = $request->request->get('id');
-        $data = $em->getRepository("AppBundle:AnswerQuizz")->findOneBy(['id' => $req]);
-        $response = $data->getIsTrue() ? "Bonne" : "Mauvaise";
 
-
+        $answerId = $request->request->get('answer');
+        $answerQuizz = $em->getRepository("AppBundle:AnswerQuizz")->find($answerId);
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
         return $this->render('quiz/answer.html.twig', array(
-            'response' => $response,
+            'answer' => $answerQuizz,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
