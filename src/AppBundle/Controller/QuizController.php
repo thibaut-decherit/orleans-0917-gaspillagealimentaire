@@ -49,17 +49,26 @@ class QuizController extends Controller
      */
     public function quizzIndex(QuizzTitle $quizzTitle, int $questionNbr)
     {
+        $nbrMax = 0;
         $em = $this->getDoctrine()->getManager();
+        $test = $em->getRepository("AppBundle:QuestionQuizz")->findBy([
+            'titleQuizz' => $quizzTitle->getId(),
+        ]);
 
         $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy([
             'titleQuizz' => $quizzTitle->getId(),
-            'questionNbr' => $questionNbr
+            'questionNbr' => $questionNbr,
         ]);
+
+        foreach ($test as $nbr) {
+            $nbrMax++;
+        }
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
         return $this->render('quiz/question.html.twig', array(
             'question' => $question,
+            'nbrMax' => $nbrMax,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
