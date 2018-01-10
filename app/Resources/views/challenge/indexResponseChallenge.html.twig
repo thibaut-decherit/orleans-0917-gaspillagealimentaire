@@ -74,12 +74,12 @@
                                              alt="photo du dernier défi"
                                              class="img-thumbnail center-block">
 
-                                        {#modal bouton 'signaler' dernier post#}
+                                        {#modal pour 'signaler' dernier post#}
 
-                                        <div class="row text-center">
+                                        <div class="row pull-right">
                                              <span class="modalReport1" data-toggle="modal"
-                                                   data-target="#modalReport1{{ descriptionChallenge.answers.0.id }}">
-                                                 <a href="#modalReport1">
+                                                   data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
+                                                 <a href="#modalReport">
                                                      <button class="btn btn-default btnReport"
                                                              type="submit">Signaler</button>
                                                  </a>
@@ -87,38 +87,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="modal fade modalReport" id="modalReport1{{ descriptionChallenge.answers.0.id }}"
-                                     tabindex="-1"
-                                     role="dialog" aria-labelledby="myModalLabel">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <div class="row">
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                    <h4>{{ descriptionChallenge.answers.0.name }}</h4>
-                                                </div>
-                                            </div>
-
-                                            <div class="modal-body">
-                                                <div class="row">
-                                                    <h4 class="text-center">Signaler ce contenu ?</h4>
-                                                </div>
-                                                <div class="row">
-                                                    <button class="btn btn-default center-block btnReport">
-                                                        <a href="{{ path('report_content', {'id':descriptionChallenge.answers.0.id}) }}">
-                                                            Oui, signaler !
-                                                        </a>
-                                                    </button>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
+                                {% include 'challenge/reportModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
                                 <hr/>
 
                                 <div class="row">
@@ -150,35 +119,7 @@
                                                  </span>
                                             </div>
                                         </div>
-                                        <div class="modal fade modalReport" id="modalReport{{ answer.id }}"
-                                             tabindex="-1"
-                                             role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <div class="row">
-                                                            <button type="button" class="close" data-dismiss="modal"
-                                                                    aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                            <h4>{{ answer.title }}</h4>
-                                                        </div>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <div class="row">
-                                                            <h4 class="text-center">Signaler ce contenu ?</h4>
-                                                        </div>
-                                                        <div class="row">
-                                                            <button class="btn btn-default center-block btnReport">
-                                                                <a href="{{ path('report_content', {'id':answer.id}) }}">
-                                                                    Oui, signaler !
-                                                                </a>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {% include 'challenge/reportModal.html.twig'  %}
                                         <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
                                              tabindex="-1"
                                              role="dialog" aria-labelledby="myModalLabel">
