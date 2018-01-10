@@ -51,12 +51,14 @@
                                         {% if descriptionChallenge.isPicture == true %}
                                             {{ form_start(form) }}
                                             {{ form_widget(form) }}
-                                            <input type="submit" value="Valider le défi !" class="pull-right"/>
+                                            <input type="submit" value="Valider le défi !"
+                                                   class="btn btnValidation pull-right"/>
                                             {{ form_end(form) }}
                                         {% else %}
                                             {{ form_start(form2) }}
                                             {{ form_widget(form2) }}
-                                            <input type="submit" value="Valider le défi !" class="pull-right"/>
+                                            <input type="submit" value="Valider le défi !"
+                                                   class="btn btnValidation pull-right"/>
                                             {{ form_end(form2) }}
                                         {% endif %}
                                     </div>
@@ -82,8 +84,14 @@
                                         <span class="modalAnswerPictures" data-toggle="modal"
                                               data-target="#modalAnswerPictures{{ descriptionChallenge.answers.0.id }}">
                                             <a href="#modalAnswerPictures">
-                                                <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                                     alt="photo du dernier défi" class="img-thumbnail center-block">
+                                                {% if descriptionChallenge.isPicture == true %}
+                                                    <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
+                                                         alt="photo du dernier défi" class="img-thumbnail center-block">
+                                                {% else %}
+                                                    <img src="{{ asset('images/' ~ descriptionChallenge.answers.0.imageName) }}"
+                                                         alt="photo du dernier défi" class="img-thumbnail center-block">
+                                                {% endif %}
+
                                             </a>
                                         </span>
 
@@ -116,8 +124,13 @@
                                                 <span class="modalAnswerPictures" data-toggle="modal"
                                                       data-target="#modalAnswerPictures{{ answer.id }}">
                                                     <a href="#modalAnswerPictures">
+                                                    {% if descriptionChallenge.isPicture == true %}
                                                         <img src="{{ asset('uploads/' ~ answer.imageName) }}"
                                                              alt="photo du défi" class="img-thumbnail">
+                                                    {% else %}
+                                                        <img src="{{ asset('images/' ~ answer.imageName) }}"
+                                                             alt="photo du défi" class="img-thumbnail">
+                                                    {% endif %}
                                                     </a>
                                                     <h4 class="titlePicture">{{ answer.title }}</h4>
                                                 </span>

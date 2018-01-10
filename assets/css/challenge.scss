@@ -22,7 +22,7 @@
         }
         .summary {
           margin: 20px 0 47px 80px;
-          font-size: 13px;
+          font-size: calc(0.4vw + 10px);
           color: #8e8e8e;
           padding: 0;
         }
@@ -34,7 +34,7 @@
             height: 36px;
             border-radius: 100px;
             color: #ffffff;
-            font-size: 18px;
+            font-size: calc(0.4vw + 10px);
             font-weight: 600;
           }
         }
@@ -78,6 +78,12 @@
         object-fit: cover;
         object-position: center;
       }
+      .btnValidation {
+        background: #c2c2c2;
+        padding: 5px 30px;
+        color: white;
+        font-size: calc(0.5vw + 10px);
+      }
       .titlePicture {
         margin-top: 20px;
       }
@@ -92,10 +98,10 @@
         border-radius: 50px;
         background-color: $navBarsColor;
         color: white;
-        font-size: 0.5vw;
+        font-size: calc(0.1vw + 8px);
       }
       .btnIntern {
-        font-size: 0.8vw;
+        font-size: calc(0.3vw + 10px);
       }
       .modalReport1 {
         .btnReport {

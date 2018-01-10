@@ -17,22 +17,15 @@ $paragraphColor: #4d4d4d;
         h1 {
           margin: 0;
           font-weight: 700;
-          font-size: 41px;
+          font-size: calc(1.7vw + 10px);
         }
         p {
           margin: 0;
-          font-size: 36px;
+          font-size: calc(1.4vw + 10px);
           color: $paragraphColor;
         }
       }
       .website-description {
-        .general-description {
-          padding: 0;
-          p {
-            color: $paragraphColor;
-            font-size: 20px;
-          }
-        }
         .section-descriptions-container {
           padding: 0;
           .section-description {
@@ -40,12 +33,12 @@ $paragraphColor: #4d4d4d;
               margin: 0 0 5px 0;
               text-transform: uppercase;
               font-weight: 700;
-              font-size: 24px;
+              font-size: calc(0.8vw + 10px);
             }
             p {
               margin: 0 0 33px 0;
               color: $paragraphColor;
-              font-size: 20px;
+              font-size: calc(0.6vw + 10px);
             }
           }
         }

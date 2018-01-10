@@ -102,7 +102,7 @@ class AnswerChallenge
      *
      * @var string
      */
-    private $imageName = '../images/logo.png';
+    private $imageName = 'logo.png';
 
     /**
      * @ORM\Column(type="datetime")
