@@ -7,14 +7,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
+
 /**
- * InformMenu
+ * AnswerChallenge
  *
- * @ORM\Table(name="inform_menu")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\InformMenuRepository")
+ * @ORM\Table(name="answer_challenge")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\AnswerChallengeRepository")
+ *
  * @Vich\Uploadable
  */
-class InformMenu
+class AnswerChallenge
 {
     /**
      * @var int
@@ -28,11 +30,28 @@ class InformMenu
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=100)
+     * @ORM\Column(name="name", type="string", length=255)
      *
      * @Assert\Length(
      * min = 3,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * )
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="title", type="string", length=100)
+     *
+     * @Assert\Length(
+     * min = 3,
+     * max = 40,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * maxMessage = "Ce titre est trop long.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -43,65 +62,27 @@ class InformMenu
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=100)
+     * @ORM\Column(name="message", type="text")
      *
      * @Assert\Length(
-     * min = 3,
+     * min = 10,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
      * )
      */
-    private $type;
+    private $message;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="summary", type="text")
-     *
-     * @Assert\Length(
-     * min = 3,
-     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
-     * )
-     * @Assert\NotBlank(
-     *    message = "Ce champ ne peut pas être vide.",
-     * )
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\DescriptionChallenge", inversedBy="answers")
      */
-    private $summary;
-
-    /**
-     * @var \DateTime
-     *
-     * @ORM\Column(name="uploaded_at", type="date")
-     *
-     */
-    private $uploadedAt;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="link", type="string", length=255)
-     *
-     * @Assert\NotBlank(
-     *    message = "Ce champ ne peut pas être vide.",
-     * )
-     * @Assert\Url(
-     *    message = "L'url '{{ value }}' n'est pas valide.",
-     * )
-     */
-    private $link;
-
-    /**
-     * @var bool
-     * @ORM\Column(name="is_menu", type="boolean")
-     */
-    private $isMenu = false;
+    private $description;
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
-     * @Vich\UploadableField(mapping="inform_menu_image", fileNameProperty="imageName")
+     * @Vich\UploadableField(mapping="answer_challenge_image", fileNameProperty="imageName")
      * @Assert\Image(
      *     maxSize="2M",
      *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
@@ -111,6 +92,7 @@ class InformMenu
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
+     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
@@ -120,7 +102,7 @@ class InformMenu
      *
      * @var string
      */
-    private $imageName;
+    private $imageName = 'logo.png';
 
     /**
      * @ORM\Column(type="datetime")
@@ -129,7 +111,17 @@ class InformMenu
      */
     private $updatedAt;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isReport", type="boolean")
+     */
+    private $isReport;
 
+    public function __construct()
+    {
+        $this->updatedAt = new \DateTimeImmutable();
+    }
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -140,33 +132,19 @@ class InformMenu
      *
      * @param File|\Symfony\Component\HttpFoundation\File\UploadedFile $image
      *
-     * @return InformMenu
+     * @return AnswerChallenge
      */
     public function setImageFile(File $image = null)
     {
         $this->imageFile = $image;
 
-        if ($image) {
-            // It is required that at least one field changes if you are using doctrine
-            // otherwise the event listeners won't be called and the file is lost
-            $this->updatedAt = new \DateTimeImmutable();
-        }
-
         return $this;
-    }
-
-    /**
-     * @return File|null
-     */
-    public function getImageFile()
-    {
-        return $this->imageFile;
     }
 
     /**
      * Get id
      *
-     * @return integer
+     * @return int
      */
     public function getId()
     {
@@ -174,11 +152,35 @@ class InformMenu
     }
 
     /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return AnswerChallenge
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
      * Set title
      *
      * @param string $title
      *
-     * @return InformMenu
+     * @return AnswerChallenge
      */
     public function setTitle($title)
     {
@@ -198,123 +200,35 @@ class InformMenu
     }
 
     /**
-     * Set type
+     * Set message
      *
-     * @param string $type
+     * @param string $message
      *
-     * @return InformMenu
+     * @return AnswerChallenge
      */
-    public function setType($type)
+    public function setMessage($message)
     {
-        $this->type = $type;
+        $this->message = $message;
 
         return $this;
     }
 
     /**
-     * Get type
+     * Get message
      *
      * @return string
      */
-    public function getType()
+    public function getMessage()
     {
-        return $this->type;
+        return $this->message;
     }
 
     /**
-     * Set summary
-     *
-     * @param string $summary
-     *
-     * @return InformMenu
+     * @return File|null
      */
-    public function setSummary($summary)
+    public function getImageFile()
     {
-        $this->summary = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Get summary
-     *
-     * @return string
-     */
-    public function getSummary()
-    {
-        return $this->summary;
-    }
-
-    /**
-     * Set uploadedAt
-     *
-     * @param \DateTime $uploadedAt
-     *
-     * @return InformMenu
-     */
-    public function setUploadedAt($uploadedAt)
-    {
-        $this->uploadedAt = $uploadedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get uploadedAt
-     *
-     * @return \DateTime
-     */
-    public function getUploadedAt()
-    {
-        return $this->uploadedAt;
-    }
-
-    /**
-     * Set link
-     *
-     * @param string $link
-     *
-     * @return InformMenu
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    /**
-     * Get link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
-
-    /**
-     * Set isMenu
-     *
-     * @param boolean $isMenu
-     *
-     * @return InformMenu
-     */
-    public function setIsMenu($isMenu)
-    {
-        $this->isMenu = $isMenu;
-
-        return $this;
-    }
-
-    /**
-     * Get isMenu
-     *
-     * @return boolean
-     */
-    public function getIsMenu()
-    {
-        return $this->isMenu;
+        return $this->imageFile;
     }
 
     /**
@@ -322,7 +236,7 @@ class InformMenu
      *
      * @param string $imageName
      *
-     * @return InformMenu
+     * @return AnswerChallenge
      */
     public function setImageName($imageName)
     {
@@ -346,7 +260,7 @@ class InformMenu
      *
      * @param \DateTime $updatedAt
      *
-     * @return InformMenu
+     * @return AnswerChallenge
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -363,5 +277,53 @@ class InformMenu
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set description
+     *
+     * @param \AppBundle\Entity\DescriptionChallenge $description
+     *
+     * @return AnswerChallenge
+     */
+    public function setDescription(\AppBundle\Entity\DescriptionChallenge $description = null)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return \AppBundle\Entity\DescriptionChallenge
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set isReport
+     *
+     * @param boolean $isReport
+     *
+     * @return AnswerChallenge
+     */
+    public function setIsReport($isReport)
+    {
+        $this->isReport = $isReport;
+
+        return $this;
+    }
+
+    /**
+     * Get isReport
+     *
+     * @return boolean
+     */
+    public function getIsReport()
+    {
+        return $this->isReport;
     }
 }

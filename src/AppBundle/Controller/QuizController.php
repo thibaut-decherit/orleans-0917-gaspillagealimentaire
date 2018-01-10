@@ -2,12 +2,16 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\AppBundle;
+use AppBundle\Entity\QuestionQuizz;
 use AppBundle\Entity\QuizzTitle;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * QuizController controller.
@@ -38,20 +42,46 @@ class QuizController extends Controller
         ));
     }
 
+
     /**
-     * @Route("/test/{id}", name="quiz_test")
+     * @Route("/{id}/{questionNbr}", name="quizTest")
      * @Method({"GET", "POST"})
      */
-    public function quizzIndex($id)
+    public function quizzIndex(QuizzTitle $quizzTitle, int $questionNbr)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $questions = $em->getRepository("AppBundle:QuestionQuizz")->findBy(['titleQuizz' => $id]);
+        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy([
+            'titleQuizz' => $quizzTitle->getId(),
+            'questionNbr' => $questionNbr
+        ]);
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('quiz/alimentation.html.twig', array(
-            'questions' => $questions,
+        return $this->render('quiz/question.html.twig', array(
+            'question' => $question,
+            'navInformLinks' => $navInformLinks,
+            'navGameLinks' => $navGameLinks,
+        ));
+    }
+
+    /**
+     * @Route("/reponse", name="quizzAnswer")
+     * @Method({"GET", "POST"})
+     */
+    public function quizzAnswer(Request $request)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $answerId = $request->request->get('answer');
+        $answerQuizz = $em->getRepository("AppBundle:AnswerQuizz")->find($answerId);
+        $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
+        $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
+
+        return $this->render('quiz/answer.html.twig', array(
+            'answer' => $answerQuizz,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));

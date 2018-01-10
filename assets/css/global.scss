@@ -7,11 +7,16 @@ $fa-font-path: "~font-awesome/fonts";
 
 $navBarsColor: #363636;
 $navbarSectionHover: #4a5152;
-$gameSectionColor: #04a777;
 $informSectionColor: #39a0ed;
+$topLinkHover: #61bbff;
+$gameSectionColor: #04a777;
+$middleLinkHover: #04ca90;
 $challengeSectionColor: #fb8b24;
+$lastLinkHover: #ffa24d;
+
 
 body {
+  font-family: 'Roboto-Regular', Helvetica, sans-serif;
   margin: 0;
   background-color: #FFFFFF;
   .pageContent {
@@ -29,3 +34,4 @@ body {
 @import "quizzList";
 @import "quizz";
 @import "info";
+@import "resource";
