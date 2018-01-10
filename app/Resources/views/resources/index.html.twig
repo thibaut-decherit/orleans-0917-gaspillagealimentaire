@@ -1,0 +1,135 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Ressource | Resteatable{% endblock %}
+
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackground', 'title':'Informations'} %}
+{% endblock %}
+
+{% block pageContent %}
+    <section class="info-section">
+        <div class="pageContent pageResource">
+            <div class="col-xs-2 containerMenuResource">
+                <div class="blockInfo">
+                    <li><a href="" class="pInfo" data-target="1">Activité gaspillage alimentaire</a></li>
+                    <li><a href="" class="pInfo" data-target="2">Activité alimentaire</a></li>
+                    <li><a href="" class="pInfo" data-target="3">Activité gestion des déchets</a></li>
+                    <li><a href="" class="pInfo" data-target="4">Autre ressources</a></li>
+                </div>
+            </div>
+            <div class="articles">
+                <div class="row col-xs-10 article" data-target="1">
+                    <ul>
+                        {% for resource in resources %}
+                            <li class="row">
+                                <div class="row col-xs-offset-1 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-xs-9">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <p class="type informType">{{ resource.resourcetheme.name }}</p>
+                                                </div>
+                                                <div class="col-xs-3 pull-right">
+                                                    <p class="date">{{ resource.uploadedAt|localizeddate('long', 'none') }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <h2>
+                                                    <a class="informLink"
+                                                       href="{{ asset('uploads/' ~ resource.resourceName) }}"
+                                                       target="_blank">{{ resource.title|upper }}
+                                                        <span class="glyphicon glyphicon-save"></span>
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-xs-12 summary">{{ resource.description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ not loop.last ? '<hr class="row"/>' }}
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="row col-xs-10 article" data-target="2">
+                    <ul>
+                        {% for resource in resources %}
+                            <li class="row">
+                                <div class="row col-xs-offset-1 col-xs-9">
+                                    <div class="row">
+                                        <div class="col-xs-3 vignetteContainer">
+                                        </div>
+                                        <div class="col-xs-9">
+                                            <div class="row">
+                                                <div class="col-xs-3">
+                                                    <p class="type informType">{{ resource.resourceTheme.name }}</p>
+                                                </div>
+                                                <div class="col-xs-3 pull-right">
+                                                    <p class="date">{{ resource.uploadedAt|localizeddate('long', 'none') }}</p>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <h2>
+                                                    <a class="informLink"
+                                                       href="{{ asset('uploads/' ~ resource.resourceName) }}"
+                                                       target="_blank">{{ resource.title }}
+                                                        <span class="glyphicon glyphicon-save"></span>
+                                                    </a>
+                                                </h2>
+                                            </div>
+                                            <div class="row">
+                                                <p class="col-xs-12 summary">{{ resource.description }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {{ not loop.last ? '<hr class="row"/>' }}
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="row col-xs-10 article" data-target="3">
+                    <ul>
+                        <li class="row">
+                            <div class="row col-xs-offset-1 col-xs-11">
+                                <div class="row">
+                                    <div class="col-xs-9">
+                                        <div class="row">
+                                            <h2>EXEMPLE DE TITRE 3</h2>
+                                        </div>
+                                        <div class="row">
+                                            <p class="col-xs-12 summary">
+                                                Eo adducta re per Isauriam, rege Persarum bellis finitimis inligato
+                                                repellenteque a conlimitiis suis ferocissimas gentes,
+                                                quae mente quadam versabili hostiliter eum saepe incessunt et in nos
+                                                arma
+                                                moventem aliquotiens iuvant,
+                                                Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam
+                                                quotiens
+                                                copia dederit ordinatus, explorabat nostra sollicite, si repperisset
+                                                usquam
+                                                locum vi subita perrupturus.
+                                                Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam
+                                                quotiens
+                                                copia dederit ordinatus, explorabat nostra sollicite, si repperisset
+                                                usquam
+                                                locum vi subita perrupturus.
+                                                Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam
+                                                quotiens
+                                                copia dederit ordinatus, explorabat nostra sollicite, si repperisset
+                                                usquam
+                                                locum vi subita perrupturus.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title': question.TitleQuizz.name} %}
+{% endblock %}
+{% block pageContent %}
+    <div class="quizzSection{{ question.TitleQuizz.id }}">
+        <div class="quizz">
+            <div class="panel panel-info">
+                <h2><b>QUESTION {{ question.questionNbr }}<span>/6</span></b></h2>
+                <h3 class="panel-title">{{ question.title }}</h3>
+                <div class="panel-body">
+                    <form method="POST" action="{{ path('quizzAnswer') }}">
+                        {% for answer in question.QuizzAnswers %}
+                            <div class="row answer">
+                                <input type="radio" value="{{ answer.id }}" name="answer">
+                                {{ answer.choice }}
+                            </div>
+                        {% endfor %}
+                        <button type="submit" name="submit">Valider ma réponse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

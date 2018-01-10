@@ -40,6 +40,25 @@ class DescriptionChallenge
      */
     private $category;
 
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isPicture", type="boolean")
+     */
+    private $isPicture;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="isVideo", type="boolean")
+     */
+    private $isVideo;
+
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\AnswerChallenge", mappedBy="description")
+     * @ORM\OrderBy({"id" = "DESC"})
+     */
+    private $answers;
+
 
     /**
      * Get id
@@ -121,5 +140,95 @@ class DescriptionChallenge
     public function getCategory()
     {
         return $this->category;
+    }
+
+    /**
+     * Set isPicture
+     *
+     * @param boolean $isPicture
+     *
+     * @return DescriptionChallenge
+     */
+    public function setIsPicture($isPicture)
+    {
+        $this->isPicture = $isPicture;
+
+        return $this;
+    }
+
+    /**
+     * Get isPicture
+     *
+     * @return boolean
+     */
+    public function getIsPicture()
+    {
+        return $this->isPicture;
+    }
+
+    /**
+     * Set isVideo
+     *
+     * @param boolean $isVideo
+     *
+     * @return DescriptionChallenge
+     */
+    public function setIsVideo($isVideo)
+    {
+        $this->isVideo = $isVideo;
+
+        return $this;
+    }
+
+    /**
+     * Get isVideo
+     *
+     * @return boolean
+     */
+    public function getIsVideo()
+    {
+        return $this->isVideo;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->answers = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add answer
+     *
+     * @param \AppBundle\Entity\AnswerChallenge $answer
+     *
+     * @return DescriptionChallenge
+     */
+    public function addAnswer(\AppBundle\Entity\AnswerChallenge $answer)
+    {
+        $this->answers[] = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Remove answer
+     *
+     * @param \AppBundle\Entity\AnswerChallenge $answer
+     */
+    public function removeAnswer(\AppBundle\Entity\AnswerChallenge $answer)
+    {
+        $this->answers->removeElement($answer);
+    }
+
+    /**
+     * Get answers
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
     }
 }

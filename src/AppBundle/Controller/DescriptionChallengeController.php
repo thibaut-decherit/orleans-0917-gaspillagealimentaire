@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\DescriptionChallenge;
 use AppBundle\Entity\CategoryChallenge;
+use AppBundle\Entity\AnswerChallenge;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -24,7 +25,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:CategoryChallenge')->findBy(['name' => 'home']);
-        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category ]);
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category]);
 
         return $this->render('challenge/indexHome.html.twig', array(
             'descriptionsChallenges' => $descriptionsChallenges,
@@ -39,7 +40,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:CategoryChallenge')->findBy(['name' => 'school']);
-        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category ]);
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category]);
 
         return $this->render('challenge/indexSchool.html.twig', array(
             'descriptionsChallenges' => $descriptionsChallenges,
@@ -54,7 +55,7 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $category = $em->getRepository('AppBundle:CategoryChallenge')->findBy(['name' => 'organization']);
-        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category ]);
+        $descriptionsChallenges = $em->getRepository('AppBundle:DescriptionChallenge')->findBy(['category' => $category]);
 
         return $this->render('challenge/indexOrganization.html.twig', array(
             'descriptionsChallenges' => $descriptionsChallenges,
@@ -62,7 +63,7 @@ class DescriptionChallengeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing descriptionChallenge entity.
+     * Displays a form to edit an existing challenge entity.
      *
      * @Route("/{id}/edit", name="descriptionchallenge_edit")
      * @Method({"GET", "POST"})
@@ -79,15 +80,15 @@ class DescriptionChallengeController extends Controller
             return $this->redirectToRoute('descriptionchallenge_edit', array('id' => $descriptionChallenge->getId()));
         }
 
-        return $this->render('descriptionchallenge/edit.html.twig', array(
-            'descriptionChallenge' => $descriptionChallenge,
+        return $this->render('challenge/edit.html.twig', array(
+            'challenge' => $descriptionChallenge,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-     * Deletes a descriptionChallenge entity.
+     * Deletes a challenge entity.
      *
      * @Route("/{id}", name="descriptionchallenge_delete")
      * @Method("DELETE")
@@ -103,22 +104,88 @@ class DescriptionChallengeController extends Controller
             $em->flush();
         }
 
-        return $this->redirectToRoute('descriptionchallenge_index');
+        return $this->redirectToRoute('challenge_index');
     }
 
     /**
-     * Creates a form to delete a descriptionChallenge entity.
+     * Creates a form to delete a challenge entity.
      *
-     * @param DescriptionChallenge $descriptionChallenge The descriptionChallenge entity
+     * @param DescriptionChallenge $descriptionChallenge The challenge entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
     private function createDeleteForm(DescriptionChallenge $descriptionChallenge)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('descriptionchallenge_delete', array('id' => $descriptionChallenge->getId())))
+            ->setAction($this->generateUrl('descriptionchallenge_delete',
+                array('id' => $descriptionChallenge->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/{id}/response", name="responsechallenge_index")
+     * @Method({"GET", "POST"})
+     */
+    public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $answerChallenge = new Answerchallenge();
+
+        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge);
+        $form->handleRequest($request);
+
+        $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge);
+        $form2->handleRequest($request);
+
+        if (($form->isSubmitted() && $form->isValid()) || ($form2->isSubmitted() && $form2->isValid())) {
+            $em = $this->getDoctrine()->getManager();
+            $answerChallenge->setDescription($descriptionChallenge);
+            $answerChallenge->setIsReport(false);
+            $em->persist($answerChallenge);
+            $em->flush();
+
+            return $this->redirectToRoute('responsechallenge_index', [
+                    'id' => $descriptionChallenge->getId()
+                ]
+            );
+        }
+
+        return $this->render('challenge/indexResponseChallenge.html.twig', array(
+            'descriptionChallenge' => $descriptionChallenge,
+            'answerChallenge' => $answerChallenge,
+            'form' => $form->createView(),
+            'form2' => $form2->createView(),
+        ));
+    }
+
+    /**
+     * @param AnswerChallenge $answerChallenge
+     * @Route("/report/{id}", name="report_content")
+     * @Method({"GET", "POST"})
+     */
+    public function toggledCheck(AnswerChallenge $answerChallenge)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $answerChallenge->setIsReport(true);
+
+        $em->persist($answerChallenge);
+        $em->flush();
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Rest\'aTable - Signalement de contenu')
+            ->setFrom('WCSorleansgaspi@gmail.com')
+            ->setTo('WCSorleansgaspi@gmail.com')
+            ->setBody(
+                $this->renderView('mail/mail.html.twig'),
+                'text/html'
+            );
+
+        $this->get('mailer')->send($message);
+        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId()]);
     }
 }

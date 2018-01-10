@@ -1,0 +1,55 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+    <section class="reported-answer-challenge panel panel-default admin">
+        <div class="panel-heading">
+            <h1 class="panel-title text-info text-center">Modération des défis signalés</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                </a>
+            </div>
+            <hr/>
+            <div class="row listAdmin">
+                {% for adminReportedAnswerChallenge in adminReportedAnswerChallenges %}
+                    <div class="row">
+                        <p class="title">{{ adminReportedAnswerChallenge.title }}</p>
+                    </div>
+                    <div class="row name">
+                        <p>Envoyé par {{ adminReportedAnswerChallenge.name }}</p>
+                    </div>
+                    <div class="row answer-content-container">
+                        <div class="col-xs-5">
+                            <img src="{{ asset('uploads/' ~ adminReportedAnswerChallenge.imageName) }}"
+                                 class="img-responsive img-thumbnail vignetteList">
+                        </div>
+                        <div class="col-xs-7 message">
+                            <p>{{ adminReportedAnswerChallenge.message | nl2br }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="pull-right buttons-container">
+                            <a href="{{ path('unreport_content', {'id':adminReportedAnswerChallenge.id}) }}"
+                               class="btn_admin btn btn-default pull-right">
+                                <span class="glyphicon glyphicon-ok"></span> Autoriser ce contenu
+                            </a>
+                            {{ form_start(delete_form[adminReportedAnswerChallenge.id]) }}
+                            <button type="submit" class="btn_admin btn btn-default pull-right">
+                                <span class="glyphicon glyphicon-trash"></span> Supprimer ce contenu
+                            </button>
+                            {{ form_end(delete_form[adminReportedAnswerChallenge.id]) }}
+                        </div>
+                    </div>
+                    <hr/>
+                {% endfor %}
+                <div class="row">
+                    <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default">
+                        <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

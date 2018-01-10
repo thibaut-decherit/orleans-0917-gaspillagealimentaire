@@ -46,3 +46,71 @@
     }
   }
 }
+
+.challenge-response-section {
+  height: 100vh;
+  display: flex;
+  font-family: 'Roboto', Helvetica, sans-serif;
+  .pageContent {
+    width: 100%;
+    .row {
+      margin: 0;
+    }
+    .page {
+      padding-top: 30px;
+      hr {
+        margin-top: 50px;
+      }
+      h2 {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+      .videos {
+        margin-top: 30px;
+      }
+      .img-thumbnail {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+      }
+      .titlePicture {
+        margin-top: 20px;
+      }
+      .picturesMarge {
+        margin-top: 30px;
+        margin-bottom: 50px;
+      }
+      .btn-default {
+        border-color: transparent;
+      }
+      .btnReport {
+        border-radius: 50px;
+        background-color: $navBarsColor;
+        color: white;
+        font-size: 0.5vw;
+      }
+      .btnIntern {
+        font-size: 0.8vw;
+      }
+      .modalReport1 {
+        .btnReport {
+          margin-top: 15px;
+        }
+      }
+      .modal-body {
+        h4 {
+          margin-bottom: 30px;
+        }
+      }
+      .modalReport {
+        .modal-content {
+          .modal-body {
+            padding: 30px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -81,3 +81,22 @@ vich_uploader:
             uri_prefix:         /uploads
             upload_destination: '%kernel.root_dir%/../web/uploads'
             namer: vich_uploader.namer_uniqid
+        answer_challenge_image:
+            uri_prefix:         /uploads
+            upload_destination: '%kernel.root_dir%/../web/uploads'
+            namer: vich_uploader.namer_uniqid
+        resource_resource:
+            uri_prefix:         /uploads
+            upload_destination: '%kernel.root_dir%/../web/uploads'
+            namer: vich_uploader.namer_uniqid
+
+fos_user:
+    db_driver: orm # other valid values are 'mongodb' and 'couchdb'
+    firewall_name: main
+    user_class: AppBundle\Entity\User
+    from_email:
+        address: "%mailer_user%"
+        sender_name: "%mailer_user%"
+    registration:
+        form:
+            type: AppBundle\Form\RegistrationType

@@ -24,7 +24,7 @@
                                             <p class="type informType">{{ informMenu.type }}</p>
                                         </div>
                                         <div class="col-xs-3 pull-right">
-                                            <p class="date">{{ informMenu.uploadDate|localizeddate('long', 'none') }}</p>
+                                            <p class="date">{{ informMenu.uploadedAt|localizeddate('long', 'none') }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -36,7 +36,7 @@
                                         </h2>
                                     </div>
                                     <div class="row">
-                                        <p class="col-xs-6 summary">{{ informMenu.summary }}</p>
+                                        <p class="col-xs-6 summary">{{ informMenu.summary | nl2br }}</p>
                                     </div>
                                 </div>
                             </div>

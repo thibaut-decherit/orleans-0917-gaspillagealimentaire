@@ -9,6 +9,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\NotBlank;
 use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class InformMenuNewType extends AbstractType
@@ -50,6 +51,11 @@ class InformMenuNewType extends AbstractType
                 'allow_delete' => false,
                 'download_uri' => false,
                 'image_uri' => false,
+                'constraints' => array(
+                    new NotBlank([
+                        'message' => 'Vous devez envoyer une image.'
+                    ]),
+                ),
             ]);
     }
 

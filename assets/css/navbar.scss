@@ -5,11 +5,9 @@
 /* Starter CSS for Flyout Menu */
 
 $top: $informSectionColor;
-$topLinkHover: #61bbff;
 $middle: $gameSectionColor;
-$middleLinkHover: #04ca90;
 $last: $challengeSectionColor;
-$lastLinkHover: #f5ac5a;
+
 
 .tab {
   text-decoration: none;
@@ -28,22 +26,30 @@ $lastLinkHover: #f5ac5a;
   font-size: 12px;
   font-family: 'Roboto-Regular', Helvetica, sans-serif;
   ul {
+    height: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: absolute;
     .home {
       margin-top: 30px;
       background: #ffffff;
       width: 80px;
       height: 80px;
       border-radius: 100%;
+      padding: 15px 20px;
       .icon_home {
         margin-top: 7px;
       }
     }
+    .homeLink {
+      padding: 0;
+    }
     .btnMenu {
-      margin: 2vh;
+      position: absolute;
+      bottom: 13px;
+      left: 13px;
+      width: 124px;
+      z-index: 251;
       font-family: 'Roboto-Regular', Helvetica, sans-serif;
       font-size: 18px;
       color: #363636;
@@ -56,7 +62,11 @@ $lastLinkHover: #f5ac5a;
   }
   a {
     display: block;
-    padding: 15px 20px;
+    padding: 1vh;
+    .img-circle {
+      height: 80px;
+      width: 80px;
+    }
     .text {
       color: #ffffff;
       text-decoration: none;

@@ -73,10 +73,10 @@ class InformMenu
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="upload_date", type="date")
+     * @ORM\Column(name="uploaded_at", type="date")
      *
      */
-    private $uploadDate;
+    private $uploadedAt;
 
     /**
      * @var string
@@ -111,7 +111,6 @@ class InformMenu
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
-     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
@@ -130,136 +129,7 @@ class InformMenu
      */
     private $updatedAt;
 
-    /**
-     * Get id
-     *
-     * @return int
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 
-
-    /**
-     * Set title
-     *
-     * @param string $title
-     *
-     * @return InformMenu
-     */
-    public function setTitle($title)
-    {
-        $this->title = $title;
-
-        return $this;
-    }
-
-    /**
-     * Get title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
-     * Set type
-     *
-     * @param string $type
-     *
-     * @return Test
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * Get type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * Set summary
-     *
-     * @param string $summary
-     *
-     * @return Test
-     */
-    public function setSummary($summary)
-    {
-        $this->summary = $summary;
-
-        return $this;
-    }
-
-    /**
-     * Get summary
-     *
-     * @return string
-     */
-    public function getSummary()
-    {
-        return $this->summary;
-    }
-
-    /**
-     * Set uploadDate
-     *
-     * @param \DateTime $uploadDate
-     *
-     * @return Test
-     */
-    public function setUploadDate($uploadDate)
-    {
-        $this->uploadDate = $uploadDate;
-
-        return $this;
-    }
-
-    /**
-     * Get uploadDate
-     *
-     * @return \DateTime
-     */
-    public function getUploadDate()
-    {
-        return $this->uploadDate;
-    }
-
-    /**
-     * Set link
-     *
-     * @param string $link
-     *
-     * @return InformMenu
-     */
-    public function setLink($link)
-    {
-        $this->link = $link;
-
-        return $this;
-    }
-
-    /**
-     * Get link
-     *
-     * @return string
-     */
-    public function getLink()
-    {
-        return $this->link;
-    }
 
     /**
      * If manually uploading a file (i.e. not using Symfony Form) ensure an instance
@@ -291,6 +161,160 @@ class InformMenu
     public function getImageFile()
     {
         return $this->imageFile;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set title
+     *
+     * @param string $title
+     *
+     * @return InformMenu
+     */
+    public function setTitle($title)
+    {
+        $this->title = $title;
+
+        return $this;
+    }
+
+    /**
+     * Get title
+     *
+     * @return string
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * Set type
+     *
+     * @param string $type
+     *
+     * @return InformMenu
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * Get type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * Set summary
+     *
+     * @param string $summary
+     *
+     * @return InformMenu
+     */
+    public function setSummary($summary)
+    {
+        $this->summary = $summary;
+
+        return $this;
+    }
+
+    /**
+     * Get summary
+     *
+     * @return string
+     */
+    public function getSummary()
+    {
+        return $this->summary;
+    }
+
+    /**
+     * Set uploadedAt
+     *
+     * @param \DateTime $uploadedAt
+     *
+     * @return InformMenu
+     */
+    public function setUploadedAt($uploadedAt)
+    {
+        $this->uploadedAt = $uploadedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadedAt
+     *
+     * @return \DateTime
+     */
+    public function getUploadedAt()
+    {
+        return $this->uploadedAt;
+    }
+
+    /**
+     * Set link
+     *
+     * @param string $link
+     *
+     * @return InformMenu
+     */
+    public function setLink($link)
+    {
+        $this->link = $link;
+
+        return $this;
+    }
+
+    /**
+     * Get link
+     *
+     * @return string
+     */
+    public function getLink()
+    {
+        return $this->link;
+    }
+
+    /**
+     * Set isMenu
+     *
+     * @param boolean $isMenu
+     *
+     * @return InformMenu
+     */
+    public function setIsMenu($isMenu)
+    {
+        $this->isMenu = $isMenu;
+
+        return $this;
+    }
+
+    /**
+     * Get isMenu
+     *
+     * @return boolean
+     */
+    public function getIsMenu()
+    {
+        return $this->isMenu;
     }
 
     /**
@@ -339,23 +363,5 @@ class InformMenu
     public function getUpdatedAt()
     {
         return $this->updatedAt;
-    }
-
-    /**
-     * @return bool
-     */
-    public function getIsMenu()
-    {
-        return $this->isMenu;
-    }
-
-    /**
-     * @param bool $isMenu
-     * @return InformMenu
-     */
-    public function setIsMenu($isMenu)
-    {
-        $this->isMenu = $isMenu;
-        return $this;
     }
 }
