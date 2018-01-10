@@ -70,6 +70,7 @@
         margin-top: 30px;
       }
       .img-thumbnail {
+        width: 100%;
         height: 300px;
         object-fit: cover;
         object-position: center;
@@ -89,6 +90,9 @@
         background-color: $navBarsColor;
         color: white;
         font-size: 0.5vw;
+      }
+      .btnIntern {
+        font-size: 0.8vw;
       }
       .modalReport1 {
         .btnReport {
