@@ -23,7 +23,7 @@
                                             <p class="type gameType">{{ game.type }}</p>
                                         </div>
                                         <div class="col-xs-3 pull-right">
-                                            <p class="date">{{ game.uploadDate|localizeddate('long', 'none') }}</p>
+                                            <p class="date">{{ game.uploadedAt|localizeddate('long', 'none') }}</p>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -34,7 +34,7 @@
                                         </h2>
                                     </div>
                                     <div class="row">
-                                        <p class="col-xs-6 summary">{{ game.summary }}</p>
+                                        <p class="col-xs-6 summary">{{ game.summary | nl2br }}</p>
                                     </div>
                                 </div>
                             </div>
