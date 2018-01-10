@@ -20,14 +20,20 @@
                                 <div class="row">
                                     <div class="videos">
                                         <div class="col-md-offset-1 col-md-5">
-                                            <iframe frameborder="0" width="480" height="270"
-                                                    src="//www.dailymotion.com/embed/video/x13fp"
-                                                    allowfullscreen></iframe>
+                                            <figure class="thumbnail">
+                                                <iframe frameborder="0" width="480" height="270"
+                                                        src="//www.dailymotion.com/embed/video/x13fp"
+                                                        allowfullscreen class="center-block">
+                                                </iframe>
+                                            </figure>
                                         </div>
                                         <div class="col-md-5">
-                                            <iframe frameborder="0" width="480" height="270"
-                                                    src="//www.dailymotion.com/embed/video/xrhzkq"
-                                                    allowfullscreen></iframe>
+                                            <figure class="thumbnail center-block">
+                                                <iframe frameborder="0" width="480" height="270"
+                                                        src="//www.dailymotion.com/embed/video/xrhzkq"
+                                                        allowfullscreen class="center-block">
+                                                </iframe>
+                                            </figure>
                                         </div>
                                     </div>
                                 </div>
@@ -67,27 +73,37 @@
                                     <div class="col-sm-offset-2 col-sm-5">
                                         <h3>{{ descriptionChallenge.answers.0.title }}</h3>
                                         <h4>{{ descriptionChallenge.answers.0.name }}</h4>
-                                        <p>{{ descriptionChallenge.answers.0.message }}</p>
+                                        <p>{{ descriptionChallenge.answers.0.message | nl2br }}</p>
                                     </div>
                                     <div class="col-sm-4">
-                                        <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                             alt="photo du dernier défi"
-                                             class="img-thumbnail center-block">
 
-                                        {#modal pour 'signaler' dernier post#}
+                                        {#modale pour afficher photo dernier post#}
+
+                                        <span class="modalAnswerPictures" data-toggle="modal"
+                                              data-target="#modalAnswerPictures{{ descriptionChallenge.answers.0.id }}">
+                                            <a href="#modalAnswerPictures">
+                                                <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
+                                                     alt="photo du dernier défi" class="img-thumbnail center-block">
+                                            </a>
+                                        </span>
+
+                                        {#modale pour 'signaler' dernier post#}
 
                                         <div class="row pull-right">
                                              <span class="modalReport1" data-toggle="modal"
                                                    data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
                                                  <a href="#modalReport">
-                                                     <button class="btn btn-default btnReport"
-                                                             type="submit">Signaler</button>
+                                                     <button class="btn btn-default btnReport" type="submit">
+                                                         Signaler
+                                                     </button>
                                                  </a>
                                              </span>
                                         </div>
                                     </div>
                                 </div>
                                 {% include 'challenge/reportModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
+                                {% include 'challenge/answerChallengeModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
+
                                 <hr/>
 
                                 <div class="row">
@@ -95,7 +111,7 @@
                                         <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
                                             <div class="row">
 
-                                                {#modal pour afficher le contenu d'un post#}
+                                                {#modale pour afficher le contenu d'un post#}
 
                                                 <span class="modalAnswerPictures" data-toggle="modal"
                                                       data-target="#modalAnswerPictures{{ answer.id }}">
@@ -108,49 +124,20 @@
                                             </div>
                                             <div class="row text-right">
 
-                                                {#modal pour 'signaler' un post#}
+                                                {#modale pour 'signaler' un post#}
 
                                                 <span class="modalReport" data-toggle="modal"
                                                       data-target="#modalReport{{ answer.id }}">
                                                      <a href="#modalReport">
-                                                         <button class="btn btn-default btnReport"
-                                                                 type="submit">Signaler</button>
+                                                         <button class="btn btn-default btnReport" type="submit">
+                                                             Signaler
+                                                         </button>
                                                      </a>
-                                                 </span>
+                                                </span>
                                             </div>
                                         </div>
-                                        {% include 'challenge/reportModal.html.twig'  %}
-                                        <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
-                                             tabindex="-1"
-                                             role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close"><span
-                                                                    aria-hidden="true">&times;</span></button>
-                                                        <h3>{{ answer.title }}</h3>
-                                                        <h4>{{ answer.name }}</h4>
-                                                    </div>
-                                                    <div class="modal-body" data-dismiss="modal"
-                                                         aria-label="Close">
-                                                        {% if descriptionChallenge.isPicture == true %}
-                                                            <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                                 alt="photo du défi"
-                                                                 class="img-responsive center-block"
-                                                                 data-dismiss="modal" aria-label="Close">
-                                                        {% else %}
-                                                            <p class="text-left">{{ answer.message }}</p>
-                                                        {% endif %}
-                                                    </div>
-                                                    {% if descriptionChallenge.isPicture == true %}
-                                                        <div class="modal-footer">
-                                                            <p class="text-left">{{ answer.message }}</p>
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {% include 'challenge/reportModal.html.twig' %}
+                                        {% include 'challenge/answerChallengeModal.html.twig' %}
                                     {% endfor %}
                                 </div>
                             {% endif %}
