@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ResourceController extends Controller
 {
     /**
-     * Lists all informMenu entities.
+     * Lists all resource entities.
      *
      * @Route("/", name="resources_index")
      * @Method("GET")

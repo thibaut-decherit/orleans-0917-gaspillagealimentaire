@@ -14,5 +14,4 @@ class ResourceRepository extends \Doctrine\ORM\EntityRepository
     {
         return $this->findBy([], ['id' => 'DESC']);
     }
-
 }
