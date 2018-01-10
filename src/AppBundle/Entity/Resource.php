@@ -71,13 +71,6 @@ class Resource
     private $uploadedAt;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="theme", type="string", length=255)
-     */
-    private $theme;
-
-    /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="resource_resource", fileNameProperty="resourceName")
@@ -99,6 +92,11 @@ class Resource
      * @var string
      */
     private $resourceName;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ResourceTheme", inversedBy="resources", cascade={"persist"})
+     */
+    private $resourcetheme;
 
 
     /**
@@ -309,5 +307,29 @@ class Resource
     public function getResourceName()
     {
         return $this->resourceName;
+    }
+
+    /**
+     * Set resourcetheme
+     *
+     * @param \AppBundle\Entity\ResourceTheme $resourcetheme
+     *
+     * @return Resource
+     */
+    public function setResourcetheme(\AppBundle\Entity\ResourceTheme $resourcetheme = null)
+    {
+        $this->resourcetheme = $resourcetheme;
+
+        return $this;
+    }
+
+    /**
+     * Get resourcetheme
+     *
+     * @return \AppBundle\Entity\ResourceTheme
+     */
+    public function getResourcetheme()
+    {
+        return $this->resourcetheme;
     }
 }

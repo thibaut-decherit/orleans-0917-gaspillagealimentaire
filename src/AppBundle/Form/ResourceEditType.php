@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\ResourceTheme;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
@@ -24,11 +26,12 @@ class ResourceEditType extends AbstractType
                 'required' => true,
                 'label_attr' => array('class' => 'labels_admin')
             ))
-            ->add('theme', TextType::class, array(
-                'label' => "Type (site internet, article de blog...)",
-                'required' => true,
+            ->add('resourcetheme', EntityType::class, [
+                'class'=> ResourceTheme::class,
+                'choice_label'=>'name',
+                'label' => 'Theme',
                 'label_attr' => array('class' => 'labels_admin')
-            ))
+            ])
             ->add('description', TextareaType::class, array(
                 'label' => "Résumé",
                 'required' => true,

@@ -11,9 +11,10 @@
         <div class="pageContent pageResource">
             <div class="col-xs-2 containerMenuResource">
                 <div class="blockInfo">
-                    <li><a href="" class="pInfo" data-target="1">Parcours pédagogiques</a></li>
-                    <li><a href="" class="pInfo" data-target="2">Fiches pédagogiques</a></li>
-                    <li><a href="" class="pInfo" data-target="3">Ressources téléchargeables</a></li>
+                    <li><a href="" class="pInfo" data-target="1">Activité gaspillage alimentaire</a></li>
+                    <li><a href="" class="pInfo" data-target="2">Activité alimentaire</a></li>
+                    <li><a href="" class="pInfo" data-target="3">Activité gestion des déchets</a></li>
+                    <li><a href="" class="pInfo" data-target="4">Autre ressources</a></li>
                 </div>
             </div>
             <div class="articles">
@@ -23,14 +24,10 @@
                             <li class="row">
                                 <div class="row col-xs-offset-1 col-xs-9">
                                     <div class="row">
-                                        <div class="col-xs-3 vignetteContainer">
-                                            <img src="{{ asset('uploads/' ~ resource.resourceName) }}"
-                                                 class="img-responsive img-thumbnail vignette">
-                                        </div>
                                         <div class="col-xs-9">
                                             <div class="row">
                                                 <div class="col-xs-3">
-                                                    <p class="type informType">{{ resource.theme }}</p>
+                                                    <p class="type informType">{{ resource.resourcetheme.name }}</p>
                                                 </div>
                                                 <div class="col-xs-3 pull-right">
                                                     <p class="date">{{ resource.uploadedAt|localizeddate('long', 'none') }}</p>
@@ -40,7 +37,7 @@
                                                 <h2>
                                                     <a class="informLink"
                                                        href="{{ asset('uploads/' ~ resource.resourceName) }}"
-                                                       target="_blank">{{ resource.title }}
+                                                       target="_blank">{{ resource.title|upper }}
                                                         <span class="glyphicon glyphicon-save"></span>
                                                     </a>
                                                 </h2>
@@ -62,10 +59,12 @@
                             <li class="row">
                                 <div class="row col-xs-offset-1 col-xs-9">
                                     <div class="row">
+                                        <div class="col-xs-3 vignetteContainer">
+                                        </div>
                                         <div class="col-xs-9">
                                             <div class="row">
                                                 <div class="col-xs-3">
-                                                    <p class="type informType">{{ resource.theme }}</p>
+                                                    <p class="type informType">{{ resource.resourceTheme.name }}</p>
                                                 </div>
                                                 <div class="col-xs-3 pull-right">
                                                     <p class="date">{{ resource.uploadedAt|localizeddate('long', 'none') }}</p>

@@ -21,12 +21,11 @@
                 <div class="listAdmin">
                     {% for resource in resources %}
                         <div class="row">
-                            <p>{{ resource.title }}</p>
+                            <p>{{ resource.title|upper }}</p>
                         </div>
                         <div class="row">
                             <div class="col-xs-5">
-                                <img src="{{ asset('uploads/' ~ resource.resourceName) }}"
-                                     class="img-responsive img-thumbnail vignetteList">
+                                <p>{{ resource.description }}</p>
                             </div>
                         </div>
                         <div class="row">
