@@ -25,7 +25,8 @@ class AdminReportedAnswerChallenge extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $adminReportedAnswerChallenges = $em->getRepository('AppBundle:AnswerChallenge')->findby(['isReport'=>true]);
+        $adminReportedAnswerChallenges = $em->getRepository('AppBundle:AnswerChallenge')
+            ->findby(['isReport' => true], ['id' => 'DESC']);
 
         $deleteForms = [];
 
