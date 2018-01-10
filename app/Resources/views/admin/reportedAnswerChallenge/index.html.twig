@@ -33,11 +33,12 @@
                         <div class="pull-right buttons-container">
                             <a href="{{ path('unreport_content', {'id':adminReportedAnswerChallenge.id}) }}"
                                class="btn_admin btn btn-default pull-right">
-                                Retirer le signalement
+                                <span class="glyphicon glyphicon-ok"></span> Autoriser ce contenu
                             </a>
                             {{ form_start(delete_form[adminReportedAnswerChallenge.id]) }}
-                            <input type="submit" value="Supprimer ce contenu"
-                                   class="btn_admin btn btn-default pull-right">
+                            <button type="submit" class="btn_admin btn btn-default pull-right">
+                                <span class="glyphicon glyphicon-trash"></span> Supprimer ce contenu
+                            </button>
                             {{ form_end(delete_form[adminReportedAnswerChallenge.id]) }}
                         </div>
                     </div>
