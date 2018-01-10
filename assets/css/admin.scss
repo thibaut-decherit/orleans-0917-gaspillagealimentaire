@@ -79,6 +79,24 @@ hr {
   }
 }
 
-
-
-
+.reported-answer-challenge {
+  .panel-body {
+    .listAdmin {
+      .name p {
+        font-size: 1vw;
+      }
+      .answer-content-container {
+        .message p {
+          font-size: 1vw;
+        }
+      }
+    }
+  }
+  .buttons-container {
+    display: flex;
+    flex-direction: row;
+    button {
+      margin-left: 5px;
+    }
+  }
+}
