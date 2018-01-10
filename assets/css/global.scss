@@ -14,10 +14,13 @@ $middleLinkHover: #04ca90;
 $challengeSectionColor: #fb8b24;
 $lastLinkHover: #ffa24d;
 
-
 body {
+  font-family: 'Roboto-Regular', Helvetica, sans-serif;
   margin: 0;
   background-color: #FFFFFF;
+  textarea {
+    resize: vertical;
+  }
   .pageContent {
     //décalage pour la navbar et la topbar
     margin: 60px 0 0 150px;

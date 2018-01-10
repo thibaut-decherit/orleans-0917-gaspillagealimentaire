@@ -13,8 +13,8 @@
                 </a>
             </div>
             <div class="row">
-                <a href="{{ path('game_new') }}" class="btn_admin btn btn-default"><span
-                            class="glyphicon glyphicon-plus"></span> Ajouter un nouveau jeu
+                <a href="{{ path('game_new') }}" class="btn_admin btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau jeu
                 </a>
             </div>
             <hr/>
@@ -35,7 +35,7 @@
                         </div>
                         <div class="row">
                             <div class="col-xs-8">
-                                <a href="{{ path('link_menu', {'id':game.id}) }}" class="ckeckbox">
+                                <a href="{{ path('game_link_menu', {'id': game.id}) }}" class="ckeckbox">
                                     {{ game.isMenu ? 'Enlever le lien du menu' : 'Afficher le lien dans le menu' }}
                                 </a>
                             </div>
