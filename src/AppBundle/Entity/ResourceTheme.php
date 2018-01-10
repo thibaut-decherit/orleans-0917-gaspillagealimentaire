@@ -67,6 +67,7 @@ class ResourceTheme
     {
         return $this->name;
     }
+
     /**
      * Constructor
      */

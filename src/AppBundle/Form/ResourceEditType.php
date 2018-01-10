@@ -27,8 +27,8 @@ class ResourceEditType extends AbstractType
                 'label_attr' => array('class' => 'labels_admin')
             ))
             ->add('resourcetheme', EntityType::class, [
-                'class'=> ResourceTheme::class,
-                'choice_label'=>'name',
+                'class' => ResourceTheme::class,
+                'choice_label' => 'name',
                 'label' => 'Theme',
                 'label_attr' => array('class' => 'labels_admin')
             ])

@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\ResourceTheme;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 /**
@@ -131,7 +132,6 @@ class ResourceThemeController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('resourcetheme_delete', array('id' => $resourceTheme->getId())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
 }

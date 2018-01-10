@@ -5,16 +5,17 @@
 
     <table>
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for resourceTheme in resourceThemes %}
             <tr>
-                <td><a href="{{ path('resourcetheme_show', { 'id': resourceTheme.id }) }}">{{ resourceTheme.id }}</a></td>
+                <td><a href="{{ path('resourcetheme_show', { 'id': resourceTheme.id }) }}">{{ resourceTheme.id }}</a>
+                </td>
                 <td>{{ resourceTheme.name }}</td>
                 <td>
                     <ul>
