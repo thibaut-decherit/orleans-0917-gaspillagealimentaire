@@ -9,7 +9,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 /**
  * Descriptionchallenge controller.
@@ -176,6 +175,17 @@ class DescriptionChallengeController extends Controller
 
         $em->persist($answerChallenge);
         $em->flush();
+
+        $message = \Swift_Message::newInstance()
+            ->setSubject('Rest\'aTable - Signalement de contenu')
+            ->setFrom('WCSorleansgaspi@gmail.com')
+            ->setTo('WCSorleansgaspi@gmail.com')
+            ->setBody(
+                $this->renderView('mail/mail.html.twig'),
+                'text/html'
+            );
+
+        $this->get('mailer')->send($message);
         return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId()]);
     }
 }

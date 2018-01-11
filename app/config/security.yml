@@ -24,8 +24,6 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator: security.csrf.token_manager
-                always_use_default_target_path: true
-                default_target_path: /admin
             remember_me:
                 secret: '%secret%'
                 path: /admin

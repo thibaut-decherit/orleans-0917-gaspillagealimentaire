@@ -18,34 +18,33 @@
   height: 60px;
   position: fixed;
   z-index: 1;
-  .row {
-    margin-right: 0;
-  }
   .btn {
     background: #ffffff;
     border-radius: 100px;
     height: 36px;
     font-family: 'Roboto-Regular', Helvetica, sans-serif;
     font-size: 18px;
-    color: #363636;
-    transform: translate(-15%, 35%);
+    position: absolute;
+    top: 12px;
+    right: 30px;
+    z-index: 2;
+    color: $navBarsColor;
     .glyphicon {
       vertical-align: -5%;
     }
   }
-
-  .title_topbar {
-    padding-left: 160px;
-    margin-top: 15px;
-    font-family: 'Roboto-Regular', Helvetica, sans-serif;
-    font-size: 24px;
-    color: white;
-    text-transform: uppercase;
-    font-weight: 700;
-  }
-
-  p {
-    margin-bottom: 0;
-  }
 }
 
+.title_topbar {
+  padding-left: 160px;
+  margin-top: 15px;
+  font-family: 'Roboto-Regular', Helvetica, sans-serif;
+  font-size: 24px;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 0;
+}
