@@ -9,10 +9,10 @@
                 <h2><b>QUESTION {{ question.questionNbr }}<span>/{{ nbrMax }}</span></b></h2>
                 <h3 class="panel-title">{{ question.title }}</h3>
                 <div class="panel-body">
-                    <form method="POST" action="{{ path('quizzAnswer') }}">
+                    <form method="POST" action="{{ path('quizzAnswer', {'quizzTitle' : quizzTitle,'nbrMax': nbrMax, 'questionNbr' : question.questionNbr}) }}">
                         {% for answer in question.quizzAnswers %}
                             <div class="answer">
-                                <input type="radio" value="{{ answer.id }}" name="answer">
+                                <input type="radio" value="{{ answer.id }}" name="answer" required>
                                 {{ answer.choice }}
                             </div>
                         {% endfor %}
