@@ -67,7 +67,7 @@
                                     <div class="col-sm-offset-2 col-sm-5">
                                         <h3>{{ descriptionChallenge.answers.0.title }}</h3>
                                         <h4>Par {{ descriptionChallenge.answers.0.name }} le
-                                                {{ descriptionChallenge.answers.0.uploadedAt|localizeddate('long', 'none') }}
+                                            {{ descriptionChallenge.answers.0.uploadedAt|localizeddate('long', 'none') }}
                                         </h4>
                                         <p>{{ descriptionChallenge.answers.0.message }}</p>
                                     </div>
@@ -107,8 +107,8 @@
                                                              alt="photo du défi" class="img-thumbnail">
                                                     </a>
                                                     <h4 class="titlePicture">{{ answer.title }}</h4>
-                                                    <h4>Par {{ answer.name }} le
-                                                        {{ answer.uploadedAt|localizeddate('long', 'none') }}
+                                                    <h4>Par {{ answer.name }}
+                                                        le {{ answer.uploadedAt|localizeddate('long', 'none') }}
                                                     </h4>
                                                 </span>
                                             </div>
