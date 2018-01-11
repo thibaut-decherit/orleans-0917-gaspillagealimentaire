@@ -22,8 +22,7 @@
     background: #ffffff;
     border-radius: 100px;
     height: 36px;
-    font-family: 'Roboto-Regular', Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: calc(0.2vw + 10px);
     position: absolute;
     top: 12px;
     right: 30px;
@@ -34,17 +33,14 @@
     }
   }
 }
-
-.title_topbar {
-  padding-left: 160px;
-  margin-top: 15px;
-  font-family: 'Roboto-Regular', Helvetica, sans-serif;
-  font-size: 24px;
-  color: white;
-  text-transform: uppercase;
-  font-weight: 700;
-}
-
+  .title_topbar {
+    padding-left: 10%;
+    margin-top: 15px;
+    font-size: calc(0.8vw + 10px);
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
 p {
   margin-bottom: 0;
 }

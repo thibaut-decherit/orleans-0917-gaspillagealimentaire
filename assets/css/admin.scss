@@ -33,19 +33,27 @@ hr {
 .admin, .adminLogin {
   margin-top: 20px;
   .panel-title {
-    font-size: 2vw;
+    font-size: calc(1.8vw + 10px);
     color: $grey_border;
     padding-top: 15px;
     padding-bottom: 15px;
   }
   .panel-body {
     margin: 15px;
+    .btnMenu {
+      margin-bottom: 15px;
+      .btn {
+        text-transform: uppercase;
+        width: 250px;
+      }
+    }
     .listAdmin, .loginForm {
       .row {
         margin: 0;
       }
       p {
-        font-size: 1.5vw;
+        font-size: calc(0.8vw + 10px);
+        margin-bottom: 15px;
       }
       .vignetteList {
         min-height: 150px;
@@ -53,14 +61,14 @@ hr {
         margin-bottom: 10px;
       }
       .imgEdit {
-        width: 400px;
+        width: 250px;
         height: auto;
       }
       .date {
-        font-size: 1vw;
+        font-size: calc(0.5vw + 10px);
       }
       .link {
-        font-size: 1vw;
+        font-size: calc(0.5vw + 10px);
         font-style: italic;
       }
       .ckeckbox {
@@ -73,7 +81,7 @@ hr {
       }
     }
     .labels_admin {
-      font-size: 1vw;
+      font-size: calc(0.4vw + 10px);
       color: grey;
     }
   }
@@ -83,11 +91,11 @@ hr {
   .panel-body {
     .listAdmin {
       .name p {
-        font-size: 1vw;
+        font-size: calc(0.4vw + 10px);
       }
       .answer-content-container {
         .message p {
-          font-size: 1vw;
+          font-size: calc(0.4vw + 10px);
         }
       }
     }
