@@ -3,6 +3,7 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * AdminEmail
@@ -25,6 +26,13 @@ class AdminEmail
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=255)
+     *
+     * @Assert\NotBlank(
+     *    message = "Ce champ ne peut pas être vide.",
+     * )
+     * @Assert\Email(
+     *    message = "L'adresse mail '{{ value }}' n'est pas valide.",
+     * )
      */
     private $email;
 
