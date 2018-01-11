@@ -63,7 +63,9 @@ class QuizController extends Controller
             'titleQuizz' => $quizzTitle->getId(),
             'questionNbr' => $questionNbr,
         ]);
+
         $nbrMax = count($test);
+
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 

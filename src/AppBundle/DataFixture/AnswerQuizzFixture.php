@@ -44,9 +44,9 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 2,
             ],
             5 => [
-                'ont des critères esthétiques très rigoureux (calibrage des fruits et légumes, pas de produits
-abîmés, rayons toujours pleins…) pour répondre aux exigences, réelles ou supposées, des
-consommateurs qui sont responsables d\'une grande partie du gaspillage.',
+                'ont des critères esthétiques très rigoureux (calibrage des fruits et légumes, pas 
+                de produits abîmés, rayons toujours pleins…) pour répondre aux exigences, réelles ou 
+                supposées, des consommateurs qui sont responsables d\'une grande partie du gaspillage.',
                 1,
                 2,
             ],
@@ -350,11 +350,11 @@ consommateurs qui sont responsables d\'une grande partie du gaspillage.',
                 1,
                 22,
             ],
-             66 => [
-                 'Les produits dont la DLC (date limite de consommation) est dépassée',
-                 0,
-                 23,
-             ],
+            66 => [
+                'Les produits dont la DLC (date limite de consommation) est dépassée',
+                0,
+                23,
+            ],
             67 => [
                 'Les produits qu’on a ouverts, consommé en parti et oublié au fond du frigo',
                 0,
@@ -421,7 +421,7 @@ consommateurs qui sont responsables d\'une grande partie du gaspillage.',
             $answerQuizzHome = new AnswerQuizz();
             $answerQuizzHome->setChoice($answerQuizz[0]);
             $answerQuizzHome->setIsTrue($answerQuizz[1]);
-            $answerQuizzHome->setQuizzQuestion($this->getReference('question'. $answerQuizz[2]));
+            $answerQuizzHome->setQuizzQuestion($this->getReference('question' . $answerQuizz[2]));
             $manager->persist($answerQuizzHome);
         }
         $manager->flush();
