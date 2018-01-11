@@ -53,7 +53,7 @@ class InformMenuNewType extends AbstractType
                 'image_uri' => false,
                 'constraints' => array(
                     new NotBlank([
-                        'message' => 'Vous devez télécharger une image.'
+                        'message' => 'Vous devez envoyer une image.'
                     ]),
                 ),
             ]);
