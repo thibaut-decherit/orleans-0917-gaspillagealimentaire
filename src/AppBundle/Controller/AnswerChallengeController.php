@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
 /**
- * Answerchallenge controller.
+ * AnswerChallengeController controller.
  *
  * @Route("answerChallenge")
  */

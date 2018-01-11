@@ -145,6 +145,7 @@ class DescriptionChallengeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
             $answerChallenge->setIsReport(false);
+            $answerChallenge->setUploadedAt(new \DateTime());
             $em->persist($answerChallenge);
             $em->flush();
 
