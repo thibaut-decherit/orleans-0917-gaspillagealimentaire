@@ -29,57 +29,57 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 1,
                 2,
                 'D’après les chiffres disponibles actuellement, l’ensemble des gaspillages des
-ménages est supérieur à celui des grandes surfaces. Cela n’enlève rien au caractère
-scandaleux de ce qui est jeté par la grande distribution mais nos modes de consommation y
-sont pour beaucoup…',
+                 ménages est supérieur à celui des grandes surfaces. Cela n’enlève rien au caractère
+                 scandaleux de ce qui est jeté par la grande distribution mais nos modes de consommation y
+                 sont pour beaucoup…',
             ],
             2 => [
                 'A quelle étape de la chaine alimentaire le gaspillage est-il le plus important ?',
                 1,
                 3,
                 'Dans nos pays du Nord, la plus grande partie du gaspillage a lieu à la
-consommation',
+                consommation',
             ],
             3 => [
                 'Qui paye le gaspillage au final ?',
                 1,
                 4,
                 'Les consommateurs et les citoyens.
-Les consommateurs car quand j’achète une tomate, je paye aussi pour celles qui ont été
-laissé dans le champ et celles qui, abimées, ont été jetées à Rungis ou au supermarché. (Le
-coût des autres est intégré dans le prix de vente de celles qui restent)
-Et les citoyens car le gaspillage alimentaire c’est 10% du poids des poubelles dont le coût de
-la gestion (collecte avec les camions et traitement en centre d’enfouissement ou à
-l’incinérateur) est supporté par tous.',
+                 Les consommateurs car quand j’achète une tomate, je paye aussi pour celles qui ont été
+                 laissé dans le champ et celles qui, abimées, ont été jetées à Rungis ou au supermarché. (Le
+                 coût des autres est intégré dans le prix de vente de celles qui restent)
+                 Et les citoyens car le gaspillage alimentaire c’est 10% du poids des poubelles dont le coût de
+                 la gestion (collecte avec les camions et traitement en centre d’enfouissement ou à
+                 l’incinérateur) est supporté par tous.',
             ],
             4 => [
                 'A ton avis, le chocolat…',
                 1,
                 5,
                 'Le chocolat réduit le stress et améliore l’humeur chez les
-personnes dont le moral est bas, mais cet effet est très éphémère. Le cacao
-renferme des centaines de molécules susceptibles d’agir sur le comportement.
-Caféine, théobromine, théophylline sont des substances toniques qui vous
-mettent en forme. Magnésium contre le stress. Et surtout de la
-phényléthylamine, véritable antidépresseur végétal qui donne un meilleur moral.',
+                personnes dont le moral est bas, mais cet effet est très éphémère. Le cacao
+                renferme des centaines de molécules susceptibles d’agir sur le comportement.
+                Caféine, théobromine, théophylline sont des substances toniques qui vous
+                mettent en forme. Magnésium contre le stress. Et surtout de la
+                phényléthylamine, véritable antidépresseur végétal qui donne un meilleur moral.',
             ],
             5 => [
                 'Il est recommandé de consommer 5 fruits et légumes par jour en France. Mais un portion de
-fruit et légume, c’est quoi ?',
+                fruit et légume, c’est quoi ?',
                 1,
                 6,
                 '80 grammes : Une portion, c’est environ 80g de fruits ou légumes soit à peu près la taille
-d’un poing. Consommer 5 portions, c’est consommer 400 grammes de fruits ou de légumes, ce qui
-est recommandé par l’OMS (Organisation mondiale de la santé)',
+                d’un poing. Consommer 5 portions, c’est consommer 400 grammes de fruits ou de légumes, ce qui
+                est recommandé par l’OMS (Organisation mondiale de la santé)',
             ],
             6 => [
                 'Chauds, ou en crème, vous les appréciez ! On les appelle marrons ! Mais sur quel arbre poussent les marrons comestibles ?',
                 2,
                 1,
                 'Le châtaignier greffé. Les fruits du marronnier ne sont pas comestibles, ce sont les marrons d\'Inde.
-Ce que nous appelons "marron" est issu du châtaignier.
-Le châtaignier sauvage produit des châtaignes
-À Noël, on mange de la dinde aux marrons. Le reste de l\'année, on peut déguster de la crème de marrons, des marrons chauds, des marrons glacés. Pourtant, au sens botanique du terme, ce fruit n\'est pas comestible. Ainsi, ce que l\'on appelle communément « marron » dans la langue française est en réalité une grosse châtaigne, dont l\'aspect est tout de même un peu différent de la châtaigne sauvage. ',
+                Ce que nous appelons "marron" est issu du châtaignier.
+                Le châtaignier sauvage produit des châtaignes
+                À Noël, on mange de la dinde aux marrons. Le reste de l\'année, on peut déguster de la crème de marrons, des marrons chauds, des marrons glacés. Pourtant, au sens botanique du terme, ce fruit n\'est pas comestible. Ainsi, ce que l\'on appelle communément « marron » dans la langue française est en réalité une grosse châtaigne, dont l\'aspect est tout de même un peu différent de la châtaigne sauvage. ',
             ],
             7 => [
                 'Quel est ce gros fruit orangé, qui peut peser jusqu\'à 5 kg, et qui nous est familier, dès novembre ?',
@@ -146,7 +146,7 @@ Le châtaignier sauvage produit des châtaignes
                 2,
                 12,
                 'Le kaki. Aussi appelé plaquemine de Corée, plaquemine de Chine.
-Il est inutile d\'aller aussi loin pour en trouver. On en voit souvent dans le Midi de la France.',
+                Il est inutile d\'aller aussi loin pour en trouver. On en voit souvent dans le Midi de la France.',
             ],
             18 => [
                 'Ce fruit a besoin d\'un climat doux en hiver et chaud en été. On le récolte à l\'automne :',
@@ -165,42 +165,42 @@ Il est inutile d\'aller aussi loin pour en trouver. On en voit souvent dans le M
                 3,
                 2,
                 'Et oui ! Car on considère que le gaspillage alimentaire c’est toute nourriture
-destinée à l’alimentation humaine qui ne l’est pas au final… Par contre restons logique,
-mieux vaut la composter ou la donner aux animaux que de la jeter à la poubelle !',
+                destinée à l’alimentation humaine qui ne l’est pas au final… Par contre restons logique,
+                mieux vaut la composter ou la donner aux animaux que de la jeter à la poubelle !',
             ],
             21 => [
                 'Et les croutes du fromage ou du pain, le gras de la viande ou bien les épluchures
-des fruits et légumes, est-ce du gaspillage ?',
+                des fruits et légumes, est-ce du gaspillage ?',
                 3,
                 3,
                 'En effet, ça dépend des personnes. C’est ce que l’on considère comme du
-gaspillage potentiellement évitable (1/5 du gaspillage). Par contre il existe plein d’astuces pour cuisiner comme un chef ses restes de repas, faire un bouillon ou un fond de sauce avec
-une carcasse de volaille ou des gratins délicieux avec des légumes un peu flétris.',
+                gaspillage potentiellement évitable (1/5 du gaspillage). Par contre il existe plein d’astuces pour cuisiner comme un chef ses restes de repas, faire un bouillon ou un fond de sauce avec
+                une carcasse de volaille ou des gratins délicieux avec des légumes un peu flétris.',
             ],
             22 => [
                 'Savez-vous ce qui est jeté en priorité ?',
                 3,
                 4,
                 'Restes de repas et Fruits et légumes ex aequo (1/4 chacun du gaspillage
-alimentaire des ménages), ensuite les produits emballés mais en parti consommés (1/5), le
-pain (14%) puis les produits emballés jetés sans être ouverts (13%).',
+                alimentaire des ménages), ensuite les produits emballés mais en parti consommés (1/5), le
+                pain (14%) puis les produits emballés jetés sans être ouverts (13%).',
             ],
             23 => [
                 'Savez-vous quelle est, par français, la quantité moyenne de nourriture jetée chaque
-année à la maison ?',
+                année à la maison ?',
                 3,
                 5,
                 'à priori plus de 40 kg ! (Source : FNE/Verdicité)',
             ],
             24 => [
                 'Et si on compte l’ensemble du gaspillage à la consommation, c&#39;est-à- dire en
-comptant en plus des maisons : les restaurants, les cantines (scolaires ou
-d’entreprises), les pique-niques et repas du midi au bureau. Quelle quantité
-atteint-on (par an et par personne) ?',
+                comptant en plus des maisons : les restaurants, les cantines (scolaires ou
+                d’entreprises), les pique-niques et repas du midi au bureau. Quelle quantité
+                atteint-on (par an et par personne) ?',
                 3,
                 6,
                 'Environ 95 kg ! (Source : FAO (Food and Alimentation Organisation) qui dépend de
-l’ONU)',
+                l’ONU)',
             ]
         ];
         $i = 0;
