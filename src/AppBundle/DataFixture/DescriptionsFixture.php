@@ -128,8 +128,7 @@ class DescriptionsFixture extends Fixture implements OrderedFixtureInterface
         $manager->flush();
     }
 
-    public
-    function getOrder()
+    public function getOrder()
     {
         return 2;
     }

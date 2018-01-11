@@ -1,0 +1,28 @@
+{% extends 'layout.html.twig' %}
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundMiddle', 'title': question.TitleQuizz.name} %}
+{% endblock %}
+{% block pageContent %}
+<div class="quizzSection{{ question.TitleQuizz.id }}">
+    <div class="quizz">
+    <div class="container-fluid">
+        <div class="panel panel-primary">
+            <h2>Résultats du quiz</h2>
+            <div class="row">
+                <div class="col-md-offset-3 col-md-6">
+                    <h3 class="panel-title' }}">
+                        SCORE : {{ points }}/{{ nbrMax }}
+                    </h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="panel-body">
+                    <a href="{{ path('quizTest', {'id': question.TitleQuizz.id, 'questionNbr' : 1}) }}"
+                       class="btn btn-success">Rejouer</a>
+                    <a href="{{ path('quiz_index') }}"
+                       class="btn btn-success">Revenir aux quizz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
