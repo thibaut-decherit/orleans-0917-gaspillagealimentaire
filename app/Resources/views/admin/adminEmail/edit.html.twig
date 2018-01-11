@@ -3,12 +3,13 @@
 {% block pageContent %}
     <div class="panel panel-default admin">
         <div class="panel-heading">
-            <h1 class="panel-title text-info text-center">Adresse email de modération</h1>
+            <h1 class="panel-title text-info text-center">Modération des défis signalés - Adresse email d'alerte</h1>
         </div>
         <div class="panel-body">
             <div class="row">
-                <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
-                    <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
+                <a href="{{ path('admin_reported_answerchallenge_index') }}"
+                   class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Défis signalés
                 </a>
             </div>
             <hr/>

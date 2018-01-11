@@ -20,7 +20,9 @@ class AdminEmailType extends AbstractType
             'required' => true,
             'label_attr' => array('class' => 'labels_admin')
         ));
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
