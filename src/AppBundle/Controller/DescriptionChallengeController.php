@@ -178,7 +178,7 @@ class DescriptionChallengeController extends Controller
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Rest\'aTable - Signalement de contenu')
-            ->setFrom('WCSorleansgaspi@gmail.com')
+            ->setFrom('WCSorleansgaspi@gmail.com') //TODO récupérer depuis parameters.yml ?
             ->setTo('WCSorleansgaspi@gmail.com')
             ->setBody(
                 $this->renderView('mail/mail.html.twig'),
