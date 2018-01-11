@@ -22,8 +22,15 @@
                     </div>
                     <div class="row answer-content-container">
                         <div class="col-xs-5">
-                            <img src="{{ asset('uploads/' ~ adminReportedAnswerChallenge.imageName) }}"
-                                 class="img-responsive img-thumbnail vignetteList">
+                            {% if adminReportedAnswerChallenge.imageName != 'logo.png' %}
+                                <img src="{{ asset('uploads/' ~ adminReportedAnswerChallenge.imageName) }}"
+                                     class="img-responsive img-thumbnail vignetteList"
+                                     alt="photo du défi">
+                            {% else %}
+                                <img src="{{ asset('images/' ~ adminReportedAnswerChallenge.imageName) }}"
+                                     class="img-responsive img-thumbnail vignetteList"
+                                     alt="photo du défi">
+                            {% endif %}
                         </div>
                         <div class="col-xs-7 message">
                             <p>{{ adminReportedAnswerChallenge.message | nl2br }}</p>
