@@ -22,7 +22,7 @@
         .summary {
           margin: 20px 0 47px 80px;
           font-size: calc(0.3vw + 10px);
-          color: #8e8e8e;
+          color: $textDescription;
           padding: 0;
         }
         a {
@@ -55,7 +55,7 @@
       margin: 0;
     }
     .description {
-      color: #8e8e8e;
+      color: $textDescription;
       font-size: calc(0.3vw + 10px);
     }
     .page {

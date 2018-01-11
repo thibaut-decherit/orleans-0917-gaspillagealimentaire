@@ -9,6 +9,9 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\ResourceTheme;
+use AppBundle\Entity\Resource;
+use AppBundle\Repository\ResourceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -31,10 +34,12 @@ class ResourceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $resources = $em->getRepository('AppBundle:Resource')->findAllDesc();
-
+        $resourceThemes = $em->getRepository('AppBundle:ResourceTheme')->findAll();
+        $firstTheme = $em->getRepository('AppBundle:ResourceTheme')->find(1);
+        $resources = $em->getRepository('AppBundle:Resource')->findBy(['resourcetheme' => $firstTheme->getId()]);
         return $this->render('resources/index.html.twig', array(
             'resources' => $resources,
+            'resourceThemes' => $resourceThemes,
         ));
     }
 
