@@ -40,6 +40,13 @@ hr {
   }
   .panel-body {
     margin: 15px;
+    .btnMenu {
+      margin-bottom: 15px;
+      .btn {
+        text-transform: uppercase;
+        width: 250px;
+      }
+    }
     .listAdmin, .loginForm {
       .row {
         margin: 0;

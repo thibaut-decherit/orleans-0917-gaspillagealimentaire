@@ -21,7 +21,7 @@
         }
         .summary {
           margin: 20px 0 47px 80px;
-          font-size: calc(0.4vw + 10px);
+          font-size: calc(0.3vw + 10px);
           color: #8e8e8e;
           padding: 0;
         }
@@ -54,6 +54,10 @@
     .row {
       margin: 0;
     }
+    .description {
+      color: #8e8e8e;
+      font-size: calc(0.3vw + 10px);
+    }
     .page {
       padding-top: 30px;
       hr {
@@ -77,9 +81,10 @@
         object-position: center;
       }
       .btnValidation {
-        background: #c2c2c2;
+        background: transparent;
+        border: $challengeSectionColor solid 2px;
         padding: 5px 30px;
-        color: white;
+        color: $challengeSectionColor;
         font-size: calc(0.5vw + 10px);
       }
       .titlePicture {
