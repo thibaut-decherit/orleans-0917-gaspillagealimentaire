@@ -173,13 +173,15 @@ class DescriptionChallengeController extends Controller
 
         $answerChallenge->setIsReport(true);
 
+        $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+
         $em->persist($answerChallenge);
         $em->flush();
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Rest\'aTable - Signalement de contenu')
             ->setFrom('WCSorleansgaspi@gmail.com') //TODO récupérer depuis parameters.yml ?
-            ->setTo('WCSorleansgaspi@gmail.com')
+            ->setTo($adminEmail)
             ->setBody(
                 $this->renderView('mail/mail.html.twig'),
                 'text/html'
