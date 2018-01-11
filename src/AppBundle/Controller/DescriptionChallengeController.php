@@ -180,7 +180,7 @@ class DescriptionChallengeController extends Controller
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Rest\'aTable - Signalement de contenu')
-            ->setFrom('WCSorleansgaspi@gmail.com') //TODO entrer le mail créé par le client pour le bot
+            ->setFrom($this->getParameter('mailer_user'))
             ->setTo($adminEmail)
             ->setBody(
                 $this->renderView('mail/mail.html.twig'),
