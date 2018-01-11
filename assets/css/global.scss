@@ -25,6 +25,9 @@ body {
     //décalage pour la navbar et la topbar
     margin: 60px 0 0 150px;
   }
+  .titre_underline {
+    text-decoration: underline;
+  }
 }
 
 @import "topBar";

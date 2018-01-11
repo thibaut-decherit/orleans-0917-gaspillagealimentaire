@@ -2,83 +2,103 @@
 
 {% block title %}Défis Réponses | Resteatable{% endblock %}
 
-        {% block topBar %}
-            {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title': descriptionChallenge.title } %}
-        {% endblock %}
+{% block topBar %}
+    {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundLast', 'title': descriptionChallenge.title } %}
+{% endblock %}
 
-        {% block pageContent %}
-            <section class="challenge-response-section">
-                <div class="pageContent">
+{% block pageContent %}
+    <section class="challenge-response-section">
+        <div class="pageContent">
+            <div class="row">
+                <div class="col-xs-offset-1 col-xs-10 page">
                     <div class="row">
-                        <div class="col-xs-offset-1 col-xs-10 page">
-                            <div class="row">
-                                <h2>{{ descriptionChallenge.title }}</h2>
-                                <p>{{ descriptionChallenge.content | raw }}</p>
-                            </div>
+                        <h2>{{ descriptionChallenge.title }}</h2>
+                        <p class="description">{{ descriptionChallenge.content | raw }}</p>
+                    </div>
 
-                            {% if descriptionChallenge.isVideo == true %}
-                                <div class="row">
-                                    <div class="videos">
-                                        <div class="col-md-offset-1 col-md-5">
-                                            <iframe frameborder="0" width="480" height="270"
-                                                    src="//www.dailymotion.com/embed/video/x13fp"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <iframe frameborder="0" width="480" height="270"
-                                                    src="//www.dailymotion.com/embed/video/xrhzkq"
-                                                    allowfullscreen></iframe>
-                                        </div>
-                                    </div>
+                    {% if descriptionChallenge.isVideo == true %}
+                        <div class="row">
+                            <div class="videos">
+                                <div class="col-md-offset-1 col-md-5">
+                                    <figure class="thumbnail">
+                                        <iframe frameborder="0" width="480" height="270"
+                                                src="//www.dailymotion.com/embed/video/x13fp"
+                                                allowfullscreen class="center-block">
+                                        </iframe>
+                                    </figure>
                                 </div>
-                            {% endif %}
-
-                            <hr/>
-
-                            <div class="row">
-                                <h2 class="text-center">Participer au défi</h2>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        {% if descriptionChallenge.isPicture == true %}
-                                            {{ form_start(form) }}
-                                            {{ form_widget(form) }}
-                                            <input type="submit" value="Valider le défi !" class="pull-right"/>
-                                            {{ form_end(form) }}
-                                        {% else %}
-                                            {{ form_start(form2) }}
-                                            {{ form_widget(form2) }}
-                                            <input type="submit" value="Valider le défi !" class="pull-right"/>
-                                            {{ form_end(form2) }}
-                                        {% endif %}
-                                    </div>
+                                <div class="col-md-5">
+                                    <figure class="thumbnail center-block">
+                                        <iframe frameborder="0" width="480" height="270"
+                                                src="//www.dailymotion.com/embed/video/xrhzkq"
+                                                allowfullscreen class="center-block">
+                                        </iframe>
+                                    </figure>
                                 </div>
                             </div>
+                        </div>
+                    {% endif %}
 
-                            <hr/>
+                    <hr/>
 
-                            {% if descriptionChallenge.answers is not empty %}
-                                <div class="row">
-                                    <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-offset-2 col-sm-5">
-                                        <h3>{{ descriptionChallenge.answers.0.title }}</h3>
-                                        <h4>Par {{ descriptionChallenge.answers.0.name }} le
-                                            {{ descriptionChallenge.answers.0.uploadedAt|localizeddate('long', 'none') }}
-                                        </h4>
-                                        <p>{{ descriptionChallenge.answers.0.message }}</p>
-                                    </div>
-                                    <div class="col-sm-4">
-                                        <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                             alt="photo du dernier défi"
-                                             class="img-thumbnail center-block">
+                    <div class="row">
+                        <h2 class="text-center">Participer au défi</h2>
+                    </div>
 
-                                        {#modal pour 'signaler' dernier post#}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                {% if descriptionChallenge.isPicture == true %}
+                                    {{ form_start(form) }}
+                                    {{ form_widget(form) }}
+                                    <input type="submit" value="Valider le défi !"
+                                           class="btn btnValidation pull-right"/>
+                                    {{ form_end(form) }}
+                                {% else %}
+                                    {{ form_start(form2) }}
+                                    {{ form_widget(form2) }}
+                                    <input type="submit" value="Valider le défi !"
+                                           class="btn btnValidation pull-right"/>
+                                    {{ form_end(form2) }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
 
-                                        <div class="row pull-right">
+                    <hr/>
+
+                    {% if descriptionChallenge.answers is not empty %}
+                        <div class="row">
+                            <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-5">
+                                <h3>{{ descriptionChallenge.answers.0.title }}</h3>
+                                <h4>Par {{ descriptionChallenge.answers.0.name }}
+                                    le {{ descriptionChallenge.answers.0.uploadedAt|localizeddate('long', 'none') }}
+                                </h4>
+                                <p>{{ descriptionChallenge.answers.0.message | nl2br }}</p>
+                            </div>
+                            <div class="col-sm-4">
+
+                                {#modale pour afficher photo dernier post#}
+
+                                <span class="modalAnswerPictures" data-toggle="modal"
+                                      data-target="#modalAnswerPictures{{ descriptionChallenge.answers.0.id }}">
+                                            <a href="#modalAnswerPictures">
+                                                {% if descriptionChallenge.isPicture == true %}
+                                                    <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
+                                                         alt="photo du dernier défi" class="img-thumbnail center-block">
+                                                {% else %}
+                                                    <img src="{{ asset('images/' ~ descriptionChallenge.answers.0.imageName) }}"
+                                                         alt="photo du dernier défi" class="img-thumbnail center-block">
+                                                {% endif %}
+                                            </a>
+                                        </span>
+
+                                {#modale pour 'signaler' dernier post#}
+
+                                <div class="row pull-right">
                                              <span class="modalReport1" data-toggle="modal"
                                                    data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
                                                  <a href="#modalReport">
@@ -87,86 +107,94 @@
                                                      </button>
                                                  </a>
                                              </span>
-                                        </div>
-                                    </div>
                                 </div>
-                                {% include 'challenge/reportModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
-                                <hr/>
+                            </div>
+                        </div>
+                        {% include 'challenge/reportModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
+                        {% include 'challenge/answerChallengeModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
 
-                                <div class="row">
-                                    {% for answer in descriptionChallenge.answers[1:][:12] %}
-                                        <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
-                                            <div class="row">
+                        <hr/>
 
-                                                {#modal pour afficher le contenu d'un post#}
+                        <div class="row">
+                            {% for answer in descriptionChallenge.answers[1:][:12] %}
+                                <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
+                                    <div class="row">
 
-                                                <span class="modalAnswerPictures" data-toggle="modal"
-                                                      data-target="#modalAnswerPictures{{ answer.id }}">
+                                        {#modale pour afficher le contenu d'un post#}
+
+                                        <span class="modalAnswerPictures" data-toggle="modal"
+                                              data-target="#modalAnswerPictures{{ answer.id }}">
                                                     <a href="#modalAnswerPictures">
+                                                    {% if descriptionChallenge.isPicture == true %}
                                                         <img src="{{ asset('uploads/' ~ answer.imageName) }}"
                                                              alt="photo du défi" class="img-thumbnail">
+                                                    {% else %}
+                                                        <img src="{{ asset('images/' ~ answer.imageName) }}"
+                                                             alt="photo du défi" class="img-thumbnail">
+                                                    {% endif %}
                                                     </a>
                                                     <h4 class="titlePicture">{{ answer.title }}</h4>
                                                     <h4>Par {{ answer.name }}
                                                         le {{ answer.uploadedAt|localizeddate('long', 'none') }}
                                                     </h4>
                                                 </span>
-                                            </div>
-                                            <div class="row text-right">
+                                    </div>
+                                    <div class="row text-right">
 
-                                                {#modal pour 'signaler' un post#}
+                                        {#modale pour 'signaler' un post#}
 
-                                                <span class="modalReport" data-toggle="modal"
-                                                      data-target="#modalReport{{ answer.id }}">
-                                                     <a href="#modalReport">
-                                                         <button class="btn btn-default btnReport" type="submit">
-                                                             Signaler
-                                                         </button>
-                                                     </a>
-                                                 </span>
-                                            </div>
-                                        </div>
-                                        {% include 'challenge/reportModal.html.twig' %}
-                                        <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
-                                             tabindex="-1"
-                                             role="dialog" aria-labelledby="myModalLabel">
-                                            <div class="modal-dialog modal-lg" role="document">
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                        <h3>{{ answer.title }}</h3>
-                                                        <h4>Par {{ answer.name }} le
-                                                            {{ answer.uploadedAt|localizeddate('long', 'none') }}
-                                                        </h4>
-                                                    </div>
-                                                    <div class="modal-body" data-dismiss="modal"
-                                                         aria-label="Close">
-                                                        {% if descriptionChallenge.isPicture == true %}
-                                                            <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                                 alt="photo du défi"
-                                                                 class="img-responsive center-block"
-                                                                 data-dismiss="modal" aria-label="Close">
-                                                        {% else %}
-                                                            <p class="text-left">{{ answer.message }}</p>
-                                                        {% endif %}
-                                                    </div>
-                                                    {% if descriptionChallenge.isPicture == true %}
-                                                        <div class="modal-footer">
-                                                            <p class="text-left">{{ answer.message }}</p>
-                                                        </div>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        </div>
-                                    {% endfor %}
+                                        <span class="modalReport" data-toggle="modal"
+                                              data-target="#modalReport{{ answer.id }}">
+                                             <a href="#modalReport">
+                                                 <button class="btn btn-default btnReport" type="submit">
+                                                     Signaler
+                                                 </button>
+                                             </a>
+                                        </span>
+                                    </div>
                                 </div>
-                            {% endif %}
+                                {% include 'challenge/reportModal.html.twig' %}
+                                <div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
+                                     tabindex="-1"
+                                     role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close"><span
+                                                            aria-hidden="true">&times;</span></button>
+                                                <h3>{{ answer.title }}</h3>
+                                                <h4>Par {{ answer.name }}
+                                                    le {{ answer.uploadedAt|localizeddate('long', 'none') }}
+                                                </h4>
+                                            </div>
+                                            <div class="modal-body" data-dismiss="modal"
+                                                 aria-label="Close">
+                                                {% if descriptionChallenge.isPicture == true %}
+                                                    <img src="{{ asset('uploads/' ~ answer.imageName) }}"
+                                                         alt="photo du défi"
+                                                         class="img-responsive center-block"
+                                                         data-dismiss="modal" aria-label="Close">
+                                                {% else %}
+                                                    <p class="text-left">{{ answer.message }}</p>
+                                                {% endif %}
+                                            </div>
+                                            {% if descriptionChallenge.isPicture == true %}
+                                                <div class="modal-footer">
+                                                    <p class="text-left">{{ answer.message }}</p>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% include 'challenge/reportModal.html.twig' %}
+                                {% include 'challenge/answerChallengeModal.html.twig' %}
+                            {% endfor %}
                         </div>
-                    </div>
+                    {% endif %}
                 </div>
-            </section>
-        {% endblock %}
+            </div>
+        </div>
+    </section>
+{% endblock %}
 
