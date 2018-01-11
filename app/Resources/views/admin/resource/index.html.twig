@@ -1,10 +1,9 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
 
 {% block pageContent %}
-
     <div class="panel panel-default admin">
         <div class="panel-heading">
-            <h1 class="panel-title text-info text-center">S'entraîner - Liste des jeux</h1>
+            <h1 class="panel-title text-info text-center">Ressource - Liste des ressources</h1>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -13,34 +12,25 @@
                 </a>
             </div>
             <div class="row">
-                <a href="{{ path('game_new') }}" class="btn_admin btn btn-default">
-                    <span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau jeu
+                <a href="{{ path('admin_resource_new') }}" class="btn_admin btn btn-default">
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau lien
                 </a>
             </div>
             <hr/>
             <div class="row">
                 <div class="listAdmin">
-                    {% for game in games %}
+                    {% for resource in resources %}
                         <div class="row">
-                            <p>{{ game.title }}</p>
+                            <p>{{ resource.title|upper }}</p>
                         </div>
                         <div class="row">
                             <div class="col-xs-5">
-                                <img src="{{ asset('uploads/' ~ game.imageName) }}"
-                                     class="img-responsive img-thumbnail vignetteList">
-                            </div>
-                            <div class="col-xs-7">
-                                <p class="pull-right link">{{ game.link }}</p>
+                                <p>{{ resource.description }}</p>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-xs-8">
-                                <a href="{{ path('game_link_menu', {'id': game.id}) }}" class="ckeckbox">
-                                    {{ game.isMenu ? 'Enlever le lien du menu' : 'Afficher le lien dans le menu' }}
-                                </a>
-                            </div>
                             <div class="col-xs-4">
-                                <a href="{{ path('game_edit', { 'id': game.id }) }}"
+                                <a href="{{ path('admin_resource_edit', { 'id': resource.id }) }}"
                                    class="btn_admin btn btn-default pull-right">
                                     <span class="glyphicon glyphicon-edit"></span> Modifier
                                 </a>
@@ -57,5 +47,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

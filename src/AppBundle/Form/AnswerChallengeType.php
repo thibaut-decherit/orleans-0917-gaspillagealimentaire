@@ -45,7 +45,7 @@ class AnswerChallengeType extends AbstractType
                     new NotBlank([
                         'message' => 'Vous devez télécharger une image.'
                     ])
-                ]
+                ],
             ]);
     }
 

@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\Request;
 class ResourceController extends Controller
 {
     /**
-     * Lists all informMenu entities.
+     * Lists all resource entities.
      *
      * @Route("/", name="resources_index")
      * @Method("GET")
@@ -31,9 +31,11 @@ class ResourceController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $resourceThemes = $em->getRepository('AppBundle:AnswerChallenge')->findAll();
+        $resources = $em->getRepository('AppBundle:Resource')->findAllDesc();
 
-        return $this->render('resources/index.html.twig');
+        return $this->render('resources/index.html.twig', array(
+            'resources' => $resources,
+        ));
     }
 
 }

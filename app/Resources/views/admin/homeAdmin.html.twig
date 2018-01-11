@@ -3,7 +3,7 @@
 {% block pageContent %}
     <div class="panel panel-default admin">
         <div class="panel-heading">
-            <h1 class="panel-title text-center">Administration || Rest' à table</h1>
+            <h1 class="panel-title text-center">Administration | Rest' à table</h1>
         </div>
         <div class="panel-body">
             <div class="row">
@@ -14,9 +14,25 @@
                 {% endif %}
             </div>
             <hr/>
-            <div class="row text-center">
-                <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-default">S'informer</a>
-                <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-default">S'entrainer - Jeux</a>
+            <div class="row text-center btnMenu">
+                <a href="{{ path('admin_inform_menu_index') }}" class="btn_admin btn btn-default">
+                    S'informer
+                </a>
+            </div>
+            <div class="row text-center btnMenu">
+                <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-default">
+                    S'entrainer - Jeux
+                </a>
+            </div>
+            <div class="row text-center btnMenu">
+                <a href="{{ path('admin_reported_answerchallenge_index') }}" class="btn_admin btn btn-default">
+                    Défis signalés
+                </a>
+            </div>
+            <div class="row text-center btnMenu">
+                <a href="{{ path('admin_resource_index') }}" class="btn_admin btn btn-default">
+                    Ressources
+                </a>
             </div>
         </div>
     </div>

@@ -8,7 +8,6 @@ $top: $informSectionColor;
 $middle: $gameSectionColor;
 $last: $challengeSectionColor;
 
-
 .tab {
   text-decoration: none;
 }
@@ -23,28 +22,35 @@ $last: $challengeSectionColor;
   width: 150px;
   background: $navBarsColor;
   zoom: 1;
-  font-size: 12px;
-  font-family: 'Roboto-Regular', Helvetica, sans-serif;
+  font-size: calc(0.5vw + 10px);
   ul {
+    height: 100%;
     list-style: none;
     margin: 0;
     padding: 0;
-    position: absolute;
     .home {
       margin-top: 30px;
       background: #ffffff;
       width: 80px;
       height: 80px;
       border-radius: 100%;
+      padding: 15px 20px;
       .icon_home {
         margin-top: 7px;
       }
     }
+    .homeLink {
+      padding: 0;
+    }
     .btnMenu {
-      margin: 2vh;
-      font-family: 'Roboto-Regular', Helvetica, sans-serif;
-      font-size: 18px;
-      color: #363636;
+      position: absolute;
+      bottom: 13px;
+      left: 13px;
+      margin: 0;
+      width: 124px;
+      z-index: 251;
+      font-size: calc(0.5vw + 10px);
+      color: $navBarsColor;
       a {
         border-color: transparent;
         border-radius: 100px;
@@ -52,9 +58,17 @@ $last: $challengeSectionColor;
       }
     }
   }
+  .iconsMenu {
+    margin-top: 50vh;
+    transform: translateY(-70%);
+  }
   a {
     display: block;
-    padding: 15px 20px;
+    padding: 1vh;
+    .img-circle {
+      height: 80px;
+      width: 80px;
+    }
     .text {
       color: #ffffff;
       text-decoration: none;
@@ -62,7 +76,7 @@ $last: $challengeSectionColor;
       text-align: center;
       margin-top: 10px;
       font-weight: 700;
-      font-size: 18px;
+      font-size: calc(0.5vw + 10px);
     }
     .textHome {
       margin-top: -10px;
@@ -71,7 +85,7 @@ $last: $challengeSectionColor;
       text-transform: uppercase;
       text-align: center;
       font-weight: 700;
-      font-size: 18px;
+      font-size: calc(0.5vw + 10px);
     }
   }
   a:hover {
@@ -137,12 +151,12 @@ $last: $challengeSectionColor;
     font-weight: 700;
     text-align: center;
     margin-top: 10vh;
-    font-size: 20px;
+    font-size: calc(0.6vw + 10px);
     margin-bottom: -15px;
   }
 
   .submenuText {
-    font-size: 20px;
+    font-size: calc(0.5vw + 10px);
     text-align: center;
   }
 }
@@ -212,6 +226,6 @@ $last: $challengeSectionColor;
 .subtitle {
   text-align: center;
   text-transform: uppercase;
-  font-size: 24px;
+  font-size: calc(0.7vw + 10px);
   font-weight: 700;
 }

@@ -87,7 +87,7 @@ class AnswerChallenge
      *     maxSize="2M",
      *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
      *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypes = {"image/jpeg", "image/png"},
      *     mimeTypesMessage="Le fichier envoyé doit être une image.",
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
