@@ -80,6 +80,14 @@ class AnswerChallenge
     private $description;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="uploaded_at", type="date")
+     *
+     */
+    private $uploadedAt;
+
+    /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="answer_challenge_image", fileNameProperty="imageName")
@@ -301,6 +309,30 @@ class AnswerChallenge
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set uploadedAt
+     *
+     * @param \DateTime $uploadedAt
+     *
+     * @return AnswerChallenge
+     */
+    public function setUploadedAt($uploadedAt)
+    {
+        $this->uploadedAt = $uploadedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadedAt
+     *
+     * @return \DateTime
+     */
+    public function getUploadedAt()
+    {
+        return $this->uploadedAt;
     }
 
     /**
