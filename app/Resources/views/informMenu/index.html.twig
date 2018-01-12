@@ -1,6 +1,6 @@
 {% extends 'layout.html.twig' %}
 
-{% block title %}S'informer | Resteatable{% endblock %}
+{% block title %}S'informer | Rest' à table{% endblock %}
 
 {% block topBar %}
     {% include 'topBar.html.twig' with {'colorBackground': 'colorBackgroundTop', 'title':'Les infos'} %}
@@ -12,7 +12,7 @@
             <ul>
                 {% for informMenu in informMenus %}
                     <li class="row">
-                        <div class="row col-xs-offset-1 col-xs-10">
+                        <div class="col-xs-offset-1 col-xs-10">
                             <div class="row">
                                 <div class="col-xs-3 vignetteContainer">
                                     <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"

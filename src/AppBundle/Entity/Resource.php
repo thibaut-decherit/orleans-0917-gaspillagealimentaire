@@ -32,7 +32,9 @@ class Resource
      *
      * @Assert\Length(
      * min = 3,
+     * max = 100,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -75,13 +77,12 @@ class Resource
      *
      * @Vich\UploadableField(mapping="resource_resource", fileNameProperty="resourceName")
      * @Assert\File(
-     *     maxSize="2M",
-     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
-     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     maxSize="5M",
+     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 5 Mo.",
+     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 5 Mo.",
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
-     * @Assert\Expression("this.getResourceFile() or this.getResourceName()", message="Vous devez envoyer une resource.")
      * @var File
      */
     private $resourceFile;
@@ -89,6 +90,12 @@ class Resource
     /**
      * @ORM\Column(type="string", length=255)
      *
+     * @Assert\Length(
+     * min = 3,
+     * max = 255,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
+     * )
      * @var string
      */
     private $resourceName;
@@ -96,7 +103,7 @@ class Resource
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ResourceTheme", inversedBy="resources", cascade={"persist"})
      */
-    private $resourcetheme;
+    private $resourceTheme;
 
 
     /**
@@ -310,26 +317,26 @@ class Resource
     }
 
     /**
-     * Set resourcetheme
+     * Set resourceTheme
      *
      * @param \AppBundle\Entity\ResourceTheme $resourcetheme
      *
      * @return Resource
      */
-    public function setResourcetheme(\AppBundle\Entity\ResourceTheme $resourcetheme = null)
+    public function setResourceTheme(\AppBundle\Entity\ResourceTheme $resourceTheme = null)
     {
-        $this->resourcetheme = $resourcetheme;
+        $this->resourceTheme = $resourceTheme;
 
         return $this;
     }
 
     /**
-     * Get resourcetheme
+     * Get resourceTheme
      *
      * @return \AppBundle\Entity\ResourceTheme
      */
-    public function getResourcetheme()
+    public function getResourceTheme()
     {
-        return $this->resourcetheme;
+        return $this->resourceTheme;
     }
 }

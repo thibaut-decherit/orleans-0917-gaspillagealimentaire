@@ -34,7 +34,9 @@ class AnswerChallenge
      *
      * @Assert\Length(
      * min = 3,
+     * max = 255,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -80,6 +82,14 @@ class AnswerChallenge
     private $description;
 
     /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="uploaded_at", type="date")
+     *
+     */
+    private $uploadedAt;
+
+    /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
      *
      * @Vich\UploadableField(mapping="answer_challenge_image", fileNameProperty="imageName")
@@ -87,22 +97,21 @@ class AnswerChallenge
      *     maxSize="2M",
      *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
      *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypes = {"image/jpeg", "image/png"},
      *     mimeTypesMessage="Le fichier envoyé doit être une image.",
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
-     * @Assert\Expression("this.getImageFile() or this.getImageName()", message="Vous devez envoyer une image.")
      * @var File
      */
     private $imageFile;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      *
      * @var string
      */
-    private $imageName = 'logo.png';
+    private $imageName;
 
     /**
      * @ORM\Column(type="datetime")
@@ -301,6 +310,30 @@ class AnswerChallenge
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set uploadedAt
+     *
+     * @param \DateTime $uploadedAt
+     *
+     * @return AnswerChallenge
+     */
+    public function setUploadedAt($uploadedAt)
+    {
+        $this->uploadedAt = $uploadedAt;
+
+        return $this;
+    }
+
+    /**
+     * Get uploadedAt
+     *
+     * @return \DateTime
+     */
+    public function getUploadedAt()
+    {
+        return $this->uploadedAt;
     }
 
     /**

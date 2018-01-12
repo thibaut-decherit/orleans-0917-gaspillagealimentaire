@@ -30,7 +30,7 @@ class ResourceNewType extends AbstractType
             ->add('resourcetheme', EntityType::class, [
                 'class' => ResourceTheme::class,
                 'choice_label' => 'name',
-                'label' => 'Theme',
+                'label' => 'Thème',
                 'label_attr' => array('class' => 'labels_admin')
             ])
             ->add('description', TextareaType::class, array(
@@ -43,7 +43,7 @@ class ResourceNewType extends AbstractType
                 )
             ))
             ->add('resourceFile', VichImageType::class, [
-                'label' => "Resource",
+                'label' => "Ressource",
                 'label_attr' => array('class' => 'labels_admin'),
                 'required' => true,
                 'allow_delete' => false,

@@ -4,7 +4,7 @@
     li {
       list-style-type: none;
       margin-top: 19px;
-      a {
+      a.pInfo {
         display: block;
       }
       a:hover {
@@ -19,21 +19,30 @@
     .containerMenu {
       background: $middle;
       height: 100vh;
+      position: fixed;
       padding: 0;
       .blockInfo {
         margin-top: 60px;
         text-align: center;
         .pInfo {
-          font-size: 18px;
+          font-size: calc(0.5vw + 10px);
           color: white;
-          font-family: 'Roboto-regular', Helvetica, sans-serif;
         }
       }
     }
     .articles {
       .article {
         display: none;
+        padding-bottom: 30px;
+      img {
+        height: 150px;
+        width: auto;
+        margin-top: 50px;
+      }
       }
     }
   }
+}
+.img_logo_wild {
+  max-width: 50px;
 }

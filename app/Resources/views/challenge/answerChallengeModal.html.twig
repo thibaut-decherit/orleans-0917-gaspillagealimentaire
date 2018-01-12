@@ -1,0 +1,33 @@
+<div class="modal fade" id="modalAnswerPictures{{ answer.id }}"
+     tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"
+                        aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h3>{{ answer.title }}</h3>
+                <h4>Par {{ answer.name }}
+                    le {{ answer.uploadedAt|localizeddate('long', 'none') }}
+                </h4>
+            </div>
+            <div class="modal-body" data-dismiss="modal"
+                 aria-label="Close">
+                {% if descriptionChallenge.isPicture == true %}
+                    <img src="{{ asset('uploads/' ~ answer.imageName) }}"
+                         alt="photo du défi"
+                         class="img-responsive center-block"
+                         data-dismiss="modal" aria-label="Close">
+                {% else %}
+                    <p class="text-left">{{ answer.message | nl2br }}</p>
+                {% endif %}
+            </div>
+            {% if descriptionChallenge.isPicture == true %}
+                <div class="modal-footer">
+                    <p class="text-left">{{ answer.message | nl2br }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

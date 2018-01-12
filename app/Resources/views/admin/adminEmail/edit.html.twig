@@ -1,0 +1,24 @@
+{% extends 'admin/layoutAdmin.html.twig' %}
+
+{% block pageContent %}
+    <div class="panel panel-default admin">
+        <div class="panel-heading">
+            <h1 class="panel-title text-info text-center">Modération des défis signalés - Adresse email d'alerte</h1>
+        </div>
+        <div class="panel-body">
+            <div class="row">
+                <a href="{{ path('admin_reported_answerchallenge_index') }}"
+                   class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Défis signalés
+                </a>
+            </div>
+            <hr/>
+            <div class="row">
+                {{ form_start(edit_form) }}
+                {{ form_widget(edit_form) }}
+                <input type="submit" value="Modifier" class="btn_admin btn btn-default"/>
+                {{ form_end(edit_form) }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

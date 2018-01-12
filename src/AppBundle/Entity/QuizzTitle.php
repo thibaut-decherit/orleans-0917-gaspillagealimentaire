@@ -68,6 +68,7 @@ class QuizzTitle
     {
         return $this->name;
     }
+
     /**
      * Constructor
      */

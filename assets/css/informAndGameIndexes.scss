@@ -1,7 +1,6 @@
 .informAndGame-index-sections {
   height: 100vh;
   display: flex;
-  font-family: 'Roboto', Helvetica, sans-serif;
   .pageContent {
     width: 100%;
     ul {
@@ -23,12 +22,12 @@
         }
         h2 {
           margin: 17px 0 0 40px;
-          font-size: 24px;
+          font-size: calc(1vw + 10px);
           color: #424242;
         }
         .type {
           display: inline-block;
-          font-size: 13px;
+          font-size: calc(0.3vw + 10px);
           color: #424242;
           text-transform: uppercase;
         }
@@ -40,8 +39,8 @@
         }
         .date {
           text-align: right;
-          font-size: 13px;
-          color: #8e8e8e;
+          font-size: calc(0.2vw + 10px);
+          color: $textDescription;
         }
         h2 {
           font-weight: 700;
@@ -50,7 +49,7 @@
             text-decoration: none;
             color: #424242;
             span {
-              font-size: 12px;
+              font-size: calc(0.2vw + 10px);
               vertical-align: top;
             }
             &.informLink:hover {
@@ -63,8 +62,8 @@
         }
         .summary {
           margin: 20px 0 20px 40px;
-          font-size: 13px;
-          color: #8e8e8e;
+          font-size: calc(0.3vw + 10px);
+          color: $textDescription;
           padding: 0;
         }
       }

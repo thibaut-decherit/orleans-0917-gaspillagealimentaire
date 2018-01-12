@@ -26,10 +26,12 @@ class QuizController extends Controller
      * @Route("/", name="quiz_index")
      * @Method("GET")
      */
-    public function indexAction()
+    public function indexAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
 
+        $session = $request->getSession();
+        $session->clear();
         $quizz = $em->getRepository('AppBundle:QuizzTitle')->findAll();
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
@@ -49,39 +51,82 @@ class QuizController extends Controller
      */
     public function quizzIndex(QuizzTitle $quizzTitle, int $questionNbr)
     {
+        $nbrMax = 0;
+
+
         $em = $this->getDoctrine()->getManager();
+        $test = $em->getRepository("AppBundle:QuestionQuizz")->findBy([
+            'titleQuizz' => $quizzTitle->getId(),
+        ]);
 
         $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy([
             'titleQuizz' => $quizzTitle->getId(),
-            'questionNbr' => $questionNbr
+            'questionNbr' => $questionNbr,
         ]);
+
+        $nbrMax = count($test);
+
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
         return $this->render('quiz/question.html.twig', array(
+            'quizzTitle' => $quizzTitle->getId(),
             'question' => $question,
+            'nbrMax' => $nbrMax,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
     }
 
     /**
-     * @Route("/reponse", name="quizzAnswer")
+     * @Route("/{quizzTitle}-{questionNbr}-{nbrMax}", name="quizzAnswer")
      * @Method({"GET", "POST"})
      */
-    public function quizzAnswer(Request $request)
+    public function quizzAnswer(Request $request, $nbrMax, int $questionNbr, QuizzTitle $quizzTitle)
     {
-
         $em = $this->getDoctrine()->getManager();
-
-
         $answerId = $request->request->get('answer');
-        $answerQuizz = $em->getRepository("AppBundle:AnswerQuizz")->find($answerId);
+        if ($answerId != null) {
+            $answerQuizz = $em->getRepository("AppBundle:AnswerQuizz")->find($answerId);
+            $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
+            $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
+            $session = $request->getSession();
+            if ($answerQuizz->getIsTrue() === true) {
+                $session->set('points', $session->get('points') + 1);
+            }
+            return $this->render('quiz/answer.html.twig', array(
+                'nbrMax' => $nbrMax,
+                'answer' => $answerQuizz,
+                'navInformLinks' => $navInformLinks,
+                'navGameLinks' => $navGameLinks,
+            ));
+        } else {
+            return $this->redirectToRoute('quizTest', array(
+                'questionNbr' => $questionNbr,
+                'id' => $quizzTitle->getId(),
+            ));
+        }
+    }
+
+    /**
+     * @Route("/resultatQuizz{id}-{nbrMax}", name="quizzResultat")
+     * @Method({"GET", "POST"})
+     */
+    public function resultatQuizz(Request $request, QuizzTitle $quizzTitle, int $nbrMax)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $question = $em->getRepository("AppBundle:QuestionQuizz")->findOneBy([
+            'titleQuizz' => $quizzTitle->getId(),
+        ]);
+        $session = $request->getSession();
+        $points = $session->get('points');
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
 
-        return $this->render('quiz/answer.html.twig', array(
-            'answer' => $answerQuizz,
+        return $this->render('quiz/resultat.html.twig', array(
+            'points' => $points,
+            'nbrMax' => $nbrMax,
+            'question' => $question,
             'navInformLinks' => $navInformLinks,
             'navGameLinks' => $navGameLinks,
         ));
