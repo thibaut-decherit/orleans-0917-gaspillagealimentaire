@@ -9,6 +9,9 @@
 namespace AppBundle\Controller;
 
 
+use AppBundle\Entity\ResourceTheme;
+use AppBundle\Entity\Resource;
+use AppBundle\Repository\ResourceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
@@ -30,11 +33,34 @@ class ResourceController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
-        $resources = $em->getRepository('AppBundle:Resource')->findAllDesc();
+        $resources = null;
+        $resourceThemes = $em->getRepository('AppBundle:ResourceTheme')->findBy([], ['id'=>'ASC']);
+        if ($resourceThemes) {
+            $resources = $em->getRepository('AppBundle:Resource')->findByResourceTheme($resourceThemes[0]->getId());
+        }
 
         return $this->render('resources/index.html.twig', array(
             'resources' => $resources,
+            'resourceThemes' => $resourceThemes,
+        ));
+    }
+
+    /**
+     * @return \Symfony\Component\HttpFoundation\Response
+     *
+     * @Route("/{id}/ressource-theme", name="resources_by_theme")
+     * @Method({"GET", "POST"})
+     */
+    public function pagesAction(ResourceTheme $resourceTheme)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $resourceThemes = $em->getRepository('AppBundle:ResourceTheme')->findAll();
+        $resources = $em->getRepository('AppBundle:Resource')->findBy(['resourceTheme' => $resourceTheme->getId()]);
+
+        return $this->render('resources/index.html.twig', array(
+            'resources' => $resources,
+            'resourceThemes' => $resourceThemes,
         ));
     }
 

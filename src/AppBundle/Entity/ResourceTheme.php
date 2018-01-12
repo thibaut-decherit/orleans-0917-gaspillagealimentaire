@@ -29,7 +29,7 @@ class ResourceTheme
     private $name;
 
     /**
-     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Resource", mappedBy="resourcetheme", cascade={"persist"})
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Resource", mappedBy="resourceTheme", cascade={"persist"})
      */
     private $resources;
 

@@ -96,7 +96,7 @@ class Resource
     /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\ResourceTheme", inversedBy="resources", cascade={"persist"})
      */
-    private $resourcetheme;
+    private $resourceTheme;
 
 
     /**
@@ -310,26 +310,26 @@ class Resource
     }
 
     /**
-     * Set resourcetheme
+     * Set resourceTheme
      *
      * @param \AppBundle\Entity\ResourceTheme $resourcetheme
      *
      * @return Resource
      */
-    public function setResourcetheme(\AppBundle\Entity\ResourceTheme $resourcetheme = null)
+    public function setResourceTheme(\AppBundle\Entity\ResourceTheme $resourceTheme = null)
     {
-        $this->resourcetheme = $resourcetheme;
+        $this->resourceTheme = $resourceTheme;
 
         return $this;
     }
 
     /**
-     * Get resourcetheme
+     * Get resourceTheme
      *
      * @return \AppBundle\Entity\ResourceTheme
      */
-    public function getResourcetheme()
+    public function getResourceTheme()
     {
-        return $this->resourcetheme;
+        return $this->resourceTheme;
     }
 }
