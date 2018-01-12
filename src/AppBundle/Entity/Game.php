@@ -87,7 +87,7 @@ class Game
      * @var string
      *
      * @ORM\Column(name="link", type="string", length=255)
-     * 
+     *
      * @Assert\Length(
      * min = 3,
      * max = 255,
