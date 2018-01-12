@@ -33,7 +33,16 @@
     .articles {
       .article {
         display: none;
+        padding-bottom: 30px;
+      img {
+        height: 150px;
+        width: auto;
+        margin-top: 50px;
+      }
       }
     }
   }
+}
+.img_logo_wild {
+  max-width: 50px;
 }

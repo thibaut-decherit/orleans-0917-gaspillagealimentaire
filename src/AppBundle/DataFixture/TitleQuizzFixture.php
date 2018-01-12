@@ -23,7 +23,7 @@ class TitleQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'L\'alimentation',
             ],
             1 => [
-                'La saisonalité'
+                'La saisonnalité'
             ],
             2 => [
                 'L\'impact sur la planète'

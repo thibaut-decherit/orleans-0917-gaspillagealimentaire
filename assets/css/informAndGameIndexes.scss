@@ -40,7 +40,7 @@
         .date {
           text-align: right;
           font-size: calc(0.2vw + 10px);
-          color: #8e8e8e;
+          color: $textDescription;
         }
         h2 {
           font-weight: 700;
@@ -63,7 +63,7 @@
         .summary {
           margin: 20px 0 20px 40px;
           font-size: calc(0.3vw + 10px);
-          color: #8e8e8e;
+          color: $textDescription;
           padding: 0;
         }
       }
