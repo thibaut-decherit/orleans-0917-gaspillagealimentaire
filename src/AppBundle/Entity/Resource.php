@@ -77,9 +77,9 @@ class Resource
      *
      * @Vich\UploadableField(mapping="resource_resource", fileNameProperty="resourceName")
      * @Assert\File(
-     *     maxSize="2M",
-     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
-     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 2 Mo.",
+     *     maxSize="5M",
+     *     maxSizeMessage="Ce fichier est trop grand, la limite est de 5 Mo.",
+     *     uploadIniSizeErrorMessage="Ce fichier est trop grand, la limite est de 5 Mo.",
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
