@@ -145,6 +145,7 @@ class DescriptionChallengeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
             $answerChallenge->setIsReport(false);
+            $answerChallenge->setUploadedAt(new \DateTime());
             $em->persist($answerChallenge);
             $em->flush();
 
@@ -173,13 +174,15 @@ class DescriptionChallengeController extends Controller
 
         $answerChallenge->setIsReport(true);
 
+        $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+
         $em->persist($answerChallenge);
         $em->flush();
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Rest\'aTable - Signalement de contenu')
-            ->setFrom('WCSorleansgaspi@gmail.com')
-            ->setTo('WCSorleansgaspi@gmail.com')
+            ->setFrom($this->getParameter('mailer_user'))
+            ->setTo($adminEmail)
             ->setBody(
                 $this->renderView('mail/mail.html.twig'),
                 'text/html'
