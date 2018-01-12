@@ -25,6 +25,13 @@ class DescriptionChallenge
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     *
+     * @Assert\Length(
+     * min = 3,
+     * max = 255,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
+     * )
      */
     private $title;
 

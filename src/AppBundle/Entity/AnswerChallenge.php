@@ -34,7 +34,9 @@ class AnswerChallenge
      *
      * @Assert\Length(
      * min = 3,
+     * max = 255,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",

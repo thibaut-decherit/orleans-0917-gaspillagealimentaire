@@ -32,7 +32,9 @@ class Resource
      *
      * @Assert\Length(
      * min = 3,
+     * max = 100,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -81,7 +83,6 @@ class Resource
      *     notFoundMessage = "Le fichier n'a pas été trouvé sur le disque.",
      *     uploadErrorMessage = "Erreur durant l'envoi du fichier.",
      * )
-     * @Assert\Expression("this.getResourceFile() or this.getResourceName()", message="Vous devez envoyer une resource.")
      * @var File
      */
     private $resourceFile;
@@ -89,6 +90,12 @@ class Resource
     /**
      * @ORM\Column(type="string", length=255)
      *
+     * @Assert\Length(
+     * min = 3,
+     * max = 255,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
+     * )
      * @var string
      */
     private $resourceName;
