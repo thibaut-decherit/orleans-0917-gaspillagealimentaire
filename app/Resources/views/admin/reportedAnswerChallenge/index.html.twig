@@ -28,8 +28,11 @@
                     </div>
                     <div class="row answer-content-container">
                         <div class="col-xs-5">
-                            <img src="{{ asset('uploads/' ~ adminReportedAnswerChallenge.imageName) }}"
-                                 class="img-responsive img-thumbnail vignetteList">
+                            <img src="{{ adminReportedAnswerChallenge.imageName ?
+                            '/uploads/' ~ adminReportedAnswerChallenge.imageName :
+                            '/images/logo.png' }}"
+                                 class="img-responsive img-thumbnail vignetteList"
+                                 alt="photo du défi">
                         </div>
                         <div class="col-xs-7 message">
                             <p>{{ adminReportedAnswerChallenge.message | nl2br }}</p>

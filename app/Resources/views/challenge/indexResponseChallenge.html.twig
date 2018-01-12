@@ -85,13 +85,11 @@
                                 <span class="modalAnswerPictures" data-toggle="modal"
                                       data-target="#modalAnswerPictures{{ descriptionChallenge.answers.0.id }}">
                                     <a href="#modalAnswerPictures">
-                                        {% if descriptionChallenge.isPicture == true %}
-                                            <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                                 alt="photo du dernier défi" class="img-thumbnail center-block">
-                                        {% else %}
-                                            <img src="{{ asset('images/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                                 alt="photo du dernier défi" class="img-thumbnail center-block">
-                                        {% endif %}
+                                        <img src="{{ descriptionChallenge.answers.0.imageName ?
+                                        '/uploads/' ~ descriptionChallenge.answers.0.imageName :
+                                        '/images/logo.png' }}"
+                                             class="img-responsive img-thumbnail vignetteList"
+                                             alt="photo du défi">
                                     </a>
                                 </span>
 
@@ -200,4 +198,3 @@
         </div>
     </section>
 {% endblock %}
-
