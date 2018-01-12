@@ -14,7 +14,7 @@
                     <ul class="blockInfo">
                         {% for resourceTheme in resourceThemes %}
                             <li>
-                                <a href="" class="pInfo">
+                                <a href="{{ path('resources_by_theme', { 'id': resourceTheme.id }) }}" class="titleInfo">
                                     {{ resourceTheme.name }}
                                 </a>
                             </li>
@@ -37,6 +37,8 @@
                                 </div>
                             </li>
                             {{ not loop.last ? '<hr class="row"/>' }}
+                            {% else %}
+                                <h2 class="text-center">Il n'y a pas de ressources pour ce thème.</h2>
                         {% endfor %}
                     </ul>
                 </div>
@@ -44,108 +46,3 @@
         </div>
     </section>
 {% endblock %}
-                {#<div class="row col-xs-offset-1 col-xs-9">#}
-                {#<div class="row">#}
-                {#<div class="col-xs-9">#}
-                {#<div class="row">#}
-                {#<div class="col-xs-3">#}
-                {#<p class="type informType">{{ sortResources.name }}</p>#}
-                {#</div>#}
-                {#<div class="col-xs-3 pull-right">#}
-                {#<p class="date">{{ sortByThemeResource.uploadedAt|localizeddate('long', 'none') }}</p>#}
-                {#</div>#}
-                {#</div>#}
-                {#<div class="row">#}
-                {#<h2>#}
-                {#<a class="informLink"#}
-                {#href="{{ asset('uploads/' ~ sortByThemeResource.resource.resourceName) }}"#}
-                {#target="_blank">{{ sortByThemeResource.resource.title|upper }}#}
-                {#<span class="glyphicon glyphicon-save"></span>#}
-                {#</a>#}
-                {#</h2>#}
-                {#</div>#}
-                {#<div class="row">#}
-                {#<p class="col-xs-12 summary">{{ resource.description }}</p>#}
-                {#</div>#}
-                {#</div>#}
-                {#</div>#}
-                {#{{ not loop.last ? '<hr class="row"/>' }}#}
-                {#</div>#}
-
-        {#{% endfor %}#}
-        {#<div class="row col-xs-10 article" data-target="2">#}
-        {#<ul>#}
-        {#{% for resource in resources %}#}
-        {#<li class="row">#}
-        {#<div class="row col-xs-offset-1 col-xs-9">#}
-        {#<div class="row">#}
-        {#<div class="col-xs-3 vignetteContainer">#}
-        {#</div>#}
-        {#<div class="col-xs-9">#}
-        {#<div class="row">#}
-        {#<div class="col-xs-3">#}
-        {#<p class="type informType">{{ resource.resourceTheme.name }}</p>#}
-        {#</div>#}
-        {#<div class="col-xs-3 pull-right">#}
-        {#<p class="date">{{ resource.uploadedAt|localizeddate('long', 'none') }}</p>#}
-        {#</div>#}
-        {#</div>#}
-        {#<div class="row">#}
-        {#<h2>#}
-        {#<a class="informLink"#}
-        {#href="{{ asset('uploads/' ~ resource.resourceName) }}"#}
-        {#target="_blank">{{ resource.title }}#}
-        {#<span class="glyphicon glyphicon-save"></span>#}
-        {#</a>#}
-        {#</h2>#}
-        {#</div>#}
-        {#<div class="row">#}
-        {#<p class="col-xs-12 summary">{{ resource.description }}</p>#}
-        {#</div>#}
-        {#</div>#}
-        {#</div>#}
-        {#{{ not loop.last ? '<hr class="row"/>' }}#}
-        {#</div>#}
-        {#</li>#}
-        {#{% endfor %}#}
-        {#</ul>#}
-        {#</div>#}
-        {#<div class="row col-xs-10 article" data-target="3">#}
-        {#<ul>#}
-        {#<li class="row">#}
-        {#<div class="row col-xs-offset-1 col-xs-11">#}
-        {#<div class="row">#}
-        {#<div class="col-xs-9">#}
-        {#<div class="row">#}
-        {#<h2>EXEMPLE DE TITRE 3</h2>#}
-        {#</div>#}
-        {#<div class="row">#}
-        {#<p class="col-xs-12 summary">#}
-        {#Eo adducta re per Isauriam, rege Persarum bellis finitimis inligato#}
-        {#repellenteque a conlimitiis suis ferocissimas gentes,#}
-        {#quae mente quadam versabili hostiliter eum saepe incessunt et in nos#}
-        {#arma#}
-        {#moventem aliquotiens iuvant,#}
-        {#Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam#}
-        {#quotiens#}
-        {#copia dederit ordinatus, explorabat nostra sollicite, si repperisset#}
-        {#usquam#}
-        {#locum vi subita perrupturus.#}
-        {#Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam#}
-        {#quotiens#}
-        {#copia dederit ordinatus, explorabat nostra sollicite, si repperisset#}
-        {#usquam#}
-        {#locum vi subita perrupturus.#}
-        {#Nohodares quidam nomine e numero optimatum, incursare Mesopotamiam#}
-        {#quotiens#}
-        {#copia dederit ordinatus, explorabat nostra sollicite, si repperisset#}
-        {#usquam#}
-        {#locum vi subita perrupturus.#}
-        {#</p>#}
-        {#</div>#}
-        {#</div>#}
-        {#</div>#}
-        {#</div>#}
-        {#</li>#}
-        {#</ul>#}
-        {#</div>#}
