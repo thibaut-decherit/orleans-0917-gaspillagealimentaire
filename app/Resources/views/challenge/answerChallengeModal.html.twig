@@ -8,7 +8,9 @@
                         aria-label="Close"><span
                             aria-hidden="true">&times;</span></button>
                 <h3>{{ answer.title }}</h3>
-                <h4>{{ answer.name }}</h4>
+                <h4>Par {{ answer.name }}
+                    le {{ answer.uploadedAt|localizeddate('long', 'none') }}
+                </h4>
             </div>
             <div class="modal-body" data-dismiss="modal"
                  aria-label="Close">

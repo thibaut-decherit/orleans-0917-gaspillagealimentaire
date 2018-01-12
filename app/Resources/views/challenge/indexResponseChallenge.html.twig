@@ -65,16 +65,17 @@
                         </div>
                     </div>
 
-                    <hr/>
-
                     {% if descriptionChallenge.answers is not empty %}
+                        <hr class="form-answers-separator"/>
                         <div class="row">
                             <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
                         </div>
-                        <div class="row">
+                        <div class="row latest-answer">
                             <div class="col-sm-offset-2 col-sm-5">
                                 <h3>{{ descriptionChallenge.answers.0.title }}</h3>
-                                <h4>{{ descriptionChallenge.answers.0.name }}</h4>
+                                <h4>Par {{ descriptionChallenge.answers.0.name }}
+                                    le {{ descriptionChallenge.answers.0.uploadedAt|localizeddate('long', 'none') }}
+                                </h4>
                                 <p>{{ descriptionChallenge.answers.0.message | nl2br }}</p>
                             </div>
                             <div class="col-sm-4">
@@ -95,24 +96,27 @@
                                 {#modale pour 'signaler' dernier post#}
 
                                 <div class="row pull-right">
-                                     <span class="modalReport1" data-toggle="modal"
-                                           data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
-                                         <a href="#modalReport">
-                                             <button class="btn btn-default btnReport" type="submit">
-                                                 Signaler
-                                             </button>
-                                         </a>
-                                     </span>
+                                    <span class="modalReport1" data-toggle="modal"
+                                          data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
+                                        <a href="#modalReport">
+                                            <button class="btn btn-default btnReport" type="submit">
+                                                Signaler
+                                            </button>
+                                        </a>
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         {% include 'challenge/reportModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
                         {% include 'challenge/answerChallengeModal.html.twig' with {'answer': descriptionChallenge.answers.0} %}
 
-                        <hr/>
 
                         <div class="row">
+
+                            {{ (descriptionChallenge.answers[1:]) ? '<hr class="form-answers-separator"/>' : '' }}
+
                             {% for answer in descriptionChallenge.answers[1:][:12] %}
+
                                 <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
                                     <div class="row">
 
@@ -120,17 +124,20 @@
 
                                         <span class="modalAnswerPictures" data-toggle="modal"
                                               data-target="#modalAnswerPictures{{ answer.id }}">
-                                                    <a href="#modalAnswerPictures">
-                                                    {% if descriptionChallenge.isPicture == true %}
-                                                        <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                             alt="photo du défi" class="img-thumbnail">
-                                                    {% else %}
-                                                        <img src="{{ asset('images/' ~ answer.imageName) }}"
-                                                             alt="photo du défi" class="img-thumbnail">
-                                                    {% endif %}
-                                                    </a>
-                                                    <h4 class="titlePicture">{{ answer.title }}</h4>
-                                                </span>
+                                            <a href="#modalAnswerPictures">
+                                            {% if descriptionChallenge.isPicture == true %}
+                                                <img src="{{ asset('uploads/' ~ answer.imageName) }}"
+                                                     alt="photo du défi" class="img-thumbnail">
+                                            {% else %}
+                                                <img src="{{ asset('images/' ~ answer.imageName) }}"
+                                                     alt="photo du défi" class="img-thumbnail">
+                                            {% endif %}
+                                            </a>
+                                            <h4 class="titlePicture">{{ answer.title }}</h4>
+                                            <h4>Par {{ answer.name }}
+                                                le {{ answer.uploadedAt|localizeddate('long', 'none') }}
+                                            </h4>
+                                        </span>
                                     </div>
                                     <div class="row text-right">
 
@@ -154,10 +161,13 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close"><span
-                                                            aria-hidden="true">&times;</span></button>
+                                                        aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                                 <h3>{{ answer.title }}</h3>
-                                                <h4>{{ answer.name }}</h4>
+                                                <h4>Par {{ answer.name }}
+                                                    le {{ answer.uploadedAt|localizeddate('long', 'none') }}
+                                                </h4>
                                             </div>
                                             <div class="modal-body" data-dismiss="modal"
                                                  aria-label="Close">

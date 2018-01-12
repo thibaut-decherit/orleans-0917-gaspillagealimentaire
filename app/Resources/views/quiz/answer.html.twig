@@ -21,8 +21,13 @@
                             {{ answer.quizzQuestion.tip }}
                         </div>
                     </div>
-                    <a href="{{ path('quizTest', {'id' : answer.quizzQuestion.titleQuizz.id, 'questionNbr' : answer.quizzQuestion.questionNbr +  1} ) }}"
-                       class="btn btn-success">Question suivante</a>
+                    {% if answer.QuizzQuestion.questionNbr < nbrMax %}
+                        <a href="{{ path('quizTest', {'id' : answer.quizzQuestion.titleQuizz.id, 'questionNbr' : answer.quizzQuestion.questionNbr +  1} ) }}"
+                           class="btn btn-success">Question suivante</a>
+                    {% else %}
+                        <a href="{{ path('quizzResultat', {'id' : answer.quizzQuestion.titleQuizz.id, 'nbrMax' : nbrMax}) }}"
+                           class="btn btn-success">Résultat</a>
+                    {% endif %}
                 </div>
             </div>
         </div>

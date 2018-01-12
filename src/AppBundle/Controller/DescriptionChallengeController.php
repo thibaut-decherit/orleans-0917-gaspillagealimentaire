@@ -63,67 +63,6 @@ class DescriptionChallengeController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing challenge entity.
-     *
-     * @Route("/{id}/edit", name="descriptionchallenge_edit")
-     * @Method({"GET", "POST"})
-     */
-    public function editAction(Request $request, DescriptionChallenge $descriptionChallenge)
-    {
-        $deleteForm = $this->createDeleteForm($descriptionChallenge);
-        $editForm = $this->createForm('AppBundle\Form\DescriptionChallengeType', $descriptionChallenge);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isSubmitted() && $editForm->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('descriptionchallenge_edit', array('id' => $descriptionChallenge->getId()));
-        }
-
-        return $this->render('challenge/edit.html.twig', array(
-            'challenge' => $descriptionChallenge,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a challenge entity.
-     *
-     * @Route("/{id}", name="descriptionchallenge_delete")
-     * @Method("DELETE")
-     */
-    public function deleteAction(Request $request, DescriptionChallenge $descriptionChallenge)
-    {
-        $form = $this->createDeleteForm($descriptionChallenge);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->remove($descriptionChallenge);
-            $em->flush();
-        }
-
-        return $this->redirectToRoute('challenge_index');
-    }
-
-    /**
-     * Creates a form to delete a challenge entity.
-     *
-     * @param DescriptionChallenge $descriptionChallenge The challenge entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm(DescriptionChallenge $descriptionChallenge)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('descriptionchallenge_delete',
-                array('id' => $descriptionChallenge->getId())))
-            ->setMethod('DELETE')
-            ->getForm();
-    }
-
-    /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
      * @Route("/{id}/response", name="responsechallenge_index")
@@ -145,6 +84,7 @@ class DescriptionChallengeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
             $answerChallenge->setIsReport(false);
+            $answerChallenge->setUploadedAt(new \DateTime());
             $em->persist($answerChallenge);
             $em->flush();
 
@@ -173,13 +113,15 @@ class DescriptionChallengeController extends Controller
 
         $answerChallenge->setIsReport(true);
 
+        $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+
         $em->persist($answerChallenge);
         $em->flush();
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Rest\'aTable - Signalement de contenu')
-            ->setFrom('WCSorleansgaspi@gmail.com')
-            ->setTo('WCSorleansgaspi@gmail.com')
+            ->setFrom($this->getParameter('mailer_user'))
+            ->setTo($adminEmail)
             ->setBody(
                 $this->renderView('mail/mail.html.twig'),
                 'text/html'

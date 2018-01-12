@@ -83,9 +83,16 @@
       .btnValidation {
         background: transparent;
         border: $challengeSectionColor solid 2px;
+        margin-bottom: 50px;
         padding: 5px 30px;
         color: $challengeSectionColor;
         font-size: calc(0.5vw + 10px);
+      }
+      .form-answers-separator {
+        margin-top: 0;
+      }
+      .latest-answer {
+        margin-bottom: 50px;
       }
       .titlePicture {
         margin-top: 20px;
