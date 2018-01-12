@@ -32,7 +32,9 @@ class InformMenu
      *
      * @Assert\Length(
      * min = 3,
+     * max = 100,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -47,7 +49,9 @@ class InformMenu
      *
      * @Assert\Length(
      * min = 3,
+     * max = 100,
      * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
      * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
@@ -83,6 +87,12 @@ class InformMenu
      *
      * @ORM\Column(name="link", type="string", length=255)
      *
+     * @Assert\Length(
+     * min = 3,
+     * max = 255,
+     * minMessage = "Ce champ doit comporter au moins {{ limit }} caractères.",
+     * minMessage = "Ce champ ne doit pas comporter plus de {{ limit }} caractères.",
+     * )
      * @Assert\NotBlank(
      *    message = "Ce champ ne peut pas être vide.",
      * )
@@ -128,7 +138,6 @@ class InformMenu
      * @var \DateTime
      */
     private $updatedAt;
-
 
 
     /**

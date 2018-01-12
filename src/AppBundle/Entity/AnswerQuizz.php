@@ -101,6 +101,7 @@ class AnswerQuizz
     {
         return $this->isTrue;
     }
+
     /**
      * Constructor
      */
