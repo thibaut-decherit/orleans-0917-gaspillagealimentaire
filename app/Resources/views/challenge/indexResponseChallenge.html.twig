@@ -83,29 +83,26 @@
 
                                 <span class="modalAnswerPictures" data-toggle="modal"
                                       data-target="#modalAnswerPictures{{ descriptionChallenge.answers.0.id }}">
-                                            <a href="#modalAnswerPictures">
-                                                {% if descriptionChallenge.isPicture == true %}
-                                                    <img src="{{ asset('uploads/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                                         alt="photo du dernier défi" class="img-thumbnail center-block">
-                                                {% else %}
-                                                    <img src="{{ asset('images/' ~ descriptionChallenge.answers.0.imageName) }}"
-                                                         alt="photo du dernier défi" class="img-thumbnail center-block">
-                                                {% endif %}
-
-                                            </a>
-                                        </span>
+                                    <a href="#modalAnswerPictures">
+                                        <img src="{{ descriptionChallenge.answers.0.imageName ?
+                                        '/uploads/' ~ descriptionChallenge.answers.0.imageName :
+                                        '/images/logo.png' }}"
+                                             class="img-responsive img-thumbnail vignetteList"
+                                             alt="photo du défi">
+                                    </a>
+                                </span>
 
                                 {#modale pour 'signaler' dernier post#}
 
                                 <div class="row pull-right">
-                                             <span class="modalReport1" data-toggle="modal"
-                                                   data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
-                                                 <a href="#modalReport">
-                                                     <button class="btn btn-default btnReport" type="submit">
-                                                         Signaler
-                                                     </button>
-                                                 </a>
-                                             </span>
+                                     <span class="modalReport1" data-toggle="modal"
+                                           data-target="#modalReport{{ descriptionChallenge.answers.0.id }}">
+                                         <a href="#modalReport">
+                                             <button class="btn btn-default btnReport" type="submit">
+                                                 Signaler
+                                             </button>
+                                         </a>
+                                     </span>
                                 </div>
                             </div>
                         </div>
@@ -141,12 +138,12 @@
 
                                         <span class="modalReport" data-toggle="modal"
                                               data-target="#modalReport{{ answer.id }}">
-                                                     <a href="#modalReport">
-                                                         <button class="btn btn-default btnReport" type="submit">
-                                                             Signaler
-                                                         </button>
-                                                     </a>
-                                                </span>
+                                             <a href="#modalReport">
+                                                 <button class="btn btn-default btnReport" type="submit">
+                                                     Signaler
+                                                 </button>
+                                             </a>
+                                        </span>
                                     </div>
                                 </div>
                                 {% include 'challenge/reportModal.html.twig' %}
@@ -191,4 +188,3 @@
         </div>
     </section>
 {% endblock %}
-
