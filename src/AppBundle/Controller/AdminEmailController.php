@@ -36,7 +36,7 @@ class AdminEmailController extends Controller
             $em->persist($adminEmail);
             $em->flush();
             $this->addFlash(
-                "notice",
+                "success",
                 "L'adresse mail a été modifiée."
             );
 
