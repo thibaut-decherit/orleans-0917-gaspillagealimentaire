@@ -158,7 +158,8 @@ class AdminGameController extends Controller
         } else {
             $this->addFlash(
                 "error",
-                "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau."
+                "Vous ne pouvez pas afficher plus de 5 jeux à la fois dans le menu. 
+                Désélectionnez un lien pour en afficher un nouveau."
             );
         }
 
