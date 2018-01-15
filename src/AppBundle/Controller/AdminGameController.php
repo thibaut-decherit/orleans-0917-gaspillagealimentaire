@@ -49,6 +49,10 @@ class AdminGameController extends Controller
             $game->setUploadedAt(new \DateTime());
             $em->persist($game);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "Le jeu a été ajouté."
+            );
 
             return $this->redirectToRoute('admin_game_index', array('id' => $game->getId()));
         }
@@ -73,6 +77,11 @@ class AdminGameController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash(
+                "success",
+                "Le jeu a été modifié."
+            );
+
 
             return $this->redirectToRoute('game_edit', array('id' => $game->getId()));
         }
@@ -99,6 +108,10 @@ class AdminGameController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($game);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "Le jeu a été supprimé."
+            );
         }
 
         return $this->redirectToRoute('admin_game_index');
@@ -132,10 +145,21 @@ class AdminGameController extends Controller
 
         if ($game->getIsMenu() == true) {
             $game->setIsMenu(false);
+            $this->addFlash(
+                "success",
+                "Le jeu a été enlevé du menu."
+            );
         } elseif (($game->getIsMenu() == false) && ($linksTrueNumber < 5)) {
             $game->setIsMenu(true);
+            $this->addFlash(
+                "success",
+                "Le jeu a été ajouté au menu."
+            );
         } else {
-            $this->addFlash("Error", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
+            $this->addFlash(
+                "error",
+                "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau."
+            );
         }
 
         $em->persist($game);
