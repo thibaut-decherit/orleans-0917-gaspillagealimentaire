@@ -15,6 +15,7 @@
                 </a>
             </div>
             <hr/>
+            {% include 'flashMessages/success.html.twig' with {'glyphiconType': 'glyphicon-ok'} %}
             <div class="row listAdmin">
                 {% for adminReportedAnswerChallenge in adminReportedAnswerChallenges %}
                     <div class="row">
