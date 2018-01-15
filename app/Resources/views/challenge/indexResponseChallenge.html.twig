@@ -21,7 +21,7 @@
                             <div class="videos">
                                 <div class="col-md-offset-1 col-md-5">
                                     <figure class="thumbnail">
-                                        <iframe frameborder="0" width="480" height="270"
+                                        <iframe frameborder="0"
                                                 src="//www.dailymotion.com/embed/video/x13fp"
                                                 allowfullscreen class="center-block">
                                         </iframe>
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <figure class="thumbnail center-block">
-                                        <iframe frameborder="0" width="480" height="270"
+                                        <iframe frameborder="0"
                                                 src="//www.dailymotion.com/embed/video/xrhzkq"
                                                 allowfullscreen class="center-block">
                                         </iframe>
@@ -115,7 +115,7 @@
 
                             {{ (descriptionChallenge.answers[1:]) ? '<hr class="form-answers-separator"/>' : '' }}
 
-                            {% for answer in descriptionChallenge.answers[1:][:12] %}
+                            {% for answer in descriptionChallenge.answers[1:][:50] %}
 
                                 <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
                                     <div class="row">
