@@ -51,6 +51,10 @@ class AdminResourceController extends Controller
             $resource->setUploadedAt(new \DateTime());
             $em->persist($resource);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "La ressource a été ajoutée."
+            );
 
             return $this->redirectToRoute('admin_resource_index', array('id' => $resource->getId()));
         }
@@ -75,6 +79,10 @@ class AdminResourceController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash(
+                "success",
+                "La ressource a été modifiée."
+            );
 
             return $this->redirectToRoute('admin_resource_edit', array('id' => $resource->getId()));
         }
@@ -101,6 +109,10 @@ class AdminResourceController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($resource);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "La ressource a été supprimée."
+            );
         }
 
         return $this->redirectToRoute('admin_resource_index');
