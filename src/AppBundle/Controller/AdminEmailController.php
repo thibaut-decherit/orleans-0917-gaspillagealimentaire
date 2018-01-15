@@ -35,6 +35,10 @@ class AdminEmailController extends Controller
 
             $em->persist($adminEmail);
             $em->flush();
+            $this->addFlash(
+                "notice",
+                "L'adresse mail a été modifiée."
+            );
 
             return $this->redirectToRoute('adminemail_edit');
         }

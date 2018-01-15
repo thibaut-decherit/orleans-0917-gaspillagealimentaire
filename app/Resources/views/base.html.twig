@@ -13,13 +13,6 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}"/>
 </head>
 <body>
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="alert alert-{{ label }} text-center">
-            {{ message }}
-        </div>
-    {% endfor %}
-{% endfor %}
 {% block layout %}{% endblock %}
 {% block javascripts %}
     <script src="{{ asset('build/vendor.js') }}"></script>
