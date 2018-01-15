@@ -30,7 +30,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <hr class="row"/>
+                                {{ not loop.last ? '<hr class="row"/>' }}
                             </div>
                         </li>
                 {% endfor %}
