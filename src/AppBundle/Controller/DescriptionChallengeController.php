@@ -87,6 +87,10 @@ class DescriptionChallengeController extends Controller
             $answerChallenge->setUploadedAt(new \DateTime());
             $em->persist($answerChallenge);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "Le défi a été envoyé."
+            );
 
             return $this->redirectToRoute('responsechallenge_index', [
                     'id' => $descriptionChallenge->getId()
@@ -117,6 +121,10 @@ class DescriptionChallengeController extends Controller
 
         $em->persist($answerChallenge);
         $em->flush();
+        $this->addFlash(
+            "successReport",
+            "Le contenu a été signalé."
+        );
 
         $message = \Swift_Message::newInstance()
             ->setSubject('Rest\'aTable - Signalement de contenu')
@@ -128,6 +136,8 @@ class DescriptionChallengeController extends Controller
             );
 
         $this->get('mailer')->send($message);
-        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId()]);
+        return $this->redirectToRoute('responsechallenge_index',
+            ['id' => $answerChallenge->getDescription()->getId(),
+            '_fragment' => 'reponses']);
     }
 }
