@@ -154,7 +154,7 @@ class AdminInformMenuController extends Controller
             $informMenu->setIsMenu(true);
             $this->addFlash(
                 "success",
-                "Le jeu a été ajouté au menu."
+                "Le lien a été ajouté au menu."
             );
         } else {
             $this->addFlash(
