@@ -74,10 +74,14 @@ class DescriptionChallengeController extends Controller
 
         $answerChallenge = new Answerchallenge();
 
-        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge);
+        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge, array(
+            'action' => '#formulaire'
+        ));
         $form->handleRequest($request);
 
-        $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge);
+        $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge, array(
+            'action' => '#formulaire'
+        ));
         $form2->handleRequest($request);
 
         if (($form->isSubmitted() && $form->isValid()) || ($form2->isSubmitted() && $form2->isValid())) {
