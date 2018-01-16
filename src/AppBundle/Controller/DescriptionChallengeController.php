@@ -117,31 +117,34 @@ class DescriptionChallengeController extends Controller
      */
     public function toggledCheck(AnswerChallenge $answerChallenge)
     {
-        $em = $this->getDoctrine()->getManager();
+        if ($answerChallenge->getIsReport() == false) {
+            $em = $this->getDoctrine()->getManager();
+            $answerChallenge->setIsReport(true);
 
-        $answerChallenge->setIsReport(true);
+            $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+            $adminUrl = $this->getParameter('admin_url');
 
-        $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
-        $adminUrl = $this->getParameter('admin_url');
+            $em->persist($answerChallenge);
+            $em->flush();
 
-        $em->persist($answerChallenge);
-        $em->flush();
+            $message = \Swift_Message::newInstance()
+                ->setSubject("Rest' à table - Signalement de contenu")
+                ->setFrom($this->getParameter('mailer_user'))
+                ->setTo($adminEmail)
+                ->setBody(
+                    $this->renderView('mail/mail.html.twig',
+                        ['adminUrl' => $adminUrl]),
+                    'text/html'
+                );
+
+            $this->get('mailer')->send($message);
+        }
+
         $this->addFlash(
             "reportSuccess",
             "Le défi a été signalé à un modérateur."
         );
 
-        $message = \Swift_Message::newInstance()
-            ->setSubject("Rest' à table - Signalement de contenu")
-            ->setFrom($this->getParameter('mailer_user'))
-            ->setTo($adminEmail)
-            ->setBody(
-                $this->renderView('mail/mail.html.twig',
-                    ['adminUrl' => $adminUrl]),
-                'text/html'
-            );
-
-        $this->get('mailer')->send($message);
         return $this->redirectToRoute('responsechallenge_index',
             ['id' => $answerChallenge->getDescription()->getId(),
                 '_fragment' => 'reponses']);
