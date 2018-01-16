@@ -19,4 +19,8 @@ $(document).ready(function () {
         $('#button-submit').attr('disabled', 'disabled');
     });
 
+    $('#button-report').click(function() {
+        $('#button-report').attr('disabled', 'disabled');
+    });
+
 });
