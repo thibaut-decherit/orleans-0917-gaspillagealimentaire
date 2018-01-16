@@ -23,6 +23,7 @@
       padding: 0;
       .blockInfo {
         margin-top: 60px;
+        padding-left: 0;
         text-align: center;
         .pInfo {
           font-size: calc(0.5vw + 10px);
@@ -31,10 +32,11 @@
       }
     }
     .articles {
+      margin-right: 0;
       .article {
         display: none;
         padding-bottom: 30px;
-      img {
+      .logoPlus {
         height: 150px;
         width: auto;
         margin-top: 50px;
@@ -44,5 +46,10 @@
   }
 }
 .img_logo_wild {
-  max-width: 50px;
+  height: 150px;
+  width: auto;
+  margin-top: 0;
+}
+.names {
+  margin-top: 40px;
 }
