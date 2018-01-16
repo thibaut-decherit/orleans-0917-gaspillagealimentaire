@@ -46,7 +46,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 4,
                 'Les consommateurs et les citoyens.
                  Les consommateurs car quand j’achète une tomate, je paye aussi pour celles qui ont été
-                 laissé dans le champ et celles qui, abimées, ont été jetées à Rungis ou au supermarché. (Le
+                 laissées dans le champ et celles qui, abimées, ont été jetées à Rungis ou au supermarché. (Le
                  coût des autres est intégré dans le prix de vente de celles qui restent)
                  Et les citoyens car le gaspillage alimentaire c’est 10% du poids des poubelles dont le coût de
                  la gestion (collecte avec les camions et traitement en centre d’enfouissement ou à
@@ -64,8 +64,8 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 phényléthylamine, véritable antidépresseur végétal qui donne un meilleur moral.',
             ],
             5 => [
-                'Il est recommandé de consommer 5 fruits et légumes par jour en France. Mais un portion de
-                fruit et légume, c’est quoi ?',
+                'Il est recommandé de consommer 5 fruits et légumes par jour en France. Mais une portion de
+                fruits et légumes, c’est quoi ?',
                 1,
                 6,
                 '80 grammes : Une portion, c’est environ 80g de fruits ou légumes soit à peu près la taille
@@ -78,7 +78,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 1,
                 'Le châtaignier greffé. Les fruits du marronnier ne sont pas comestibles, ce sont les marrons d\'Inde.
                 Ce que nous appelons "marron" est issu du châtaignier.
-                Le châtaignier sauvage produit des châtaignes
+                Le châtaignier sauvage produit des châtaignes.
                 À Noël, on mange de la dinde aux marrons. Le reste de l\'année, on peut déguster de la crème de marrons, des marrons chauds, des marrons glacés. Pourtant, au sens botanique du terme, ce fruit n\'est pas comestible. Ainsi, ce que l\'on appelle communément « marron » dans la langue française est en réalité une grosse châtaigne, dont l\'aspect est tout de même un peu différent de la châtaigne sauvage. ',
             ],
             7 => [
@@ -91,7 +91,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'De la même famille, mais en forme de poire, quel est celui-ci ?',
                 2,
                 3,
-                'Le potimarron. A la saveur des châtaignes',
+                'Le potimarron. A la saveur des châtaignes.',
             ],
             9 => [
                 'Quelle est cette variété de courge un peu aplatie dont la couleur va d\'un orange rougeâtre au vert foncé ?',
@@ -103,7 +103,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'La fin d\'été est aussi l\'époque de cueillir ces fruits !',
                 2,
                 5,
-                'Les figues. Les figues fraîches',
+                'Les figues. Les figues fraîches.',
             ],
             11 => [
                 'Que sont ces fruits, rois de l\'automne ?',
@@ -115,31 +115,31 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'Encore un fruit, bien de saison !',
                 2,
                 7,
-                'Le coing. Pour faire vos pâtes de fruits',
+                'Le coing. Pour faire vos pâtes de fruits.',
             ],
             13 => [
                 'Quel est ce cucurbitacé, de forme aplatie, circulaire, plus ou moins conique, avec des bosses ?',
                 2,
                 8,
-                'La pâtisson. Se récolte en début d\'automne',
+                'La pâtisson. Se récolte en début d\'automne.',
             ],
             14 => [
                 'Quel est ce fruit porté par un arbre issu du croisement d\'un bigaradier et d\'un mandarinier ?',
                 2,
                 9,
-                'La clémentine. Fruit du Clémentinier',
+                'La clémentine. Fruit du Clémentinier.',
             ],
             15 => [
                 'Voici encore un légume rustique, et de saison :',
                 2,
                 10,
-                'Le topinambour. Nommé aussi artichaut de Jérusalem',
+                'Le topinambour. Nommé aussi artichaut de Jérusalem.',
             ],
             16 => [
                 'Quelle région est réputée pour la récolte de ce fruit en grande quantité ?',
                 2,
                 11,
-                'La région grenobloise. La noix de Grenoble',
+                'La région grenobloise. La noix de Grenoble.',
             ],
             17 => [
                 'Quel est ce fruit qui pousse sur le plaqueminier dans le Midi, dès septembre ?',
@@ -152,7 +152,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'Ce fruit a besoin d\'un climat doux en hiver et chaud en été. On le récolte à l\'automne :',
                 2,
                 13,
-                'Le kiwi. Pousse aussi en France',
+                'Le kiwi. Pousse aussi en France.',
             ],
             19 => [
                 'Quand je jette une tomate abimée au compost, est-ce du gaspillage ?',
@@ -181,8 +181,8 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'Savez-vous ce qui est jeté en priorité ?',
                 3,
                 4,
-                'Restes de repas et Fruits et légumes ex aequo (1/4 chacun du gaspillage
-                alimentaire des ménages), ensuite les produits emballés mais en parti consommés (1/5), le
+                'Restes de repas et fruits et légumes ex aequo (1/4 chacun du gaspillage
+                alimentaire des ménages), ensuite les produits emballés mais en partie consommés (1/5), le
                 pain (14%) puis les produits emballés jetés sans être ouverts (13%).',
             ],
             23 => [
@@ -190,10 +190,10 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 année à la maison ?',
                 3,
                 5,
-                'à priori plus de 40 kg ! (Source : FNE/Verdicité)',
+                'A priori plus de 40 kg ! (Source : FNE/Verdicité)',
             ],
             24 => [
-                'Et si on compte l’ensemble du gaspillage à la consommation, c&#39;est-à- dire en
+                'Et si on compte l’ensemble du gaspillage à la consommation, c&#39;est-à-dire en
                 comptant en plus des maisons : les restaurants, les cantines (scolaires ou
                 d’entreprises), les pique-niques et repas du midi au bureau. Quelle quantité
                 atteint-on (par an et par personne) ?',
