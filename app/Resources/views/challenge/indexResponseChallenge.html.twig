@@ -21,7 +21,7 @@
                             <div class="videos">
                                 <div class="col-md-offset-1 col-md-5">
                                     <figure class="thumbnail">
-                                        <iframe frameborder="0" width="480" height="270"
+                                        <iframe frameborder="0"
                                                 src="//www.dailymotion.com/embed/video/x13fp"
                                                 allowfullscreen class="center-block">
                                         </iframe>
@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <figure class="thumbnail center-block">
-                                        <iframe frameborder="0" width="480" height="270"
+                                        <iframe frameborder="0"
                                                 src="//www.dailymotion.com/embed/video/xrhzkq"
                                                 allowfullscreen class="center-block">
                                         </iframe>
@@ -47,6 +47,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
+                            <span id="formulaire"></span>
                             {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
                             <div class="form-group">
                                 {% if descriptionChallenge.isPicture == true %}
@@ -89,7 +90,7 @@
                                     <a href="#modalAnswerPictures">
                                         <img src="{{ descriptionChallenge.answers.0.imageName ?
                                         '/uploads/' ~ descriptionChallenge.answers.0.imageName :
-                                        '/images/logo.png' }}"
+                                        '/images/response-challenge-placeholder.png' }}"
                                              class="img-responsive img-thumbnail vignetteList"
                                              alt="photo du défi">
                                     </a>
@@ -117,7 +118,7 @@
 
                             {{ (descriptionChallenge.answers[1:]) ? '<hr class="form-answers-separator"/>' : '' }}
 
-                            {% for answer in descriptionChallenge.answers[1:][:12] %}
+                            {% for answer in descriptionChallenge.answers[1:][:50] %}
 
                                 <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
                                     <div class="row">
@@ -131,7 +132,7 @@
                                                 <img src="{{ asset('uploads/' ~ answer.imageName) }}"
                                                      alt="photo du défi" class="img-thumbnail">
                                             {% else %}
-                                                <img src="{{ asset('images/' ~ answer.imageName) }}"
+                                                <img src="{{ asset('images/response-challenge-placeholder.png') }}"
                                                      alt="photo du défi" class="img-thumbnail">
                                             {% endif %}
                                             </a>

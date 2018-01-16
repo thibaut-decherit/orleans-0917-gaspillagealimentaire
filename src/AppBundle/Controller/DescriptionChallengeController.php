@@ -74,10 +74,14 @@ class DescriptionChallengeController extends Controller
 
         $answerChallenge = new Answerchallenge();
 
-        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge);
+        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge, array(
+            'action' => '#formulaire'
+        ));
         $form->handleRequest($request);
 
-        $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge);
+        $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge, array(
+            'action' => '#formulaire'
+        ));
         $form2->handleRequest($request);
 
         if (($form->isSubmitted() && $form->isValid()) || ($form2->isSubmitted() && $form2->isValid())) {
@@ -118,6 +122,7 @@ class DescriptionChallengeController extends Controller
         $answerChallenge->setIsReport(true);
 
         $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+        $adminUrl = $this->getParameter('admin_url');
 
         $em->persist($answerChallenge);
         $em->flush();
@@ -127,11 +132,12 @@ class DescriptionChallengeController extends Controller
         );
 
         $message = \Swift_Message::newInstance()
-            ->setSubject('Rest\'aTable - Signalement de contenu')
+            ->setSubject("Rest' à table - Signalement de contenu")
             ->setFrom($this->getParameter('mailer_user'))
             ->setTo($adminEmail)
             ->setBody(
-                $this->renderView('mail/mail.html.twig'),
+                $this->renderView('mail/mail.html.twig',
+                    ['adminUrl' => $adminUrl]),
                 'text/html'
             );
 

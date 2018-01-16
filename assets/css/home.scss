@@ -4,9 +4,12 @@ $paragraphColor: #4d4d4d;
   display: flex;
   .pageContent {
     width: 100vw;
-    padding-top: 50px;
+    padding-top: 20px;
     .logo-container {
       width: 100%;
+      .logo-site {
+        height: 240px;
+      }
     }
     .homeText {
       margin-top: 60px;
@@ -39,7 +42,13 @@ $paragraphColor: #4d4d4d;
               color: $paragraphColor;
               font-size: calc(0.6vw + 10px);
             }
+
           }
+        }
+        img {
+          height: 100px;
+          width: auto;
+          margin-bottom: 30px;
         }
       }
     }
