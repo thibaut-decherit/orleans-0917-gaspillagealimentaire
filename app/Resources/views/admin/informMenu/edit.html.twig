@@ -17,7 +17,9 @@
             <div class="row">
                 {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}
-                <input type="submit" value="Modifier" class="btn_admin btn btn-default"/>
+                <button type="submit" class="btn_admin btn btn-default">
+                    <span class="glyphicon glyphicon-ok"></span> Enregistrer les modifications
+                </button>
                 {{ form_end(edit_form) }}
                 <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
                      class="img-responsive img-thumbnail center-block imgEdit">
@@ -25,7 +27,9 @@
             <hr/>
             <div class="row">
                 {{ form_start(delete_form) }}
-                <input type="submit" value="Supprimer" class="btn_admin btn btn-default pull-right">
+                <button type="submit" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-trash"></span> Supprimer
+                </button>
                 {{ form_end(delete_form) }}
             </div>
         </div>
