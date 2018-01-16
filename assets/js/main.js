@@ -15,4 +15,8 @@ $(document).ready(function () {
 
     });
 
+    $('#form_challenge').submit( () => {
+        $('#button_challenge').attr('disabled', 'disabled');
+    });
+
 });

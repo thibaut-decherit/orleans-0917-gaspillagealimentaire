@@ -54,19 +54,11 @@
                                 'alertStyle': 'alert-success',
                             } %}
                             <div class="form-group">
-                                {% if descriptionChallenge.isPicture == true %}
-                                    {{ form_start(form) }}
-                                    {{ form_widget(form) }}
-                                    <input type="submit" value="Valider le défi !"
-                                           class="btn btnValidation pull-right"/>
-                                    {{ form_end(form) }}
-                                {% else %}
-                                    {{ form_start(form2) }}
-                                    {{ form_widget(form2) }}
-                                    <input type="submit" value="Valider le défi !"
-                                           class="btn btnValidation pull-right"/>
-                                    {{ form_end(form2) }}
-                                {% endif %}
+                                {{ form_start(form, {'attr':{'id':'form_challenge'}}) }}
+                                {{ form_widget(form) }}
+                                <input id="button_challenge" type="submit" value="Valider le défi !"
+                                       class="btn btnValidation pull-right"/>
+                                {{ form_end(form) }}
                             </div>
                         </div>
                     </div>
