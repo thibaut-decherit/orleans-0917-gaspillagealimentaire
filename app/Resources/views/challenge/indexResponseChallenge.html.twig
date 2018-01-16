@@ -47,7 +47,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <span id="formulaire"></span>
+                            <span id="formulaire" class="anchor-with-spacer"></span>
                             {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
                             <div class="form-group">
                                 {% if descriptionChallenge.isPicture == true %}
@@ -69,6 +69,7 @@
 
                     {% if descriptionChallenge.answers is not empty %}
                         <hr class="form-answers-separator"/>
+                        <span id="reponses" class="anchor-with-spacer"></span>
                         <div class="row">
                             <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
                         </div>
