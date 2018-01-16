@@ -14,6 +14,7 @@
             </div>
             <hr/>
             <div class="row">
+                {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
                 {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}
                 <input type="submit" value="Modifier" class="btn_admin btn btn-default"/>

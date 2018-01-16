@@ -17,6 +17,8 @@
                 </a>
             </div>
             <hr/>
+            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
+            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-warning-sign', 'alertType': 'error', 'alertStyle': 'alert-danger'} %}
             <div class="row">
                 <div class="listAdmin">
                     {% for informMenu in informMenus %}

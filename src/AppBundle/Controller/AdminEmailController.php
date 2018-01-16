@@ -5,7 +5,8 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\AdminEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Adminemail controller.
@@ -35,6 +36,10 @@ class AdminEmailController extends Controller
 
             $em->persist($adminEmail);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "L'adresse mail a été modifiée."
+            );
 
             return $this->redirectToRoute('adminemail_edit');
         }

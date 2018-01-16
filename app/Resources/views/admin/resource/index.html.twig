@@ -13,10 +13,11 @@
             </div>
             <div class="row">
                 <a href="{{ path('admin_resource_new') }}" class="btn_admin btn btn-default">
-                    <span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau lien
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter une nouvelle ressource
                 </a>
             </div>
             <hr/>
+            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
             <div class="row">
                 <div class="listAdmin">
                     {% for resource in resources %}
