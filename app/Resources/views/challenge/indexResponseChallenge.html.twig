@@ -88,7 +88,7 @@
                                     <a href="#modalAnswerPictures">
                                         <img src="{{ descriptionChallenge.answers.0.imageName ?
                                         '/uploads/' ~ descriptionChallenge.answers.0.imageName :
-                                        '/images/logo.png' }}"
+                                        '/images/response-challenge-placeholder.png' }}"
                                              class="img-responsive img-thumbnail vignetteList"
                                              alt="photo du défi">
                                     </a>
@@ -130,7 +130,7 @@
                                                 <img src="{{ asset('uploads/' ~ answer.imageName) }}"
                                                      alt="photo du défi" class="img-thumbnail">
                                             {% else %}
-                                                <img src="{{ asset('images/' ~ answer.imageName) }}"
+                                                <img src="{{ asset('images/response-challenge-placeholder.png') }}"
                                                      alt="photo du défi" class="img-thumbnail">
                                             {% endif %}
                                             </a>
