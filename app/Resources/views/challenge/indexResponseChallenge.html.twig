@@ -47,7 +47,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            {% include 'flashMessages/success.html.twig' with {'glyphiconType': 'glyphicon-ok'} %}
+                            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
                             <div class="form-group">
                                 {% if descriptionChallenge.isPicture == true %}
                                     {{ form_start(form) }}
@@ -73,7 +73,7 @@
                             <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
                         </div>
                         <div class="row latest-answer">
-                            {% include 'flashMessages/successReport.html.twig' with {'glyphiconType': 'glyphicon-ok'} %}
+                            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'reportSuccess', 'alertStyle': 'alert-success'} %}
                             <div class="col-sm-offset-2 col-sm-5">
                                 <h3>{{ descriptionChallenge.answers.0.title }}</h3>
                                 <h4>Par {{ descriptionChallenge.answers.0.name }}

@@ -13,7 +13,7 @@
                 </a>
             </div>
             <hr/>
-            {% include 'flashMessages/success.html.twig' with {'glyphiconType': 'glyphicon-ok'} %}
+            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
             <div class="row">
                 {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}

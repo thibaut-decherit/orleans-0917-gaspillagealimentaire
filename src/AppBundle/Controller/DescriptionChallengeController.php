@@ -89,7 +89,7 @@ class DescriptionChallengeController extends Controller
             $em->flush();
             $this->addFlash(
                 "success",
-                "Le défi a été envoyé."
+                "Ton défi a été envoyé ! Tu peux le retrouver plus bas sur cette page."
             );
 
             return $this->redirectToRoute('responsechallenge_index', [
@@ -122,8 +122,8 @@ class DescriptionChallengeController extends Controller
         $em->persist($answerChallenge);
         $em->flush();
         $this->addFlash(
-            "successReport",
-            "Le contenu a été signalé."
+            "reportSuccess",
+            "Le défi a été signalé à un modérateur."
         );
 
         $message = \Swift_Message::newInstance()
