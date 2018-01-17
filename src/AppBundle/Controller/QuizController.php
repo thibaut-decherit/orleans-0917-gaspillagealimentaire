@@ -122,6 +122,7 @@ class QuizController extends Controller
         $points = $session->get('points');
         $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
         $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
+        $session->clear();
 
         return $this->render('quiz/resultat.html.twig', array(
             'points' => $points,

@@ -78,4 +78,3 @@ class AdminEmail
         return $this->email;
     }
 }
-
