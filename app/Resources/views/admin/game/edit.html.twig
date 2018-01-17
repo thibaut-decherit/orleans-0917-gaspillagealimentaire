@@ -20,7 +20,7 @@
                 <input type="submit" value="Modifier" class="btn_admin btn btn-default"/>
                 {{ form_end(edit_form) }}
                 <img src="{{ asset('uploads/' ~ game.imageName) }}"
-                     class="img-responsive img-thumbnail center-block imgEdit" alt="">
+                     class="img-responsive img-thumbnail center-block imgEdit" alt="{{ game.title }}">
             </div>
             <hr/>
             <div class="row">
