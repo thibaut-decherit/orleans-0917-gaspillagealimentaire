@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class QuizzTitle
 {
+
+    /**
+     * @var text
+     *
+     * @ORM\Column(name="img_title_quizz", type="text")
+     */
+    private $imgTitleQuizz;
+
     /**
      * @var
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\QuestionQuizz", mappedBy="titleQuizz")
@@ -109,5 +117,29 @@ class QuizzTitle
     public function getQuizzQuestions()
     {
         return $this->quizzQuestions;
+    }
+
+    /**
+     * Set imgTitleQuizz
+     *
+     * @param string $imgTitleQuizz
+     *
+     * @return QuizzTitle
+     */
+    public function setImgTitleQuizz($imgTitleQuizz)
+    {
+        $this->imgTitleQuizz = $imgTitleQuizz;
+
+        return $this;
+    }
+
+    /**
+     * Get imgTitleQuizz
+     *
+     * @return string
+     */
+    public function getImgTitleQuizz()
+    {
+        return $this->imgTitleQuizz;
     }
 }
