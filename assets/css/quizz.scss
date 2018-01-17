@@ -25,20 +25,22 @@
     .panel-info {
       box-shadow: black 2px 1px 4px;
       height: 70vh;
-      h2 {
+      h1 {
         padding-top: 50px;
         padding-bottom: 50px;
+        font-size: calc(0.8vw + 10px);
+        font-weight: 700;
         span {
           color: darkgrey;
         }
       }
       .panel-title {
-        padding-bottom: 20px;
-        font-size: 27px;
+        padding: 0 30px 20px 30px;
+        font-size: calc(0.5vw + 10px);
       }
       .panel-body {
-        padding-bottom: 20px;
-        font-size: 15px;
+        padding: 0 30px 20px 30px;
+        font-size: calc(0.2vw + 10px);
         img {
           max-width: 250px;
           max-height: 250px;
@@ -75,23 +77,26 @@
   .panel-info {
     box-shadow: black 2px 1px 4px;
     height: 70vh;
-    h2 {
+    h1 {
       padding-top: 50px;
       padding-bottom: 50px;
+      font-size: calc(0.8vw + 10px);
+      font-weight: 700;
       span {
         color: darkgrey;
       }
     }
     .panel-title {
-      padding-bottom: 20px;
-
-      font-size: 20px;
+      padding: 0 30px 20px 30px;
+      font-size: calc(0.5vw + 10px);
     }
     .panel-body {
-      margin-left: 20px;
-      margin-right: 20px;
-      padding-bottom: 20px;
-      font-size: 15px;
+      padding: 50px 30px 50px 30px;
+      font-size: calc(0.2vw + 10px);
+<<<<<<< HEAD
+=======
+    }
+>>>>>>> 40be80e9a77fd24da4d364d2e54f28b98595da87
       .answer {
         padding-left: 5px;
         border-radius: 5px 5px 5px 5px;
@@ -117,16 +122,18 @@
     text-align: center;
     box-shadow: black 2px 1px 4px;
     height: 70vh;
-    h2 {
+    h1 {
       padding-top: 50px;
       padding-bottom: 50px;
+      font-size: calc(0.8vw + 10px);
+      font-weight: 700;
       span {
         color: darkgrey;
       }
     }
     .panel-title {
-      padding-bottom: 20px;
-      font-size: 27px;
+      padding: 0 30px 20px 30px;
+      font-size: calc(0.5vw + 10px);
     }
     .answerFormat {
       border-radius: 5px 5px 5px 5px;
@@ -134,7 +141,7 @@
       color: white;
       padding-top: 15px;
       width: 25vw;
-      font-size: 37px;
+      font-size: calc(1.5vw + 10px);
     }
     .good {
       border-color: #04A777;
@@ -150,11 +157,8 @@
       background-color: #04A777;
     }
     .panel-body {
-      padding-top: 50px;
-      padding-bottom: 50px;
-      margin-right: 30px;
-      margin-left: 30px;
-      font-size: 20px;
+      padding: 50px 30px 50px 30px;
+      font-size: calc(0.2vw + 10px);
     }
   }
   .panel-heading {

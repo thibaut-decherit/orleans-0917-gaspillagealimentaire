@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-xs-offset-1 col-xs-10 page">
                     <div class="row">
-                        <h2>{{ descriptionChallenge.title }}</h2>
+                        <h1>{{ descriptionChallenge.title }}</h1>
                         <p class="description">{{ descriptionChallenge.content | raw }}</p>
                     </div>
 
@@ -92,7 +92,7 @@
                                         '/uploads/' ~ descriptionChallenge.answers.0.imageName :
                                         '/images/response-challenge-placeholder.png' }}"
                                              class="img-responsive img-thumbnail vignetteList"
-                                             alt="photo du défi">
+                                             alt="photo du défi de {{ descriptionChallenge.answers.0.name }}">
                                     </a>
                                 </span>
 
@@ -130,10 +130,10 @@
                                             <a href="#modalAnswerPictures">
                                             {% if descriptionChallenge.isPicture == true %}
                                                 <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                     alt="photo du défi" class="img-thumbnail">
+                                                     alt="photo du défi de {{ answer.name }}" class="img-thumbnail">
                                             {% else %}
                                                 <img src="{{ asset('images/response-challenge-placeholder.png') }}"
-                                                     alt="photo du défi" class="img-thumbnail">
+                                                     alt="" class="img-thumbnail">
                                             {% endif %}
                                             </a>
                                             <h4 class="titlePicture">{{ answer.title }}</h4>
@@ -176,7 +176,7 @@
                                                  aria-label="Close">
                                                 {% if descriptionChallenge.isPicture == true %}
                                                     <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                         alt="photo du défi"
+                                                         alt="photo du défi de {{ answer.name }}"
                                                          class="img-responsive center-block"
                                                          data-dismiss="modal" aria-label="Close">
                                                 {% else %}

@@ -10,11 +10,11 @@
     <section class="info-section">
         <div class="pageContent">
             <div class="col-xs-2 containerMenu">
-                <div class="blockInfo">
+                <ul class="blockInfo">
                     <li><a href="" class="pInfo" data-target="1">Qui sommes-nous ?</a></li>
                     <li><a href="" class="pInfo" data-target="2">Pourquoi ce site ?</a></li>
                     <li><a href="" class="pInfo" data-target="3">Mentions légales et CGU</a></li>
-                </div>
+                </ul>
             </div>
             <div class="row articles col-xs-offset-2">
                 <div class="col-xs-10 article" data-target="1">
@@ -147,11 +147,11 @@
                                         </div>
                                         <div class="row">
                                             <a href="https://laligue.org/" target="_blank">
-                                                <img src="{{ asset('images/logo_ligue-enseignement.png') }}">
+                                                <img src="{{ asset('images/logo_ligue-enseignement.png') }}" alt="logo ligue de l'enseignement" class="logoPlus">
                                             </a>
                                             <a href="http://agriculture.gouv.fr/programme-national-pour-lalimentation-le-ministere-de-lagriculture-lance-lappel-projets-2016-2017" target="_blank">
                                                 <img src="{{ asset('images/logo_programme-national.png') }}"
-                                                     class="pull-right">
+                                                     class="pull-right logoPlus" alt="logo du programme national">
                                             </a>
                                         </div>
                                     </div>
@@ -196,9 +196,6 @@
                                                     La Ligue de l'enseignement Centre - Val de Loire
                                                     La DRAAF Centre - Val de Loire<br/>
                                                     Le modèle de mentions légales est offert par Subdelirium.com
-                                                    <a target="_blank"
-                                                       href="https://www.subdelirium.com/generateur-de-mentions-legales/"
-                                                       alt="Modèle de mentions légales">Modèle de mentions légales</a>
                                                 </p>
 
                                                 <h3>2. Conditions générales d’utilisation du site et des
@@ -398,8 +395,27 @@
                                                     des personnes physiques auxquelles elles s'appliquent »
                                                     (article 4 de la loi n° 78-17 du 6 janvier 1978).</p>
                                                 <h3>12. Conception et réalisation</h3>
-                                                <p><a href="https://wildcodeschool.fr/orleans/"><img src="{{ asset('images/logo_wild.png') }}" alt="Logo Wild Code School" class="img_logo_wild"/></a> Charlotte PRIEUR, Maxence GOUDJO, Pierre LAMBERT et Thibaut DECHERIT
-                                                </p>
+                                                <div class="row">
+                                                    <div class="col-xs-3">
+                                                        <a href="https://wildcodeschool.fr/orleans/">
+                                                            <img src="{{ asset('images/logo_wild.png') }}" alt="Logo Wild Code School" class="img_logo_wild img-responsive"/>
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-xs-3 names">
+                                                        <div class="row">
+                                                            Charlotte PRIEUR
+                                                        </div>
+                                                        <div class="row">
+                                                            Maxence GOUDJO
+                                                        </div>
+                                                        <div class="row">
+                                                            Pierre LAMBERT
+                                                        </div>
+                                                        <div class="row">
+                                                            Thibaut DECHERIT
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

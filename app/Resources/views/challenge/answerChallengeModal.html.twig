@@ -17,7 +17,7 @@
                  aria-label="Close">
                 {% if descriptionChallenge.isPicture == true %}
                     <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                         alt="photo du défi"
+                         alt="photo du défi de {{ answer.name }}"
                          class="img-responsive center-block"
                          data-dismiss="modal" aria-label="Close">
                 {% else %}

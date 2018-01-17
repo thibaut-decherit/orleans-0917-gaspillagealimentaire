@@ -7,12 +7,12 @@
     <div class="quizz">
     <div class="container-fluid">
         <div class="panel panel-primary">
-            <h2>Résultats du quiz</h2>
+            <h1>Résultats du quiz</h1>
             <div class="row">
                 <div class="col-md-offset-3 col-md-6">
-                    <h3 class="panel-title' }}">
+                    <h2 class="panel-title' }}">
                         SCORE : {{ points }}/{{ nbrMax }}
-                    </h3>
+                    </h2>
                 </div>
             </div>
             <div class="row">
@@ -20,7 +20,7 @@
                     <a href="{{ path('quizTest', {'id': question.TitleQuizz.id, 'questionNbr' : 1}) }}"
                        class="btn btn-success">Rejouer</a>
                     <a href="{{ path('quiz_index') }}"
-                       class="btn btn-success">Revenir aux quizz</a>
+                       class="btn btn-success">Revenir aux quiz</a>
                 </div>
             </div>
         </div>
