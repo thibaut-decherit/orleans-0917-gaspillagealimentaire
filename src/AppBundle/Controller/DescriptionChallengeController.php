@@ -74,11 +74,11 @@ class DescriptionChallengeController extends Controller
 
         if ($descriptionChallenge->getIsPicture()) {
             $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge, array(
-                'action' => '#reponses'
+                'action' => '#formulaire'
             ));
         } else {
             $form = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge, array(
-                'action' => '#reponses'
+                'action' => '#formulaire'
             ));
         }
         $form->handleRequest($request);
@@ -147,6 +147,6 @@ class DescriptionChallengeController extends Controller
 
         return $this->redirectToRoute('responsechallenge_index',
             ['id' => $answerChallenge->getDescription()->getId(),
-                '_fragment' => 'reponses']);
+                '_fragment' => 'formulaire']);
     }
 }
