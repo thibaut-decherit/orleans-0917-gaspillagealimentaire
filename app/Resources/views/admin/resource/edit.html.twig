@@ -1,4 +1,5 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block pageContent %}
 
@@ -13,10 +14,7 @@
                 </a>
             </div>
             <hr/>
-            {% include 'flashMessageTemplate.html.twig' with {
-                'glyphiconType': 'glyphicon-ok',
-                'alertType': 'success',
-            } %}
+            {{ block("flashMessage", "base.html.twig") }}
             <div class="row">
                 {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}
