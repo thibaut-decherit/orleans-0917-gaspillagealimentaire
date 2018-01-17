@@ -13,6 +13,13 @@ use Doctrine\ORM\Mapping as ORM;
 class QuestionQuizz
 {
     /**
+     * @var text
+     *
+     * @ORM\Column(name="img_quizz", type="text")
+     */
+    private $imgQuizz;
+
+    /**
      * @var
      * @ORM\OneToOne(targetEntity="AppBundle\Entity\Tip", mappedBy="questionQuizz")
      */
@@ -243,4 +250,28 @@ class QuestionQuizz
     }
 
 
+
+    /**
+     * Set imgQuizz
+     *
+     * @param string $imgQuizz
+     *
+     * @return QuestionQuizz
+     */
+    public function setImgQuizz($imgQuizz)
+    {
+        $this->imgQuizz = $imgQuizz;
+
+        return $this;
+    }
+
+    /**
+     * Get imgQuizz
+     *
+     * @return string
+     */
+    public function getImgQuizz()
+    {
+        return $this->imgQuizz;
+    }
 }
