@@ -25,12 +25,10 @@
                             <p>{{ resource.title|upper }}</p>
                         </div>
                         <div class="row">
-                            <div class="col-xs-5">
+                            <div class="col-xs-6">
                                 <p>{{ resource.description }}</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-4">
+                            <div class="col-xs-6">
                                 <a href="{{ path('admin_resource_edit', { 'id': resource.id }) }}"
                                    class="btn_admin btn btn-default pull-right">
                                     <span class="glyphicon glyphicon-edit"></span> Modifier
