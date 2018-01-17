@@ -10,7 +10,7 @@
     <section class="info-section-Resource">
         <div class="pageContent">
             <div class="row pageResource">
-                <div class="col-xs-2 containerMenuResource">
+                <div class="containerMenuResource">
                     <ul class="blockInfo">
                         {% for resourceTheme in resourceThemes %}
                             <li>
@@ -21,7 +21,7 @@
                         {% endfor %}
                     </ul>
                 </div>
-                <div class="col-xs-offset-2 col-xs-10 articles">
+                <div class="articles">
                     <ul>
                         {% for resource in resources %}
                             <li class="row">
@@ -34,7 +34,6 @@
                                 </p>
                                 <div class="row">
                                     <p class="description">{{ resource.description }}</p>
-
                                 </div>
                             </li>
                             {{ not loop.last ? '<hr class="row"/>' }}
