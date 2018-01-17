@@ -74,11 +74,11 @@ class DescriptionChallengeController extends Controller
 
         if ($descriptionChallenge->getIsPicture()) {
             $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge, array(
-                'action' => '#formulaire'
+                'action' => '#reponses'
             ));
         } else {
             $form = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge, array(
-                'action' => '#formulaire'
+                'action' => '#reponses'
             ));
         }
         $form->handleRequest($request);
@@ -141,7 +141,7 @@ class DescriptionChallengeController extends Controller
         }
 
         $this->addFlash(
-            "reportSuccess",
+            "success",
             "Le défi a été signalé à un modérateur."
         );
 

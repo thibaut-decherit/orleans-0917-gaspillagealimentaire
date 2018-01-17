@@ -1,4 +1,5 @@
 {% extends 'layout.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block title %}Défis Réponses | Rest' à table{% endblock %}
 
@@ -48,7 +49,6 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <span id="formulaire" class="anchor-with-spacer"></span>
-                            {{ block("flashMessage", "base.html.twig") }}
                             <div class="form-group">
                                 {{ form_start(form, {'attr':{'id':'form-submit-button'}}) }}
                                 {{ form_widget(form) }}
