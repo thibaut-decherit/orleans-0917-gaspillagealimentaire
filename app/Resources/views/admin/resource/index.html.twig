@@ -1,4 +1,5 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block pageContent %}
     <div class="panel panel-default admin">
@@ -17,7 +18,7 @@
                 </a>
             </div>
             <hr/>
-            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
+            {{ block("flashMessage", "base.html.twig") }}
             <div class="row">
                 <div class="listAdmin">
                     {% for resource in resources %}

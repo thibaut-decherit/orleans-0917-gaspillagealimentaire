@@ -1,4 +1,5 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block pageContent %}
     <div class="panel panel-default admin">
@@ -14,10 +15,12 @@
             </div>
             <hr/>
             <div class="row">
-                {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
+                {{ block("flashMessage", "base.html.twig") }}
                 {{ form_start(edit_form) }}
                 {{ form_widget(edit_form) }}
-                <input type="submit" value="Modifier" class="btn_admin btn btn-default"/>
+                <button type="submit" class="btn_admin btn btn-default">
+                    <span class="glyphicon glyphicon-ok"></span> Enregistrer les modifications
+                </button>
                 {{ form_end(edit_form) }}
             </div>
         </div>

@@ -1,4 +1,5 @@
 {% extends 'layout.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block title %}Défis Réponses | Rest' à table{% endblock %}
 
@@ -47,33 +48,25 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <span id="formulaire"></span>
-                            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'success', 'alertStyle': 'alert-success'} %}
+                            <span id="formulaire" class="anchor-with-spacer"></span>
                             <div class="form-group">
-                                {% if descriptionChallenge.isPicture == true %}
-                                    {{ form_start(form) }}
-                                    {{ form_widget(form) }}
-                                    <input type="submit" value="Valider le défi !"
-                                           class="btn btnValidation pull-right"/>
-                                    {{ form_end(form) }}
-                                {% else %}
-                                    {{ form_start(form2) }}
-                                    {{ form_widget(form2) }}
-                                    <input type="submit" value="Valider le défi !"
-                                           class="btn btnValidation pull-right"/>
-                                    {{ form_end(form2) }}
-                                {% endif %}
+                                {{ form_start(form, {'attr':{'id':'form-submit-button'}}) }}
+                                {{ form_widget(form) }}
+                                <input id="button-submit" type="submit" value="Valider le défi !"
+                                       class="btn btnValidation pull-right"/>
+                                {{ form_end(form) }}
                             </div>
                         </div>
                     </div>
 
                     {% if descriptionChallenge.answers is not empty %}
                         <hr class="form-answers-separator"/>
+                        <span id="reponses" class="anchor-with-spacer"></span>
                         <div class="row">
                             <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
                         </div>
                         <div class="row latest-answer">
-                            {% include 'flashMessageTemplate.html.twig' with {'glyphiconType': 'glyphicon-ok', 'alertType': 'reportSuccess', 'alertStyle': 'alert-success'} %}
+                            {{ block("flashMessage", "base.html.twig") }}
                             <div class="col-sm-offset-2 col-sm-5">
                                 <h3>{{ descriptionChallenge.answers.0.title }}</h3>
                                 <h4>Par {{ descriptionChallenge.answers.0.name }}
@@ -193,6 +186,7 @@
                                 </div>
                                 {% include 'challenge/reportModal.html.twig' %}
                                 {% include 'challenge/answerChallengeModal.html.twig' %}
+                                {{ (loop.index % 4 == 0) ? '</div><div class="row">' }}
                             {% endfor %}
                         </div>
                     {% endif %}
