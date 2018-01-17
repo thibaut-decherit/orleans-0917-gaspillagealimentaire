@@ -51,7 +51,6 @@
                             {% include 'flashMessageTemplate.html.twig' with {
                                 'glyphiconType': 'glyphicon-ok',
                                 'alertType': 'success',
-                                'alertStyle': 'alert-success',
                             } %}
                             <div class="form-group">
                                 {{ form_start(form, {'attr':{'id':'form-submit-button'}}) }}
@@ -73,7 +72,6 @@
                             {% include 'flashMessageTemplate.html.twig' with {
                                 'glyphiconType': 'glyphicon-ok',
                                 'alertType': 'reportSuccess',
-                                'alertStyle': 'alert-success',
                             } %}
                             <div class="col-sm-offset-2 col-sm-5">
                                 <h3>{{ descriptionChallenge.answers.0.title }}</h3>
