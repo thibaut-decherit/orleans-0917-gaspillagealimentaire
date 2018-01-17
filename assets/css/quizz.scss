@@ -41,6 +41,10 @@
       .panel-body {
         padding: 0 30px 20px 30px;
         font-size: calc(0.2vw + 10px);
+        img {
+          max-width: 250px;
+          max-height: 250px;
+        }
         .answer {
           padding-left: 5px;
           border-radius: 5px 5px 5px 5px;
@@ -89,6 +93,7 @@
     .panel-body {
       padding: 50px 30px 50px 30px;
       font-size: calc(0.2vw + 10px);
+    }
       .answer {
         padding-left: 5px;
         border-radius: 5px 5px 5px 5px;
