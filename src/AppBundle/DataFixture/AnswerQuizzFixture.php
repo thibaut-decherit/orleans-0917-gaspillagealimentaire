@@ -316,32 +316,32 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 19,
             ],
             59 => [
-                'oui',
+                'Oui',
                 1,
                 20,
             ],
             60 => [
-                'non',
+                'Non',
                 0,
                 20,
             ],
             61 => [
-                'oui',
+                'Oui',
                 1,
                 21,
             ],
             62 => [
-                'non',
+                'Non',
                 0,
                 21,
             ],
             63 => [
-                'oui',
+                'Oui',
                 0,
                 22,
             ],
             64 => [
-                'non',
+                'Non',
                 0,
                 22,
             ],
