@@ -49,6 +49,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <span id="formulaire" class="anchor-with-spacer"></span>
+                            {{ block("flashMessage", "base.html.twig") }}
                             <div class="form-group">
                                 {{ form_start(form, {'attr':{'id':'form-submit-button'}}) }}
                                 {{ form_widget(form) }}
@@ -61,12 +62,10 @@
 
                     {% if descriptionChallenge.answers is not empty %}
                         <hr class="form-answers-separator"/>
-                        <span id="reponses" class="anchor-with-spacer"></span>
                         <div class="row">
                             <h2 class="text-center">Ils ont déjà réalisé le défi</h2>
                         </div>
                         <div class="row latest-answer">
-                            {{ block("flashMessage", "base.html.twig") }}
                             <div class="col-sm-offset-2 col-sm-5">
                                 <h3>{{ descriptionChallenge.answers.0.title }}</h3>
                                 <h4>Par {{ descriptionChallenge.answers.0.name }}
