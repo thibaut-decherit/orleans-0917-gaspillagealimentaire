@@ -277,7 +277,7 @@ fruits, la vitamine C présente sera absorbé en plus grande quantité.',
                 'Au cour d\'un effort prolongé, l\'énergie fournie aux muscles vient :',
                 4,
                 7,
-                ': Les lipides permettent d\'alimenter les muscles pour des efforts prolongés. Pour des effort de 20
+                'Les lipides permettent d\'alimenter les muscles pour des efforts prolongés. Pour des effort de 20
 secondes en moyenne, l\'énergie provient des glucides.',
                 'images/quizzImages/Nutrition/Q7.png',
             ]
