@@ -217,7 +217,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'images/quizzImages/Impact/q5.png',
             ],
             24 => [
-                'Et si on compte l’ensemble du gaspillage à la consommation, c&#39;est-à-dire en
+                'Et si on compte l’ensemble du gaspillage à la consommation, c\'est-à-dire en
                 comptant en plus des maisons : les restaurants, les cantines (scolaires ou
                 d’entreprises), les pique-niques et repas du midi au bureau. Quelle quantité
                 atteint-on (par an et par personne) ?',
