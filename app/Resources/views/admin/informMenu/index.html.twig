@@ -1,4 +1,5 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block pageContent %}
     <div class="panel panel-default admin">
@@ -17,6 +18,7 @@
                 </a>
             </div>
             <hr/>
+            {{ block("flashMessage", "base.html.twig") }}
             <div class="row">
                 <div class="listAdmin">
                     {% for informMenu in informMenus %}
@@ -26,7 +28,7 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <img src="{{ asset('uploads/' ~ informMenu.imageName) }}"
-                                     class="img-responsive img-thumbnail vignetteList">
+                                     class="img-responsive img-thumbnail vignetteList" alt="{{ informMenu.title }}">
                             </div>
                             <div class="col-xs-7">
                                 <p class="pull-right link">{{ informMenu.link }}</p>

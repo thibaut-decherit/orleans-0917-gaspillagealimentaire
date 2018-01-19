@@ -56,12 +56,12 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 3,
             ],
             7 => [
-                'La transformation (dans l’industrie agro alimentaire)',
+                'La transformation (dans l’industrie agro-alimentaire)',
                 0,
                 3,
             ],
             8 => [
-                'La distribution (marché et supermarchés)',
+                'La distribution (marchés et supermarchés)',
                 0,
                 3,
             ],
@@ -96,7 +96,7 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 5,
             ],
             15 => [
-                'est bon pour le morale',
+                'est bon pour le moral',
                 1,
                 5,
             ],
@@ -316,37 +316,37 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 19,
             ],
             59 => [
-                'oui',
+                'Oui',
                 1,
                 20,
             ],
             60 => [
-                'non',
+                'Non',
                 0,
                 20,
             ],
             61 => [
-                'oui',
+                'Oui',
                 1,
                 21,
             ],
             62 => [
-                'non',
+                'Non',
                 0,
                 21,
             ],
             63 => [
-                'oui',
+                'Oui',
                 0,
                 22,
             ],
             64 => [
-                'non',
+                'Non',
                 0,
                 22,
             ],
             65 => [
-                '(ca dépends)',
+                '(ça dépend)',
                 1,
                 22,
             ],
@@ -356,7 +356,7 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 23,
             ],
             67 => [
-                'Les produits qu’on a ouverts, consommé en parti et oublié au fond du frigo',
+                'Les produits qu’on a ouverts, consommés en partie et oubliés au fond du frigo',
                 0,
                 23,
             ],

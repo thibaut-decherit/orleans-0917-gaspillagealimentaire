@@ -1,4 +1,5 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block pageContent %}
     <section class="reported-answer-challenge panel panel-default admin">
@@ -8,13 +9,14 @@
         <div class="panel-body">
             <div class="row">
                 <a href="{{ path('adminemail_edit') }}" class="btn_admin btn btn-default">
-                    Adresse email d'alerte
+                    <span class="glyphicon glyphicon-envelope"></span> Adresse email d'alerte
                 </a>
                 <a href="{{ path('home_admin') }}" class="btn_admin btn btn-default pull-right">
                     <span class="glyphicon glyphicon-chevron-left"></span> Accueil Administration
                 </a>
             </div>
             <hr/>
+            {{ block("flashMessage", "base.html.twig") }}
             <div class="row listAdmin">
                 {% for adminReportedAnswerChallenge in adminReportedAnswerChallenges %}
                     <div class="row">

@@ -51,6 +51,10 @@ class AdminInformMenuController extends Controller
             $informMenu->setUploadedAt(new \DateTime());
             $em->persist($informMenu);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "Le lien a été ajouté."
+            );
 
             return $this->redirectToRoute('admin_inform_menu_index', array('id' => $informMenu->getId()));
         }
@@ -75,6 +79,10 @@ class AdminInformMenuController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $this->addFlash(
+                "success",
+                "Le lien a été modifié."
+            );
 
             return $this->redirectToRoute('admin_inform_menu_edit', array('id' => $informMenu->getId()));
         }
@@ -101,6 +109,10 @@ class AdminInformMenuController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($informMenu);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "Le lien a été supprimé."
+            );
         }
 
         return $this->redirectToRoute('admin_inform_menu_index');
@@ -134,12 +146,22 @@ class AdminInformMenuController extends Controller
 
         if ($informMenu->getIsMenu() == true) {
             $informMenu->setIsMenu(false);
-            $this->addFlash("success", "Les liens ont bien été mis à jour dans le menu.");
+            $this->addFlash(
+                "success",
+                "Le lien a été enlevé du menu."
+            );
         } elseif (($informMenu->getIsMenu() == false) && ($linksTrueNumber < 5)) {
             $informMenu->setIsMenu(true);
-            $this->addFlash("success", "Les liens ont bien été mis à jour dans le menu.");
+            $this->addFlash(
+                "success",
+                "Le lien a été ajouté au menu."
+            );
         } else {
-            $this->addFlash("danger", "Vous ne pouvez pas afficher plus de 5 liens à la fois. Désélectionnez un lien pour en afficher un nouveau.");
+            $this->addFlash(
+                "danger",
+                "Vous ne pouvez pas afficher plus de 5 liens à la fois dans le menu. 
+                Désélectionnez un lien pour en afficher un nouveau."
+            );
         }
 
         $em->persist($informMenu);

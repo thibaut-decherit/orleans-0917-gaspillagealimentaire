@@ -6,17 +6,33 @@
     <div class="quizzSection{{ question.titleQuizz.id }}">
         <div class="quizz">
             <div class="panel panel-info">
-                <h2><b>QUESTION {{ question.questionNbr }}<span>/{{ nbrMax }}</span></b></h2>
-                <h3 class="panel-title">{{ question.title }}</h3>
+                <h1>QUESTION {{ question.questionNbr }}<span>/{{ nbrMax }}</span></h1>
+                <h2 class="panel-title">{{ question.title }}</h2>
                 <div class="panel-body">
                     <form method="POST"
-                          action="{{ path('quizzAnswer', {'quizzTitle' : quizzTitle,'nbrMax': nbrMax, 'questionNbr' : question.questionNbr}) }}">
-                        {% for answer in question.quizzAnswers %}
-                            <div class="answer">
-                                <input type="radio" value="{{ answer.id }}" name="answer" required>
-                                {{ answer.choice }}
+                          action="{{ path('quizzAnswer', {
+                              'quizzTitle' : quizzTitle,
+                              'nbrMax': nbrMax,
+                              'questionNbr' : question.questionNbr
+                          }) }}">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="col-md-6">
+                                        <img src="{{ asset(question.imgQuizz) }}"
+                                             alt="image {{ question.titleQuizz.name }}">
+                                    </div>
+                                    {% for answer in question.quizzAnswers %}
+                                        <div class="col-md-6">
+                                            <label class="answer">
+                                                <input type="radio" value="{{ answer.id }}" name="answer" required>
+                                                {{ answer.choice }}
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
-                        {% endfor %}
+                        </div>
                         <button type="submit" name="submit">Valider ma réponse</button>
                     </form>
                 </div>

@@ -7,12 +7,15 @@
         </div>
         <div class="panel-body">
             <div class="row">
-                <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-default pull-right"><span class="glyphicon glyphicon-chevron-left"></span> Retour à la
-                    liste</a>
+                <a href="{{ path('admin_game_index') }}" class="btn_admin btn btn-default pull-right">
+                    <span class="glyphicon glyphicon-chevron-left"></span> Retour à la liste
+                </a>
             </div>
-            {{ form_start(form) }}
+            {{ form_start(form, {'attr':{'id':'form-submit-button'}}) }}
             {{ form_widget(form) }}
-            <button class="btn_admin btn btn-default" type="submit">Valider</button>
+            <button id="button-submit" class="btn_admin btn btn-default" type="submit">
+                <span class="glyphicon glyphicon-ok"></span> Valider
+            </button>
             {{ form_end(form) }}
         </div>
     </div>

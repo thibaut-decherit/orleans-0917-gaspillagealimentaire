@@ -1,4 +1,5 @@
 {% extends 'admin/layoutAdmin.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block pageContent %}
     <div class="panel panel-default admin">
@@ -13,10 +14,11 @@
             </div>
             <div class="row">
                 <a href="{{ path('admin_resource_new') }}" class="btn_admin btn btn-default">
-                    <span class="glyphicon glyphicon-plus"></span> Ajouter un nouveau lien
+                    <span class="glyphicon glyphicon-plus"></span> Ajouter une nouvelle ressource
                 </a>
             </div>
             <hr/>
+            {{ block("flashMessage", "base.html.twig") }}
             <div class="row">
                 <div class="listAdmin">
                     {% for resource in resources %}
@@ -24,12 +26,10 @@
                             <p>{{ resource.title|upper }}</p>
                         </div>
                         <div class="row">
-                            <div class="col-xs-5">
+                            <div class="col-xs-6">
                                 <p>{{ resource.description }}</p>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-4">
+                            <div class="col-xs-6">
                                 <a href="{{ path('admin_resource_edit', { 'id': resource.id }) }}"
                                    class="btn_admin btn btn-default pull-right">
                                     <span class="glyphicon glyphicon-edit"></span> Modifier

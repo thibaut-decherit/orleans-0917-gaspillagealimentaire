@@ -13,14 +13,27 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.png') }}"/>
 </head>
 <body>
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="alert alert-{{ label }} text-center">
-            {{ message }}
-        </div>
+
+{% block flashMessage %}
+    {% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="alert alert-dismissible alert-{{ label }}">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                {% if label == 'success' %}
+                    {% set glyphiconType = 'ok' %}
+                {% elseif label == 'danger' %}
+                    {% set glyphiconType = 'warning-sign' %}
+                {% endif %}
+                <p><span class="glyphicon glyphicon-{{ glyphiconType }}"></span> {{ message }}</p>
+            </div>
+        {% endfor %}
     {% endfor %}
-{% endfor %}
+{% endblock %}
+
 {% block layout %}{% endblock %}
+
 {% block javascripts %}
     <script src="{{ asset('build/vendor.js') }}"></script>
 {% endblock %}

@@ -21,18 +21,15 @@
             width: 100%;
           }
         }
-        h2 {
+        h1 {
           margin: 45px 0 0 40px;
-          font-size: 24px;
+          font-size: calc(0.8vw + 10px);
           color: #424242;
           font-weight: 700;
           text-transform: uppercase;
         }
-        .summary {
-          margin: 20px 0 20px 40px;
-          font-size: 13px;
-          color: $textDescription;
-          padding: 0;
+        h2 {
+          font-size: calc(0.5vw + 10px);
         }
         a {
           button {
@@ -42,7 +39,7 @@
             height: 36px;
             border-radius: 100px;
             color: #ffffff;
-            font-size: 18px;
+            font-size: calc(0.4vw + 10px);
             font-weight: 600;
           }
         }

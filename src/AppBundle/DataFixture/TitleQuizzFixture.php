@@ -21,12 +21,15 @@ class TitleQuizzFixture extends Fixture implements OrderedFixtureInterface
         $titleQuizzs = [
             0 => [
                 'L\'alimentation',
+                'images/quizzImages/Alimentation/Alimentation.jpg',
             ],
             1 => [
-                'La saisonnalité'
+                'La saisonnalité',
+                'images/quizzImages/Saisonnalite/Saison.png'
             ],
             2 => [
-                'L\'impact sur la planète'
+                'L\'impact sur la planète',
+                'images/quizzImages/Impact/Gaspillage.jpg',
             ]
         ];
 
@@ -36,6 +39,7 @@ class TitleQuizzFixture extends Fixture implements OrderedFixtureInterface
             $titleHomeQuizz = new QuizzTitle();
             $titleHomeQuizz->setName($titleQuizz[0]);
             $this->addReference('title' . $i, $titleHomeQuizz);
+            $titleHomeQuizz->setImgTitleQuizz($titleQuizz[1]);
             $manager->persist($titleHomeQuizz);
         }
         $manager->flush();

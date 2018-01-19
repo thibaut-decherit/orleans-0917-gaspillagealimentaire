@@ -12,9 +12,9 @@
       li {
         list-style: none;
         width: 100%;
-        h2 {
+        h1 {
           margin: 45px 0 0 80px;
-          font-size: 24px;
+          font-size: calc(0.7vw + 10px);
           color: #424242;
           font-weight: 700;
           text-transform: uppercase;
@@ -67,11 +67,24 @@
         margin-bottom: 50px;
         text-transform: uppercase;
         font-weight: 700;
+        font-size: calc(0.7vw + 10px);
+        color: #424242;
+      }
+      h1 {
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: calc(0.7vw + 10px);
+        color: #424242;
       }
       .videos {
         margin-top: 30px;
         .thumbnail {
           padding: 40px;
+          iframe {
+            height: 300px;
+            width: 100%;
+          }
         }
       }
       .img-thumbnail {
@@ -87,6 +100,9 @@
         padding: 5px 30px;
         color: $challengeSectionColor;
         font-size: calc(0.5vw + 10px);
+      }
+      .anchor-with-spacer {
+        padding-top: 60px;
       }
       .form-answers-separator {
         margin-top: 0;

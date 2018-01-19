@@ -1,4 +1,5 @@
 {% extends 'layout.html.twig' %}
+{% block flashMessage %}{% endblock %}
 
 {% block title %}Défis Réponses | Rest' à table{% endblock %}
 
@@ -12,7 +13,7 @@
             <div class="row">
                 <div class="col-xs-offset-1 col-xs-10 page">
                     <div class="row">
-                        <h2>{{ descriptionChallenge.title }}</h2>
+                        <h1>{{ descriptionChallenge.title }}</h1>
                         <p class="description">{{ descriptionChallenge.content | raw }}</p>
                     </div>
 
@@ -21,7 +22,7 @@
                             <div class="videos">
                                 <div class="col-md-offset-1 col-md-5">
                                     <figure class="thumbnail">
-                                        <iframe frameborder="0" width="480" height="270"
+                                        <iframe frameborder="0"
                                                 src="//www.dailymotion.com/embed/video/x13fp"
                                                 allowfullscreen class="center-block">
                                         </iframe>
@@ -29,7 +30,7 @@
                                 </div>
                                 <div class="col-md-5">
                                     <figure class="thumbnail center-block">
-                                        <iframe frameborder="0" width="480" height="270"
+                                        <iframe frameborder="0"
                                                 src="//www.dailymotion.com/embed/video/xrhzkq"
                                                 allowfullscreen class="center-block">
                                         </iframe>
@@ -47,20 +48,14 @@
 
                     <div class="row">
                         <div class="col-sm-6">
+                            <span id="formulaire" class="anchor-with-spacer"></span>
+                            {{ block("flashMessage", "base.html.twig") }}
                             <div class="form-group">
-                                {% if descriptionChallenge.isPicture == true %}
-                                    {{ form_start(form) }}
-                                    {{ form_widget(form) }}
-                                    <input type="submit" value="Valider le défi !"
-                                           class="btn btnValidation pull-right"/>
-                                    {{ form_end(form) }}
-                                {% else %}
-                                    {{ form_start(form2) }}
-                                    {{ form_widget(form2) }}
-                                    <input type="submit" value="Valider le défi !"
-                                           class="btn btnValidation pull-right"/>
-                                    {{ form_end(form2) }}
-                                {% endif %}
+                                {{ form_start(form, {'attr':{'id':'form-submit-button'}}) }}
+                                {{ form_widget(form) }}
+                                <input id="button-submit" type="submit" value="Valider le défi !"
+                                       class="btn btnValidation pull-right"/>
+                                {{ form_end(form) }}
                             </div>
                         </div>
                     </div>
@@ -87,9 +82,9 @@
                                     <a href="#modalAnswerPictures">
                                         <img src="{{ descriptionChallenge.answers.0.imageName ?
                                         '/uploads/' ~ descriptionChallenge.answers.0.imageName :
-                                        '/images/logo.png' }}"
+                                        '/images/response-challenge-placeholder.png' }}"
                                              class="img-responsive img-thumbnail vignetteList"
-                                             alt="photo du défi">
+                                             alt="photo du défi de {{ descriptionChallenge.answers.0.name }}">
                                     </a>
                                 </span>
 
@@ -115,7 +110,7 @@
 
                             {{ (descriptionChallenge.answers[1:]) ? '<hr class="form-answers-separator"/>' : '' }}
 
-                            {% for answer in descriptionChallenge.answers[1:][:12] %}
+                            {% for answer in descriptionChallenge.answers[1:][:50] %}
 
                                 <div class="col-sm-6 col-md-4 col-lg-3 picturesMarge">
                                     <div class="row">
@@ -127,10 +122,10 @@
                                             <a href="#modalAnswerPictures">
                                             {% if descriptionChallenge.isPicture == true %}
                                                 <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                     alt="photo du défi" class="img-thumbnail">
+                                                     alt="photo du défi de {{ answer.name }}" class="img-thumbnail">
                                             {% else %}
-                                                <img src="{{ asset('images/' ~ answer.imageName) }}"
-                                                     alt="photo du défi" class="img-thumbnail">
+                                                <img src="{{ asset('images/response-challenge-placeholder.png') }}"
+                                                     alt="" class="img-thumbnail">
                                             {% endif %}
                                             </a>
                                             <h4 class="titlePicture">{{ answer.title }}</h4>
@@ -173,7 +168,7 @@
                                                  aria-label="Close">
                                                 {% if descriptionChallenge.isPicture == true %}
                                                     <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                                                         alt="photo du défi"
+                                                         alt="photo du défi de {{ answer.name }}"
                                                          class="img-responsive center-block"
                                                          data-dismiss="modal" aria-label="Close">
                                                 {% else %}
@@ -190,6 +185,7 @@
                                 </div>
                                 {% include 'challenge/reportModal.html.twig' %}
                                 {% include 'challenge/answerChallengeModal.html.twig' %}
+                                {{ (loop.index % 4 == 0) ? '</div><div class="row">' }}
                             {% endfor %}
                         </div>
                     {% endif %}

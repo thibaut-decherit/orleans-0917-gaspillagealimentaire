@@ -5,8 +5,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close"><span
-                            aria-hidden="true">&times;</span></button>
+                        aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
                 <h3>{{ answer.title }}</h3>
                 <h4>Par {{ answer.name }}
                     le {{ answer.uploadedAt|localizeddate('long', 'none') }}
@@ -16,7 +17,7 @@
                  aria-label="Close">
                 {% if descriptionChallenge.isPicture == true %}
                     <img src="{{ asset('uploads/' ~ answer.imageName) }}"
-                         alt="photo du défi"
+                         alt="photo du défi de {{ answer.name }}"
                          class="img-responsive center-block"
                          data-dismiss="modal" aria-label="Close">
                 {% else %}

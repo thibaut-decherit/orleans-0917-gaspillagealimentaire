@@ -56,6 +56,10 @@ class AdminReportedAnswerChallenge extends Controller
 
         $em->persist($answerChallenge);
         $em->flush();
+        $this->addFlash(
+            "success",
+            "Le contenu a été autorisé."
+        );
 
         return $this->redirectToRoute('admin_reported_answerchallenge_index');
     }
@@ -75,6 +79,10 @@ class AdminReportedAnswerChallenge extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($answerChallenge);
             $em->flush();
+            $this->addFlash(
+                "success",
+                "Le contenu a été supprimé."
+            );
         }
 
         return $this->redirectToRoute('admin_reported_answerchallenge_index');

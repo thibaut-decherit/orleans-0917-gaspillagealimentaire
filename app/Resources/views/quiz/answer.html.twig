@@ -7,29 +7,23 @@
         <div class="quizz">
             <div class="container-fluid">
                 <div class="panel panel-primary">
-                    <h2><b>R&#201;PONSE {{ answer.QuizzQuestion.questionNbr }}</b></h2>
-                    <div class="row">
-                        <div class="col-md-offset-3 col-md-6">
-                            <h3 class="panel-title  {{ answer.isTrue ? 'good' : 'false' }}">
-                                {{ answer.isTrue ? 'BONNE' : 'MAUVAISE' }}
-                                R&#201;PONSE
-                            </h3>
-                        </div>
+                    <h1>R&#201;PONSE {{ answer.QuizzQuestion.questionNbr }}</h1>
+                    <h2 class="panel-title  {{ answer.isTrue ? 'good' : 'false' }} center-block">
+                        {{ answer.isTrue ? 'BONNE' : 'MAUVAISE' }}
+                        R&#201;PONSE
+                    </h2>
+                    <div class="panel-body">
+                        {{ answer.quizzQuestion.tip }}
                     </div>
-                    <div class="row">
-                        <div class="panel-body">
-                            {{ answer.quizzQuestion.tip }}
-                        </div>
-                    </div>
-                    {% if answer.QuizzQuestion.questionNbr < nbrMax %}
-                        <a href="{{ path('quizTest', {'id' : answer.quizzQuestion.titleQuizz.id, 'questionNbr' : answer.quizzQuestion.questionNbr +  1} ) }}"
-                           class="btn btn-success">Question suivante</a>
-                    {% else %}
-                        <a href="{{ path('quizzResultat', {'id' : answer.quizzQuestion.titleQuizz.id, 'nbrMax' : nbrMax}) }}"
-                           class="btn btn-success">Résultat</a>
-                    {% endif %}
-                </div>
+                {% if answer.QuizzQuestion.questionNbr < nbrMax %}
+                    <a href="{{ path('quizTest', {'id' : answer.quizzQuestion.titleQuizz.id, 'questionNbr' : answer.quizzQuestion.questionNbr +  1} ) }}"
+                       class="btn btn-success">Question suivante</a>
+                {% else %}
+                    <a href="{{ path('quizzResultat', {'id' : answer.quizzQuestion.titleQuizz.id, 'nbrMax' : nbrMax}) }}"
+                       class="btn btn-success">Résultat</a>
+                {% endif %}
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

@@ -70,21 +70,29 @@ class DescriptionChallengeController extends Controller
      */
     public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
     {
-        $em = $this->getDoctrine()->getManager();
-
         $answerChallenge = new Answerchallenge();
 
-        $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge);
+        if ($descriptionChallenge->getIsPicture()) {
+            $form = $this->createForm('AppBundle\Form\AnswerChallengeType', $answerChallenge, array(
+                'action' => '#formulaire'
+            ));
+        } else {
+            $form = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge, array(
+                'action' => '#formulaire'
+            ));
+        }
         $form->handleRequest($request);
 
-        $form2 = $this->createForm('AppBundle\Form\AnswerChallengeTextType', $answerChallenge);
-        $form2->handleRequest($request);
-
-        if (($form->isSubmitted() && $form->isValid()) || ($form2->isSubmitted() && $form2->isValid())) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
             $answerChallenge->setIsReport(false);
             $answerChallenge->setUploadedAt(new \DateTime());
+            $this->addFlash(
+                "success",
+                "Ton défi a été envoyé ! Tu peux le retrouver plus bas sur cette page."
+            );
+
             $em->persist($answerChallenge);
             $em->flush();
 
@@ -92,13 +100,13 @@ class DescriptionChallengeController extends Controller
                     'id' => $descriptionChallenge->getId()
                 ]
             );
+
         }
 
         return $this->render('challenge/indexResponseChallenge.html.twig', array(
             'descriptionChallenge' => $descriptionChallenge,
             'answerChallenge' => $answerChallenge,
             'form' => $form->createView(),
-            'form2' => $form2->createView(),
         ));
     }
 
@@ -109,25 +117,36 @@ class DescriptionChallengeController extends Controller
      */
     public function toggledCheck(AnswerChallenge $answerChallenge)
     {
-        $em = $this->getDoctrine()->getManager();
+        if ($answerChallenge->getIsReport() == false) {
+            $em = $this->getDoctrine()->getManager();
+            $answerChallenge->setIsReport(true);
 
-        $answerChallenge->setIsReport(true);
+            $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+            $adminUrl = $this->getParameter('admin_url');
 
-        $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([])->getEmail();
+            $em->persist($answerChallenge);
+            $em->flush();
 
-        $em->persist($answerChallenge);
-        $em->flush();
+            $message = \Swift_Message::newInstance()
+                ->setSubject("Rest' à table - Signalement de contenu")
+                ->setFrom($this->getParameter('mailer_user'))
+                ->setTo($adminEmail)
+                ->setBody(
+                    $this->renderView('mail/mail.html.twig',
+                        ['adminUrl' => $adminUrl]),
+                    'text/html'
+                );
 
-        $message = \Swift_Message::newInstance()
-            ->setSubject('Rest\'aTable - Signalement de contenu')
-            ->setFrom($this->getParameter('mailer_user'))
-            ->setTo($adminEmail)
-            ->setBody(
-                $this->renderView('mail/mail.html.twig'),
-                'text/html'
-            );
+            $this->get('mailer')->send($message);
+        }
 
-        $this->get('mailer')->send($message);
-        return $this->redirectToRoute('responsechallenge_index', ['id' => $answerChallenge->getDescription()->getId()]);
+        $this->addFlash(
+            "success",
+            "Le défi a été signalé à un modérateur."
+        );
+
+        return $this->redirectToRoute('responsechallenge_index',
+            ['id' => $answerChallenge->getDescription()->getId(),
+                '_fragment' => 'formulaire']);
     }
 }
