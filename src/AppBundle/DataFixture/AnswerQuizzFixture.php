@@ -414,6 +414,136 @@ class AnswerQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'Plus de 90 kg',
                 1,
                 25,
+            ],
+            79 => [
+                'La vitamine A',
+                0,
+                26,
+            ],
+            80 => [
+                'La vitamine C',
+                0,
+                26,
+            ],
+            81 => [
+                'La vitamine D',
+                1,
+                26,
+            ],
+            82 => [
+                'La vitamine E',
+                0,
+                26,
+            ],
+            83 => [
+                'La viande',
+                0,
+                27
+            ],
+            84 => [
+                'Les céréales',
+                0,
+                27,
+            ],
+            85 => [
+                'Les fruits',
+                1,
+                27,
+            ],
+            86 => [
+                'Les produits laitiers',
+                0,
+                27,
+            ],
+            87 => [
+                'Les oranges',
+                0,
+                28,
+            ],
+            88 => [
+                'Les kiwis',
+                0,
+                28,
+            ],
+            89 => [
+                'Les cassis',
+                1,
+                28,
+            ],
+            90 => [
+                'Les pommes',
+                0,
+                28,
+            ],
+            91 => [
+                'Suppléments alimentaires',
+                0,
+                29,
+            ],
+            92 => [
+                'Aliments',
+                1,
+                29,
+            ],
+            93 => [
+                '50%',
+                0,
+                30,
+            ],
+            94 => [
+                '60%',
+                0,
+                30,
+            ],
+            95 => [
+                '80%',
+                0,
+                30,
+            ],
+            96 => [
+                '100%',
+                1,
+                30,
+            ],
+            97 => [
+                'entre 30 et 35%',
+                0,
+                31,
+            ],
+            98 => [
+                'entre 40 et 45 %',
+                0,
+                31,
+            ],
+            99 => [
+                'entre 50 et 55 %',
+                1,
+                31,
+            ],
+            100 => [
+                'entre 60 et 65 %',
+                0,
+                31,
+            ],
+            101 => [
+                'Des glucides',
+                0,
+                32,
+            ],
+            102 => [
+                'Des lipides',
+                1,
+                32,
+            ],
+            103 => [
+                'Des protéines',
+                0,
+                32,
+            ],
+            104 => [
+                'Des vitamines',
+                0,
+                32,
             ]
         ];
 

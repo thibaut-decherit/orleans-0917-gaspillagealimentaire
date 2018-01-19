@@ -226,6 +226,60 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'Environ 95 kg ! (Source : FAO (Food and Alimentation Organisation) qui dépend de
                 l’ONU)',
                 'images/quizzImages/Impact/q6.png',
+            ],
+            25 => [
+                'Quelle vitamine est fabriqué à l\'intérieur du corps ?',
+                4,
+                1,
+                'La vitamine D, elle est synthétisée au contact des rayons du soleil sur la peau.',
+                'images/quizzImages/Nutrition/Q1.png',
+            ],
+            26 => [
+                'Dans quel type d\'aliment trouve-t-on les vitamines C ?',
+                4,
+                2,
+                'Dans les fruits crus et certains légumes crus, lorsque qu\'ils sont cuit il y a une perte en vitamine. Les
+vitamines C sont dîtes Thermolabiles.',
+                'images/quizzImages/Nutrition/Q2.png',
+            ],
+            27 => [
+                'Dans lequel de ces fruits trouve-t-on le plus de vitamines C pour un même poids de fruit consommé ?',
+                4,
+                3,
+                'Les cassis, avec 180mg de vitamines C pour 100 grammes de cassis consommés. Vient ensuite
+le kiwi avec 80mg/100g, l\'orange avec 50mg/100g et la pomme avec 10mg/100g.',
+                'images/quizzImages/Nutrition/Q3.png',
+            ],
+            28 => [
+                'La vitamine C est-elle mieux absorbée par le corps humain à partir de suppléments alimentaires ou
+d\'aliments ?',
+                4,
+                4,
+                'à partir des aliments, du à un effet entre les aliments et d’autres éléments présents dans les
+fruits, la vitamine C présente sera absorbé en plus grande quantité.',
+                'images/quizzImages/Nutrition/Q4.png',
+            ],
+            29 => [
+                'Les protéines présentent dans un œuf sont absorbées par la corps à :',
+                4,
+                5,
+                '100% Mais attention cela ne signifie pas qu\'un œuf est composé à 100% de protéines.',
+                'images/quizzImages/Nutrition/Q5.png',
+            ],
+            30 => [
+                'La proportion conseillée de Glucides par jour se situe:',
+                4,
+                6,
+                'Entre 50 et 55% les reste étant composé de 35 à 40% de lipides et 15% de protéines.',
+                'images/quizzImages/Nutrition/Q6.png',
+            ],
+            31 => [
+                'Au cour d\'un effort prolongé, l\'énergie fournie aux muscles vient :',
+                4,
+                7,
+                ': Les lipides permettent d\'alimenter les muscles pour des efforts prolongés. Pour des effort de 20
+secondes en moyenne, l\'énergie provient des glucides.',
+                'images/quizzImages/Nutrition/Q7.png',
             ]
         ];
         $i = 0;
