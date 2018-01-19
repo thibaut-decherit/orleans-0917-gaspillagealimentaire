@@ -30,6 +30,10 @@ class TitleQuizzFixture extends Fixture implements OrderedFixtureInterface
             2 => [
                 'L\'impact sur la planète',
                 'images/quizzImages/Impact/Gaspillage.jpg',
+            ],
+            3 => [
+                'La nutrition',
+                'images/quizzImages/Nutrition/Nutrition.png',
             ]
         ];
 
