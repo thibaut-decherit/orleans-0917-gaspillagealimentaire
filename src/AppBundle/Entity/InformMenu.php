@@ -12,6 +12,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="inform_menu")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\InformMenuRepository")
+ * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
  */
 class InformMenu
@@ -81,6 +82,14 @@ class InformMenu
      *
      */
     private $uploadedAt;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function uploadDate()
+    {
+        $this->setUploadedAt(new \Datetime());
+    }
 
     /**
      * @var string

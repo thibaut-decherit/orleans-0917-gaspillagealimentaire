@@ -13,6 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="game")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\GameRepository")
+ * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
  */
 class Game
@@ -82,6 +83,14 @@ class Game
      *
      */
     private $uploadedAt;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function uploadDate()
+    {
+        $this->setUploadedAt(new \Datetime());
+    }
 
     /**
      * @var string

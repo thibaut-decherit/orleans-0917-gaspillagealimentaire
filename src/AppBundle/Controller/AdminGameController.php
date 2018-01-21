@@ -46,7 +46,6 @@ class AdminGameController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $game->setUploadedAt(new \DateTime());
             $em->persist($game);
             $em->flush();
             $this->addFlash(

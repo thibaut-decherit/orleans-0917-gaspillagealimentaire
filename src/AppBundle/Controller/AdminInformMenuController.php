@@ -48,7 +48,6 @@ class AdminInformMenuController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $informMenu->setUploadedAt(new \DateTime());
             $em->persist($informMenu);
             $em->flush();
             $this->addFlash(

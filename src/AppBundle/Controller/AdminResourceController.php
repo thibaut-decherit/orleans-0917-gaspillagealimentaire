@@ -48,7 +48,6 @@ class AdminResourceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $resource->setUploadedAt(new \DateTime());
             $em->persist($resource);
             $em->flush();
             $this->addFlash(
