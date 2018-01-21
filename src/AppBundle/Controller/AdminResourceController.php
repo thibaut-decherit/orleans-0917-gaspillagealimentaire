@@ -50,6 +50,7 @@ class AdminResourceController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($resource);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "La ressource a été ajoutée."
@@ -78,6 +79,7 @@ class AdminResourceController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
             $this->addFlash(
                 "success",
                 "La ressource a été modifiée."
@@ -108,6 +110,7 @@ class AdminResourceController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($resource);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "La ressource a été supprimée."

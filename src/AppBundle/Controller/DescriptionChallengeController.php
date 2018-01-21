@@ -89,6 +89,7 @@ class DescriptionChallengeController extends Controller
             $answerChallenge->setIsReport(false);
             $em->persist($answerChallenge);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "Ton défi a été envoyé ! Tu peux le retrouver plus bas sur cette page."
@@ -98,7 +99,6 @@ class DescriptionChallengeController extends Controller
                     'id' => $descriptionChallenge->getId()
                 ]
             );
-
         }
 
         return $this->render('challenge/indexResponseChallenge.html.twig', array(
