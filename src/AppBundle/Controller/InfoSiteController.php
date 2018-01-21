@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class InfoSiteController
- * @Route("info-site")
+ * @Route("infos-site")
  */
 class InfoSiteController extends Controller
 {

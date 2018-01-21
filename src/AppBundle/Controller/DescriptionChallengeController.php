@@ -65,7 +65,7 @@ class DescriptionChallengeController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/{id}/response", name="responsechallenge_index")
+     * @Route("/{id}/participer", name="responsechallenge_index")
      * @Method({"GET", "POST"})
      */
     public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)

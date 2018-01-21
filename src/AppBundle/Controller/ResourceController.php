@@ -20,7 +20,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class ResourceController
- * @Route("resources")
+ * @Route("ressources")
  */
 class ResourceController extends Controller
 {
@@ -48,7 +48,7 @@ class ResourceController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/{id}/ressource-theme", name="resources_by_theme")
+     * @Route("/{id}", name="resources_by_theme")
      * @Method({"GET", "POST"})
      */
     public function pagesAction(ResourceTheme $resourceTheme)
