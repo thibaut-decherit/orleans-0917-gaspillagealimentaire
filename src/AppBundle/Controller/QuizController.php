@@ -109,7 +109,7 @@ class QuizController extends Controller
     }
 
     /**
-     * @Route("/resultat-quiz-{id}-{nbrMax}", name="quizzResultat")
+     * @Route("/resultatQuizz{id}-{nbrMax}", name="quizzResultat")
      * @Method({"GET", "POST"})
      */
     public function resultatQuizz(Request $request, QuizzTitle $quizzTitle, int $nbrMax)
