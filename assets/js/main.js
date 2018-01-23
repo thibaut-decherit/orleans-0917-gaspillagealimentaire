@@ -15,12 +15,11 @@ $(document).ready(function () {
 
     });
 
-    $('#form-submit-button').submit(() => {
+    $('#form-submit-button').submit(function () {
         $('#button-submit').attr('disabled', 'disabled');
     });
 
-    $('#button-report').click(function () {
-        $('#button-report').attr('disabled', 'disabled');
+    $('.btnReportConfirm').click(function () {
+        $('.btnReportConfirm').attr('disabled', 'disabled');
     });
-
 });

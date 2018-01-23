@@ -46,9 +46,9 @@ class AdminGameController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $game->setUploadedAt(new \DateTime());
             $em->persist($game);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "Le jeu a été ajouté."
@@ -77,6 +77,7 @@ class AdminGameController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
             $this->addFlash(
                 "success",
                 "Le jeu a été modifié."
@@ -108,6 +109,7 @@ class AdminGameController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($game);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "Le jeu a été supprimé."
@@ -141,7 +143,7 @@ class AdminGameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $linksTrueNumber = count($em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]));
+        $currentlyCheckedLinksCount = count($em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]));
 
         if ($game->getIsMenu() == true) {
             $game->setIsMenu(false);
@@ -149,7 +151,7 @@ class AdminGameController extends Controller
                 "success",
                 "Le jeu a été enlevé du menu."
             );
-        } elseif (($game->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+        } elseif (($game->getIsMenu() == false) && ($currentlyCheckedLinksCount < 5)) {
             $game->setIsMenu(true);
             $this->addFlash(
                 "success",

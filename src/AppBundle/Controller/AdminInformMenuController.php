@@ -48,9 +48,9 @@ class AdminInformMenuController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $informMenu->setUploadedAt(new \DateTime());
             $em->persist($informMenu);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "Le lien a été ajouté."
@@ -142,7 +142,7 @@ class AdminInformMenuController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $linksTrueNumber = count($em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]));
+        $currentlyCheckedLinksCount = count($em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]));
 
         if ($informMenu->getIsMenu() == true) {
             $informMenu->setIsMenu(false);
@@ -150,7 +150,7 @@ class AdminInformMenuController extends Controller
                 "success",
                 "Le lien a été enlevé du menu."
             );
-        } elseif (($informMenu->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+        } elseif (($informMenu->getIsMenu() == false) && ($currentlyCheckedLinksCount < 5)) {
             $informMenu->setIsMenu(true);
             $this->addFlash(
                 "success",

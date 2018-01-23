@@ -26,16 +26,18 @@ class AdminEmailController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $adminEmail = $em->getRepository('AppBundle:AdminEmail')->findOneBy([]);
+
         if (!$adminEmail) {
             $adminEmail = new AdminEmail();
         }
+
         $editForm = $this->createForm('AppBundle\Form\AdminEmailType', $adminEmail);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-
             $em->persist($adminEmail);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "L'adresse mail a été modifiée."
