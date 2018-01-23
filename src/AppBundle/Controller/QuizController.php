@@ -95,6 +95,9 @@ class QuizController extends Controller
                 $session->set('points', $session->get('points') + 1);
                 $session->set('questionPos', $session->get('questionPos') + 1);
             }
+            if ($answerQuizz->getIsTrue() === false && $session->get('questionPos') < $questionNbr) {
+                $session->set('questionPos', $session->get('questionPos') + 1);
+            }
             return $this->render('quiz/answer.html.twig', array(
                 'nbrMax' => $nbrMax,
                 'answer' => $answerQuizz,
