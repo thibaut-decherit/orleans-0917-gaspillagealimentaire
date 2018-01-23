@@ -91,8 +91,9 @@ class QuizController extends Controller
             $navInformLinks = $em->getRepository('AppBundle:InformMenu')->findBy(['isMenu' => true]);
             $navGameLinks = $em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]);
             $session = $request->getSession();
-            if ($answerQuizz->getIsTrue() === true) {
+            if ($answerQuizz->getIsTrue() === true && $session->get('questionPos') < $questionNbr) {
                 $session->set('points', $session->get('points') + 1);
+                $session->set('questionPos', $session->get('questionPos') + 1);
             }
             return $this->render('quiz/answer.html.twig', array(
                 'nbrMax' => $nbrMax,

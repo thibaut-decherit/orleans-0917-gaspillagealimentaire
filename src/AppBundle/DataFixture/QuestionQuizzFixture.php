@@ -178,7 +178,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 3,
                 1,
                 'Oui, en effet même cela est plus responsable que de la jeter à la poubelle, cette tomate a été produite dans le but d\'être consommée.',
-                'images/quizzImages/Impact/q1.png',
+                'images/quizzImages/Impact/q1.jpg',
             ],
             20 => [
                 'Quand je donne le reste de viande au chien, est-ce du gaspillage ?',
@@ -197,7 +197,7 @@ class QuestionQuizzFixture extends Fixture implements OrderedFixtureInterface
                 'En effet, ça dépend des personnes. C’est ce que l’on considère comme du
                 gaspillage potentiellement évitable (1/5 du gaspillage). Par contre il existe plein d’astuces pour cuisiner comme un chef ses restes de repas, faire un bouillon ou un fond de sauce avec
                 une carcasse de volaille ou des gratins délicieux avec des légumes un peu flétris.',
-                'images/quizzImages/Impact/q3.jpg',
+                'images/quizzImages/Impact/q3.png',
             ],
             22 => [
                 'Savez-vous ce qui est jeté en priorité ?',
