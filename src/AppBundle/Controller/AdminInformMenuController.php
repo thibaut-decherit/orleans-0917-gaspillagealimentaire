@@ -37,7 +37,7 @@ class AdminInformMenuController extends Controller
     /**
      * Creates a new informMenu entity.
      *
-     * @Route("/new", name="admin_inform_menu_new")
+     * @Route("/nouveau", name="admin_inform_menu_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -68,7 +68,7 @@ class AdminInformMenuController extends Controller
     /**
      * Displays a form to edit an existing informMenu entity.
      *
-     * @Route("/{id}/edit", name="admin_inform_menu_edit")
+     * @Route("/{id}/modifier", name="admin_inform_menu_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, InformMenu $informMenu)

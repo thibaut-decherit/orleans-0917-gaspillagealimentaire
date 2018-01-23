@@ -16,14 +16,14 @@ use Symfony\Component\HttpFoundation\Request;
 
 /**
  * Class InfoSiteController
- * @Route("info-site")
+ * @Route("infos-site")
  */
 class InfoSiteController extends Controller
 {
     /**
      * Lists all informMenu entities.
      *
-     * @Route("/", name="info_site_index")
+     * @Route("/", name="infos_site_index")
      * @Method("GET")
      */
     public function indexAction()

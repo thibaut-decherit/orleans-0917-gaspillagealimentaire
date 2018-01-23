@@ -37,7 +37,7 @@ class AdminResourceController extends Controller
     /**
      * Creates a new resource entity.
      *
-     * @Route("/new", name="admin_resource_new")
+     * @Route("/nouveau", name="admin_resource_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -68,7 +68,7 @@ class AdminResourceController extends Controller
     /**
      * Displays a form to edit an existing resource entity.
      *
-     * @Route("/{id}/edit", name="admin_resource_edit")
+     * @Route("/{id}/modifier", name="admin_resource_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Resource $resource)

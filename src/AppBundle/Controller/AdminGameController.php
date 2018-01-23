@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * AdminGameController controller.
  *
- * @Route("admin/jeux")
+ * @Route("admin/sentrainer")
  */
 class AdminGameController extends Controller
 {
@@ -35,7 +35,7 @@ class AdminGameController extends Controller
     /**
      * Creates a new game entity.
      *
-     * @Route("/new", name="game_new")
+     * @Route("/nouveau", name="game_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -66,7 +66,7 @@ class AdminGameController extends Controller
     /**
      * Displays a form to edit an existing game entity.
      *
-     * @Route("/{id}/edit", name="game_edit")
+     * @Route("/{id}/modifier", name="game_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Game $game)
