@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 /**
  * GameController controller.
  *
- * @Route("jeux")
+ * @Route("sentrainer")
  */
 class GameController extends Controller
 {

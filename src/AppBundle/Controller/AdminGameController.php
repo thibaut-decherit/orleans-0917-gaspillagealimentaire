@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 /**
  * AdminGameController controller.
  *
- * @Route("admin/jeux")
+ * @Route("admin/sentrainer")
  */
 class AdminGameController extends Controller
 {
@@ -35,7 +35,7 @@ class AdminGameController extends Controller
     /**
      * Creates a new game entity.
      *
-     * @Route("/new", name="game_new")
+     * @Route("/nouveau", name="game_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -46,9 +46,9 @@ class AdminGameController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $game->setUploadedAt(new \DateTime());
             $em->persist($game);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "Le jeu a été ajouté."
@@ -66,7 +66,7 @@ class AdminGameController extends Controller
     /**
      * Displays a form to edit an existing game entity.
      *
-     * @Route("/{id}/edit", name="game_edit")
+     * @Route("/{id}/modifier", name="game_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Game $game)
@@ -77,6 +77,7 @@ class AdminGameController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
             $this->addFlash(
                 "success",
                 "Le jeu a été modifié."
@@ -108,6 +109,7 @@ class AdminGameController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($game);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "Le jeu a été supprimé."
@@ -141,7 +143,7 @@ class AdminGameController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $linksTrueNumber = count($em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]));
+        $currentlyCheckedLinksCount = count($em->getRepository('AppBundle:Game')->findBy(['isMenu' => true]));
 
         if ($game->getIsMenu() == true) {
             $game->setIsMenu(false);
@@ -149,7 +151,7 @@ class AdminGameController extends Controller
                 "success",
                 "Le jeu a été enlevé du menu."
             );
-        } elseif (($game->getIsMenu() == false) && ($linksTrueNumber < 5)) {
+        } elseif (($game->getIsMenu() == false) && ($currentlyCheckedLinksCount < 5)) {
             $game->setIsMenu(true);
             $this->addFlash(
                 "success",

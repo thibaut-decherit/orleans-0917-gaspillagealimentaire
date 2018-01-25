@@ -37,7 +37,7 @@ class AdminResourceController extends Controller
     /**
      * Creates a new resource entity.
      *
-     * @Route("/new", name="admin_resource_new")
+     * @Route("/nouveau", name="admin_resource_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -48,9 +48,9 @@ class AdminResourceController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $resource->setUploadedAt(new \DateTime());
             $em->persist($resource);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "La ressource a été ajoutée."
@@ -68,7 +68,7 @@ class AdminResourceController extends Controller
     /**
      * Displays a form to edit an existing resource entity.
      *
-     * @Route("/{id}/edit", name="admin_resource_edit")
+     * @Route("/{id}/modifier", name="admin_resource_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Resource $resource)
@@ -79,6 +79,7 @@ class AdminResourceController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+
             $this->addFlash(
                 "success",
                 "La ressource a été modifiée."
@@ -109,6 +110,7 @@ class AdminResourceController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->remove($resource);
             $em->flush();
+
             $this->addFlash(
                 "success",
                 "La ressource a été supprimée."

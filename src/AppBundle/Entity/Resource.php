@@ -12,6 +12,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="resource")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\ResourceRepository")
+ * @ORM\HasLifecycleCallbacks()
  * @Vich\Uploadable
  */
 class Resource
@@ -71,6 +72,14 @@ class Resource
      * @ORM\Column(name="uploaded_at", type="date")
      */
     private $uploadedAt;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function uploadDate()
+    {
+        $this->setUploadedAt(new \Datetime());
+    }
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.

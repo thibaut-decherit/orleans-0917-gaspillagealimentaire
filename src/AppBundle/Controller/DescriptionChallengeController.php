@@ -65,7 +65,7 @@ class DescriptionChallengeController extends Controller
     /**
      * @return \Symfony\Component\HttpFoundation\Response
      *
-     * @Route("/{id}/response", name="responsechallenge_index")
+     * @Route("/{id}/participer", name="responsechallenge_index")
      * @Method({"GET", "POST"})
      */
     public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
@@ -87,20 +87,18 @@ class DescriptionChallengeController extends Controller
             $em = $this->getDoctrine()->getManager();
             $answerChallenge->setDescription($descriptionChallenge);
             $answerChallenge->setIsReport(false);
-            $answerChallenge->setUploadedAt(new \DateTime());
+            $em->persist($answerChallenge);
+            $em->flush();
+
             $this->addFlash(
                 "success",
                 "Ton défi a été envoyé ! Tu peux le retrouver plus bas sur cette page."
             );
 
-            $em->persist($answerChallenge);
-            $em->flush();
-
             return $this->redirectToRoute('responsechallenge_index', [
                     'id' => $descriptionChallenge->getId()
                 ]
             );
-
         }
 
         return $this->render('challenge/indexResponseChallenge.html.twig', array(

@@ -13,6 +13,7 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
  *
  * @ORM\Table(name="answer_challenge")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\AnswerChallengeRepository")
+ * @ORM\HasLifecycleCallbacks()
  *
  * @Vich\Uploadable
  */
@@ -88,6 +89,14 @@ class AnswerChallenge
      *
      */
     private $uploadedAt;
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function uploadDate()
+    {
+        $this->setUploadedAt(new \Datetime());
+    }
 
     /**
      * NOTE: This is not a mapped field of entity metadata, just a simple property.
