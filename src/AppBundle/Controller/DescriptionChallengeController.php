@@ -69,7 +69,6 @@ class DescriptionChallengeController extends Controller
      */
     public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
     {
-        $em = $this->getDoctrine()->getManager();
         $challengeId = $descriptionChallenge->getId();
         $answers = $this
             ->getDoctrine()->getRepository("AppBundle:AnswerChallenge")
