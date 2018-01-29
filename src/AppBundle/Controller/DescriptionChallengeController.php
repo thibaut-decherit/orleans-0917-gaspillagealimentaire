@@ -71,15 +71,15 @@ class DescriptionChallengeController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $challengeId = $descriptionChallenge->getId();
-        $answers = $em
-            ->createQuery("SELECT a FROM AppBundle:AnswerChallenge a WHERE a.description = $challengeId ORDER BY a.id DESC")
-            ->getResult();
+        $answers = $this
+            ->getDoctrine()->getRepository("AppBundle:AnswerChallenge")
+            ->createQueryBuilder('a')->where("a.description = $challengeId");
 
         $paginator = $this->get('knp_paginator');
         $answers = $paginator->paginate(
             $answers,
             $request->query->getInt('page', 1),
-            $request->query->getInt('limit', 50)
+            $request->query->getInt('limit', 5)
         );
 
         $answerChallenge = new Answerchallenge();
