@@ -63,7 +63,6 @@ class DescriptionChallenge
 
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\AnswerChallenge", mappedBy="description")
-     * @ORM\OrderBy({"id" = "DESC"})
      */
     private $answers;
 

@@ -3,7 +3,6 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\DescriptionChallenge;
-use AppBundle\Entity\CategoryChallenge;
 use AppBundle\Entity\AnswerChallenge;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -70,6 +69,19 @@ class DescriptionChallengeController extends Controller
      */
     public function indexResponseAction(Request $request, DescriptionChallenge $descriptionChallenge)
     {
+        $em = $this->getDoctrine()->getManager();
+        $challengeId = $descriptionChallenge->getId();
+        $answers = $em
+            ->createQuery("SELECT a FROM AppBundle:AnswerChallenge a WHERE a.description = $challengeId ORDER BY a.id DESC")
+            ->getResult();
+
+        $paginator = $this->get('knp_paginator');
+        $answers = $paginator->paginate(
+            $answers,
+            $request->query->getInt('page', 1),
+            $request->query->getInt('limit', 50)
+        );
+
         $answerChallenge = new Answerchallenge();
 
         if ($descriptionChallenge->getIsPicture()) {
@@ -104,6 +116,7 @@ class DescriptionChallengeController extends Controller
         return $this->render('challenge/indexResponseChallenge.html.twig', array(
             'descriptionChallenge' => $descriptionChallenge,
             'answerChallenge' => $answerChallenge,
+            'answers' => $answers,
             'form' => $form->createView(),
         ));
     }

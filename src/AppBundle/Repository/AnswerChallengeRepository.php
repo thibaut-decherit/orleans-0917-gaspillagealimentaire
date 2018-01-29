@@ -10,4 +10,12 @@ namespace AppBundle\Repository;
  */
 class AnswerChallengeRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function getAnswersDesc()
+    {
+        $query = $this->createQueryBuilder('a')
+            ->leftJoin('a.description', 'd')
+            ->orderBy('a.id', 'desc');
+
+        return $query->getQuery()->getResult();
+    }
 }
